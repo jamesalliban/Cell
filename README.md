@@ -1,7 +1,7 @@
 Cell
 ====
 
-Cell is a multi-Kinect interactive installation. You can see it in action here:
+Cell is a multi-Kinect interactive installation by James Alliban and Keiichi Matsuda. You can see it in action and learn more about it here:
 
 http://installcell.com
 
