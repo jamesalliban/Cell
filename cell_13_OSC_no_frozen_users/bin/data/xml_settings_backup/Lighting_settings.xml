@@ -1,0 +1,54 @@
+<controls>
+    <SliderInt_X_position>
+        <name>X position</name>
+        <value>-3</value>
+    </SliderInt_X_position>
+    <SliderInt_Y_position>
+        <name>Y position</name>
+        <value>0</value>
+    </SliderInt_Y_position>
+    <SliderInt_Z_position>
+        <name>Z position</name>
+        <value>144</value>
+    </SliderInt_Z_position>
+    <SliderFloat_Ambient_Col_R>
+        <name>Ambient Col R</name>
+        <value>0.058000</value>
+    </SliderFloat_Ambient_Col_R>
+    <SliderFloat_Ambient_Col_G>
+        <name>Ambient Col G</name>
+        <value>0.434000</value>
+    </SliderFloat_Ambient_Col_G>
+    <SliderFloat_Ambient_Col_B>
+        <name>Ambient Col B</name>
+        <value>0.762000</value>
+    </SliderFloat_Ambient_Col_B>
+    <SliderFloat_Ambient_Col_A>
+        <name>Ambient Col A</name>
+        <value>0.898000</value>
+    </SliderFloat_Ambient_Col_A>
+    <SliderFloat_Diffuse_Col_R>
+        <name>Diffuse Col R</name>
+        <value>0.982000</value>
+    </SliderFloat_Diffuse_Col_R>
+    <SliderFloat_Diffuse_Col_G>
+        <name>Diffuse Col G</name>
+        <value>0.994000</value>
+    </SliderFloat_Diffuse_Col_G>
+    <SliderFloat_Diffuse_Col_B>
+        <name>Diffuse Col B</name>
+        <value>0.986000</value>
+    </SliderFloat_Diffuse_Col_B>
+    <SliderFloat_Specular_Col_R>
+        <name>Specular Col R</name>
+        <value>0.998000</value>
+    </SliderFloat_Specular_Col_R>
+    <SliderFloat_Specular_Col_G>
+        <name>Specular Col G</name>
+        <value>0.990000</value>
+    </SliderFloat_Specular_Col_G>
+    <SliderFloat_Specular_Col_B>
+        <name>Specular Col B</name>
+        <value>0.434000</value>
+    </SliderFloat_Specular_Col_B>
+</controls>

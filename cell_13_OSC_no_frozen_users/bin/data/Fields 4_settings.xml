@@ -1,0 +1,71 @@
+<controls>
+    <Toggle_Enabled_1>
+        <name>Enabled 1</name>
+        <value>1</value>
+    </Toggle_Enabled_1>
+    <SliderInt_Play_Area_1>
+        <name>Play Area 1</name>
+        <value>40</value>
+    </SliderInt_Play_Area_1>
+    <SliderFloat_Speed_1>
+        <name>Speed 1</name>
+        <value>0.019540</value>
+    </SliderFloat_Speed_1>
+    <SliderFloat_Area_size_1>
+        <name>Area size 1</name>
+        <value>1000.000000</value>
+    </SliderFloat_Area_size_1>
+    <ColorPicker_Colours_1>
+        <name>Colours 1</name>
+        <values_0>0.894000</values_0>
+        <values_1>0.242000</values_1>
+        <values_2>0.154000</values_2>
+        <values_3>1.000000</values_3>
+    </ColorPicker_Colours_1>
+    <Toggle_Enabled_2>
+        <name>Enabled 2</name>
+        <value>1</value>
+    </Toggle_Enabled_2>
+    <SliderInt_Play_Area_2>
+        <name>Play Area 2</name>
+        <value>40</value>
+    </SliderInt_Play_Area_2>
+    <SliderFloat_Speed_2>
+        <name>Speed 2</name>
+        <value>0.020620</value>
+    </SliderFloat_Speed_2>
+    <SliderFloat_Area_size_2>
+        <name>Area size 2</name>
+        <value>1000.000000</value>
+    </SliderFloat_Area_size_2>
+    <ColorPicker_Colours>
+        <name>Colours</name>
+        <values_0>0.550000</values_0>
+        <values_1>0.862000</values_1>
+        <values_2>0.310000</values_2>
+        <values_3>1.000000</values_3>
+    </ColorPicker_Colours>
+    <Toggle_Enabled_3>
+        <name>Enabled 3</name>
+        <value>1</value>
+    </Toggle_Enabled_3>
+    <SliderInt_Play_Area_3>
+        <name>Play Area 3</name>
+        <value>40</value>
+    </SliderInt_Play_Area_3>
+    <SliderFloat_Speed_3>
+        <name>Speed 3</name>
+        <value>0.021160</value>
+    </SliderFloat_Speed_3>
+    <SliderFloat_Area_size_3>
+        <name>Area size 3</name>
+        <value>470.799988</value>
+    </SliderFloat_Area_size_3>
+    <ColorPicker_Colours_3>
+        <name>Colours 3</name>
+        <values_0>0.268000</values_0>
+        <values_1>0.412000</values_1>
+        <values_2>1.000000</values_2>
+        <values_3>0.028000</values_3>
+    </ColorPicker_Colours_3>
+</controls>

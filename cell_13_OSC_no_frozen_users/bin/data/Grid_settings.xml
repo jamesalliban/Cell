@@ -1,0 +1,10 @@
+<controls>
+    <Toggle_Grid_active>
+        <name>Grid active</name>
+        <value>0</value>
+    </Toggle_Grid_active>
+    <SliderInt_Alpha>
+        <name>Alpha</name>
+        <value>61</value>
+    </SliderInt_Alpha>
+</controls>

@@ -1,0 +1,10 @@
+<controls>
+    <Toggle_Display_average_line>
+        <name>Display average line</name>
+        <value>0</value>
+    </Toggle_Display_average_line>
+    <SliderFloat_Length_Squared_Min>
+        <name>Length Squared Min</name>
+        <value>20.000000</value>
+    </SliderFloat_Length_Squared_Min>
+</controls>

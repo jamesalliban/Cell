@@ -1,0 +1,22 @@
+<controls>
+    <Toggle_Enabled>
+        <name>Enabled</name>
+        <value>1</value>
+    </Toggle_Enabled>
+    <SliderInt_Play_Area>
+        <name>Play Area</name>
+        <value>61</value>
+    </SliderInt_Play_Area>
+    <SliderFloat_Speed>
+        <name>Speed</name>
+        <value>0.033780</value>
+    </SliderFloat_Speed>
+    <SliderFloat_Area_size>
+        <name>Area size</name>
+        <value>489.600006</value>
+    </SliderFloat_Area_size>
+    <SliderFloat_Height_Adjust>
+        <name>Height Adjust</name>
+        <value>0.071858</value>
+    </SliderFloat_Height_Adjust>
+</controls>

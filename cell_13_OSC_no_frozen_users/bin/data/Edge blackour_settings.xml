@@ -1,0 +1,14 @@
+<controls>
+    <SliderInt_height>
+        <name>height</name>
+        <value>53</value>
+    </SliderInt_height>
+    <SliderInt_left>
+        <name>left</name>
+        <value>7</value>
+    </SliderInt_left>
+    <SliderInt_right>
+        <name>right</name>
+        <value>1</value>
+    </SliderInt_right>
+</controls>

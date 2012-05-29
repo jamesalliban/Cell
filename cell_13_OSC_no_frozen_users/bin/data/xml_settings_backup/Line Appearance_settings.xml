@@ -1,0 +1,30 @@
+<controls>
+    <SliderFloat_Line_Contrast_min>
+        <name>Line Contrast min</name>
+        <value>-0.164000</value>
+    </SliderFloat_Line_Contrast_min>
+    <SliderFloat_Line_Contrast_max>
+        <name>Line Contrast max</name>
+        <value>-0.164000</value>
+    </SliderFloat_Line_Contrast_max>
+    <SliderFloat_Line_Brightness_min>
+        <name>Line Brightness min</name>
+        <value>0.708000</value>
+    </SliderFloat_Line_Brightness_min>
+    <SliderFloat_Line_Brightness_max>
+        <name>Line Brightness max</name>
+        <value>0.972000</value>
+    </SliderFloat_Line_Brightness_max>
+    <SliderFloat_Line_Alpha_min>
+        <name>Line Alpha min</name>
+        <value>0.444000</value>
+    </SliderFloat_Line_Alpha_min>
+    <SliderFloat_Line_Alpha_max>
+        <name>Line Alpha max</name>
+        <value>0.804000</value>
+    </SliderFloat_Line_Alpha_max>
+    <SliderFloat_Line_Thickness>
+        <name>Line Thickness</name>
+        <value>0.940000</value>
+    </SliderFloat_Line_Thickness>
+</controls>

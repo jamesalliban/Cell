@@ -1,0 +1,88 @@
+#ifndef USER_H
+#define USER_H
+
+#include "ofMain.h"
+
+#include <stdlib.h>
+#include <Windows.h>
+#include "ofxMSKinect.h"
+#include "ofxMSSkeletonDraw.h"
+#include "ofxMSKinectSkeleton.h"
+
+#define CELL_HIP_CENTRE 0
+#define CELL_SPINE 1
+#define CELL_SHOULDER_CENTRE 2
+#define CELL_HEAD 3
+#define CELL_SHOULDER_LEFT 4
+#define CELL_ELBOW_LEFT 5
+#define CELL_WRIST_LEFT 6
+#define CELL_HAND_LEFT 7
+#define CELL_SHOULDER_RIGHT 8
+#define CELL_ELBOW_RIGHT 9
+#define CELL_WRIST_RIGHT 10
+#define CELL_HAND_RIGHT 11
+#define CELL_HIP_LEFT 12
+#define CELL_KNEE_LEFT 13
+#define CELL_ANKLE_LEFT 14
+#define CELL_FOOT_LEFT 15
+#define CELL_HIP_RIGHT 16
+#define CELL_KNEE_RIGHT 17
+#define CELL_ANKLE_RIGHT 18
+#define CELL_FOOT_RIGHT 19
+
+struct Joint{
+    string name;
+    ofVec3f jointPos;
+};
+
+class UserBatch;
+
+class User : public ofNode
+{
+    public:
+        User(int _userID);
+        virtual ~User();
+
+        void update();
+        void customDraw();
+        void nonKinectUpdate();
+        void nonKinectDraw();
+        void debugDraw();
+        void drawSpheres();
+        void drawData();
+        void drawLines();
+        void drawLine(ofVec3f startJoint, ofVec3f endJoint);
+        void assignSkeleton(_ofMS_SKELETON_DATA* _skeleton);
+        void assignIDs(int _clientID, int _skeletonID);
+        void deactivate();
+        void buildDebugSkeleton();
+        ofVec2f getAveragePosition();
+
+
+        int userID;
+        int clientID;
+
+        _ofMS_SKELETON_DATA* skeleton;
+        vector<ofVec3f> jointPositions;
+        vector<ofVec3f> debugJointPositions;
+        vector<User*> duplicateUsers;
+        string demographic;
+
+        ofColor debugColour;
+
+        bool isActive;
+        long trackingID;
+
+        int millisBecameActive;
+        float secondsSinceActive;
+
+        UserBatch* associatedUserBatch;
+
+    protected:
+    private:
+};
+
+
+#include "UserBatch.h"
+
+#endif // USER_H

@@ -1,0 +1,18 @@
+<controls>
+    <Toggle_Show_Joint_Spheres>
+        <name>Show Joint Spheres</name>
+        <value>0</value>
+    </Toggle_Show_Joint_Spheres>
+    <Toggle_Show_Joint_Lines>
+        <name>Show Joint Lines</name>
+        <value>0</value>
+    </Toggle_Show_Joint_Lines>
+    <Toggle_Show_Joint_Pos_Data>
+        <name>Show Joint Pos Data</name>
+        <value>0</value>
+    </Toggle_Show_Joint_Pos_Data>
+    <Toggle_Show_User_Data>
+        <name>Show User Data</name>
+        <value>0</value>
+    </Toggle_Show_User_Data>
+</controls>

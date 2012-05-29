@@ -1,0 +1,46 @@
+<controls>
+    <SliderFloat_Mass>
+        <name>Mass</name>
+        <value>2.000000</value>
+    </SliderFloat_Mass>
+    <SliderFloat_Decay>
+        <name>Decay</name>
+        <value>0.950000</value>
+    </SliderFloat_Decay>
+    <Toggle_Apply>
+        <name>Apply</name>
+        <value>0</value>
+    </Toggle_Apply>
+    <SliderFloat_Camera_X>
+        <name>Camera X</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_X>
+    <SliderFloat_Camera_Y>
+        <name>Camera Y</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_Y>
+    <SliderFloat_Camera_Z>
+        <name>Camera Z</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_Z>
+    <SliderFloat_Camera_Rot_X>
+        <name>Camera Rot X</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_Rot_X>
+    <SliderFloat_Camera_Rot_Y>
+        <name>Camera Rot Y</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_Rot_Y>
+    <SliderFloat_Camera_Rot_Z>
+        <name>Camera Rot Z</name>
+        <value>0.000000</value>
+    </SliderFloat_Camera_Rot_Z>
+    <Toggle_Mouse_input>
+        <name>Mouse input</name>
+        <value>0</value>
+    </Toggle_Mouse_input>
+    <SliderFloat_Mouse_input_smooth>
+        <name>Mouse input smooth</name>
+        <value>0.000000</value>
+    </SliderFloat_Mouse_input_smooth>
+</controls>

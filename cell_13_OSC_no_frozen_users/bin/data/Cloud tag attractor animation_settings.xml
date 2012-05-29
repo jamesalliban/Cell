@@ -1,0 +1,21 @@
+<controls>
+    <SliderFloat_Attraction_speed_Min>
+        <name>Attraction speed Min</name>
+        <value>0.085801</value>
+    </SliderFloat_Attraction_speed_Min>
+    <SliderFloat_Attraction_speed_Max>
+        <name>Attraction speed Max</name>
+        <value>0.814580</value>
+    </SliderFloat_Attraction_speed_Max>
+    <SliderInt_Attraction_speed_Pow>
+        <name>Attraction speed Pow</name>
+        <value>10</value>
+        <name>Attraction speed Pow</name>
+        <value>10</value>
+    </SliderInt_Attraction_speed_Pow>
+    <Toggle_Apply>
+        <name>Apply</name>
+        <value>0</value>
+    </Toggle_Apply>
+    <SliderInt_Attraction_speed_Pow></SliderInt_Attraction_speed_Pow>
+</controls>

@@ -1,0 +1,58 @@
+<controls>
+    <Toggle_Lines_enabled>
+        <name>Lines enabled</name>
+        <value>1</value>
+    </Toggle_Lines_enabled>
+    <SliderFloat_Line_Contrast_min>
+        <name>Line Contrast min</name>
+        <value>-0.164000</value>
+    </SliderFloat_Line_Contrast_min>
+    <SliderFloat_Line_Contrast_max>
+        <name>Line Contrast max</name>
+        <value>-0.164000</value>
+    </SliderFloat_Line_Contrast_max>
+    <SliderFloat_Line_Brightness_min>
+        <name>Line Brightness min</name>
+        <value>0.324000</value>
+    </SliderFloat_Line_Brightness_min>
+    <SliderFloat_Line_Brightness_max>
+        <name>Line Brightness max</name>
+        <value>1.000000</value>
+    </SliderFloat_Line_Brightness_max>
+    <SliderFloat_Line_Alpha_min>
+        <name>Line Alpha min</name>
+        <value>0.164000</value>
+    </SliderFloat_Line_Alpha_min>
+    <SliderFloat_Line_Alpha_max>
+        <name>Line Alpha max</name>
+        <value>0.652000</value>
+    </SliderFloat_Line_Alpha_max>
+    <SliderInt_Line_Length_Squared_Min>
+        <name>Line Length Squared Min</name>
+        <value>1811</value>
+    </SliderInt_Line_Length_Squared_Min>
+    <SliderFloat_Map_Line_Distance_Min>
+        <name>Map Line Distance Min</name>
+        <value>671.000000</value>
+    </SliderFloat_Map_Line_Distance_Min>
+    <SliderFloat_Map_Line_Distance_Max>
+        <name>Map Line Distance Max</name>
+        <value>1887.000000</value>
+    </SliderFloat_Map_Line_Distance_Max>
+    <SliderFloat_Map_Z_Area_Min>
+        <name>Map Z Area Min</name>
+        <value>-70.739998</value>
+    </SliderFloat_Map_Z_Area_Min>
+    <SliderFloat_Map_Z_Area_Max>
+        <name>Map Z Area Max</name>
+        <value>35.020000</value>
+    </SliderFloat_Map_Z_Area_Max>
+    <SliderFloat_Line_Thickness>
+        <name>Line Thickness</name>
+        <value>1.120000</value>
+    </SliderFloat_Line_Thickness>
+    <SliderFloat_Init_line_fade>
+        <name>Init line fade</name>
+        <value>0.880000</value>
+    </SliderFloat_Init_line_fade>
+</controls>

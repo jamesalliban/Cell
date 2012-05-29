@@ -1,0 +1,34 @@
+<controls>
+    <SliderFloat_Camera_X>
+        <name>Camera X</name>
+        <value>0.600000</value>
+    </SliderFloat_Camera_X>
+    <SliderFloat_Camera_Y>
+        <name>Camera Y</name>
+        <value>12.600000</value>
+    </SliderFloat_Camera_Y>
+    <SliderFloat_Camera_Z>
+        <name>Camera Z</name>
+        <value>46.200001</value>
+    </SliderFloat_Camera_Z>
+    <SliderFloat_Camera_Direction_X>
+        <name>Camera Direction X</name>
+        <value>0.200000</value>
+    </SliderFloat_Camera_Direction_X>
+    <SliderFloat_Camera_Direction_Y>
+        <name>Camera Direction Y</name>
+        <value>17.400000</value>
+    </SliderFloat_Camera_Direction_Y>
+    <SliderFloat_Camera_Direction_Z>
+        <name>Camera Direction Z</name>
+        <value>-0.200000</value>
+    </SliderFloat_Camera_Direction_Z>
+    <Toggle_Mouse_input>
+        <name>Mouse input</name>
+        <value>0</value>
+    </Toggle_Mouse_input>
+    <SliderFloat_Mouse_input_smooth>
+        <name>Mouse input smooth</name>
+        <value>0.095260</value>
+    </SliderFloat_Mouse_input_smooth>
+</controls>
