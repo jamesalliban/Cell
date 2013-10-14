@@ -42,6 +42,7 @@ void Field::addFieldForce(ofVec3f* position)
 float Field::addFieldScale(ofVec3f* position)
 {
     calculateLengthSquared(position);
+	return 0.0;
 }
 
 

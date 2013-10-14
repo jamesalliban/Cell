@@ -27,6 +27,7 @@ MyGui::MyGui()
 	gui.addSlider("Camera Direction X", app->sceneManager.camDirectionX, -50, 50).width = guiWidth;
 	gui.addSlider("Camera Direction Y", app->sceneManager.camDirectionY, -50, 50).width = guiWidth;
 	gui.addSlider("Camera Direction Z", app->sceneManager.camDirectionZ, -50, 50).width = guiWidth;
+	gui.addSlider("FOV", app->sceneManager.fov, 0, 50).width = guiWidth;
 	gui.addTitle("Mouse", 20).width = guiWidth;
 	gui.addToggle("Mouse input", app->sceneManager.isCamMouseInput);
 	gui.addSlider("Mouse input smooth", app->sceneManager.mouseSmoothAmount, 0.01, 0.3).width = guiWidth;
@@ -190,57 +191,65 @@ MyGui::MyGui()
     gui.addToggle("Show Joint Pos Data", app->sceneManager.userManager.isPositionDataDisplayed);
     gui.addToggle("Show User Data", app->sceneManager.userManager.isUserDataDisplayed);
 
+	gui.addPage("Skeleton calibration All").width = guiWidth;
+	gui.addTitle("Perspective X offset").width = guiWidth;
+	gui.addSlider("Range Min", app->sceneManager.userManager.xCorrectionOffsetRangeMin, -300, 0).width = guiWidth;
+	gui.addSlider("Range Max", app->sceneManager.userManager.xCorrectionOffsetRangeMax, 0, 300).width = guiWidth;
+	gui.addSlider("Offset Min", app->sceneManager.userManager.xCorrectionOffsetMin, -350, 350).width = guiWidth;
+	gui.addSlider("Offset Max", app->sceneManager.userManager.xCorrectionOffsetMax, -350, 350).width = guiWidth;
+	gui.addSlider("Offset Modifier", app->sceneManager.userManager.xCorrectionOffsetModifier, 0, 500).width = guiWidth;
+
 	gui.addPage("Skeleton calibration Client 0").width = guiWidth;
 	gui.addTitle("Scale").width = guiWidth;
-	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[0], 1, 50).width = guiWidth;
+	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[0], 0.01, 2.0).width = guiWidth;
 	gui.addTitle("Rotation").width = guiWidth;
     gui.addSlider("Degrees", app->sceneManager.userManager.skeletonRotDegrees[0], -50, 50).width = guiWidth;
     gui.addSlider("Rotation X", app->sceneManager.userManager.skeletonRotX[0], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Y", app->sceneManager.userManager.skeletonRotY[0], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Z", app->sceneManager.userManager.skeletonRotZ[0], 0.0, 1.0).width = guiWidth;
 	gui.addTitle("Position Offset").width = guiWidth;
-    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[0], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[0], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[0], -150, 150).width = guiWidth;
+    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[0], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[0], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[0], -500.0, 500.0).width = guiWidth;
 
 	gui.addPage("Skeleton calibration Client 1").width = guiWidth;
 	gui.addTitle("Scale").width = guiWidth;
-	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[1], 1, 50).width = guiWidth;
+	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[1], 0.01, 2.0).width = guiWidth;
 	gui.addTitle("Rotation").width = guiWidth;
     gui.addSlider("Degrees", app->sceneManager.userManager.skeletonRotDegrees[1], -50, 50).width = guiWidth;
     gui.addSlider("Rotation X", app->sceneManager.userManager.skeletonRotX[1], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Y", app->sceneManager.userManager.skeletonRotY[1], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Z", app->sceneManager.userManager.skeletonRotZ[1], 0.0, 1.0).width = guiWidth;
 	gui.addTitle("Position Offset").width = guiWidth;
-    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[1], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[1], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[1], -150, 150).width = guiWidth;
+    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[1], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[1], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[1], -500.0, 500.0).width = guiWidth;
 
 	gui.addPage("Skeleton calibration Client 2").width = guiWidth;
 	gui.addTitle("Scale").width = guiWidth;
-	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[2], 1, 50).width = guiWidth;
+	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[2], 0.01, 2.0).width = guiWidth;
 	gui.addTitle("Rotation").width = guiWidth;
     gui.addSlider("Degrees", app->sceneManager.userManager.skeletonRotDegrees[2], -50, 50).width = guiWidth;
     gui.addSlider("Rotation X", app->sceneManager.userManager.skeletonRotX[2], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Y", app->sceneManager.userManager.skeletonRotY[2], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Z", app->sceneManager.userManager.skeletonRotZ[2], 0.0, 1.0).width = guiWidth;
 	gui.addTitle("Position Offset").width = guiWidth;
-    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[2], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[2], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[2], -150, 150).width = guiWidth;
+    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[2], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[2], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[2], -500.0, 500.0).width = guiWidth;
 
 	gui.addPage("Skeleton calibration Client 3").width = guiWidth;
 	gui.addTitle("Scale").width = guiWidth;
-	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[3], 1, 50).width = guiWidth;
+	gui.addSlider("Scale", app->sceneManager.userManager.skeletonScale[3], 0.01, 2.0).width = guiWidth;
 	gui.addTitle("Rotation").width = guiWidth;
     gui.addSlider("Degrees", app->sceneManager.userManager.skeletonRotDegrees[3], -50, 50).width = guiWidth;
     gui.addSlider("Rotation X", app->sceneManager.userManager.skeletonRotX[3], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Y", app->sceneManager.userManager.skeletonRotY[3], 0.0, 1.0).width = guiWidth;
     gui.addSlider("Rotation Z", app->sceneManager.userManager.skeletonRotZ[3], 0.0, 1.0).width = guiWidth;
 	gui.addTitle("Position Offset").width = guiWidth;
-    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[3], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[3], -150, 150).width = guiWidth;
-    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[3], -150, 150).width = guiWidth;
+    gui.addSlider("Pos offset X", app->sceneManager.userManager.skeletonPosOffsetX[3], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Y", app->sceneManager.userManager.skeletonPosOffsetY[3], -500.0, 500.0).width = guiWidth;
+    gui.addSlider("Pos offset Z", app->sceneManager.userManager.skeletonPosOffsetZ[3], -500.0, 500.0).width = guiWidth;
 
 	gui.addPage("Duplicates").width = guiWidth;
 	gui.addTitle("Debug").width = guiWidth;
@@ -264,7 +273,8 @@ MyGui::MyGui()
     gui.addSlider("Alpha", app->sceneManager.nodeGrid.alpha, 0, 255).width = guiWidth;
 
 	gui.addPage("Edge blackour").width = guiWidth;
-    gui.addSlider("height", app->topBlockHeight, 1, 100).width = guiWidth;
+    gui.addSlider("height", app->topBlockHeight, 1, 200).width = guiWidth;
+    gui.addSlider("bottom", app->topBlockBot, 1, 200).width = guiWidth;
     gui.addSlider("left", app->leftBlockW, 1, 100).width = guiWidth;
     gui.addSlider("right", app->rightBlockW, 1, 100).width = guiWidth;
 
@@ -316,11 +326,4 @@ void MyGui::keyPressed(int key)
 		}
 	}
 
-
-	switch (key) {
-
-			break;
-		default:
-			break;
-	}
 }

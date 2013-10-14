@@ -1,4 +1,4 @@
-#include "TestApp.h"
+﻿#include "TestApp.h"
 
 /*
 
@@ -70,13 +70,14 @@ Keyboard shortcuts
 
 void TestApp::setup()
 {
+	
     //ofDisableArbTex();
     //ofSetFrameRate(60);
     ofSetFullscreen(true);
     ofEnableNormalizedTexCoords();
 	ofSetLogLevel(OF_LOG_ERROR); //OF_LOG_WARNING
 	ofSetVerticalSync(true);
-	ofBackground(255, 255, 255);
+	ofBackground(2595, 255, 255);
 	ofDisableSmoothing();
 	ofEnableAlphaBlending();
 	glEnable(GL_DEPTH_TEST);
@@ -88,7 +89,7 @@ void TestApp::setup()
         kinectManager = new KinectManager();
         kinectManager->init();
 	}
-
+	
     ///*
 	resourceManager.init();
 	sceneManager.init();
@@ -132,7 +133,7 @@ void TestApp::draw()
     {
         for (int i = 0; i < SKELETON_MAX; i++)
         {
-            ofxMSKinectSkeleton* skeletonData = &kinectManager->trackedSkeletons[i];
+            KinectSkeletonData* skeletonData = &kinectManager->trackedSkeletons[i];
             skeletonData->dwTrackingID = -1;
         }
         sceneManager.userManager.deactivateAllUsers();
@@ -143,6 +144,7 @@ void TestApp::draw()
 	glDisable(GL_DEPTH_TEST);
     ofSetColor(0, 0, 0, 255);
     ofRect(0, 0, ofGetWidth(), topBlockHeight);
+    ofRect(0, ofGetHeight(), ofGetWidth(), -topBlockBot);
     ofRect(0, 0, leftBlockW, topBlockHeight);
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
     glEnable(GL_DEPTH_TEST);
@@ -167,6 +169,9 @@ void TestApp::keyPressed(int key)
 	///*
     myGui->keyPressed(key);
     //*/
+
+
+
 }
 
 

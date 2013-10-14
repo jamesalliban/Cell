@@ -63,6 +63,8 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	lineStartVertexIndex = (ofRandomuf() < 0.5) ? 2 : 3;
 	scaleOffset = 1.0;
 
+	xScaleSquish = 1.0;
+
 	position    = ofVec3f(ofRandom(-1.0f, 1.0f) * 10, (ofRandom(0.2f) + 0.2f) * 10 + 20, ofRandom(-1.0f, 1.0f) * 10);
 	rotations   = ofVec3f(0, ofRandom(-rotationYMax, rotationYMax), 0);
 	attractionVelocity = ofVec3f(0.0, 0.0, 0.0);
@@ -74,6 +76,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	float tagWidth = ((float)tagTexture.tagImg->width / 40.0f) * tagSize;
 	float tagHeight = ((float)tagTexture.tagImg->height / 40.0f) * tagSize;
 
+	tagW = tagWidth;
 
 	tagPlaneMesh.addVertex(ofVec3f(-tagWidth*0.5, tagHeight, 0));    //ofVec3f(position->x, position->y + tagHeight, position->z));
 	tagPlaneMesh.addVertex(ofVec3f(tagWidth*0.5, tagHeight, 0));    //ofVec3f(position->x + tagWidth, position->y + tagHeight, position->z));
@@ -342,7 +345,7 @@ void CloudTag::checkBounds()
 
 	if (tempIsTagAttractedToUser == 1 && !isTagAttractedToUser)
 	{
-	    outOfBoundsPosVelocity = {0.0, 0.0, 0.0};
+	    outOfBoundsPosVelocity = ofVec3f(0.0, 0.0, 0.0);
 	}
 }
 
@@ -387,7 +390,7 @@ void CloudTag::drawTags()
     ofPushMatrix();
     //ofTranslate(position.x, position.y, position.z);
     ofTranslate(position.x + cornerVertexVec.x, position.y + cornerVertexVec.y, position.z + cornerVertexVec.z);//
-    ofScale(scaleOffset, scaleOffset, scaleOffset);
+    ofScale(scaleOffset * xScaleSquish, scaleOffset, scaleOffset);
 //    ofRotateX(rotations->x);
 //    ofRotateY(rotations->y);
 //    ofRotateZ(rotations->z);
@@ -407,7 +410,8 @@ void CloudTag::drawLines()
 	float tagW = tagPlaneMesh.getVertex(3).x * 2;
 	float tagH = tagPlaneMesh.getVertex(3).y * 2;
 
-	float scaleCorrectionX = (tagW - (tagW * scaleOffset)) * 0.5;
+	float scaleCorrectionX = (tagW - (tagW * (scaleOffset * xScaleSquish))) * 0.5;
+	//scaleCorrectionX *= 0.6;
 	float scaleCorrectionY = (tagH - (tagH * scaleOffset)) * 0.5;
 
 	if (lineStartVertexIndex == 2)
@@ -423,7 +427,7 @@ void CloudTag::drawLines()
 
         if (userData->isActive)
         {
-            shader->begin(); // shader begin: set values.
+ //           shader->begin(); // shader begin: set values.
 
             if (isGrabFbo || app->sceneManager.isUpdateVars)
             {
@@ -438,13 +442,14 @@ void CloudTag::drawLines()
             float mappedDistance = ofMap(userData->lengthSquared, cloudTagMan->mapLineDistanceMax, cloudTagMan->mapLineDistanceMin, 0.0, 1.0, true);
             float mappedStartTime = ofMap(userData->secondsSinceActive, 0.0, cloudTagMan->lineFadeTime, 0.0, 1.0);
 
+/*
             shader->setUniform1f("contrast", mappedContrast * mappedDistance);
             shader->setUniform1f("brightness",	mappedBrightness * mappedDistance);
-            shader->setUniform1f("alpha", (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
+            shader->setUniform1f("alpha", 0.3);//(mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
             shader->setUniform1f("red", 1.0);
             shader->setUniform1f("green", 1.0);
             shader->setUniform1f("blue", 1.0);
-
+*/
             //ofEnableAlphaBlending();
             //ofSetColor(255, 255, 255, 255);
             float lineSize = 10;
@@ -452,14 +457,14 @@ void CloudTag::drawLines()
 
 //            ofLine(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z, userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
 
-            //glColor4f(1.0f, 1.0f, 1.0f, 0.0f);// mappedDistance);
+            glColor4f(1.0f, 1.0f, 1.0f, (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));// mappedDistance);
             ofSetLineWidth(cloudTagMan->lineThickness);
             glBegin(GL_LINES);
                 glVertex3f(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z);
                 glVertex3f(userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
             glEnd();
 
-            shader->end();
+ //           shader->end();
 
 
 
@@ -489,9 +494,7 @@ void CloudTag::updateVars()
 
     float posX = ofRandom(-mappedBourdaryW * 0.5, mappedBourdaryW * 0.5);
 
-    position = ofVec3f(posX,
-                       posY,
-                       posZ);
+    position = ofVec3f(posX, posY, posZ);
 
     outOfBoundsPosVelocity = ofVec3f(0, 0, 0);
 }
@@ -521,25 +524,65 @@ int CloudTag::getSecondJointIndex(int jointIndex)
 {
     switch(jointIndex)
     {
-        case CELL_HIP_CENTRE: return (ofRandomuf() < 0.5) ? CELL_HIP_LEFT : CELL_HIP_RIGHT;
-        case CELL_SPINE: return CELL_HIP_CENTRE;
-        case CELL_SHOULDER_CENTRE: return CELL_SPINE;
-        case CELL_HEAD: return CELL_SHOULDER_CENTRE;
-        case CELL_SHOULDER_LEFT: return CELL_SHOULDER_CENTRE;
-        case CELL_ELBOW_LEFT: return CELL_SHOULDER_LEFT;
-        case CELL_WRIST_LEFT: return CELL_ELBOW_LEFT;
-        case CELL_HAND_LEFT: return CELL_WRIST_LEFT;
-        case CELL_SHOULDER_RIGHT: return CELL_SHOULDER_CENTRE;
-        case CELL_ELBOW_RIGHT: return CELL_SHOULDER_RIGHT;
-        case CELL_WRIST_RIGHT: return CELL_ELBOW_RIGHT;
-        case CELL_HAND_RIGHT: return CELL_WRIST_RIGHT;
-        case CELL_HIP_LEFT: return CELL_KNEE_LEFT;
-        case CELL_KNEE_LEFT: return CELL_ANKLE_LEFT;
-        case CELL_ANKLE_LEFT: return CELL_FOOT_LEFT;
-        case CELL_FOOT_LEFT: return CELL_ANKLE_LEFT;
-        case CELL_HIP_RIGHT: return CELL_KNEE_RIGHT;
-        case CELL_KNEE_RIGHT: return CELL_ANKLE_RIGHT;
-        case CELL_ANKLE_RIGHT: return CELL_FOOT_RIGHT;
-        case CELL_FOOT_RIGHT: return CELL_ANKLE_RIGHT;
+        case CELL_HIP_CENTRE: 
+			return (ofRandomuf() < 0.5) ? CELL_HIP_LEFT : CELL_HIP_RIGHT;
+			break;
+        case CELL_SPINE: 
+			return CELL_HIP_CENTRE;
+			break;
+        case CELL_SHOULDER_CENTRE: 
+			return CELL_SPINE;
+			break;
+        case CELL_HEAD: 
+			return CELL_SHOULDER_CENTRE;
+			break;
+        case CELL_SHOULDER_LEFT: 
+			return CELL_SHOULDER_CENTRE;
+			break;
+        case CELL_ELBOW_LEFT: 
+			return CELL_SHOULDER_LEFT;
+			break;
+        case CELL_WRIST_LEFT: 
+			return CELL_ELBOW_LEFT;
+			break;
+        case CELL_HAND_LEFT: 
+			return CELL_WRIST_LEFT;
+			break;
+        case CELL_SHOULDER_RIGHT: 
+			return CELL_SHOULDER_CENTRE;
+			break;
+        case CELL_ELBOW_RIGHT: 
+			return CELL_SHOULDER_RIGHT;
+			break;
+        case CELL_WRIST_RIGHT: 
+			return CELL_ELBOW_RIGHT;
+			break;
+        case CELL_HAND_RIGHT: 
+			return CELL_WRIST_RIGHT;
+			break;
+        case CELL_HIP_LEFT: 
+			return CELL_KNEE_LEFT;
+			break;
+        case CELL_KNEE_LEFT: 
+			return CELL_ANKLE_LEFT;
+			break;
+        case CELL_ANKLE_LEFT: 
+			return CELL_FOOT_LEFT;
+			break;
+        case CELL_FOOT_LEFT: 
+			return CELL_ANKLE_LEFT;
+			break;
+        case CELL_HIP_RIGHT: 
+			return CELL_KNEE_RIGHT;
+			break;
+        case CELL_KNEE_RIGHT: 
+			return CELL_ANKLE_RIGHT;
+			break;
+        case CELL_ANKLE_RIGHT: 
+			return CELL_FOOT_RIGHT;
+			break;
+        case CELL_FOOT_RIGHT: 
+			return CELL_ANKLE_RIGHT;
+			break;
     }
 }

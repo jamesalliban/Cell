@@ -5,10 +5,14 @@ Cell is a multi-Kinect interactive installation by James Alliban and Keiichi Mat
 
 http://installcell.com
 
-The piece uses the Beta version of the Kinect SDK although we intend to update this soon.
+Built using openFrameworks 0.8.0
+
+The piece uses the official KinectSDK 1.5.
 
 The following addons are used:
 
-ofxMSKinect by Matchbox Mobile
-
-ofxSimpleGuiToo by Memo Akten
+ofxXmlSettings
+ofxOSC
+ofxKinectNui by sadmb
+ofxSimpleGuiToo by Memo Akten (modified for newer versions of openFrameworks)
+ofxMSAInteractiveObject by Memo Akten (modified for newer versions of openFrameworks)

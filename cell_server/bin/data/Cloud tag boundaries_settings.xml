@@ -1,22 +1,22 @@
 <controls>
     <SliderFloat_Boundary_Width>
         <name>Boundary Width</name>
-        <value>233.266998</value>
+        <value>257.243011475</value>
     </SliderFloat_Boundary_Width>
     <SliderFloat_Boundary_Width_Front>
         <name>Boundary Width Front</name>
-        <value>0.500000</value>
+        <value>0.500000000</value>
     </SliderFloat_Boundary_Width_Front>
     <SliderFloat_Boundary_Depth>
         <name>Boundary Depth</name>
-        <value>89.411003</value>
+        <value>89.411003113</value>
     </SliderFloat_Boundary_Depth>
     <SliderFloat_Boundary_Height>
         <name>Boundary Height</name>
-        <value>10.251000</value>
+        <value>10.251000404</value>
     </SliderFloat_Boundary_Height>
     <SliderFloat_Boundary_Centre_Height>
         <name>Boundary Centre Height</name>
-        <value>38.200001</value>
+        <value>38.200000763</value>
     </SliderFloat_Boundary_Centre_Height>
 </controls>

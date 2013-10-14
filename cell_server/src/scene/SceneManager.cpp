@@ -38,7 +38,6 @@ void SceneManager::init()
 
 	//camEasyCam.setTarget(cloudTagMan);
 	camEasyCam.setDistance(100);
-	camEasyCam.cacheMatrices();
 	camEasyCam.disableMouseInput();
 
 	setupViewports();
@@ -60,12 +59,13 @@ void SceneManager::setupViewports()
 	//viewPort.width = ofGetWidth();
 	//viewPort.height = ofGetHeight();
 	viewPort.width = 1600;
-	viewPort.height = 1000;
+	viewPort.height = 900;
 }
 
 
 void SceneManager::update()
 {
+    //camEasyCam.setFov(fov);
     userManager.update();
     fieldMan.update();
     cloudTagMan.update();
@@ -81,6 +81,7 @@ void SceneManager::update()
 		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -100, 100, true);
 		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), 100, -100, true);
 		float mouseCamZ = cos(ofMap(smoothMouseX, 0, ofGetWidth(), -2, 2, true)) * camZ;
+
 
 		camEasyCam.setPosition(ofVec3f(mouseCamX, mouseCamY, mouseCamZ));
 		camEasyCam.lookAt(nodeGrid, ofVec3f(0, 1, 0));

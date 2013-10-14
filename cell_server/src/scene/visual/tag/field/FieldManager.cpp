@@ -32,15 +32,21 @@ void FieldManager::init()
     fields.push_back(fieldHeightUp);
 
     fieldColour1 = new FieldColour();
-    fieldColour1->colourOffset = {1.0, 0.0, 0.0};
+    fieldColour1->colourOffset[0] = 1.0;
+    fieldColour1->colourOffset[1] = 0.0;
+    fieldColour1->colourOffset[2] = 0.0;
     fields.push_back(fieldColour1);
 
     fieldColour2 = new FieldColour();
-    fieldColour2->colourOffset = {0.0, 1.0, 0.0};
+    fieldColour2->colourOffset[0] = 0.0;
+    fieldColour2->colourOffset[1] = 1.0;
+    fieldColour2->colourOffset[2] = 0.0;
     fields.push_back(fieldColour2);
 
     fieldColour3 = new FieldColour();
-    fieldColour3->colourOffset = {0.0, 0.0, 1.0};
+    fieldColour3->colourOffset[0] = 0.0;
+    fieldColour3->colourOffset[1] = 0.0;
+    fieldColour3->colourOffset[2] = 1.0;
     fields.push_back(fieldColour3);
 }
 

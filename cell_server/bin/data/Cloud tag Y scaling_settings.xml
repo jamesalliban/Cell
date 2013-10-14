@@ -5,18 +5,18 @@
     </Toggle_y_Scale_Only_On_Attraction>
     <SliderFloat_Y_Min>
         <name>Y Min</name>
-        <value>2.360000</value>
+        <value>2.359999895</value>
     </SliderFloat_Y_Min>
     <SliderFloat_Y_Max>
         <name>Y Max</name>
-        <value>37.700001</value>
+        <value>37.700000763</value>
     </SliderFloat_Y_Max>
     <SliderFloat_Scale_Min>
         <name>Scale Min</name>
-        <value>0.724780</value>
+        <value>0.724780023</value>
     </SliderFloat_Scale_Min>
     <SliderFloat_Scale_Max>
         <name>Scale Max</name>
-        <value>1.303500</value>
+        <value>1.303500056</value>
     </SliderFloat_Scale_Max>
 </controls>

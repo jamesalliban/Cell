@@ -40,7 +40,7 @@ void TagData::parseXML(ofxXmlSettings XML, vector<DemographicData*> demographicD
                 demographicStruct.demographicData = dData;
                 XML.pushTag("demographic", currentElement);
                 demographicStruct.strength = XML.getValue("strength", 0.0);
-                //printf("  - word = %s, strength = %f \n", dData->name.c_str(), demographicStruct.strength);
+                printf("  - word = %s, strength = %f \n", dData->name.c_str(), demographicStruct.strength);
                 demographics.push_back(demographicStruct);
                 XML.popTag();
                 ++currentElement;

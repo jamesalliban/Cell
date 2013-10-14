@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\MyGui.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kinect\KinectManager.cpp">
+      <Filter>src\kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resources\ResourceManager.cpp">
+      <Filter>src\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resources\data\TagData.cpp">
+      <Filter>src\resources\data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resources\data\DemographicData.cpp">
+      <Filter>src\resources\data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\SceneManager.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\light\LightManager.cpp">
+      <Filter>src\scene\light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\test\Grid.cpp">
+      <Filter>src\scene\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\test\CameraDirectionNode.cpp">
+      <Filter>src\scene\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\CloudTagManager.cpp">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\TagTexture.cpp">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\CloudTag.cpp">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldColour.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldEnergy.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldHeightDown.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldHeightUp.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldManager.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldRepel.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldScaleUp.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\Field.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\tag\field\FieldAttract.cpp">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\user\UserBatch.cpp">
+      <Filter>src\scene\visual\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\user\UserBatchManager.cpp">
+      <Filter>src\scene\visual\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\user\UserManager.cpp">
+      <Filter>src\scene\visual\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\visual\user\User.cpp">
+      <Filter>src\scene\visual\user</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOption.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOptionGroup.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.cpp">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
+      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834f65-f3a9-211e-73b8-dc85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc">
+      <UniqueIdentifier>{d91dca33-6e5d-4481-2aec-9fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\src">
+      <UniqueIdentifier>{b9dd339a-d93d-92a1-0a2f-4b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs">
+      <UniqueIdentifier>{99eca1d9-873f-4622-8fc0-fc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack">
+      <UniqueIdentifier>{d3a98534-1602-4fef-57a6-6593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src">
+      <UniqueIdentifier>{bfb5bb47-98c8-bbcb-3066-1046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
+      <UniqueIdentifier>{5a029128-eb41-95c5-cbc0-cded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
+      <UniqueIdentifier>{79dfdfe2-400b-8654-3675-01a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\posix">
+      <UniqueIdentifier>{354c95cf-a234-0360-c6bc-af41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
+      <UniqueIdentifier>{edacb89c-9768-9551-4d41-b590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gui">
+      <UniqueIdentifier>{cd101e21-be7c-4cc0-b840-dc4c17652e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\kinect">
+      <UniqueIdentifier>{6cf7cdba-41d2-4183-8da3-37f1a7f121c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\resources">
+      <UniqueIdentifier>{824acb1b-e89d-4a75-915f-39538c0317fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene">
+      <UniqueIdentifier>{e60f1316-9ba7-419e-93b0-9611061540c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\resources\data">
+      <UniqueIdentifier>{3abddd73-c1c1-4d40-8eba-841c215c3b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\camera">
+      <UniqueIdentifier>{f414b0af-03d1-4535-aaa7-6c4d63f23fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\light">
+      <UniqueIdentifier>{7a98630b-df5f-4401-8b58-844048421292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\test">
+      <UniqueIdentifier>{503f689b-bd34-45f8-ad34-9391db4da5e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\visual">
+      <UniqueIdentifier>{049464e9-f3da-467c-843c-f55389bc5e47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\visual\tag">
+      <UniqueIdentifier>{ca738f7e-32f2-4b46-9187-253732a9bd82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\visual\user">
+      <UniqueIdentifier>{dc1fabf4-aa69-4b6a-b841-6b09c1bb6b17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\visual\tag\filter">
+      <UniqueIdentifier>{8e49f4ec-f796-4643-9483-5e0c880accb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings">
+      <UniqueIdentifier>{1223aa16-beeb-45af-91ea-0623fdc42105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings\libs">
+      <UniqueIdentifier>{764e4c67-c991-41b5-ac4b-458aa698933d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings\src">
+      <UniqueIdentifier>{f0af592f-cf48-47f1-be20-0b3587a009cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxSimpleGuiToo">
+      <UniqueIdentifier>{bafbcdc5-f7f2-4637-a739-015cdd757d46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxSimpleGuiToo\src">
+      <UniqueIdentifier>{e0a13d81-e75d-4e64-8ac6-dae24795b981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxSimpleGuiToo\src\Controls">
+      <UniqueIdentifier>{6530b0c8-3a82-4f22-b5e9-509352e4e60e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxMSAInteractiveObject">
+      <UniqueIdentifier>{cbb724a4-9bfb-4194-b7c0-096d0a0c9581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxMSAInteractiveObject\src">
+      <UniqueIdentifier>{31ac50db-860e-477c-850b-a37e1621b8d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TestApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\MyGui.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinect\KinectManager.h">
+      <Filter>src\kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinect\KinectSkeletonData.h">
+      <Filter>src\kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resources\ResourceManager.h">
+      <Filter>src\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resources\data\DemographicData.h">
+      <Filter>src\resources\data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resources\data\TagData.h">
+      <Filter>src\resources\data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\SceneManager.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\light\LightManager.h">
+      <Filter>src\scene\light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\test\CameraDirectionNode.h">
+      <Filter>src\scene\test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\test\Grid.h">
+      <Filter>src\scene\test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\CloudTag.h">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\CloudTagManager.h">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\TagTexture.h">
+      <Filter>src\scene\visual\tag</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldAttract.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldColour.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldEnergy.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldHeightDown.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldHeightUp.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldManager.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldRepel.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\FieldScaleUp.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\tag\field\Field.h">
+      <Filter>src\scene\visual\tag\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\user\UserBatch.h">
+      <Filter>src\scene\visual\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\user\UserBatchManager.h">
+      <Filter>src\scene\visual\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\user\UserManager.h">
+      <Filter>src\scene\visual\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\user\Joint.h">
+      <Filter>src\scene\visual\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\visual\user\User.h">
+      <Filter>src\scene\visual\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.h">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.h">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiIncludes.h">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.h">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.h">
+      <Filter>addons\ofxSimpleGuiToo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOption.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOptionGroup.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderBase.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderFloat.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderInt.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.h">
+      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
+      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>

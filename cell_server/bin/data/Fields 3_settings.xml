@@ -9,14 +9,14 @@
     </SliderInt_Play_Area>
     <SliderFloat_Speed>
         <name>Speed</name>
-        <value>0.033780</value>
+        <value>0.033780001</value>
     </SliderFloat_Speed>
     <SliderFloat_Area_size>
         <name>Area size</name>
-        <value>489.600006</value>
+        <value>489.600006104</value>
     </SliderFloat_Area_size>
     <SliderFloat_Height_Adjust>
         <name>Height Adjust</name>
-        <value>0.071858</value>
+        <value>0.071857996</value>
     </SliderFloat_Height_Adjust>
 </controls>

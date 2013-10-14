@@ -8,19 +8,53 @@ User::User(int _userID)
     clientID            = -1;
 
     deactivate();
-
-    debugColour = {255, 255, 255};
+	
+    debugColour[0] = 255;
+    debugColour[1] = 255;
+    debugColour[2] = 255;
 
     switch(userID)
     {
-        case 0: debugColour = {255, 0, 0}; break;       // red
-        case 1: debugColour = {0, 255, 0}; break;       // green
-        case 2: debugColour = {80, 80, 255}; break;       // blue
-        case 3: debugColour = {255, 255, 0}; break;     // yellow
-        case 4: debugColour = {255, 0, 255}; break;     // pink
-        case 5: debugColour = {0, 255, 255}; break;     // turquoise
-        case 6: debugColour = {255, 255, 255}; break;   // white
-        case 7: debugColour = {100, 100, 100}; break;   // grey
+        case 0: 
+			debugColour[0] = 255;
+			debugColour[1] = 0;
+			debugColour[2] = 0;
+			break;       // red
+        case 1: 
+			debugColour[0] = 0;
+			debugColour[1] = 255;
+			debugColour[2] = 0;
+			break;       // green
+        case 2: 
+			debugColour[0] = 80;
+			debugColour[1] = 80;
+			debugColour[2] = 255;
+			break;       // blue
+        case 3: 
+			debugColour[0] = 255;
+			debugColour[1] = 255;
+			debugColour[2] = 0;
+			break;     // yellow
+        case 4: 
+			debugColour[0] = 255;
+			debugColour[1] = 0;
+			debugColour[2] = 255;
+			break;     // pink
+        case 5: 
+			debugColour[0] = 0;
+			debugColour[1] = 255;
+			debugColour[2] = 255;
+			break;     // turquoise
+        case 6: 
+			debugColour[0] = 255;
+			debugColour[1] = 255;
+			debugColour[2] = 255;
+			break;   // white
+        case 7: 
+			debugColour[0] = 100;
+			debugColour[1] = 100;
+			debugColour[2] = 100;
+			break;   // grey
     }
 
     TestApp* app = (TestApp*)ofGetAppPtr();
@@ -54,38 +88,80 @@ void User::update()
 
     secondsSinceActive = ((float)ofGetElapsedTimeMillis() - (float)millisBecameActive) / 1000;
 
-    jointPositions[CELL_HIP_CENTRE] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HIP_CENTER];
-    jointPositions[CELL_SPINE] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_SPINE];
-    jointPositions[CELL_SHOULDER_CENTRE] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_CENTER];
-    jointPositions[CELL_HEAD] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HEAD];
-    jointPositions[CELL_SHOULDER_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT];
-    jointPositions[CELL_ELBOW_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_LEFT];
-    jointPositions[CELL_WRIST_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT];
-    jointPositions[CELL_HAND_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HAND_LEFT];
-    jointPositions[CELL_SHOULDER_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT];
-    jointPositions[CELL_ELBOW_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_RIGHT];
-    jointPositions[CELL_WRIST_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT];
-    jointPositions[CELL_HAND_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT];
-    jointPositions[CELL_HIP_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HIP_LEFT];
-    jointPositions[CELL_KNEE_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_KNEE_LEFT];
-    jointPositions[CELL_ANKLE_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_ANKLE_LEFT];
-    jointPositions[CELL_FOOT_LEFT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_FOOT_LEFT];
-    jointPositions[CELL_HIP_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_HIP_RIGHT];
-    jointPositions[CELL_KNEE_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_KNEE_RIGHT];
-    jointPositions[CELL_ANKLE_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_ANKLE_RIGHT];
-    jointPositions[CELL_FOOT_RIGHT] = skeleton->SkeletonPositions[NUI_SKELETON_POSITION_FOOT_RIGHT];
+    jointPositions[CELL_HIP_CENTRE] = skeleton->skeletonPositions[CELL_HIP_CENTRE];
+    jointPositions[CELL_SPINE] = skeleton->skeletonPositions[CELL_SPINE];
+    jointPositions[CELL_SHOULDER_CENTRE] = skeleton->skeletonPositions[CELL_SHOULDER_CENTRE];
+    jointPositions[CELL_HEAD] = skeleton->skeletonPositions[CELL_HEAD];
+    jointPositions[CELL_SHOULDER_LEFT] = skeleton->skeletonPositions[CELL_SHOULDER_LEFT];
+    jointPositions[CELL_ELBOW_LEFT] = skeleton->skeletonPositions[CELL_ELBOW_LEFT];
+    jointPositions[CELL_WRIST_LEFT] = skeleton->skeletonPositions[CELL_WRIST_LEFT];
+    jointPositions[CELL_HAND_LEFT] = skeleton->skeletonPositions[CELL_HAND_LEFT];
+    jointPositions[CELL_SHOULDER_RIGHT] = skeleton->skeletonPositions[CELL_SHOULDER_RIGHT];
+    jointPositions[CELL_ELBOW_RIGHT] = skeleton->skeletonPositions[CELL_ELBOW_RIGHT];
+    jointPositions[CELL_WRIST_RIGHT] = skeleton->skeletonPositions[CELL_WRIST_RIGHT];
+    jointPositions[CELL_HAND_RIGHT] = skeleton->skeletonPositions[CELL_HAND_RIGHT];
+    jointPositions[CELL_HIP_LEFT] = skeleton->skeletonPositions[CELL_HIP_LEFT];
+    jointPositions[CELL_KNEE_LEFT] = skeleton->skeletonPositions[CELL_KNEE_LEFT];
+    jointPositions[CELL_ANKLE_LEFT] = skeleton->skeletonPositions[CELL_ANKLE_LEFT];
+    jointPositions[CELL_FOOT_LEFT] = skeleton->skeletonPositions[CELL_FOOT_LEFT];
+    jointPositions[CELL_HIP_RIGHT] = skeleton->skeletonPositions[CELL_HIP_RIGHT];
+    jointPositions[CELL_KNEE_RIGHT] = skeleton->skeletonPositions[CELL_KNEE_RIGHT];
+    jointPositions[CELL_ANKLE_RIGHT] = skeleton->skeletonPositions[CELL_ANKLE_RIGHT];
+    jointPositions[CELL_FOOT_RIGHT] = skeleton->skeletonPositions[CELL_FOOT_RIGHT];
+
+
+	for (int i = 0; i < (int)jointPositions.size(); i++)
+    {
+
+	}
+	
 
     for (int i = 0; i < (int)jointPositions.size(); i++)
     {
         //jointPositions[i].z *= (clientID == 0 || clientID == 1) ? -1 : 1;
-
-        if (clientID == 0 || clientID == 1) jointPositions[i].z *= -1;
+		/*
+        //if (clientID == 0 || clientID == 1)
+        jointPositions[i].z *= -1;
         jointPositions[i] *= userMan->skeletonScale[clientID];
         jointPositions[i].rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0f, 0.0f, 0.0f), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
         jointPositions[i].x += userMan->skeletonPosOffsetX[clientID];
-        if (clientID == 2 || clientID == 3) jointPositions[i].x *= -1;
+        //if (clientID == 2 || clientID == 3) jointPositions[i].x *= -1;
         jointPositions[i].y += userMan->skeletonPosOffsetY[clientID];
         jointPositions[i].z += userMan->skeletonPosOffsetZ[clientID];
+		*/
+		
+		// do some initial alterations to the skeleton data
+		jointPositions[i].y *= -1.0f;
+		jointPositions[i].z = (jointPositions[i].z * -1) * 0.0095;//skeletonZReductionMultiplier;
+
+		//position and rotate the skeleton
+		jointPositions[i] += ofVec3f(userMan->skeletonPosOffsetX[clientID], userMan->skeletonPosOffsetY[clientID], userMan->skeletonPosOffsetZ[clientID]);
+		jointPositions[i].rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0, 0.0, 0.0), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
+
+		//capture the hip vector then fix the z scaling bug
+		if (i == 0) hipOffset = ofVec3f(jointPositions[CELL_HIP_CENTRE]);
+		performZScaleFix(&jointPositions[i]);
+
+		jointPositions[i] *= userMan->skeletonScale[clientID];
+
+        /*
+
+        200 - -200
+
+
+        */
+    }
+
+    float xCorrectionOffset = ofMap(jointPositions[CELL_HIP_CENTRE].z, userMan->xCorrectionOffsetRangeMin, userMan->xCorrectionOffsetRangeMax, userMan->xCorrectionOffsetMin, userMan->xCorrectionOffsetMax);
+
+    if (jointPositions[CELL_HIP_CENTRE].x < 0)
+        xCorrectionOffset *= -1;
+
+    xCorrectionOffset *= ofMap(abs(jointPositions[CELL_HIP_CENTRE].x), 0, userMan->xCorrectionOffsetModifier, 0, 1);
+
+    for (int i = 0; i < (int)jointPositions.size(); i++)
+    {
+        jointPositions[i].x += xCorrectionOffset;
     }
 }
 
@@ -100,6 +176,21 @@ void User::customDraw()
     //nonKinectDraw();
 }
 
+
+
+// This method fixes a bug in ofxKinectNui that results in the skeleton shrinking too much as it moves back.
+void User::performZScaleFix(ofVec3f* skeletonPoint)
+{
+	// centre the skeleton in the scene using the centre of the hip then scale it up
+	*skeletonPoint -= hipOffset;
+	float scaler = ofMap(hipOffset.z, -200, 200, 0.35, 0.08);   //skeleton1ZScaleFixMax, skeleton1ZScaleFixMin);
+	*skeletonPoint *= scaler;
+	// reset the position of the skeleton using the 'hip offset'
+	*skeletonPoint += hipOffset;
+	// correct the x and z values after scaling
+	skeletonPoint->x += hipOffset.x;
+	skeletonPoint->z += hipOffset.z;
+}
 
 
 
@@ -159,7 +250,7 @@ void User::debugDraw()
         if (userMan->isPositionDataDisplayed)
         {
             ofSetDrawBitmapMode(OF_BITMAPMODE_MODEL_BILLBOARD);
-            string str = "x:" + ofToString((int)(vec.x)) + ", y:" + ofToString((int)(vec.y)) + ", z:" + ofToString((int)(vec.z));
+            string str = "i:" + ofToString(i) + ", x:" + ofToString((vec.x)) + ", y:" + ofToString((vec.y)) + ", z:" + ofToString((vec.z));
             ofDrawBitmapString(str, 2, 0, 0);
         }
         if (userMan->isUserDataDisplayed)
@@ -244,7 +335,7 @@ void User::drawLine(ofVec3f startJoint, ofVec3f endJoint)
 
 
 
-void User::assignSkeleton(_ofMS_SKELETON_DATA* _skeleton)
+void User::assignSkeleton(KinectSkeletonData* _skeleton)
 {
     skeleton = _skeleton;
     trackingID = skeleton->dwTrackingID;
@@ -276,7 +367,7 @@ void User::deactivate()
     clientID = -1;
     trackingID = -1;
     isActive = false;
-    associatedUserBatch = NULL;
+    //associatedUserBatch = NULL;
 }
 
 

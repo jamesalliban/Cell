@@ -1,5 +1,5 @@
-#ifndef USERMANAGER_H
-#define USERMANAGER_H
+#pragma once
+
 
 #include "ofMain.h"
 #include "User.h"
@@ -31,9 +31,16 @@ class UserManager
         float skeletonRotX[4];
         float skeletonRotY[4];
         float skeletonRotZ[4];
-        int skeletonPosOffsetX[4];
-        int skeletonPosOffsetY[4];
-        int skeletonPosOffsetZ[4];
+        float skeletonPosOffsetX[4];
+        float skeletonPosOffsetY[4];
+        float skeletonPosOffsetZ[4];
+
+
+        float xCorrectionOffsetRangeMin;
+        float xCorrectionOffsetRangeMax;
+        float xCorrectionOffsetMin;
+        float xCorrectionOffsetMax;
+        float xCorrectionOffsetModifier;
 
         float duplicateLengthSquaredMin;
 
@@ -50,5 +57,3 @@ class UserManager
 
 
 };
-
-#endif // USERMANAGER_H

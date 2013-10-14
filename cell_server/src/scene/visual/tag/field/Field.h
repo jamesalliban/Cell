@@ -1,5 +1,5 @@
-#ifndef FIELD_H
-#define FIELD_H
+#pragma once
+
 
 #include "ofMain.h"
 
@@ -34,4 +34,3 @@ class Field : public ofNode
     private:
 };
 
-#endif // FIELD_H

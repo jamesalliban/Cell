@@ -51,6 +51,8 @@ public:
 	float smoothMouseX, smoothMouseY, mouseSmoothAmount;
 	float camRotX, camRotY, camRotZ;
 
+	float fov;
+
 	bool isCamMouseInput;		// allows the camera to be controlled by the mouse
 	bool isCamMouseInputPaused; // pauses camera movement while it is controllable by the mouse
 	bool isUpdateVars;			// toggle - updates all variables that do not require rebuilding objects

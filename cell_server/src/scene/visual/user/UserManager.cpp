@@ -30,15 +30,16 @@ UserManager::~UserManager()
 void UserManager::init()
 {
     TestApp* app = (TestApp*)ofGetAppPtr();
+	
+    skeletonScale[0] = skeletonScale[1] = skeletonScale[2] = skeletonScale[3] = 0.0;
+    skeletonRotDegrees[0] = skeletonRotDegrees[1] = skeletonRotDegrees[2] = skeletonRotDegrees[3] = 0.0;
+    skeletonRotX[0] = skeletonRotX[1] = skeletonRotX[2] = skeletonRotX[3] = 0.0;
+    skeletonRotY[0] = skeletonRotY[1] = skeletonRotY[2] = skeletonRotY[3] = 0.0;
+    skeletonRotZ[0] = skeletonRotZ[1] = skeletonRotZ[2] = skeletonRotZ[3] = 0.0;
+    skeletonPosOffsetX[0] = skeletonPosOffsetX[1] = skeletonPosOffsetX[2] = skeletonPosOffsetX[3] = 0;
+    skeletonPosOffsetY[0] = skeletonPosOffsetY[1] = skeletonPosOffsetY[2] = skeletonPosOffsetY[3] = 0;
+    skeletonPosOffsetZ[0] = skeletonPosOffsetZ[1] = skeletonPosOffsetZ[2] = skeletonPosOffsetZ[3] = 0;
 
-    skeletonScale = {0.0, 0.0, 0.0, 0.0};
-    skeletonRotDegrees = {0.0, 0.0, 0.0, 0.0};
-    skeletonRotX = {0.0, 0.0, 0.0, 0.0};
-    skeletonRotY = {0.0, 0.0, 0.0, 0.0};
-    skeletonRotZ = {0.0, 0.0, 0.0, 0.0};
-    skeletonPosOffsetX = {0, 0, 0, 0};
-    skeletonPosOffsetY = {0, 0, 0, 0};
-    skeletonPosOffsetZ = {0, 0, 0, 0};
 
     for (int i = 0; i < SKELETON_MAX; i++)
     {
@@ -159,7 +160,7 @@ bool UserManager::haveSkeletonsBeenRemoved()
         bool doesUserValueMatchSkeleton = false;
         for (int j = 0; j < SKELETON_MAX; j++) // loop through skeletons
         {
-            ofxMSKinectSkeleton* skeleton = &app->kinectManager->trackedSkeletons[j];
+            KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[j];
 
             if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
             {
@@ -189,7 +190,7 @@ bool UserManager::checkIfSkeletonIsNew()
     bool isSkeletonCountChanged = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop though all skeletons
     {
-        ofxMSKinectSkeleton* skeleton = &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];
         bool isSkeletonAssignedToAUser = false;
         // if skeleton is active
         if (skeleton->dwTrackingID != -1)
@@ -243,7 +244,7 @@ void UserManager::reassignSkeletonsIfNew()
 
     for (int i = 0; i < SKELETON_MAX; i++) // loop through skeletons
     {
-        ofxMSKinectSkeleton* skeleton = &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];
         for (int j = 0; j < SKELETON_MAX; j++) // loop through users
         {
             User* user = users[j];

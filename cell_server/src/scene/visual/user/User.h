@@ -1,13 +1,7 @@
-#ifndef USER_H
-#define USER_H
+#pragma once
 
 #include "ofMain.h"
-
-#include <stdlib.h>
-#include <Windows.h>
-#include "ofxMSKinect.h"
-#include "ofxMSSkeletonDraw.h"
-#include "ofxMSKinectSkeleton.h"
+#include "KinectSkeletonData.h"
 
 #define CELL_HIP_CENTRE 0
 #define CELL_SPINE 1
@@ -35,7 +29,7 @@ struct Joint{
     ofVec3f jointPos;
 };
 
-class UserBatch;
+//class UserBatch;
 
 class User : public ofNode
 {
@@ -48,11 +42,12 @@ class User : public ofNode
         void nonKinectUpdate();
         void nonKinectDraw();
         void debugDraw();
+		void performZScaleFix(ofVec3f* skeletonPoint);
         void drawSpheres();
         void drawData();
         void drawLines();
         void drawLine(ofVec3f startJoint, ofVec3f endJoint);
-        void assignSkeleton(_ofMS_SKELETON_DATA* _skeleton);
+        void assignSkeleton(KinectSkeletonData* _skeleton);
         void assignIDs(int _clientID, int _skeletonID);
         void deactivate();
         void buildDebugSkeleton();
@@ -62,7 +57,7 @@ class User : public ofNode
         int userID;
         int clientID;
 
-        _ofMS_SKELETON_DATA* skeleton;
+        KinectSkeletonData* skeleton;
         vector<ofVec3f> jointPositions;
         vector<ofVec3f> debugJointPositions;
         vector<User*> duplicateUsers;
@@ -76,13 +71,14 @@ class User : public ofNode
         int millisBecameActive;
         float secondsSinceActive;
 
-        UserBatch* associatedUserBatch;
+		ofVec3f hipOffset;
+
+        //UserBatch* associatedUserBatch;
+
 
     protected:
     private:
 };
 
 
-#include "UserBatch.h"
-
-#endif // USER_H
+//#include "UserBatch.h"

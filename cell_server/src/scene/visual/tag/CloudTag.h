@@ -79,6 +79,7 @@ protected:
 
 	int         lineStartVertexIndex;
 	float       scaleOffset;
+	float       xScaleSquish;
 
 	float       angleX;
     float       angleY;
@@ -98,6 +99,8 @@ protected:
 
 	int         rotationYMax;
 	int         noiseStartAdd;
+
+	float tagW;
 
 
 	//attraction

@@ -25,7 +25,7 @@ CloudTagManager::~CloudTagManager()
 void CloudTagManager::init(ofShader* shader)
 {
     TestApp* app = (TestApp*)ofGetAppPtr();
-	cloudTagAmount = 1000;
+	cloudTagAmount = 1000; // 1000;
 
 	shadeContrastMin = 0.4;
 	shadeContrastMax = 0.7;

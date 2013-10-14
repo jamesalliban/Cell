@@ -34,6 +34,7 @@ public:
 	MyGui* myGui;
 
 	int topBlockHeight;
+	int topBlockBot;
 	int leftBlockW;
 	int rightBlockW;
 	float framesSinceMouseMove;

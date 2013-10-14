@@ -1,5 +1,5 @@
-#ifndef USERBATCH_H
-#define USERBATCH_H
+#pragma once
+
 
 #include "ofMain.h"
 
@@ -30,5 +30,3 @@ class UserBatch : public ofNode
 };
 
 #include "User.h"
-
-#endif // USERBATCH_H

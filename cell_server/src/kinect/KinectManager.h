@@ -1,16 +1,13 @@
-#ifndef KINECTMANAGER_H
-#define KINECTMANAGER_H
+#pragma once
+
 
 
 #include "ofMain.h"
 
-#include <stdlib.h>
-#include <Windows.h>
-#include "ofxMSKinect.h"
-#include "ofxMSSkeletonDraw.h"
-//#include "KineticNetworkClient.h"
 #include "ofFileUtils.h"
 #include "ofxOsc.h"
+
+#include "KinectSkeletonData.h"
 
 #define SKELETON_MAX 8
 
@@ -35,11 +32,7 @@ public:
     bool hasSkeleton();
     void ServerSendCommandstoClients(int key);
 
-    ofxMSKinect* kinect;
-    ofxMSKinectDevice* firstDevice;
-    //KineticNetWorkServer* nwserver;
-    ofxSkeletonRenderer* skeletonDrawer; // simple class to draw skeletons
-    vector<ofxMSKinectSkeleton> trackedSkeletons;
+    vector<KinectSkeletonData> trackedSkeletons;
     int padding;
     long val;
 
@@ -59,4 +52,3 @@ private:
     int  cameraTiltVal;
 };
 
-#endif // KINECTMANAGER_H

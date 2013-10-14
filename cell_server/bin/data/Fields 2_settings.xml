@@ -13,19 +13,19 @@
     </SliderInt_Play_Area>
     <SliderFloat_Speed>
         <name>Speed</name>
-        <value>0.029140</value>
+        <value>0.029139999</value>
         <name>Speed</name>
-        <value>0.029140</value>
+        <value>0.029139999</value>
     </SliderFloat_Speed>
     <SliderFloat_Area_size>
         <name>Area size</name>
-        <value>361.600006</value>
+        <value>361.600006104</value>
         <name>Area size</name>
-        <value>361.600006</value>
+        <value>361.600006104</value>
     </SliderFloat_Area_size>
     <SliderFloat_Scale_Strength>
         <name>Scale Strength</name>
-        <value>1.235000</value>
+        <value>1.235000014</value>
     </SliderFloat_Scale_Strength>
     <Toggle_Enabled></Toggle_Enabled>
     <SliderInt_Play_Area></SliderInt_Play_Area>
@@ -33,6 +33,6 @@
     <SliderFloat_Area_size></SliderFloat_Area_size>
     <SliderFloat_Height_Adjust>
         <name>Height Adjust</name>
-        <value>0.189622</value>
+        <value>0.287425995</value>
     </SliderFloat_Height_Adjust>
 </controls>

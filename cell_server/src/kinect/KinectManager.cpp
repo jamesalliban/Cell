@@ -5,9 +5,14 @@ KinectManager::KinectManager()
 {
     for (int i = 0; i < SKELETON_MAX; i++)
     {
-        ofxMSKinectSkeleton skeletonData;
-        skeletonData.dwTrackingID = -1;
-        skeletonData.clientID = -1;
+        KinectSkeletonData skeletonData;
+		for (int i = 0; i < 20; i++)
+		{
+			ofVec3f v = ofVec3f(-1, -1, -1);
+			skeletonData.skeletonPositions.push_back(v);
+		}
+		skeletonData.dwTrackingID = -1;
+		skeletonData.clientID = -1;
         trackedSkeletons.push_back(skeletonData);
     }
 }
@@ -22,9 +27,6 @@ KinectManager::~KinectManager()
 void KinectManager::init()
 {
     padding = 12;
-    kinect = NULL;
-	firstDevice = NULL;
-	skeletonDrawer = new ofxSkeletonRenderer();
 
 	/*
         In order to setup the networking of skeletal data a configuration file is required this file has a simple structure
@@ -85,6 +87,8 @@ void KinectManager::update()
 {
     //if (ofGetFrameNum() % 50 == 0) printf("\n");
 
+	bool isPrint = (ofGetFrameNum() % 60 == 0) ? true : false;
+
 
     while (receiver.hasWaitingMessages())
     {
@@ -96,37 +100,58 @@ void KinectManager::update()
 
         //printf("receiver.hasWaitingMessages() \n");
 
+		for (int i = 0; i < m.getNumArgs(); i++)
+		{
 
-
+		}
+		
         if (m.getAddress() == "/skeleton/data")
         {
-            for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 2; i++)
+			{
+				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[i];
+				int startIndex = ((20 * 3) + 2) * i;
+				skeletonDataObject->clientID = m.getArgAsInt32(0);
+				skeletonDataObject->dwTrackingID = m.getArgAsInt32(startIndex + 1);
+				//printf("skeletonDataObject->clientID = %i, skeletonDataObject->id = %i \n", skeletonDataObject->clientID, skeletonDataObject->id);
+				for (int j = 0; j < 20; j++)
+				{
+					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 + (j * 3));
+					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + (j * 3) + 1);
+					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + (j * 3) + 2);
+				}
+			}
+
+
+			/*
+            for (int i = 0; i < 20; i++)
             {
-               // if (i == 0 && m.getArgAsInt32(1) > -1 || i == 1 && m.getArgAsInt32(62) > -1)
-               // {
-                    //trackedSkeletons.push_back(skeletonData);
-
-                //int indexAdd = (i == 0) ? 2 : 63;
-
                 int clientID = m.getArgAsInt32(0);
 
-                ofxMSKinectSkeleton* skeletonData1 = &trackedSkeletons[(clientID * 2)];
-                ofxMSKinectSkeleton* skeletonData2 = &trackedSkeletons[(clientID * 2) + 1];
+                KinectSkeletonData* skeletonData1 = &trackedSkeletons[(clientID * 2)];
+                KinectSkeletonData* skeletonData2 = &trackedSkeletons[(clientID * 2) + 1];
                 skeletonData1->clientID = clientID;
                 skeletonData1->dwTrackingID = (long)m.getArgAsInt32(1);
                 skeletonData2->clientID = clientID;
                 skeletonData2->dwTrackingID = (long)m.getArgAsInt32(62);
-                for (int j = 0; j < 20; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    skeletonData1->SkeletonPositions[j].x = m.getArgAsFloat(2 + (j * 3));
-                    skeletonData1->SkeletonPositions[j].y = m.getArgAsFloat(2 + (j * 3) + 1);
-                    skeletonData1->SkeletonPositions[j].z = m.getArgAsFloat(2 + (j * 3) + 2);
+                    skeletonData1->skeletonPositions[j].x = m.getArgAsFloat(2 + (j * 3));
+                    skeletonData1->skeletonPositions[j].y = m.getArgAsFloat(2 + (j * 3) + 1);
+                    skeletonData1->skeletonPositions[j].z = m.getArgAsFloat(2 + (j * 3) + 2);
+					
+                    skeletonData2->skeletonPositions[j].x = m.getArgAsFloat(63 + (j * 3));
+                    skeletonData2->skeletonPositions[j].y = m.getArgAsFloat(63 + (j * 3) + 1);
+                    skeletonData2->skeletonPositions[j].z = m.getArgAsFloat(63 + (j * 3) + 2);
 
-                    skeletonData2->SkeletonPositions[j].x = m.getArgAsFloat(63 + (j * 3));
-                    skeletonData2->SkeletonPositions[j].y = m.getArgAsFloat(63 + (j * 3) + 1);
-                    skeletonData2->SkeletonPositions[j].z = m.getArgAsFloat(63 + (j * 3) + 2);
-                }
+					if (isPrint)
+					{
+						printf("i:%i, skel0.x = %f, skel0.y = %f, skel0.z = %f\n", i, skeletonData1->skeletonPositions[j].x, skeletonData1->skeletonPositions[j].y, skeletonData1->skeletonPositions[j].z);
+						printf("i:%i, skel1.x = %f, skel1.y = %f, skel1.z = %f\n", i, skeletonData2->skeletonPositions[j].x, skeletonData2->skeletonPositions[j].y, skeletonData2->skeletonPositions[j].z);
+					}
+				}
             }
+			*/
         }
     }
 
@@ -134,7 +159,7 @@ void KinectManager::update()
 //    {
 //        for (int i = 0; i < (int)trackedSkeletons.size(); i++)
 //        {
-//            printf("hip0.x = %f, hip1.x = %f \n", trackedSkeletons[0].SkeletonPositions[0].x, trackedSkeletons[1].SkeletonPositions[0].x);
+//            printf("hip0.x = %f, hip1.x = %f \n", trackedSkeletons[0].skeletonPositions[0].x, trackedSkeletons[1].skeletonPositions[0].x);
 //            //printf("skel %i, trackedSkeletons.size() = %i, clientID = %i \n", i, (int)trackedSkeletons.size(), trackedSkeletons[i].clientID);
 //        }
 //    }

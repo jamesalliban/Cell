@@ -1,31 +1,31 @@
 <controls>
     <SliderFloat_Contrast_min>
         <name>Contrast min</name>
-        <value>0.516000</value>
+        <value>0.515999973</value>
     </SliderFloat_Contrast_min>
     <SliderFloat_Contrast_max>
         <name>Contrast max</name>
-        <value>1.000000</value>
+        <value>1.000000000</value>
     </SliderFloat_Contrast_max>
     <SliderFloat_Brightness_min>
         <name>Brightness min</name>
-        <value>-0.540000</value>
+        <value>0.716000021</value>
     </SliderFloat_Brightness_min>
     <SliderFloat_Brightness_max>
         <name>Brightness max</name>
-        <value>0.988000</value>
+        <value>1.000000000</value>
     </SliderFloat_Brightness_max>
     <SliderFloat_Alpha_min>
         <name>Alpha min</name>
-        <value>0.686000</value>
+        <value>0.214000002</value>
     </SliderFloat_Alpha_min>
     <SliderFloat_Alpha_max>
         <name>Alpha max</name>
-        <value>0.926000</value>
+        <value>1.000000000</value>
     </SliderFloat_Alpha_max>
     <SliderFloat_Blend_mix>
         <name>Blend mix</name>
-        <value>0.494000</value>
+        <value>0.513999999</value>
     </SliderFloat_Blend_mix>
     <SliderInt_Blend_mode>
         <name>Blend mode</name>

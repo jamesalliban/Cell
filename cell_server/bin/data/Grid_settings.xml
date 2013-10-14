@@ -5,6 +5,6 @@
     </Toggle_Grid_active>
     <SliderInt_Alpha>
         <name>Alpha</name>
-        <value>61</value>
+        <value>75</value>
     </SliderInt_Alpha>
 </controls>

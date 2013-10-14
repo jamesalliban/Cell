@@ -1,5 +1,5 @@
-#ifndef USERBATCHMANAGER_H
-#define USERBATCHMANAGER_H
+#pragma once
+
 
 #include "ofMain.h"
 #include "UserBatch.h"
@@ -25,5 +25,3 @@ class UserBatchManager
     protected:
     private:
 };
-
-#endif // USERBATCHMANAGER_H

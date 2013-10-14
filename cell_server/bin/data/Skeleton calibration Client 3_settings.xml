@@ -1,34 +1,34 @@
 <controls>
     <SliderFloat_Scale>
         <name>Scale</name>
-        <value>13.642000</value>
+        <value>2.000000000</value>
     </SliderFloat_Scale>
     <SliderFloat_Degrees>
         <name>Degrees</name>
-        <value>28.200001</value>
+        <value>28.200000763</value>
     </SliderFloat_Degrees>
     <SliderFloat_Rotation_X>
         <name>Rotation X</name>
-        <value>1.000000</value>
+        <value>1.000000000</value>
     </SliderFloat_Rotation_X>
     <SliderFloat_Rotation_Y>
         <name>Rotation Y</name>
-        <value>0.000000</value>
+        <value>0.000000000</value>
     </SliderFloat_Rotation_Y>
     <SliderFloat_Rotation_Z>
         <name>Rotation Z</name>
-        <value>0.000000</value>
+        <value>0.000000000</value>
     </SliderFloat_Rotation_Z>
-    <SliderInt_Pos_offset_X>
+    <SliderFloat_Pos_offset_X>
         <name>Pos offset X</name>
-        <value>13</value>
-    </SliderInt_Pos_offset_X>
-    <SliderInt_Pos_offset_Y>
+        <value>0.000000000</value>
+    </SliderFloat_Pos_offset_X>
+    <SliderFloat_Pos_offset_Y>
         <name>Pos offset Y</name>
-        <value>33</value>
-    </SliderInt_Pos_offset_Y>
-    <SliderInt_Pos_offset_Z>
+        <value>0.000000000</value>
+    </SliderFloat_Pos_offset_Y>
+    <SliderFloat_Pos_offset_Z>
         <name>Pos offset Z</name>
-        <value>-42</value>
-    </SliderInt_Pos_offset_Z>
+        <value>0.000000000</value>
+    </SliderFloat_Pos_offset_Z>
 </controls>
