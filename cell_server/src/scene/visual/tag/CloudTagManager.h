@@ -23,12 +23,12 @@ public:
 	CloudTagManager();
 	~CloudTagManager();
 
-	void	init(ofShader* shader);
+	void init(ofShader* shader);
 
-	void	update();
-	void	customDraw();
+	void update();
+	void customDraw();
 
-	vector<CloudTag*> cloudTags;
+	vector<CloudTag> cloudTags;
 	int		cloudTagAmount;
 
 	//tag shading

@@ -43,17 +43,12 @@ void ResourceManager::parseXML()
         printf("i: %i, name =  %s\n", i, d->name.c_str());
         XML.popTag();
     }
-	printf("1\n");
     XML.popTag();
-	printf("2\n");
     XML.popTag();
 	
-	printf("3\n");
      // build tag vector
     XML.pushTag("cell");
-	printf("4\n");
     XML.pushTag("tags");
-	printf("5\n");
     int tagAmount = XML.getNumTags("tag");
    // tagAmount = 30;
     for (int i = 0; i < tagAmount; i++)
@@ -64,11 +59,8 @@ void ResourceManager::parseXML()
         printf("i:%i, word = %s\n", i, t->word.c_str());
         XML.popTag();
     }
-	printf("6\n");
     XML.popTag();
-	printf("7\n");
     XML.popTag();
-	printf("8\n");
 }
 
 

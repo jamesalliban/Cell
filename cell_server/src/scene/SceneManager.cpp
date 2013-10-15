@@ -29,8 +29,11 @@ void SceneManager::init()
 	shader.load("shaders/TestShader");  //TestShader");
 
 	userManager.init();
+	printf("userManager inited \n");
 	fieldMan.init();
+	printf("fieldMan inited \n");
 	cloudTagMan.init(&shader);
+	printf("cloudTagMan inited \n");
 
 	isCamMouseInput = false;
 	isCamMouseInputPaused = false;
@@ -128,7 +131,6 @@ void SceneManager::draw()
 
     light.disable();
     ofDisableLighting();
-
 
 	if (isUpdateVars) isUpdateVars = false;
 }

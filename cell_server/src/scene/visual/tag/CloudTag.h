@@ -10,7 +10,6 @@
 #define _CLOUD_TAG
 
 #include "ofMain.h"
-#include "TagTexture.h"
 #include "TagData.h"
 #include "User.h"
 
@@ -37,9 +36,6 @@ struct TrackedUserData{
 class CloudTag : public ofNode
 {
 public:
-	CloudTag();
-	~CloudTag();
-
 	void	    init(ofShader* shad, TagData* tData, int _id);
 	void	    update();
 	void	    customDraw();
@@ -94,7 +90,6 @@ protected:
 
 	//shader
 	ofShader*   shader;
-	TagTexture  tagTexture;
 
 
 	int         rotationYMax;

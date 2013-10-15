@@ -36,15 +36,15 @@ void CloudTagManager::init(ofShader* shader)
 	shadeBlendMix = 1.0;
 	shadeBlendMode = 0;// there are 10 diff. blend modes,
 
+
 	for (int i = 0; i  < cloudTagAmount; i++)
 	{
 	    int tagDataAmount = app->resourceManager.tagData.size();
 	    TagData* tagData = app->resourceManager.tagData[i % tagDataAmount];
-		CloudTag *cloudTag = new CloudTag();
-		cloudTag->init(shader, tagData, i);
+		CloudTag cloudTag;
+		cloudTag.init(shader, tagData, i);
 		cloudTags.push_back(cloudTag);
 	}
-
 
 	tempUser = ofVec3f(0, 0, 0);
 }
@@ -59,14 +59,14 @@ void CloudTagManager::update()
     {
         for (int i = 0; i < cloudTagAmount; i++)
         {
-            cloudTags[i]->rotate((float)ofGetFrameNum() * 0.01, 0, ofRandom(0, 100), 0);
-            cloudTags[i]->updateVars();
+            cloudTags[i].rotate((float)ofGetFrameNum() * 0.01, 0, ofRandom(0, 100), 0);
+            cloudTags[i].updateVars();
         }
     }
 
     for (int i = 0; i < cloudTagAmount; i++)
 	{
-	    cloudTags[i]->update();
+	    cloudTags[i].update();
 	}
 }
 
@@ -78,7 +78,9 @@ void CloudTagManager::customDraw()
 
 	for (int i = 0; i < cloudTagAmount; i++)
 	{
-		CloudTag* cloudTag = cloudTags[i];
+		CloudTag* cloudTag = &cloudTags[i];
 		cloudTag->customDraw();
 	}
 }
+
+

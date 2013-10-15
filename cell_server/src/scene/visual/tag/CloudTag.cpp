@@ -14,16 +14,6 @@
 TestApp* app;
 CloudTagManager* cloudTagMan;
 
-CloudTag::CloudTag()
-{
-
-}
-
-CloudTag::~CloudTag()
-{
-
-}
-
 
 
 void CloudTag::init(ofShader* shad, TagData* tData, int _id)
@@ -56,8 +46,6 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 	isTagAttractedToUser = false;
 
-	tagTexture.init(&tData->tagImg);
-
 	rotationYMax = 60;
 
 	lineStartVertexIndex = (ofRandomuf() < 0.5) ? 2 : 3;
@@ -73,8 +61,8 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	noiseStartAdd = ofRandom(0, 10000);
 
 	float tagSize =  ofRandom(0.2, 0.5);
-	float tagWidth = ((float)tagTexture.tagImg->width / 40.0f) * tagSize;
-	float tagHeight = ((float)tagTexture.tagImg->height / 40.0f) * tagSize;
+	float tagWidth = ((float)tagData->tagImg.width / 40.0f) * tagSize;
+	float tagHeight = ((float)tagData->tagImg.height / 40.0f) * tagSize;
 
 	tagW = tagWidth;
 
@@ -85,9 +73,9 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 
 	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagTexture.tagImg->width, 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagTexture.tagImg->width, tagTexture.tagImg->height));
-	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagTexture.tagImg->height));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->tagImg.width, 0.0f));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->tagImg.width, tagData->tagImg.height));
+	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagData->tagImg.height));
 
 //	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
 //	tagPlaneMesh.addTexCoord(ofVec2f(160.0f / 256.0f, 0.0f));
@@ -375,7 +363,7 @@ void CloudTag::drawTags()
 	shader->setUniform1f("green", colourOffset.y);
 	shader->setUniform1f("blue", colourOffset.z);
 	shader->setUniform1f("alpha", mappedAlpha);
-	shader->setUniformTexture("baseMap", tagTexture.fbo.getTextureReference(), 0);//tagTexture.fbo.getTextureReference().getTextureData().textureID);
+	shader->setUniformTexture("baseMap", tagData->fbo.getTextureReference(), 0);
 
 
     int div = 500;

@@ -79,38 +79,35 @@
     <ClCompile Include="src\scene\visual\tag\CloudTagManager.cpp">
       <Filter>src\scene\visual\tag</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\visual\tag\TagTexture.cpp">
-      <Filter>src\scene\visual\tag</Filter>
-    </ClCompile>
     <ClCompile Include="src\scene\visual\tag\CloudTag.cpp">
       <Filter>src\scene\visual\tag</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldColour.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldEnergy.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldHeightDown.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldHeightUp.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldManager.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldRepel.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldScaleUp.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\Field.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\tag\field\FieldAttract.cpp">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\visual\user\UserBatch.cpp">
       <Filter>src\scene\visual\user</Filter>
@@ -252,9 +249,6 @@
     <Filter Include="src\scene\visual\user">
       <UniqueIdentifier>{dc1fabf4-aa69-4b6a-b841-6b09c1bb6b17}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\scene\visual\tag\filter">
-      <UniqueIdentifier>{8e49f4ec-f796-4643-9483-5e0c880accb0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\ofxXmlSettings">
       <UniqueIdentifier>{1223aa16-beeb-45af-91ea-0623fdc42105}</UniqueIdentifier>
     </Filter>
@@ -278,6 +272,9 @@
     </Filter>
     <Filter Include="addons\ofxMSAInteractiveObject\src">
       <UniqueIdentifier>{31ac50db-860e-477c-850b-a37e1621b8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\visual\tag\field">
+      <UniqueIdentifier>{8e49f4ec-f796-4643-9483-5e0c880accb0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -380,35 +377,32 @@
     <ClInclude Include="src\scene\visual\tag\CloudTagManager.h">
       <Filter>src\scene\visual\tag</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\visual\tag\TagTexture.h">
-      <Filter>src\scene\visual\tag</Filter>
-    </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldAttract.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldColour.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldEnergy.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldHeightDown.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldHeightUp.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldManager.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldRepel.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\FieldScaleUp.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\tag\field\Field.h">
-      <Filter>src\scene\visual\tag\filter</Filter>
+      <Filter>src\scene\visual\tag\field</Filter>
     </ClInclude>
     <ClInclude Include="src\scene\visual\user\UserBatch.h">
       <Filter>src\scene\visual\user</Filter>

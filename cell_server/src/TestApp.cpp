@@ -72,9 +72,10 @@ void TestApp::setup()
 {
 	
     //ofDisableArbTex();
+	//ofEnableArbTex();
     //ofSetFrameRate(60);
     ofSetFullscreen(true);
-    ofEnableNormalizedTexCoords();
+    //ofEnableNormalizedTexCoords();
 	ofSetLogLevel(OF_LOG_ERROR); //OF_LOG_WARNING
 	ofSetVerticalSync(true);
 	ofBackground(2595, 255, 255);
@@ -92,7 +93,9 @@ void TestApp::setup()
 	
     ///*
 	resourceManager.init();
+	printf("resources inited\n");
 	sceneManager.init();
+	printf("sceneManager inited\n");
 	myGui = new MyGui();
     //*/
 

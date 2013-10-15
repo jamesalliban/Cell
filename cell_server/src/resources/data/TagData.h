@@ -12,19 +12,40 @@ struct Demographic{
 
 class TagData
 {
-    public:
-        TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData);
-        virtual ~TagData();
-        //void test(ofxXmlSettings XML);
-        void parseXML(ofxXmlSettings XML, vector<DemographicData*> demographicData);
-        void loadImage();
+    
+public:
+	TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData);
+    virtual ~TagData();
+    //void test(ofxXmlSettings XML);
+    void parseXML(ofxXmlSettings XML, vector<DemographicData*> demographicData);
+    void loadImage();
 
-        string word;
-        vector<Demographic> demographics;
-        ofImage tagImg;
 
-    protected:
-    private:
+	void	begin();
+	void	end();
+	void	bind();
+	void	unbind();
+	void	testDraw();
+
+
+
+
+    string word;
+    vector<Demographic> demographics;
+	ofImage tagImg;
+
+
+
+	
+	ofFbo fbo;
+	ofBlendMode blendMode;
+
+	string typeStr;
+
+	bool isGrabFbo;
+
+protected:
+private:
 };
 
 #endif // TAGDATA_H

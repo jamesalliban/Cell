@@ -12,7 +12,11 @@ The piece uses the official KinectSDK 1.5.
 The following addons are used:
 
 ofxXmlSettings
+
 ofxOSC
+
 ofxKinectNui by sadmb
+
 ofxSimpleGuiToo by Memo Akten (modified for newer versions of openFrameworks)
+
 ofxMSAInteractiveObject by Memo Akten (modified for newer versions of openFrameworks)
