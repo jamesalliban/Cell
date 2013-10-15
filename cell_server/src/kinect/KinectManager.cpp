@@ -3,18 +3,7 @@
 
 KinectManager::KinectManager()
 {
-    for (int i = 0; i < SKELETON_MAX; i++)
-    {
-        KinectSkeletonData skeletonData;
-		for (int i = 0; i < 20; i++)
-		{
-			ofVec3f v = ofVec3f(-1, -1, -1);
-			skeletonData.skeletonPositions.push_back(v);
-		}
-		skeletonData.dwTrackingID = -1;
-		skeletonData.clientID = -1;
-        trackedSkeletons.push_back(skeletonData);
-    }
+    
 }
 
 KinectManager::~KinectManager()
@@ -26,6 +15,20 @@ KinectManager::~KinectManager()
 
 void KinectManager::init()
 {
+	for (int i = 0; i < SKELETON_MAX; i++)
+    {
+        KinectSkeletonData skeletonData;
+		for (int i = 0; i < 20; i++)
+		{
+			ofVec3f v = ofVec3f(-1, -1, -1);
+			skeletonData.skeletonPositions.push_back(v);
+		}
+		skeletonData.dwTrackingID = -1;
+		skeletonData.clientID = -1;
+        trackedSkeletons.push_back(skeletonData);
+    }
+
+
     padding = 12;
 
 	/*

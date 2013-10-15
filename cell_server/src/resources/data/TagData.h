@@ -14,10 +14,11 @@ class TagData
 {
     
 public:
-	TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData);
-    virtual ~TagData();
+	//TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData);
+    //virtual ~TagData();
     //void test(ofxXmlSettings XML);
-    void parseXML(ofxXmlSettings XML, vector<DemographicData*> demographicData);
+	void setup(ofxXmlSettings *XML, vector<DemographicData> *demographicData);
+    void parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographicData);
     void loadImage();
 
 

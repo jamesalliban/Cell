@@ -20,9 +20,6 @@ class CloudTagManager : public ofNode
 {
 
 public:
-	CloudTagManager();
-	~CloudTagManager();
-
 	void init(ofShader* shader);
 
 	void update();

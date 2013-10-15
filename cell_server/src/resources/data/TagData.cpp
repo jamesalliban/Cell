@@ -1,7 +1,7 @@
 #include "TagData.h"
 #include "TestApp.h"
 
-TagData::TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData)
+void TagData::setup(ofxXmlSettings *XML, vector<DemographicData> *demographicData)
 {
     parseXML(XML, demographicData);
     loadImage();
@@ -49,42 +49,42 @@ TagData::TagData(ofxXmlSettings XML, vector<DemographicData*> demographicData)
 
 }
 
-TagData::~TagData()
-{
-    //dtor
-}
+//TagData::~TagData()
+//{
+//    //dtor
+//}
 
 
-void TagData::parseXML(ofxXmlSettings XML, vector<DemographicData*> demographicData)
+void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographicData)
 {
     // set word
-    word = XML.getValue("word", "");
+    word = XML->getValue("word", "");
     //printf("- tag = %s\n",  word.c_str());
 
     int currentElement = 0;
     // loop through all the demographics in the tag XML
-    int numDemoTags = XML.getNumTags("demographic");
+    int numDemoTags = XML->getNumTags("demographic");
     for (int i; i < numDemoTags; i++)
     {
         Demographic demographicStruct;
 
         // loop through all the available demographics to see if there is a match
-        for (int j = 0; j < (int)demographicData.size(); j++)
+        for (int j = 0; j < (int)demographicData->size(); j++)
         {
-            DemographicData* dData = demographicData[j];
-            int comparison = XML.getAttribute("demographic", "id", "", i).compare(dData->name);
+            DemographicData* dData = &demographicData->at(j);
+            int comparison = XML->getAttribute("demographic", "id", "", i).compare(dData->name);
 
             //printf("  %s  compared with %s = %i \n", dData->name.c_str(), XML.getAttribute("demographic", "id", "", i).c_str(), comparison);
 			
             //if (comparison == 0)
-            if (XML.getAttribute("demographic", "id", "", i) == dData->name)
+            if (XML->getAttribute("demographic", "id", "", i) == dData->name)
             {
                 demographicStruct.demographicData = dData;
-                XML.pushTag("demographic", currentElement);
-                demographicStruct.strength = XML.getValue("strength", 0.0);
+                XML->pushTag("demographic", currentElement);
+                demographicStruct.strength = XML->getValue("strength", 0.0);
                 printf("  - word = %s, strength = %f \n", dData->name.c_str(), demographicStruct.strength);
                 demographics.push_back(demographicStruct);
-                XML.popTag();
+                XML->popTag();
                 ++currentElement;
             }
         }

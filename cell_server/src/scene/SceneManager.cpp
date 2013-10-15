@@ -11,19 +11,6 @@
 
 #include "TestApp.h"
 
-SceneManager::SceneManager()
-{
-
-}
-
-
-SceneManager::~SceneManager()
-{
-
-}
-
-
-
 void SceneManager::init()
 {
 	shader.load("shaders/TestShader");  //TestShader");

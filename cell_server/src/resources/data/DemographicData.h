@@ -8,9 +8,9 @@
 class DemographicData
 {
     public:
-        DemographicData(ofxXmlSettings XML);
-        virtual ~DemographicData();
-        void parseXML(ofxXmlSettings XML);
+        void setup(ofxXmlSettings *XML);
+        //virtual ~DemographicData();
+        void parseXML(ofxXmlSettings *XML);
 
         string name;
         ofColor debugColour;

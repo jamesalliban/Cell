@@ -30,6 +30,7 @@ public:
 	ResourceManager resourceManager;
 	SceneManager sceneManager;
 	KinectManager* kinectManager;
+	//KinectManager kinectManager;
 
 	MyGui* myGui;
 

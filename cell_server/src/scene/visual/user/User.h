@@ -34,9 +34,8 @@ struct Joint{
 class User : public ofNode
 {
     public:
-        User(int _userID);
-        virtual ~User();
 
+		void setup(int _userID);
         void update();
         void customDraw();
         void nonKinectUpdate();

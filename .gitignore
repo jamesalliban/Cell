@@ -7,8 +7,10 @@
 *.exe
 *.exp
 *.lib
-BiPolar_V2/ipch
-BiPolar_V2/obj
+cell_server/ipch
+cell_server/obj
+cell_client/ipch
+cell_client/obj
 
 .DS_Store
 .app
@@ -23,8 +25,10 @@ BiPolar_V2/obj
 *.exe
 *.exp
 *.lib
-BiPolar_V2/ipch
-BiPolar_V2/obj
+cell_server/ipch
+cell_server/obj
+cell_client/ipch
+cell_client/obj
 
 .DS_Store
 .app

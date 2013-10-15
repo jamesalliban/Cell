@@ -20,9 +20,6 @@
 class SceneManager
 {
 public:
-	SceneManager();
-	~SceneManager();
-
 	void init();
 	void update();
 	void draw();

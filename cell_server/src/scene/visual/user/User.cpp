@@ -2,7 +2,7 @@
 #include "TestApp.h"
 #include "UserManager.h"
 
-User::User(int _userID)
+void User::setup(int _userID)
 {
     userID              = _userID;
     clientID            = -1;
@@ -70,11 +70,6 @@ User::User(int _userID)
     {
         buildDebugSkeleton();
     }
-}
-
-User::~User()
-{
-    //dtor
 }
 
 

@@ -106,7 +106,7 @@ void TestApp::setup()
 
 void TestApp::update()
 {
-    if (isKinectAttached) kinectManager->update();
+    if (isKinectAttached) kinectManager->update(); // kinectManager->update();
 
     sceneManager.update();
 
@@ -137,6 +137,7 @@ void TestApp::draw()
         for (int i = 0; i < SKELETON_MAX; i++)
         {
             KinectSkeletonData* skeletonData = &kinectManager->trackedSkeletons[i];
+            //KinectSkeletonData* skeletonData = &kinectManager.trackedSkeletons[i];
             skeletonData->dwTrackingID = -1;
         }
         sceneManager.userManager.deactivateAllUsers();
@@ -168,7 +169,7 @@ void TestApp::keyPressed(int key)
     ///*
 	sceneManager.keyPressed(key);
 	//*/
-	if (isKinectAttached) kinectManager->keyPressed(key);
+	if (isKinectAttached) kinectManager->keyPressed(key);  // kinectManager->keyPressed(key);
 	///*
     myGui->keyPressed(key);
     //*/

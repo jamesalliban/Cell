@@ -11,17 +11,6 @@
 #include "TestApp.h"
 
 
-CloudTagManager::CloudTagManager()
-{
-}
-
-
-CloudTagManager::~CloudTagManager()
-{
-
-}
-
-
 void CloudTagManager::init(ofShader* shader)
 {
     TestApp* app = (TestApp*)ofGetAppPtr();
@@ -36,11 +25,11 @@ void CloudTagManager::init(ofShader* shader)
 	shadeBlendMix = 1.0;
 	shadeBlendMode = 0;// there are 10 diff. blend modes,
 
-
+	
+	int tagDataAmount = app->resourceManager.tagData.size();
 	for (int i = 0; i  < cloudTagAmount; i++)
 	{
-	    int tagDataAmount = app->resourceManager.tagData.size();
-	    TagData* tagData = app->resourceManager.tagData[i % tagDataAmount];
+	    TagData* tagData = &app->resourceManager.tagData[i % tagDataAmount];
 		CloudTag cloudTag;
 		cloudTag.init(shader, tagData, i);
 		cloudTags.push_back(cloudTag);

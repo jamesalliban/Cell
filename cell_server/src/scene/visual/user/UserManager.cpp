@@ -14,19 +14,6 @@ pass the user data to the new user and mute the old user
 */
 
 
-
-
-
-UserManager::UserManager()
-{
-}
-
-UserManager::~UserManager()
-{
-}
-
-
-
 void UserManager::init()
 {
     TestApp* app = (TestApp*)ofGetAppPtr();
@@ -43,7 +30,8 @@ void UserManager::init()
 
     for (int i = 0; i < SKELETON_MAX; i++)
     {
-        User* user = new User(i);
+        User user;
+		user.setup(i);
         users.push_back(user);
     }
 
@@ -51,10 +39,10 @@ void UserManager::init()
 
     if (!app->isKinectAttached)
     {
-        users[0]->isActive = true;
-        users[0]->demographic = app->resourceManager.getRandomDemographic();
-        users[1]->isActive = true;
-        users[1]->demographic = app->resourceManager.getRandomDemographic();
+        users[0].isActive = true;
+        users[0].demographic = app->resourceManager.getRandomDemographic();
+        users[1].isActive = true;
+        users[1].demographic = app->resourceManager.getRandomDemographic();
     }
 }
 
@@ -66,6 +54,7 @@ void UserManager::update()
     if (app->isKinectAttached)
     {
         if (app->kinectManager->hasSkeleton())
+        //if (app->kinectManager.hasSkeleton())
         {
             bool hasSkeletonBeenRemoved = haveSkeletonsBeenRemoved();
             bool hasSkeletonBeenAdded = checkIfSkeletonIsNew();
@@ -74,7 +63,7 @@ void UserManager::update()
 
             for (int i = 0; i < SKELETON_MAX; i++)
             {
-                User* user = users[i];
+                User* user = &users[i];
                 if (user->isActive)
                 {
                     //if (ofGetFrameNum() % 60 == 0) user->demographic = app->resourceManager.getRandomDemographic();
@@ -97,7 +86,7 @@ void UserManager::update()
         {
             for (int i = 0; i < SKELETON_MAX; i++)
             {
-                User* user = users[i];
+                User* user = &users[i];
                 if (user->isActive) user->deactivate();
             }
         }
@@ -108,7 +97,7 @@ void UserManager::update()
     {
         for (int i = 0; i < SKELETON_MAX; i++)
         {
-            User* user = users[i];
+            User* user = &users[i];
             user->nonKinectUpdate();
         }
     }
@@ -122,10 +111,11 @@ void UserManager::draw()
     if (app->isKinectAttached)
     {
         if (app->kinectManager->hasSkeleton())
+        //if (app->kinectManager.hasSkeleton())
         {
             for (int i = 0; i < SKELETON_MAX; i++)
             {
-                User* user = users[i];
+                User* user = &users[i];
                 if (user->isActive) user->customDraw();
             }
         }
@@ -135,7 +125,7 @@ void UserManager::draw()
     {
         for (int i = 0; i < 2; i++)
         {
-            User* user = users[i];
+            User* user = &users[i];
 
             user->nonKinectDraw();
         }
@@ -156,11 +146,11 @@ bool UserManager::haveSkeletonsBeenRemoved()
     bool hasOneOrMoreSkeletonsBeenRemoved = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop through users
     {
-        User* user = users[i];
+        User* user = &users[i];
         bool doesUserValueMatchSkeleton = false;
         for (int j = 0; j < SKELETON_MAX; j++) // loop through skeletons
         {
-            KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[j];
+            KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
 
             if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
             {
@@ -190,14 +180,14 @@ bool UserManager::checkIfSkeletonIsNew()
     bool isSkeletonCountChanged = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop though all skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
         bool isSkeletonAssignedToAUser = false;
         // if skeleton is active
         if (skeleton->dwTrackingID != -1)
         {
             for (int j = 0; j < SKELETON_MAX; j++) // loop through all users
             {
-                User* user = users[j];
+                User* user = &users[j];
                 // check if skeleton is already assigned to a user or is blank. If so, move on to the next skeleton
                 if (user->trackingID == skeleton->dwTrackingID)
                 {
@@ -217,7 +207,7 @@ bool UserManager::checkIfSkeletonIsNew()
             isSkeletonCountChanged = true;
             for (int j = 0; j < SKELETON_MAX; j++)
             {
-                User* user = users[j];
+                User* user = &users[j];
                 if (!user->isActive)
                 {
                     user->assignSkeleton(skeleton);
@@ -244,10 +234,10 @@ void UserManager::reassignSkeletonsIfNew()
 
     for (int i = 0; i < SKELETON_MAX; i++) // loop through skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
         for (int j = 0; j < SKELETON_MAX; j++) // loop through users
         {
-            User* user = users[j];
+            User* user = &users[j];
             if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
             {
                 //printfprintf("2");
@@ -263,7 +253,8 @@ void UserManager::deactivateAllUsers()
 {
     for (int i = 0; i < SKELETON_MAX; i++)
     {
-        users[i]->deactivate();
+        User* user = &users[i];
+        user->deactivate();
     }
 }
 
@@ -274,7 +265,7 @@ bool UserManager::isUserADuplicate(User* newUser)
     ofVec2f newUserAverage = newUser->getAveragePosition();
     for (int i = 0; i < (int)users.size(); i++)
     {
-        User* existingUser = users[i];
+        User* existingUser = &users[i];
         if (newUser->trackingID == existingUser->trackingID) continue;
 
         ofVec2f existingUserAverage = existingUser->getAveragePosition();

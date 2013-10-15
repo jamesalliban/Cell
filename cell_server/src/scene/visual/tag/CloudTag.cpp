@@ -35,7 +35,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
         if (userData.jointIndex >= 13 || userData.jointIndex >= 17) userData.lowerBodyAdd = 500; // knee
         if (userData.jointIndex >= 14 || userData.jointIndex >= 18) userData.lowerBodyAdd = 1000; // ankle
         if (userData.jointIndex >= 15 || userData.jointIndex >= 19) userData.lowerBodyAdd = 1000; // foot
-        userData.user = app->sceneManager.userManager.users[i];
+        userData.user = &app->sceneManager.userManager.users[i];
         userData.userPointOffset = ofVec3f(ofRandomf(), ofRandomf(), ofRandomf());
         userData.attraction = ofVec3f(0.0, 0.0, 0.0);
         userData.averageAttractionVec = ofVec3f(0.0, 0.0, 0.0);

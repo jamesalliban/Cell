@@ -10,9 +10,6 @@
 class UserManager
 {
     public:
-        UserManager();
-        virtual ~UserManager();
-
         void init();
         void update();
         void draw();
@@ -22,7 +19,7 @@ class UserManager
         void deactivateAllUsers();
         bool isUserADuplicate(User* newUser);
 
-        vector<User*> users;
+        vector<User> users;
         //UserBatchManager userBatchManager;
 
 

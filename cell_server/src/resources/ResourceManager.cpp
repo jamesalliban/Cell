@@ -1,15 +1,5 @@
 #include "ResourceManager.h"
 
-ResourceManager::ResourceManager()
-{
-    //ctor
-}
-
-ResourceManager::~ResourceManager()
-{
-    //dtor
-}
-
 
 void ResourceManager::init()
 {
@@ -18,11 +8,18 @@ void ResourceManager::init()
 	tagFont.setLetterSpacing(1.037);
 
     //if( XML.loadFile("xml/demographic_data.xml") ){
-    if( XML.loadFile("xml/demographic_data.xml") ){
-		printf("XML loaded! \n");
+    if( demographicXml.loadFile("xml/demographic_data.xml") ){
+		printf("Demographic XML loaded! \n");
 	}else{
-		printf("unable to load XML check data/ folder \n");
+		printf("unable to load Demographic XML check data/ folder \n");
 	}
+
+    if( tagXml.loadFile("xml/tag_data.xml") ){
+		printf("Tag XML loaded! \n");
+	}else{
+		printf("unable to load Tag XML check data/ folder \n");
+	}
+
 
 	parseXML();
 }
@@ -31,36 +28,34 @@ void ResourceManager::init()
 void ResourceManager::parseXML()
 {
     // build demographic vector
-    XML.pushTag("cell");
-    XML.pushTag("demographics");
-    demographicAmount = XML.getNumTags("demographic");
+    demographicXml.pushTag("demographics");
+    demographicAmount = demographicXml.getNumTags("demographic");
     printf("demographicAmount = %i\n", demographicAmount );
     for (int i = 0; i < demographicAmount; i++)
     {
-        XML.pushTag("demographic", i);
-        DemographicData* d = new DemographicData(XML);
+        demographicXml.pushTag("demographic", i);
+        DemographicData d;
+		d.setup(&demographicXml);
         demographicData.push_back(d);
-        printf("i: %i, name =  %s\n", i, d->name.c_str());
-        XML.popTag();
+        printf("i: %i, name =  %s\n", i, d.name.c_str());
+        demographicXml.popTag();
     }
-    XML.popTag();
-    XML.popTag();
+    demographicXml.popTag();
 	
      // build tag vector
-    XML.pushTag("cell");
-    XML.pushTag("tags");
-    int tagAmount = XML.getNumTags("tag");
+    tagXml.pushTag("tags");
+    int tagAmount = tagXml.getNumTags("tag");
    // tagAmount = 30;
     for (int i = 0; i < tagAmount; i++)
     {
-        XML.pushTag("tag", i);
-        TagData* t = new TagData(XML, demographicData);
+        tagXml.pushTag("tag", i);
+        TagData t;
+		t.setup(&tagXml, &demographicData);
         tagData.push_back(t);
-        printf("i:%i, word = %s\n", i, t->word.c_str());
-        XML.popTag();
+        printf("i:%i, word = %s\n", i, t.word.c_str());
+        tagXml.popTag();
     }
-    XML.popTag();
-    XML.popTag();
+    tagXml.popTag();
 }
 
 
@@ -68,5 +63,5 @@ void ResourceManager::parseXML()
 string ResourceManager::getRandomDemographic()
 {
     int randomDemographicIndex = (int)ofRandom(0, demographicAmount);
-    return demographicData[randomDemographicIndex]->name;
+    return demographicData[randomDemographicIndex].name;
 }

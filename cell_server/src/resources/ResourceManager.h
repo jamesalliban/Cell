@@ -10,21 +10,19 @@
 class ResourceManager
 {
 public:
-    ResourceManager();
-    virtual ~ResourceManager();
-
     void init();
     void parseXML();
     string getRandomDemographic();
 
 	ofTrueTypeFont  tagFont;
-	ofxXmlSettings XML;
+	ofxXmlSettings demographicXml;
+	ofxXmlSettings tagXml;
 
 	int demographicAmount;
 	int tagAmount;
 
-	vector<DemographicData*> demographicData;
-	vector<TagData*> tagData;
+	vector<DemographicData> demographicData;
+	vector<TagData> tagData;
 
 protected:
 private:
