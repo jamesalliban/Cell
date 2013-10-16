@@ -1,7 +1,7 @@
 <controls>
     <Toggle_Field_Lines_Visible>
         <name>Field Lines Visible</name>
-        <value>0</value>
+        <value>1</value>
     </Toggle_Field_Lines_Visible>
     <Toggle_Enabled>
         <name>Enabled</name>

@@ -13,14 +13,14 @@
     </SliderFloat_Speed_1>
     <SliderFloat_Area_size_1>
         <name>Area size 1</name>
-        <value>300.000000000</value>
+        <value>962.200012207</value>
     </SliderFloat_Area_size_1>
     <ColorPicker_Colours_1>
         <name>Colours 1</name>
-        <values_0>0.986000001</values_0>
-        <values_1>0.014000000</values_1>
-        <values_2>0.041999999</values_2>
-        <values_3>1.000000000</values_3>
+        <values_0>0.773999989</values_0>
+        <values_1>0.162000000</values_1>
+        <values_2>0.158000007</values_2>
+        <values_3>0.981999993</values_3>
     </ColorPicker_Colours_1>
     <Toggle_Enabled_2>
         <name>Enabled 2</name>
@@ -36,13 +36,13 @@
     </SliderFloat_Speed_2>
     <SliderFloat_Area_size_2>
         <name>Area size 2</name>
-        <value>300.000000000</value>
+        <value>973.000000000</value>
     </SliderFloat_Area_size_2>
     <ColorPicker_Colours>
         <name>Colours</name>
-        <values_0>0.000000000</values_0>
-        <values_1>0.953999996</values_1>
-        <values_2>0.000000000</values_2>
+        <values_0>0.342000008</values_0>
+        <values_1>0.574000001</values_1>
+        <values_2>0.254000008</values_2>
         <values_3>0.966000021</values_3>
     </ColorPicker_Colours>
     <Toggle_Enabled_3>
@@ -59,13 +59,13 @@
     </SliderFloat_Speed_3>
     <SliderFloat_Area_size_3>
         <name>Area size 3</name>
-        <value>388.000000000</value>
+        <value>978.400024414</value>
     </SliderFloat_Area_size_3>
     <ColorPicker_Colours_3>
         <name>Colours 3</name>
-        <values_0>0.000000000</values_0>
-        <values_1>0.000000000</values_1>
-        <values_2>0.944000006</values_2>
+        <values_0>0.172000006</values_0>
+        <values_1>0.244000003</values_1>
+        <values_2>0.663999975</values_2>
         <values_3>0.944000006</values_3>
     </ColorPicker_Colours_3>
 </controls>

@@ -54,7 +54,7 @@ ofVec3f FieldColour::getColourOffset(ofVec3f* position)
     if (lengthSquared < lengthSquaredMin)
     {
         float normDist = (-(lengthSquared / lengthSquaredMin) + 1);
-        return ofVec3f((colours[0] - 1.0) * normDist, (colours[1] - 1.0) * normDist, (colours[2] - 1.0) * normDist);
+		return ofVec3f((colours[0] - 1.0) * normDist, (colours[1] - 1.0) * normDist, (colours[2] - 1.0) * normDist);
     }
     else
     {

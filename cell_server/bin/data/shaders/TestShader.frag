@@ -5,6 +5,9 @@ varying vec3 vertex_light_position;
 varying vec3 norm;
 uniform float contrast;
 uniform float brightness;
+uniform float red;
+uniform float green;
+uniform float blue;
 uniform float alpha;
 
 void main(void) {
@@ -19,6 +22,9 @@ void main(void) {
     baseColor.rgb       *= contrast;
     baseColor.rgb       += brightness;
     baseColor           *= alpha;
+	baseColor.r			+= red;
+	baseColor.g			+= green;
+	baseColor.b			+= blue;
 
 	gl_FragColor	    =	baseColor;
 }
