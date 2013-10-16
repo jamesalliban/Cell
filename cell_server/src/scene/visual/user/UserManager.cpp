@@ -98,6 +98,8 @@ void UserManager::update()
         for (int i = 0; i < SKELETON_MAX; i++)
         {
             User* user = &users[i];
+			//if (user->isActive)
+				//printf("- user %i is active\n", i);
             user->nonKinectUpdate();
         }
     }

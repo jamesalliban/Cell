@@ -25,6 +25,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	tagData = tData;
 	id = _id;
 
+	// create a TrackedUserData object for each User that tells this tag how to react to said user
 	for (int i = 0; i < SKELETON_MAX; i++)
 	{
         TrackedUserData userData;
@@ -61,8 +62,8 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	noiseStartAdd = ofRandom(0, 10000);
 
 	float tagSize =  ofRandom(0.2, 0.5);
-	float tagWidth = ((float)tagData->tagImg.width / 40.0f) * tagSize;
-	float tagHeight = ((float)tagData->tagImg.height / 40.0f) * tagSize;
+	float tagWidth = ((float)tagData->fbo.getWidth() / 40.0f) * tagSize;
+	float tagHeight = ((float)tagData->fbo.getHeight() / 40.0f) * tagSize;
 
 	tagW = tagWidth;
 
@@ -73,9 +74,9 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 
 	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagData->tagImg.width, 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagData->tagImg.width, tagData->tagImg.height));
-	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagData->tagImg.height));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->fbo.getWidth(), 0.0f));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->fbo.getWidth(), tagData->fbo.getHeight()));
+	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagData->fbo.getHeight()));
 
 //	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
 //	tagPlaneMesh.addTexCoord(ofVec2f(160.0f / 256.0f, 0.0f));
@@ -108,6 +109,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 void CloudTag::update()
 {
+
     scaleOffset = 1.0;
 
     mappedBourdaryW = ofMap(position.z, cloudTagMan->boundaryD, -cloudTagMan->boundaryD, cloudTagMan->boundaryWFront, cloudTagMan->boundaryW);
@@ -131,8 +133,6 @@ void CloudTag::update()
         TrackedUserData* userData = &userDataObjects[i] ;
         if (!userData->isActive)
         {
-
-
             position -= userData->averageAttractionVec;
             userData->averageAttractionVec *= 0.95;
         }
@@ -191,25 +191,28 @@ void CloudTag::performAmbientMotion()
 
 void CloudTag::performUserAttraction()
 {
-    // loop through all users to see if they are close enough to attach
+	// loop through all users to see if they are close enough to attach
 	for (int i = 0; i < SKELETON_MAX; i++)
 	{
+		//printf("performUserAttraction() - i:%i\n", i);
         TrackedUserData* userData = &userDataObjects[i];
 
         if (userData->user->isActive)
         {
+			float demographicStrength = getDemographicStrength(userData);
+			if (demographicStrength == 0.0) return;
+			
             // calculate user point - between jointIndex + jointIndex2
             userData->userPoint = userData->user->jointPositions[userData->jointIndex].getInterpolated(userData->user->jointPositions[userData->joint2Index], userData->jointOffset);
             userData->userPoint += userData->userPointOffset;
-
 
             ofVec3f length = position - userData->userPoint;
             userData->lengthSquared = length.lengthSquared();
             float lengthSquaredMin = cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd;
 
-            float demographicStrength = getDemographicStrength(userData);
-            if (userData->lengthSquared < lengthSquaredMin && demographicStrength != 0)
+            if (userData->lengthSquared < lengthSquaredMin)
             {
+				// if connection is new, start keeping track of the time since connection was made. Used for line alpha (and maybe more???)
                 if (userData->isActive == false)
                 {
                     userData->millisBecameActive = ofGetElapsedTimeMillis();

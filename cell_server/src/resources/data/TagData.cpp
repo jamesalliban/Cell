@@ -47,12 +47,9 @@ void TagData::setup(ofxXmlSettings *XML, vector<DemographicData> *demographicDat
 	fbo.end();
 	glEnable(GL_DEPTH_TEST);
 
-}
+	tagImg.clear();
 
-//TagData::~TagData()
-//{
-//    //dtor
-//}
+}
 
 
 void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographicData)
@@ -64,7 +61,7 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
     int currentElement = 0;
     // loop through all the demographics in the tag XML
     int numDemoTags = XML->getNumTags("demographic");
-    for (int i; i < numDemoTags; i++)
+    for (int i = 0; i < numDemoTags; i++)
     {
         Demographic demographicStruct;
 
@@ -72,17 +69,13 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
         for (int j = 0; j < (int)demographicData->size(); j++)
         {
             DemographicData* dData = &demographicData->at(j);
-            int comparison = XML->getAttribute("demographic", "id", "", i).compare(dData->name);
 
-            //printf("  %s  compared with %s = %i \n", dData->name.c_str(), XML.getAttribute("demographic", "id", "", i).c_str(), comparison);
-			
-            //if (comparison == 0)
-            if (XML->getAttribute("demographic", "id", "", i) == dData->name)
+			if (XML->getAttribute("demographic", "id", "", i).c_str() == dData->name)
             {
                 demographicStruct.demographicData = dData;
                 XML->pushTag("demographic", currentElement);
                 demographicStruct.strength = XML->getValue("strength", 0.0);
-                printf("  - word = %s, strength = %f \n", dData->name.c_str(), demographicStruct.strength);
+				//printf("  - word = %s, demographic:%s strength = %f \n", dData->name.c_str(), dData->name.c_str(), demographicStruct.strength);
                 demographics.push_back(demographicStruct);
                 XML->popTag();
                 ++currentElement;

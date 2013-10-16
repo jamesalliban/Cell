@@ -105,12 +105,6 @@ void User::update()
     jointPositions[CELL_FOOT_RIGHT] = skeleton->skeletonPositions[CELL_FOOT_RIGHT];
 
 
-	for (int i = 0; i < (int)jointPositions.size(); i++)
-    {
-
-	}
-	
-
     for (int i = 0; i < (int)jointPositions.size(); i++)
     {
         //jointPositions[i].z *= (clientID == 0 || clientID == 1) ? -1 : 1;
@@ -168,7 +162,7 @@ void User::customDraw()
         debugDraw();
     else
         nonKinectDraw();
-    //nonKinectDraw();
+
 }
 
 
@@ -358,6 +352,7 @@ void User::assignIDs(int _clientID, int _skeletonID)
 
 void User::deactivate()
 {
+	printf("User::deactivate() frame number = %i \n", ofGetFrameNum());
     skeleton = NULL;
     clientID = -1;
     trackingID = -1;

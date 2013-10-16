@@ -35,6 +35,8 @@ void CloudTagManager::init(ofShader* shader)
 		cloudTags.push_back(cloudTag);
 	}
 
+
+
 	tempUser = ofVec3f(0, 0, 0);
 }
 

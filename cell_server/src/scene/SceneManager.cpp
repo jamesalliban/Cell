@@ -16,11 +16,8 @@ void SceneManager::init()
 	shader.load("shaders/TestShader");  //TestShader");
 
 	userManager.init();
-	printf("userManager inited \n");
 	fieldMan.init();
-	printf("fieldMan inited \n");
 	cloudTagMan.init(&shader);
-	printf("cloudTagMan inited \n");
 
 	isCamMouseInput = false;
 	isCamMouseInputPaused = false;
@@ -56,7 +53,8 @@ void SceneManager::setupViewports()
 void SceneManager::update()
 {
     //camEasyCam.setFov(fov);
-    userManager.update();
+
+	 userManager.update();
     fieldMan.update();
     cloudTagMan.update();
 

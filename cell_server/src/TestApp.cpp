@@ -6,13 +6,17 @@
 
  Optimisation
  ------------
- - Reduce amount of images loaded. Currently it is 1 for each tag. This should be one per image.
  - Use power of 2 for tag texturing
-
+ - CloudTag::performUserAttraction() - interpolates joint is calculated each frame for each tag - this should be done once per user per tag on startup
 
 TASKS
 -----
 
+
+
+
+
+// OLD BUT STILL NEED TO INVESTIGATE
 - ******* once user is removed (or are too far from tag) animate the tag towards the cloud faster.
 - ******* allow for a greater leangthSquaredMin when the joint is below the waist
 - ******* Add tags to random points between joints
@@ -83,7 +87,7 @@ void TestApp::setup()
 	ofEnableAlphaBlending();
 	glEnable(GL_DEPTH_TEST);
 
-	isKinectAttached = true;
+	isKinectAttached = false;
 
 	if (isKinectAttached)
 	{
@@ -137,10 +141,11 @@ void TestApp::draw()
         for (int i = 0; i < SKELETON_MAX; i++)
         {
             KinectSkeletonData* skeletonData = &kinectManager->trackedSkeletons[i];
-            //KinectSkeletonData* skeletonData = &kinectManager.trackedSkeletons[i];
-            skeletonData->dwTrackingID = -1;
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////// NOTE: This is crashing - why? and why is it used
+            //skeletonData->dwTrackingID = -1;
         }
-        sceneManager.userManager.deactivateAllUsers();
+        //sceneManager.userManager.deactivateAllUsers();
         sceneManager.isUpdateVars = true;
         isFirstFrame = false;
     }
@@ -157,6 +162,9 @@ void TestApp::draw()
     myGui->draw();
 
     //*/
+
+	//ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+	//ofCircle(400, 400, 100, 100);
 }
 
 
@@ -174,7 +182,8 @@ void TestApp::keyPressed(int key)
     myGui->keyPressed(key);
     //*/
 
-
+	if (key == 'f')
+		ofToggleFullscreen();
 
 }
 

@@ -846,7 +846,7 @@
 				<strength>0.5</strength>
 			</demographic>			
 		</tag>
-		<tag>
+		<!--tag>
 			<word>witchcraft</word>
 			<demographic id="MAISIE">
 				<strength>0.5</strength>
@@ -2039,7 +2039,7 @@
 			<demographic id="ARTO">
 				<strength>0.5</strength>
 			</demographic>		
-		</tag>	
+		</tag-->	
 		
 	</tags>
 			

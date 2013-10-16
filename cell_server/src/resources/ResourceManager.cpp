@@ -49,10 +49,10 @@ void ResourceManager::parseXML()
     for (int i = 0; i < tagAmount; i++)
     {
         tagXml.pushTag("tag", i);
+        printf("i:%i, word = %s\n", i, tagXml.getValue("word", "").c_str());
         TagData t;
 		t.setup(&tagXml, &demographicData);
         tagData.push_back(t);
-        printf("i:%i, word = %s\n", i, t.word.c_str());
         tagXml.popTag();
     }
     tagXml.popTag();
@@ -63,5 +63,4 @@ void ResourceManager::parseXML()
 string ResourceManager::getRandomDemographic()
 {
     int randomDemographicIndex = (int)ofRandom(0, demographicAmount);
-    return demographicData[randomDemographicIndex].name;
-}
+    return demographicData[randomDem
