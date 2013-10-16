@@ -13,19 +13,19 @@
     </SliderFloat_Line_Contrast_max>
     <SliderFloat_Line_Brightness_min>
         <name>Line Brightness min</name>
-        <value>0.476000011</value>
+        <value>0.187999964</value>
     </SliderFloat_Line_Brightness_min>
     <SliderFloat_Line_Brightness_max>
         <name>Line Brightness max</name>
-        <value>1.000000000</value>
+        <value>0.972000003</value>
     </SliderFloat_Line_Brightness_max>
     <SliderFloat_Line_Alpha_min>
         <name>Line Alpha min</name>
-        <value>0.444000006</value>
+        <value>0.131999969</value>
     </SliderFloat_Line_Alpha_min>
     <SliderFloat_Line_Alpha_max>
         <name>Line Alpha max</name>
-        <value>0.804000020</value>
+        <value>0.603999972</value>
     </SliderFloat_Line_Alpha_max>
     <SliderInt_Line_Length_Squared_Min>
         <name>Line Length Squared Min</name>
@@ -53,6 +53,6 @@
     </SliderFloat_Line_Thickness>
     <SliderFloat_Init_line_fade>
         <name>Init line fade</name>
-        <value>0.000000000</value>
+        <value>0.500000000</value>
     </SliderFloat_Init_line_fade>
 </controls>

@@ -155,8 +155,8 @@ void CloudTag::update()
 
 void CloudTag::customDraw()
 {
-    if (cloudTagMan->areTagsEnabled) drawTags();
     if (cloudTagMan->areLinesEnabled) drawLines();
+    if (cloudTagMan->areTagsEnabled) drawTags();
 }
 
 
@@ -447,8 +447,8 @@ void CloudTag::drawLines()
 
 
 //            ofLine(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z, userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
-
-            glColor4f(1.0f, 1.0f, 1.0f, (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));// mappedDistance);
+			
+            glColor4f(1.0f, 1.0f, 1.0f, (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
             ofSetLineWidth(cloudTagMan->lineThickness);
             glBegin(GL_LINES);
                 glVertex3f(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z);
