@@ -11,8 +11,17 @@
 
 TASKS
 -----
-
-
+ - Bring back tag tie colour
+ - Update Cell_Client projects to OF 0.8.0
+ - Sort Cloud Tags based on z depth
+ - Dynamically create tags instead of loading images
+ - Load Chinese characters
+ - Improve no-kinect debuggin system
+   - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
+   - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
+ - Add a series of keyboard shortcuts
+ - Swap UI for ofxUI
+ - Where are the colour fields???
 
 
 

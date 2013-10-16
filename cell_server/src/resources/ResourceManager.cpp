@@ -63,4 +63,5 @@ void ResourceManager::parseXML()
 string ResourceManager::getRandomDemographic()
 {
     int randomDemographicIndex = (int)ofRandom(0, demographicAmount);
-    return demographicData[randomDem
+    return demographicData[randomDemographicIndex].name;
+}
