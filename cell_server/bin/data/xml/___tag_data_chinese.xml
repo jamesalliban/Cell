@@ -1,0 +1,2046 @@
+﻿<?xml version = "1.0"encoding = "utf-8"?>
+
+<tags>
+	<tag>
+		<word>鋈 韣顪飋</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>鸙讟钃 垞姳 踛輣</word>
+		<demographic id="BUD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.9</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>輗 塛嫆嫊 熩熝犚</word>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>雥齆犪</word>
+		<demographic id="BUD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>撖撱暲 踾踶輵 觾韄鷡 硻禂 誙</word>
+		<demographic id="BUD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.7</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>榳榓 嗂 耇胇赲</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>獛獡獚 灡蠵</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+
+	<tag>
+		<word>讔 沀皯竻 禖 鶷</word>
+		<demographic id="BUD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.9</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>鷇痻 嶴憝 縓罃蔾</word>
+		<demographic id="BUD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+
+	<tag>
+		<word>鼥儴壛 舿萐菿</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>瀗犡礝 嗛嗕塨 蟼襛</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>獌 鳱儇嘽</word>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>瘑睯碫 汫汭沎 笊罞 槏</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>
+
+	<!--tag>
+		<word>blazing saddles</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+
+	<tag>
+		<word>white trash</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>
+
+	<tag>
+		<word>cage fighting</word>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>
+
+	<tag>
+		<word>brutal</word>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+
+	<tag>
+		<word>wrestling</word>
+		<demographic id="BUD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+
+	<tag>
+		<word>wasted</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>			
+	</tag>
+
+	<tag>
+		<word>loud</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>
+
+	<tag>
+		<word>lazy</word>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>
+
+	<tag>
+		<word>six-pack</word>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>
+
+	<tag>
+		<word>kickin' back</word>
+		<demographic id="BUD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>horsepower</word>
+		<demographic id="BUD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>couch potato</word>
+		<demographic id="BUD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>inarticulate</word>
+		<demographic id="BUD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>laid-back</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>reserved</word>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>sincere</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>motivation</word>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>fear of pegs</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>exercise</word>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>old-fashioned</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>optimist</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>sensitive</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>teeth whitener</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>faithful</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>weekend</word>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>slacks</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>trying new things</word>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>golf buddies</word>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>groundhog day</word>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>fun and interesting</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>mr. right</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>where everybody knows your name</word>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.2</strength>
+		</demographic>	
+	</tag>
+	<tag>
+		<word>stand-up</word>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>labrador</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>missionary</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>long-term</word>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>benny hill</word>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>conservative</word>
+		<demographic id="TODD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>university</word>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>pageantry</word>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>shining armour</word>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>prince</word>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>
+	<tag>
+		<word>valiant</word>
+		<demographic id="TODD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>corset</word>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>	
+	</tag>
+	<tag>
+		<word>obsessed</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>menace to society</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>unnaturally high tolerance to alcohol</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>oral</word>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>chains</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>doggy</word>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>psi-trance</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>curvy</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>nerdy</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>the matrix</word>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>bored</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>lame</word>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>atheist</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>cynical</word>
+		<demographic id="MAISIE">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>masochist</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>on the first date</word>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>ridiculous</word>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>neon</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>
+	<tag>
+		<word>scented candles</word>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>jaded</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>witchcraft</word>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>hair dye</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>leather</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>curly</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>PVC</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>beads</word>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>alien</word>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>UFO</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>intelligent life</word>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>crafts</word>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.2</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>challenges</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>perfect</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>kittens</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>volunteer</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>skin</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>church</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>pleats</word>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>courgette</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>hula</word>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>S&amp;M</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>smiley</word>
+		<demographic id="POPPET">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>marigolds</word>
+		<demographic id="POPPET">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>meat-eater</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>inner-beauty</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>pink</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>university</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>love</word>
+		<demographic id="POPPET">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>			
+	</tag>
+	<tag>
+		<word>pom-poms</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>knitting</word>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>daytime TV</word>
+		<demographic id="POPPET">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>tea party</word>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>love kids</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>play</word>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.7</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>victorian</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>art deco</word>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>flowers</word>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.7</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>frank zappa</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>noodle</word>
+		<demographic id="ARTO">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>bubbly</word>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>monochrome</word>
+		<demographic id="ARTO">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>taurus</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="XXX">
+			<strength>0.5</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>thick rimmed glasses</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>muso</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>graduate</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>film noir</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>hipster</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>bubbly</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>skinny jeans</word>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>silly hats</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>cubism</word>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>design</word>
+		<demographic id="ARTO">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>clean lines</word>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>minimal</word>
+		<demographic id="ARTO">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>sharp</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>jazz</word>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>freeform</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>neat</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>turtle-neck</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>			
+	</tag>	
+	<tag>
+		<word>urban</word>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>hubbub</word>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>retreat</word>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>efficient</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.2</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>chrome</word>
+		<demographic id="ARTO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>bauhaus</word>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>
+	</tag>	
+	<tag>
+		<word>pipe&amp;slippers</word>
+		<demographic id="ISOMBARD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>pyjamas</word>
+		<demographic id="ISOMBARD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>comfy</word>
+		<demographic id="ISOMBARD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>brown</word>
+		<demographic id="ISOMBARD">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>cuddle</word>
+		<demographic id="ISOMBARD">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>schoolyard</word>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>stalker</word>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>cheeky monkey</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>tall dark and handsome</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>spandex</word>
+		<demographic id="MARCO">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>fishnet</word>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>stallion</word>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+	</tag>	
+	<tag>
+		<word>implants</word>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>sensuous</word>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>creative</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>magnetism</word>
+		<demographic id="MARCO">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.5</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>silk</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>gel</word>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>education</word>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>random</word>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>abject indolence</word>
+		<demographic id="ISOMBARD">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>deep shag</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>furries</word>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>narcoleptic</word>
+		<demographic id="ISOMBARD">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>penchant for adventure</word>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.2</strength>
+		</demographic>		
+	</tag>
+	<tag>
+		<word>celebrity</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>wine and dine</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>fake tan</word>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.3</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>soul food</word>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>smooth</word>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>	
+	</tag>	
+	<tag>
+		<word>friday</word>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="LYNDSAY">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>don't do quitting</word>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>work</word>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>5 a day</word>
+		<demographic id="LYNDSAY">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>bifidus digestivum</word>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.6</strength>
+		</demographic>			
+	</tag>	
+	<tag>
+		<word>outgoing</word>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>badminton</word>
+		<demographic id="LYNDSAY">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ISOMBARD">
+			<strength>0.3</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>friends&amp;family</word>
+		<demographic id="LYNDSAY">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.6</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>excursive</word>
+		<demographic id="LYNDSAY">
+			<strength>0.5</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.4</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>self-confidence</word>
+		<demographic id="LYNDSAY">
+			<strength>0.9</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.8</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>motivational</word>
+		<demographic id="LYNDSAY">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="POPPET">
+			<strength>0.3</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>boswelox</word>
+		<demographic id="LYNDSAY">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.6</strength>
+		</demographic>		
+	</tag>	
+	<tag>
+		<word>picky</word>
+		<demographic id="LYNDSAY">
+			<strength>0.7</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.4</strength>
+		</demographic>
+		<demographic id="ARTO">
+			<strength>0.5</strength>
+		</demographic>		
+	</tag-->	
+	
+</tags>
+		

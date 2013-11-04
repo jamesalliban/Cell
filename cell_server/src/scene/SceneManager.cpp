@@ -26,6 +26,7 @@ void SceneManager::init()
 	//camEasyCam.setTarget(cloudTagMan);
 	camEasyCam.setDistance(100);
 	camEasyCam.disableMouseInput();
+	camEasyCam.setNearClip(0);
 
 	setupViewports();
 

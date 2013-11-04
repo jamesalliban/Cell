@@ -8,6 +8,7 @@
  ------------
  - Use power of 2 for tag texturing
  - CloudTag::performUserAttraction() - interpolates joint is calculated each frame for each tag - this should be done once per user per tag on startup
+ - Go through each class and only import the necessary classes
 
 TASKS
 -----
@@ -15,12 +16,11 @@ TASKS
  - Sort Cloud Tags based on z depth
  - Dynamically create tags instead of loading images
  - Load Chinese characters
- - Improve no-kinect debuggin system
+ - Improve no-kinect debugging system
    - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
    - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
  - Add a series of keyboard shortcuts
  - Swap UI for ofxUI
- - - - - - - - - - - Where are the colour fields???
 
 
 
@@ -81,8 +81,7 @@ Keyboard shortcuts
  */
 
 void TestApp::setup()
-{
-	
+{	
     //ofDisableArbTex();
 	//ofEnableArbTex();
     //ofSetFrameRate(60);
@@ -112,15 +111,18 @@ void TestApp::setup()
     //*/
 
     isFirstFrame = false;
+	isPaused = false;
 }
 
 
 
 void TestApp::update()
 {
-    if (isKinectAttached) kinectManager->update(); // kinectManager->update();
-
-    sceneManager.update();
+	if (!isPaused)
+	{
+		if (isKinectAttached) kinectManager->update(); // kinectManager->update();
+		sceneManager.update();
+	}
 
     framesSinceMouseMove++;
     if (framesSinceMouseMove > 100)
@@ -192,6 +194,8 @@ void TestApp::keyPressed(int key)
 
 	if (key == 'f')
 		ofToggleFullscreen();
+	else if (key == 'p')
+		isPaused = !isPaused;
 
 }
 

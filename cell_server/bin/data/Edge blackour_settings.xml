@@ -1,7 +1,7 @@
 <controls>
     <SliderInt_height>
         <name>height</name>
-        <value>53</value>
+        <value>1</value>
     </SliderInt_height>
     <SliderInt_bottom>
         <name>bottom</name>
@@ -9,7 +9,7 @@
     </SliderInt_bottom>
     <SliderInt_left>
         <name>left</name>
-        <value>7</value>
+        <value>1</value>
     </SliderInt_left>
     <SliderInt_right>
         <name>right</name>

@@ -43,6 +43,8 @@ public:
 	bool isFirstFrame;
 
 	bool isKinectAttached;
+
+	bool isPaused;
 };
 
 #endif

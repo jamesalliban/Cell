@@ -62,8 +62,8 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	noiseStartAdd = ofRandom(0, 10000);
 
 	float tagSize =  ofRandom(0.2, 0.5);
-	float tagWidth = ((float)tagData->fbo.getWidth() / 40.0f) * tagSize;
-	float tagHeight = ((float)tagData->fbo.getHeight() / 40.0f) * tagSize;
+	float tagWidth = ((float)tagData->width / 40.0f) * tagSize;
+	float tagHeight = ((float)tagData->height / 40.0f) * tagSize;
 
 	tagW = tagWidth;
 
@@ -74,9 +74,9 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 
 	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagData->fbo.getWidth(), 0.0f));
-	tagPlaneMesh.addTexCoord(ofVec2f(tagData->fbo.getWidth(), tagData->fbo.getHeight()));
-	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagData->fbo.getHeight()));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->width, 0.0f));
+	tagPlaneMesh.addTexCoord(ofVec2f(tagData->width, tagData->height));
+	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, tagData->height));
 
 //	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 0.0f));
 //	tagPlaneMesh.addTexCoord(ofVec2f(160.0f / 256.0f, 0.0f));
@@ -366,7 +366,7 @@ void CloudTag::drawTags()
 	shader->setUniform1f("green", colourOffset.y);
 	shader->setUniform1f("blue", colourOffset.z);
 	shader->setUniform1f("alpha", mappedAlpha);
-	shader->setUniformTexture("baseMap", tagData->fbo.getTextureReference(), 0);
+	shader->setUniformTexture("baseMap", tagData->alphaFbo.getTextureReference(), 0);
 
 
     int div = 500;

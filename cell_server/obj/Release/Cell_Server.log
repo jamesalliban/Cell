@@ -1,4 +1,4 @@
-﻿  CloudTag.cpp
+﻿  ResourceManager.cpp
 C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
           with
           [
@@ -23,7 +23,6 @@ C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(144
               _Elem=char,
               _Traits=std::char_traits<char>
           ]
-c:\installcell\of_v0.8.0_vs_release\apps\cell\cell_server\src\scene\visual\tag\cloudtag.cpp(579): warning C4715: 'CloudTag::getSecondJointIndex' : not all control paths return a value
      Creating library bin\Cell_Server.lib and object bin\Cell_Server.exp
   LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
   Cell_Server.vcxproj -> C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\bin\Cell_Server.exe

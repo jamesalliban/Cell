@@ -1,39 +1,65 @@
-#include "TagData.h"
+﻿#include "TagData.h"
 #include "TestApp.h"
 
-void TagData::setup(ofxXmlSettings *XML, vector<DemographicData> *demographicData)
+#ifdef CHINESE_CELL
+void TagData::setup(ofxXmlSettings *XML, ofxFontStash *tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader)
+#else
+void TagData::setup(ofxXmlSettings *XML, ofTrueTypeFont *tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader)
+#endif
 {
+	doesTextContainAscender = doesTextContainDescender = false;
+
     parseXML(XML, demographicData);
-    loadImage();
-
-
-
-
-
-
+    
 	TestApp* app = (TestApp*)ofGetAppPtr();
-    ofTrueTypeFont* font = &app->resourceManager.tagFont;
 
+	ofRectangle textBoundingBox;
+	
+	float ascDescAdd = 0.25;
+	float bordertoHeightRatio = 0.35;
+
+	//tagFont->setLineHeight(1.0);
+#ifdef CHINESE_CELL
+	textBoundingBox = tagFont->getBBox(word, 0, 0, 72);
+#else
+	textBoundingBox = tagFont->getStringBoundingBox(word, 0, 0);
+#endif
+	height = textBoundingBox.height;
+	float heightAscDescAdd = height * ascDescAdd;
+	float border = height * bordertoHeightRatio;
+	height += border * 2;
+	width = textBoundingBox.width + border * 2;
 
     blendMode = OF_BLENDMODE_ALPHA;
 
     ofFbo::Settings settings;
-    settings.width = tagImg.width;
-    settings.height = tagImg.height;
+    settings.width = width;
+    settings.height = height;
     settings.internalformat = GL_RGBA;
-    //settings.textureTarget = GL_TEXTURE_2D;
     fbo.allocate(settings);
-    //fbo.allocate(160, 40, GL_RGBA);
-
-    typeStr = (ofRandomuf() < 0.5) ? "ABCD" : "1234";
-
+	alphaFbo.allocate(settings);
 
 	glDisable(GL_DEPTH_TEST);
 
 	fbo.begin();
 		ofClear(0, 0, 0, 1); // we clear the fbo.
 
-		tagImg.draw(0, 0);
+		ofSetColor(255);
+		ofRect(0, 0, width, height);
+		
+		ofSetColor(0);
+
+#ifdef CHINESE_CELL
+		//tagFont->drawString(word, 20, 80);  //"汉字漢字 頠餈 溿煔煃 鱙鷭黂 \n"
+		tagFont->drawMultiLine(word, 32, 10, 50);
+#else
+		float x = border;
+		float y = height - ((doesTextContainDescender) ? heightAscDescAdd : 0) - border;
+		ofPushMatrix();
+		ofTranslate(x, y);
+		tagFont->drawString(word, 0, 0);
+		ofPopMatrix();
+#endif
 
 //		ofSetColor(255, 255, 255, 255);
 //		ofRect(0, 0, 160, 40);
@@ -45,10 +71,15 @@ void TagData::setup(ofxXmlSettings *XML, vector<DemographicData> *demographicDat
 //        //ofDisableBlendMode();
 
 	fbo.end();
-	glEnable(GL_DEPTH_TEST);
 
-	tagImg.clear();
-
+	alphaFbo.begin();
+	ofClear(0, 0, 0, 1);
+	blackToAlphaShader->begin();
+	fbo.draw(0, 0);
+	blackToAlphaShader->end();
+	alphaFbo.end();
+	
+	fbo.getTextureReference().clear();
 }
 
 
@@ -56,8 +87,12 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
 {
     // set word
     word = XML->getValue("word", "");
-    //printf("- tag = %s\n",  word.c_str());
-
+#ifndef CHINESE_CELL
+	for (int i = 0; i < word.size(); i++)
+	{
+		checkCharHeight(word[i]);
+	}
+#endif
     int currentElement = 0;
     // loop through all the demographics in the tag XML
     int numDemoTags = XML->getNumTags("demographic");
@@ -86,38 +121,42 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
 
 
 
-void TagData::loadImage()
+void TagData::checkCharHeight(char letter)
 {
-    tagImg.loadImage("images/tags/" + word + ".png");
+	if (letter == 'b' ||
+		letter == 'd' ||
+		letter == 'f' ||
+		letter == 'h' ||
+		letter == 'i' ||
+		letter == 'j' ||
+		letter == 'k' ||
+		letter == 'l' ||
+		letter == 't' ||
+		((int)letter > 32 && (int)letter < 91))
+	{
+		doesTextContainAscender = true;
+	}
+	
+	if (letter == 'g' ||
+		letter == 'j' ||
+		letter == 'p' ||
+		letter == 'q' ||
+		letter == 'y')
+	{
+		doesTextContainDescender = true;
+	}
 }
 
 
 
-
-
-
-void TagData::bind()
-{
-	fbo.getTextureReference(0).bind();
-}
-
-
-
-void TagData::unbind()
-{
-	fbo.getTextureReference(0).unbind();
-}
-
-
-
-void TagData::testDraw()
-{
-    TestApp* app = (TestApp*)ofGetAppPtr();
-    ofTrueTypeFont* font = &app->resourceManager.tagFont;
-
-	ofSetColor(255, 0, 0, 255);
-	font->drawString(typeStr, 650, 650);
-	ofSetColor(255, 255, 255, 255);
-	fbo.draw(500, 650);
-}
-
+//void TagData::testDraw()
+//{
+//    TestApp* app = (TestApp*)ofGetAppPtr();
+//    ofTrueTypeFont* font = &app->resourceManager.tagFont;
+//
+//	ofSetColor(255, 0, 0, 255);
+//	font->drawString(typeStr, 650, 650);
+//	ofSetColor(255, 255, 255, 255);
+//	fbo.draw(500, 650);
+//}
+//

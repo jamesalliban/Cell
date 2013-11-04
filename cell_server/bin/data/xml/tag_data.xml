@@ -1642,7 +1642,7 @@
 			</demographic>	
 		</tag>	
 		<tag>
-			<word>tall, dark, and handsome</word>
+			<word>tall dark and handsome</word>
 			<demographic id="MARCO">
 				<strength>0.8</strength>
 			</demographic>
