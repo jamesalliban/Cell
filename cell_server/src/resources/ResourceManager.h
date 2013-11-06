@@ -1,5 +1,4 @@
-#ifndef RESOURCEMANAGER_H
-#define RESOURCEMANAGER_H
+#pragma once
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
@@ -7,7 +6,7 @@
 #include "DemographicData.h"
 #include "TagData.h"
 
-#define CHINESE_CELL
+#include "CellGlobals.h"
 
 
 #ifdef CHINESE_CELL
@@ -26,10 +25,10 @@ public:
 	ofXml chineseXML;
 #else
 	ofTrueTypeFont  tagFont;
+	ofxXmlSettings tagXml;
 #endif
 
 	ofxXmlSettings demographicXml;
-	ofxXmlSettings tagXml;
 
 	int demographicAmount;
 	int tagAmount;
@@ -43,5 +42,3 @@ protected:
 private:
 
 };
-
-#endif // RESOURCEMANAGER_H

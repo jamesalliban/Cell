@@ -29,7 +29,7 @@
     </SliderFloat_FOV>
     <Toggle_Mouse_input>
         <name>Mouse input</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_Mouse_input>
     <SliderFloat_Mouse_input_smooth>
         <name>Mouse input smooth</name>

@@ -1,4 +1,4 @@
-﻿#include "TestApp.h"
+#include "TestApp.h"
 
 /*
 
@@ -6,16 +6,15 @@
 
  Optimisation
  ------------
- - Use power of 2 for tag texturing
+ - Use power of 2 for tag texturing
  - CloudTag::performUserAttraction() - interpolates joint is calculated each frame for each tag - this should be done once per user per tag on startup
  - Go through each class and only import the necessary classes
 
 TASKS
 -----
- - Update Cell_Client projects to OF 0.8.0
- - Sort Cloud Tags based on z depth
- - Dynamically create tags instead of loading images
  - Load Chinese characters
+ - Get working with
+ - Sort Cloud Tags based on z depth
  - Improve no-kinect debugging system
    - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
    - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
@@ -89,7 +88,7 @@ void TestApp::setup()
     //ofEnableNormalizedTexCoords();
 	ofSetLogLevel(OF_LOG_ERROR); //OF_LOG_WARNING
 	ofSetVerticalSync(true);
-	ofBackground(2595, 255, 255);
+	ofBackground(30);
 	ofDisableSmoothing();
 	ofEnableAlphaBlending();
 	glEnable(GL_DEPTH_TEST);
@@ -182,8 +181,6 @@ void TestApp::draw()
 
 void TestApp::keyPressed(int key)
 {
-//    vector<int> d;
-//    d[43] = 3;
     ///*
 	sceneManager.keyPressed(key);
 	//*/
@@ -191,12 +188,15 @@ void TestApp::keyPressed(int key)
 	///*
     myGui->keyPressed(key);
     //*/
-
+    
 	if (key == 'f')
+    {
 		ofToggleFullscreen();
-	else if (key == 'p')
-		isPaused = !isPaused;
-
+	}
+    else if (key == 'p')
+	{
+        isPaused = !isPaused;
+    }
 }
 
 
@@ -238,7 +238,7 @@ void TestApp::mouseReleased(int x, int y, int button)
 
 void TestApp::windowResized(int w, int h)
 {
-//	sceneManager.setupViewports();
+	sceneManager.setupViewports();
 }
 
 

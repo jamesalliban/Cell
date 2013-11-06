@@ -10,7 +10,6 @@
 #include "TagTexture.h"
 #include "TestApp.h"
 
-
 TagTexture::TagTexture()
 {
 
@@ -21,8 +20,13 @@ TagTexture::TagTexture()
 void TagTexture::init(ofImage* tImg)
 {
     TestApp* app = (TestApp*)ofGetAppPtr();
-    ofTrueTypeFont* font = &app->resourceManager.tagFont;
 
+#ifdef CHINESE_CELL
+    ofxFontStash* unicodefont = &app->resourceManager.unicodeFont;
+#else
+    ofTrueTypeFont* font = &app->resourceManager.tagFont;
+#endif
+    
     tagImg = tImg;
 
     blendMode = OF_BLENDMODE_ALPHA;
@@ -91,12 +95,12 @@ void TagTexture::unbind()
 
 void TagTexture::testDraw()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
-    ofTrueTypeFont* font = &app->resourceManager.tagFont;
-
-	ofSetColor(255, 0, 0, 255);
-	font->drawString(typeStr, 650, 650);
-	ofSetColor(255, 255, 255, 255);
-	fbo.draw(500, 650);
+//    TestApp* app = (TestApp*)ofGetAppPtr();
+//    ofTrueTypeFont* font = &app->resourceManager.tagFont;
+//
+//	ofSetColor(255, 0, 0, 255);
+//	font->drawString(typeStr, 650, 650);
+//	ofSetColor(255, 255, 255, 255);
+//	fbo.draw(500, 650);
 }
 

@@ -8,8 +8,7 @@
  */
 
 
-#ifndef _LIGHT_MANAGER
-#define _LIGHT_MANAGER
+#pragma once
 
 #include "ofMain.h"
 
@@ -34,5 +33,3 @@ public:
 
 
 };
-
-#endif

@@ -1,118 +1,152 @@
-﻿<?xml version="1.0"?>  
+<?xml version="1.0"?>  
 
-	<tags>
-		<tag>
-			<word>汉字漢字 頠</word>
-			<demographic id="BUD">
-				<strength>0.8</strength>
-			</demographic>
-			<demographic id="MAISIE">
-				<strength>0.6</strength>
-			</demographic>
-			<demographic id="ARTO">
-				<strength>0.7</strength>
-			</demographic>			
-		</tag>
-		<tag>
-			<word>溿煔煃</word>
-			<demographic id="BUD">
-				<strength>0.7</strength>
-			</demographic>
-			<demographic id="TODD">
-				<strength>0.8</strength>
-			</demographic>
-			<demographic id="ISOMBARD">
-				<strength>0.9</strength>
-			</demographic>			
-		</tag>
-		<tag>
-			<word>舿萐菿 磝磢磭</word>
-			<demographic id="BUD">
-				<strength>0.4</strength>
-			</demographic>
-			<demographic id="MAISIE">
-				<strength>0.5</strength>
-			</demographic>
-			<demographic id="LYNDSAY">
-				<strength>0.3</strength>
-			</demographic>			
-		</tag>
-		<tag>
-			<word>漢字 頠餈 溿煔煃 鱙鷭黂</word>
-			<demographic id="BUD">
-				<strength>0.9</strength>
-			</demographic>
-			<demographic id="MAISIE">
-				<strength>0.4</strength>
-			</demographic>		
-		</tag>
-		<tag>
-			<word>肒芅邥 舿萐菿 磝磢</word>
-			<demographic id="BUD">
-				<strength>0.9</strength>
-			</demographic>
-			<demographic id="TODD">
-				<strength>0.7</strength>
-			</demographic>
-			<demographic id="LYNDSAY">
-				<strength>0.7</strength>
-			</demographic>			
-		</tag>
-		<tag>
-			<word>菿 磝磢磭</word>
-			<demographic id="BUD">
-				<strength>0.8</strength>
-			</demographic>
-			<demographic id="LYNDSAY">
-				<strength>0.4</strength>
-			</demographic>		
-		</tag>
-		<tag>
-			<word>萐菿 磝磢磭 婸</word>
-			<demographic id="BUD">
-				<strength>0.8</strength>
-			</demographic>
-			<demographic id="ARTO">
-				<strength>0.4</strength>
-			</demographic>
-			<demographic id="LYNDSAY">
-				<strength>0.3</strength>
-			</demographic>			
-		</tag>
-
-		<tag>
-			<word>肒芅邥 舿萐菿 磝</word>
-			<demographic id="BUD">
-				<strength>0.9</strength>
-			</demographic>
-			<demographic id="MAISIE">
-				<strength>0.7</strength>
-			</demographic>
-			<demographic id="ARTO">
-				<strength>0.9</strength>
-			</demographic>			
-		</tag>
-		<tag>
-			<word>邥 舿萐菿 磝</word>
-			<demographic id="BUD">
-				<strength>0.9</strength>
-			</demographic>
-			<demographic id="ARTO">
-				<strength>0.5</strength>
-			</demographic>
-			<demographic id="ISOMBARD">
-				<strength>0.4</strength>
-			</demographic>			
-		</tag>
-
-		<tag>
-			<word>脬舑莕</word>
-			<demographic id="BUD">
-				<strength>0.8</strength>
-			</demographic>
-			<demographic id="LYNDSAY">
-				<strength>0.3</strength>
-			</demographic>		
-		</tag>
-		
-	</tags>
+<tags>
+    <tag>
+        <word>汉字漢字 頠</word>
+        <demographic id="BUD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.6</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.7</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>溿煔煃</word>
+        <demographic id="LYNDSAY">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="TODD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.9</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>舿萐菿 磝磢磭</word>
+        <demographic id="MARCO">
+            <strength>0.4</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>漢字 頠餈 溿煔煃 鱙鷭黂</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.4</strength>
+        </demographic>		
+    </tag>
+    <tag>
+        <word>肒芅邥 舿萐菿 磝磢</word>
+        <demographic id="MARCO">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="TODD">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.7</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>菿 磝磢磭</word>
+        <demographic id="BUD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.4</strength>
+        </demographic>		
+    </tag>
+    <tag>
+        <word>萐菿 磝磢磭 婸</word>
+        <demographic id="BUD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.4</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>			
+    </tag>
+    
+    <tag>
+        <word>肒芅邥 舿萐菿 磝</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="POPPET">
+            <strength>0.9</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>邥 舿萐菿 磝</word>
+        <demographic id="MARCO">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.4</strength>
+        </demographic>
+    </tag>
+    
+    <tag>
+        <word>脬舑莕</word>
+        <demographic id="BUD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>肒芅邥 舿萐菿 磝</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.9</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>邥 舿萐菿 磝</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="POPPET">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.4</strength>
+        </demographic>
+    </tag>
+    
+    <tag>
+        <word>脬舑莕</word>
+        <demographic id="MARCO">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>
+    </tag>
+    
+</tags>

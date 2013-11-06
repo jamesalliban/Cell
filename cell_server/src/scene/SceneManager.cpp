@@ -44,10 +44,10 @@ void SceneManager::setupViewports()
 
 	viewPort.x = 0;
 	viewPort.y = 0;
-	//viewPort.width = ofGetWidth();
-	//viewPort.height = ofGetHeight();
-	viewPort.width = 1600;
-	viewPort.height = 900;
+    viewPort.width = ofGetWidth();
+    viewPort.height = ofGetHeight();
+//	viewPort.width = 1600;
+//	viewPort.height = 900;
 }
 
 
@@ -132,9 +132,6 @@ void SceneManager::keyPressed(int key)
 		case 'n': isCamMouseInputPaused = !isCamMouseInputPaused;
 			break;
 		case 'u': isUpdateVars = !isUpdateVars;
-			break;
-		case 'q': vector<int> e;
-            e[324] = 2;
 			break;
 
 	}

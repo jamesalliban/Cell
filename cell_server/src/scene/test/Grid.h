@@ -14,8 +14,7 @@
 //
 // We inherit from ofNode
 
-#ifndef _GRID
-#define _GRID
+#pragma once
 
 #include "ofMain.h"
 
@@ -26,5 +25,3 @@ public:
 	bool    isActive;
 	int     alpha;
 };
-
-#endif

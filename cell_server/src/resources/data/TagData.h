@@ -1,11 +1,11 @@
-#ifndef TAGDATA_H
-#define TAGDATA_H
+#pragma once
 
 #include "ofMain.h"
 #include "DemographicData.h"
 #include "ofxXmlSettings.h"
 
-#define CHINESE_CELL
+#include "CellGlobals.h"
+
 
 #ifdef CHINESE_CELL
 #include "ofxFontStash.h"
@@ -22,12 +22,13 @@ class TagData
 public:
 
 #ifdef CHINESE_CELL
-	void setup(ofxXmlSettings *XML, ofxFontStash *tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader);
+	void setup(ofXml XML, ofxFontStash &tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader);
+	void parseXML(ofXml XML, vector<DemographicData> *demographicData);
 #else
 	void setup(ofxXmlSettings *XML, ofTrueTypeFont *tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader);
+    void parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographicData);
 #endif
-	void parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographicData);
-
+	
 
 	void	begin();
 	void	end();
@@ -51,4 +52,3 @@ protected:
 private:
 };
 
-#endif // TAGDATA_H

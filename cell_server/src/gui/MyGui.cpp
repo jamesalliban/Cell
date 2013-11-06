@@ -321,7 +321,6 @@ void MyGui::keyPressed(int key)
 			case 'g': gui.toggleDraw(); break;
 			case '[': gui.prevPage(); break;
 			case ']': gui.nextPage(); break;
-			case 'f': ofToggleFullscreen() ; break;
 			case 'c': ofSaveScreen("screenshot.jpg") ; break;
 		}
 	}

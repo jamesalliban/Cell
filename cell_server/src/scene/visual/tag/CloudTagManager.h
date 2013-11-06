@@ -7,8 +7,7 @@
  *
  */
 
-#ifndef _CLOUD_TAG_MANAGER
-#define _CLOUD_TAG_MANAGER
+#pragma once
 
 #include "ofMain.h"
 
@@ -105,6 +104,3 @@ protected:
 
 
 };
-
-
-#endif

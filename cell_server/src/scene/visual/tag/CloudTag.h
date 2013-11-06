@@ -6,8 +6,7 @@
  *  Copyright 2011 Augmatic. All rights reserved.
  *
  */
-#ifndef _CLOUD_TAG
-#define _CLOUD_TAG
+#pragma once
 
 #include "ofMain.h"
 #include "TagData.h"
@@ -103,6 +102,3 @@ protected:
 	ofVec3f jointPositionDifference;
 
 };
-
-
-#endif

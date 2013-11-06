@@ -1,5 +1,4 @@
-#ifndef DEMOGRAPHICDATA_H
-#define DEMOGRAPHICDATA_H
+#pragma once
 
 
 #include "ofMain.h"
@@ -19,4 +18,3 @@ class DemographicData
     private:
 };
 
-#endif // DEMOGRAPHICDATA_H

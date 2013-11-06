@@ -10,7 +10,8 @@
 #pragma once
 
 #include "ofMain.h"
-
+#include "ofxFontStash.h"
+#include "CellGlobals.h"
 
 class TagTexture
 {

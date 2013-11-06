@@ -1,5 +1,4 @@
-#ifndef CAMERADIRECTIONNODE_H
-#define CAMERADIRECTIONNODE_H
+#pragma once
 
 #include "ofMain.h"
 
@@ -15,5 +14,3 @@ class CameraDirectionNode : public ofNode
         int yPos;
         int zPos;
 };
-
-#endif // CAMERADIRECTIONNODE_H

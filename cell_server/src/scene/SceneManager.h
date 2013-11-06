@@ -7,8 +7,7 @@
  *
  */
 
-#ifndef _SCENE_MANAGER
-#define _SCENE_MANAGER
+#pragma once
 
 #include "ofMain.h"
 #include "CloudTagManager.h"
@@ -58,6 +57,3 @@ public:
 protected:
 
 };
-
-
-#endif

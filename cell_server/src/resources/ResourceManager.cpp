@@ -7,12 +7,23 @@ void ResourceManager::init()
 	//ofxTrueTypeFontUC  tagFont;
 	//tagFont.loadFont("type/chinese/MSYH.TTC", 72, true, true);  
 	unicodeFont.setup("Arial Unicode.ttf");
+    
+//	ofRectangle bbox = unicodeFont.getBBox("邥 舿萐菿 磝邥 舿萐菿 磝", 24, 0, 0);
+//    printf("bbox.width:%f\n", bbox.width);
+//    printf("*******---******* bb.x = %f, bb.y = %f, bb.width = %f, bb.height = %f\n",
+//           bbox.getX(), bbox.getY(),
+//           bbox.getWidth(), bbox.getHeight());
+    
 #else
     tagFont.loadFont("type/western/Arial Rounded Bold.ttf", 72);
 	tagFont.setLineHeight(34.0f);
 	tagFont.setLetterSpacing(1.037);
 #endif
 
+    
+    
+    
+    
 
     if(demographicXml.loadFile("xml/demographic_data.xml") ){
 		printf("Demographic XML loaded! \n");
@@ -22,12 +33,7 @@ void ResourceManager::init()
 
 
 #ifdef CHINESE_CELL
-	//if(tagXml.loadFile("xml/tag_data_chinese.xml") ){
-	//	printf("Chinese Tag XML loaded! \n");
-	//}else{
-	//	printf("unable to load Chinese Tag XML check data/ folder \n");
-	//}
-	if (chineseXML.load("tag_data_Chinese.xml")) printf("Chinese tag XML loaded \n");
+	if (chineseXML.load("xml/tag_data_Chinese.xml")) printf("Chinese tag XML loaded \n");
 	else printf("Chinese tag XML not loaded \n");
 #else
     if(tagXml.loadFile("xml/tag_data.xml") ){
@@ -46,7 +52,7 @@ void ResourceManager::init()
 
 void ResourceManager::parseXML()
 {
-    // build demographic vector
+    // build demographic vector from xml data
     demographicXml.pushTag("demographics");
     demographicAmount = demographicXml.getNumTags("demographic");
     printf("demographicAmount = %i\n", demographicAmount );
@@ -62,7 +68,25 @@ void ResourceManager::parseXML()
     demographicXml.popTag();
 	
 	
+    
+    // load tag data from XML
+    
 #ifdef CHINESE_CELL
+    
+    chineseXML.setTo("tags");
+    int numTags = chineseXML.getNumChildren();
+    chineseXML.setTo("tag[0]");
+    for (int i = 0; i < numTags; i++)
+    {
+        //printf("i:%i, word = %s\n", i, chineseXML.getValue("word").c_str());
+        TagData t;
+        ofXml tagElement;
+        tagElement.addXml(chineseXML, false);
+		t.setup(tagElement, unicodeFont, &demographicData, &blackToAlphaShader);
+        tagData.push_back(t);
+        
+        chineseXML.setToSibling();
+    }
 
 #else
 
