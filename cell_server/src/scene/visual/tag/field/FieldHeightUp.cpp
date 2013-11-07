@@ -1,16 +1,10 @@
 #include "FieldHeightUp.h"
 
-FieldHeightUp::FieldHeightUp()
+
+void FieldHeightUp::init()
 {
-    //ctor
+    Field::init();
 }
-
-FieldHeightUp::~FieldHeightUp()
-{
-    //dtor
-}
-
-
 
 
 void FieldHeightUp::update()

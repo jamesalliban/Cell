@@ -7,22 +7,21 @@
 
 class FieldScaleUp : public Field
 {
-    public:
-        FieldScaleUp();
-        virtual ~FieldScaleUp();
+public:
+    
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-        virtual float addFieldScale(ofVec3f* position);
+    float scaleUpStrength;
 
-        float scaleUpStrength;
+    bool isEnabled;
 
-        bool isEnabled;
-
-    protected:
-    private:
+protected:
+private:
 };
 
 #endif // FIELDSCALEUP_H

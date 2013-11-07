@@ -57,9 +57,7 @@ void User::setup(int _userID)
 			break;   // grey
     }
 
-    testApp* app = (testApp*)ofGetAppPtr();
-
-    if (app->isKinectAttached)
+    if (testApp::isKinectAttached)
     {
         for (int i = 0; i < 20; i++)
         {
@@ -157,8 +155,7 @@ void User::update()
 
 void User::customDraw()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-    if (app->isKinectAttached)
+    if (testApp::isKinectAttached)
         debugDraw();
     else
         nonKinectDraw();
@@ -189,7 +186,7 @@ void User::nonKinectUpdate()
 {
     testApp* app = (testApp*)ofGetAppPtr();
     UserManager* userMan = &app->sceneManager.userManager;
-
+    
     if (!userMan->isNonKinectUserPaused)
     {
         for (int i = 0; i < 20; i++)
@@ -232,7 +229,7 @@ void User::debugDraw()
         if (userMan->isJointSpheres)
         {
             ofSetColor(debugColour);
-            ofSphere(ofRandom(0.1, 0.4));     //0.4);
+            ofDrawSphere(ofRandom(0.1, 0.4));     //0.4);
         }
         ofSetColor(255, 255, 255);
         ofScale(0.4, -0.4, 0.4);

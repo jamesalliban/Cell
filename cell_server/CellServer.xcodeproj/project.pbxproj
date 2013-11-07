@@ -754,9 +754,9 @@
 		2EDA893A182B3B6B00013CAD /* scene */ = {
 			isa = PBXGroup;
 			children = (
-				2EDA893B182B3B6B00013CAD /* light */,
 				2EDA893E182B3B6B00013CAD /* SceneManager.cpp */,
 				2EDA893F182B3B6B00013CAD /* SceneManager.h */,
+				2EDA893B182B3B6B00013CAD /* light */,
 				2EDA8940182B3B6B00013CAD /* test */,
 				2EDA8945182B3B6B00013CAD /* visual */,
 			);

@@ -1,16 +1,10 @@
 #include "FieldHeightDown.h"
 
-FieldHeightDown::FieldHeightDown()
+
+void FieldHeightDown::init()
 {
-    //ctor
+    Field::init();
 }
-
-FieldHeightDown::~FieldHeightDown()
-{
-    //dtor
-}
-
-
 
 
 void FieldHeightDown::update()

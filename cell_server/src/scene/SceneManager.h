@@ -16,10 +16,12 @@
 #include "UserManager.h"
 #include "FieldManager.h"
 
+class KinectManager;
+
 class SceneManager
 {
 public:
-	void init();
+	void init(KinectManager *kinectManager, ResourceManager *resourceManager);
 	void update();
 	void draw();
 	void setupViewports();

@@ -6,23 +6,22 @@
 
 class FieldEnergy : public Field
 {
-    public:
-        FieldEnergy();
-        virtual ~FieldEnergy();
+public:
+    
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
-        virtual float addFieldScale(ofVec3f* position);
+    //float energyLevel;
+    float frameMultiplier;
+    float noiseMultiplier;
 
-        //float energyLevel;
-        float frameMultiplier;
-        float noiseMultiplier;
+    bool isEnabled;
 
-        bool isEnabled;
-
-    protected:
-    private:
+protected:
+private:
 };
 
 #endif // FIELDENERGY_H

@@ -8,14 +8,14 @@
  */
 
 #include "SceneManager.h"
+#include "testApp.h"
+#include "KinectManager.h"
 
-#include "TestApp.h"
-
-void SceneManager::init()
+void SceneManager::init(KinectManager *kinectManager, ResourceManager *resourceManager)
 {
 	shader.load("shaders/TestShader");  //TestShader");
 
-	userManager.init();
+	userManager.init(kinectManager, resourceManager);
 	fieldMan.init();
 	cloudTagMan.init(&shader);
 
@@ -60,8 +60,8 @@ void SceneManager::update()
 	{
 		if (!isCamMouseInputPaused)
 		{
-			smoothMouseX -= (smoothMouseX - ofGetAppPtr()->mouseX) * mouseSmoothAmount;
-			smoothMouseY -= (smoothMouseY - ofGetAppPtr()->mouseY) * mouseSmoothAmount;
+			smoothMouseX -= (smoothMouseX - ofGetMouseX()) * mouseSmoothAmount;
+			smoothMouseY -= (smoothMouseY - ofGetMouseY()) * mouseSmoothAmount;
 		}
 
 		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -100, 100, true);

@@ -1,13 +1,9 @@
 #include "FieldScaleUp.h"
 
-FieldScaleUp::FieldScaleUp()
-{
-    //ctor
-}
 
-FieldScaleUp::~FieldScaleUp()
+void FieldScaleUp::init()
 {
-    //dtor
+    Field::init();
 }
 
 

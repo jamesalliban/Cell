@@ -1,15 +1,10 @@
 #include "FieldRepel.h"
 
-FieldRepel::FieldRepel()
-{
-    //ctor
-}
 
-FieldRepel::~FieldRepel()
+void FieldRepel::init()
 {
-    //dtor
+    Field::init();
 }
-
 
 
 void FieldRepel::update()

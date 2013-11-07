@@ -5,32 +5,30 @@
 
 class Field : public ofNode
 {
-    public:
-        Field();
-        virtual ~Field();
+public:
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
-        virtual float addFieldScale(ofVec3f* position);
+    float randomity;
 
-        float randomity;
-
-        ofVec2f fieldPos;
-        ofVec2f length;
-        ofVec2f pos;
-        float lengthSquared;
-        float lengthSquaredMin;
+    ofVec2f fieldPos;
+    ofVec2f length;
+    ofVec2f pos;
+    float lengthSquared;
+    float lengthSquaredMin;
 
 
-        int playArea;
-        float movementSpeed;
+    int playArea;
+    float movementSpeed;
 
 
-    protected:
-        void calculateLengthSquared(ofVec3f* position);
-        float calculateBellCurve();
+protected:
+    void calculateLengthSquared(ofVec3f* position);
+    float calculateBellCurve();
 
-    private:
+private:
 };
 

@@ -2,6 +2,7 @@
 
 #include "TestApp.h"
 #include "KinectManager.h"
+#include "ResourceManager.h"
 
 
 ///NEW IDEA
@@ -14,10 +15,12 @@ pass the user data to the new user and mute the old user
 */
 
 
-void UserManager::init()
+void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resourceManager)
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-	
+    kinectManager = _kinectManager;
+    resourceManager = _resourceManager;
+    
+    
     skeletonScale[0] = skeletonScale[1] = skeletonScale[2] = skeletonScale[3] = 0.0;
     skeletonRotDegrees[0] = skeletonRotDegrees[1] = skeletonRotDegrees[2] = skeletonRotDegrees[3] = 0.0;
     skeletonRotX[0] = skeletonRotX[1] = skeletonRotX[2] = skeletonRotX[3] = 0.0;
@@ -37,12 +40,12 @@ void UserManager::init()
 
     //userBatchManager.init();
 
-    if (!app->isKinectAttached)
+    if (!testApp::isKinectAttached)
     {
         users[0].isActive = true;
-        users[0].demographic = app->resourceManager.getRandomDemographic();
+        users[0].demographic = resourceManager->getRandomDemographic();
         users[1].isActive = true;
-        users[1].demographic = app->resourceManager.getRandomDemographic();
+        users[1].demographic = resourceManager->getRandomDemographic();
     }
 }
 
@@ -50,11 +53,9 @@ void UserManager::init()
 
 void UserManager::update()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-    if (app->isKinectAttached)
+    if (testApp::isKinectAttached)
     {
-        if (app->kinectManager.hasSkeleton())
-        //if (app->kinectManager.hasSkeleton())
+        if (kinectManager->hasSkeleton())
         {
             bool hasSkeletonBeenRemoved = haveSkeletonsBeenRemoved();
             bool hasSkeletonBeenAdded = checkIfSkeletonIsNew();
@@ -109,11 +110,9 @@ void UserManager::update()
 
 void UserManager::draw()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-    if (app->isKinectAttached)
+    if (testApp::isKinectAttached)
     {
-        if (app->kinectManager.hasSkeleton())
-        //if (app->kinectManager.hasSkeleton())
+        if (kinectManager->hasSkeleton())
         {
             for (int i = 0; i < SKELETON_MAX; i++)
             {
@@ -144,7 +143,6 @@ bool UserManager::haveSkeletonsBeenRemoved()
     //            for all skeletons
     //                check the User ID aginst the skeleton. If it isnt there, deactivate
 
-    testApp* app = (testApp*)ofGetAppPtr();
     bool hasOneOrMoreSkeletonsBeenRemoved = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop through users
     {
@@ -152,7 +150,7 @@ bool UserManager::haveSkeletonsBeenRemoved()
         bool doesUserValueMatchSkeleton = false;
         for (int j = 0; j < SKELETON_MAX; j++) // loop through skeletons
         {
-            KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
+            KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
 
             if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
             {
@@ -177,12 +175,11 @@ bool UserManager::checkIfSkeletonIsNew()
 {
     // loop through all active skeletons and try to match these to a User trackingID. If there
     // is no match, the skeleton is new. Assign the skeleton to an inactive User.
-
-    testApp* app = (testApp*)ofGetAppPtr();
+    
     bool isSkeletonCountChanged = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop though all skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
         bool isSkeletonAssignedToAUser = false;
         // if skeleton is active
         if (skeleton->dwTrackingID != -1)
@@ -213,7 +210,7 @@ bool UserManager::checkIfSkeletonIsNew()
                 if (!user->isActive)
                 {
                     user->assignSkeleton(skeleton);
-                    user->demographic = app->resourceManager.getRandomDemographic();
+                    user->demographic = resourceManager->getRandomDemographic();
                     break;
                 }
             }
@@ -231,12 +228,9 @@ void UserManager::reassignSkeletonsIfNew()
 
     //return;
 
-    testApp* app = (testApp*)ofGetAppPtr();
-
-
     for (int i = 0; i < SKELETON_MAX; i++) // loop through skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
         for (int j = 0; j < SKELETON_MAX; j++) // loop through users
         {
             User* user = &users[j];

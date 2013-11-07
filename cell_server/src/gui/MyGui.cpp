@@ -11,7 +11,7 @@
 
 
 
-    MyGui::MyGui()
+    void MyGui::init()
     {
 
         app = (testApp*)ofGetAppPtr();
@@ -128,60 +128,60 @@
         gui.addTitle("Debug").width = guiWidth;
         gui.addToggle("Field Lines Visible", app->sceneManager.fieldMan.isFieldLineVisible);
         gui.addTitle("Enegery field - Red").width = guiWidth;
-        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldEnergy->isEnabled);
-        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldEnergy->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldEnergy->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldEnergy->lengthSquaredMin, 100, 500.0).width = guiWidth;
-        gui.addSlider("Frame Multiplier", app->sceneManager.fieldMan.fieldEnergy->frameMultiplier, 0.0, 1.0).width = guiWidth;
-        gui.addSlider("Noise Multiplier", app->sceneManager.fieldMan.fieldEnergy->noiseMultiplier, 0.0, 1.0).width = guiWidth;
+        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldEnergy.isEnabled);
+        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldEnergy.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldEnergy.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldEnergy.lengthSquaredMin, 100, 500.0).width = guiWidth;
+        gui.addSlider("Frame Multiplier", app->sceneManager.fieldMan.fieldEnergy.frameMultiplier, 0.0, 1.0).width = guiWidth;
+        gui.addSlider("Noise Multiplier", app->sceneManager.fieldMan.fieldEnergy.noiseMultiplier, 0.0, 1.0).width = guiWidth;
         gui.addTitle("Repel field - Green").width = guiWidth;
-        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldRepel->isEnabled);
-        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldRepel->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldRepel->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldRepel->lengthSquaredMin, 100, 500.0).width = guiWidth;
-        gui.addSlider("Repel Strength", app->sceneManager.fieldMan.fieldRepel->repelStrength, 0.001, 0.03).width = guiWidth;
+        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldRepel.isEnabled);
+        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldRepel.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldRepel.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldRepel.lengthSquaredMin, 100, 500.0).width = guiWidth;
+        gui.addSlider("Repel Strength", app->sceneManager.fieldMan.fieldRepel.repelStrength, 0.001, 0.03).width = guiWidth;
 
         gui.addPage("Fields 2").width = guiWidth;
         gui.addTitle("Scale Up field - Yellow").width = guiWidth;
-        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldScaleUp->isEnabled);
-        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldScaleUp->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldScaleUp->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldScaleUp->lengthSquaredMin, 100, 500.0).width = guiWidth;
-        gui.addSlider("Scale Strength", app->sceneManager.fieldMan.fieldScaleUp->scaleUpStrength, 0.5, 3.0).width = guiWidth;
+        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldScaleUp.isEnabled);
+        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldScaleUp.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldScaleUp.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldScaleUp.lengthSquaredMin, 100, 500.0).width = guiWidth;
+        gui.addSlider("Scale Strength", app->sceneManager.fieldMan.fieldScaleUp.scaleUpStrength, 0.5, 3.0).width = guiWidth;
         gui.addTitle("Height Down field - Blue").width = guiWidth;
-        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldHeightDown->isEnabled);
-        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldHeightDown->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldHeightDown->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldHeightDown->lengthSquaredMin, 100, 500.0).width = guiWidth;
-        gui.addSlider("Height Adjust", app->sceneManager.fieldMan.fieldHeightDown->heightAdjust, 0.001, 0.5).width = guiWidth;
+        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldHeightDown.isEnabled);
+        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldHeightDown.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldHeightDown.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldHeightDown.lengthSquaredMin, 100, 500.0).width = guiWidth;
+        gui.addSlider("Height Adjust", app->sceneManager.fieldMan.fieldHeightDown.heightAdjust, 0.001, 0.5).width = guiWidth;
 
         gui.addPage("Fields 3").width = guiWidth;
         gui.addTitle("Height Up field - Pink").width = guiWidth;
-        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldHeightUp->isEnabled);
-        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldHeightUp->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldHeightUp->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldHeightUp->lengthSquaredMin, 100, 500.0).width = guiWidth;
-        gui.addSlider("Height Adjust", app->sceneManager.fieldMan.fieldHeightUp->heightAdjust, 0.001, 0.5).width = guiWidth;
+        gui.addToggle("Enabled", app->sceneManager.fieldMan.fieldHeightUp.isEnabled);
+        gui.addSlider("Play Area", app->sceneManager.fieldMan.fieldHeightUp.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed", app->sceneManager.fieldMan.fieldHeightUp.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size", app->sceneManager.fieldMan.fieldHeightUp.lengthSquaredMin, 100, 500.0).width = guiWidth;
+        gui.addSlider("Height Adjust", app->sceneManager.fieldMan.fieldHeightUp.heightAdjust, 0.001, 0.5).width = guiWidth;
 
         gui.addPage("Fields 4").width = guiWidth;
         gui.addTitle("Colour 1 field - Double Red").width = guiWidth;
-        gui.addToggle("Enabled 1", app->sceneManager.fieldMan.fieldColour1->isEnabled).width = guiWidth;
-        gui.addSlider("Play Area 1", app->sceneManager.fieldMan.fieldColour1->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed 1", app->sceneManager.fieldMan.fieldColour1->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size 1", app->sceneManager.fieldMan.fieldColour1->lengthSquaredMin, 100, 1000.0).width = guiWidth;
-        gui.addColorPicker("Colours 1", app->sceneManager.fieldMan.fieldColour1->colours).width = guiWidth;
+        gui.addToggle("Enabled 1", app->sceneManager.fieldMan.fieldColour1.isEnabled).width = guiWidth;
+        gui.addSlider("Play Area 1", app->sceneManager.fieldMan.fieldColour1.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed 1", app->sceneManager.fieldMan.fieldColour1.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size 1", app->sceneManager.fieldMan.fieldColour1.lengthSquaredMin, 100, 1000.0).width = guiWidth;
+        gui.addColorPicker("Colours 1", app->sceneManager.fieldMan.fieldColour1.colours).width = guiWidth;
         gui.addTitle("Colour 2 field - Double Green").width = guiWidth;
-        gui.addToggle("Enabled 2", app->sceneManager.fieldMan.fieldColour2->isEnabled).width = guiWidth;
-        gui.addSlider("Play Area 2", app->sceneManager.fieldMan.fieldColour2->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed 2", app->sceneManager.fieldMan.fieldColour2->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size 2", app->sceneManager.fieldMan.fieldColour2->lengthSquaredMin, 100, 1000.0).width = guiWidth;
-        gui.addColorPicker("Colours", app->sceneManager.fieldMan.fieldColour2->colours).width = guiWidth;
+        gui.addToggle("Enabled 2", app->sceneManager.fieldMan.fieldColour2.isEnabled).width = guiWidth;
+        gui.addSlider("Play Area 2", app->sceneManager.fieldMan.fieldColour2.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed 2", app->sceneManager.fieldMan.fieldColour2.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size 2", app->sceneManager.fieldMan.fieldColour2.lengthSquaredMin, 100, 1000.0).width = guiWidth;
+        gui.addColorPicker("Colours", app->sceneManager.fieldMan.fieldColour2.colours).width = guiWidth;
         gui.addTitle("Colour 3 field - Double Blue").width = guiWidth;
-        gui.addToggle("Enabled 3", app->sceneManager.fieldMan.fieldColour3->isEnabled).width = guiWidth;
-        gui.addSlider("Play Area 3", app->sceneManager.fieldMan.fieldColour3->playArea, 20, 150.0).width = guiWidth;
-        gui.addSlider("Speed 3", app->sceneManager.fieldMan.fieldColour3->movementSpeed, 0.01, 0.1).width = guiWidth;
-        gui.addSlider("Area size 3", app->sceneManager.fieldMan.fieldColour3->lengthSquaredMin, 100, 1000.0).width = guiWidth;
-        gui.addColorPicker("Colours 3", app->sceneManager.fieldMan.fieldColour3->colours).width = guiWidth;
+        gui.addToggle("Enabled 3", app->sceneManager.fieldMan.fieldColour3.isEnabled).width = guiWidth;
+        gui.addSlider("Play Area 3", app->sceneManager.fieldMan.fieldColour3.playArea, 20, 150.0).width = guiWidth;
+        gui.addSlider("Speed 3", app->sceneManager.fieldMan.fieldColour3.movementSpeed, 0.01, 0.1).width = guiWidth;
+        gui.addSlider("Area size 3", app->sceneManager.fieldMan.fieldColour3.lengthSquaredMin, 100, 1000.0).width = guiWidth;
+        gui.addColorPicker("Colours 3", app->sceneManager.fieldMan.fieldColour3.colours).width = guiWidth;
 
 
         gui.addPage("Kinect debug").width = guiWidth;

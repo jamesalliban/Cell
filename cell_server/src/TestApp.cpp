@@ -1,4 +1,3 @@
-#include "testApp.h"
 
 /*
  
@@ -78,6 +77,9 @@
  
  
  */
+#include "testApp.h"
+
+bool testApp::isKinectAttached;
 
 void testApp::setup()
 {
@@ -100,13 +102,9 @@ void testApp::setup()
         kinectManager.init();
 	}
 	
-    ///*
 	resourceManager.init();
-	printf("resources inited\n");
-	sceneManager.init();
-	printf("sceneManager inited\n");
-	myGui = new MyGui();
-    //*/
+	sceneManager.init(&kinectManager, &resourceManager);
+	myGui.init();
     
     isFirstFrame = false;
 	isPaused = false;
@@ -116,6 +114,9 @@ void testApp::setup()
 
 void testApp::update()
 {
+    if (ofGetFrameNum() % 10 == 0) printf("mouseX:%i, mouseY:%i \n", ofGetMouseX(), ofGetMouseY());
+    
+    
 	if (!isPaused)
 	{
 		if (isKinectAttached) kinectManager.update(); // kinectManager.update();
@@ -161,7 +162,7 @@ void testApp::draw()
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
     glEnable(GL_DEPTH_TEST);
 
-    myGui->draw();
+    myGui.draw();
     
     
     ofPushStyle();
@@ -180,7 +181,7 @@ void testApp::keyPressed(int key)
 
 	if (isKinectAttached) kinectManager.keyPressed(key);  // kinectManager.keyPressed(key);
 
-    myGui->keyPressed(key);
+    myGui.keyPressed(key);
 
 
 	if (key == 'f')

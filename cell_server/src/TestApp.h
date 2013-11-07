@@ -30,7 +30,7 @@ public:
 	SceneManager sceneManager;
 	KinectManager kinectManager;
     
-	MyGui* myGui;
+	MyGui myGui;
     
 	int topBlockHeight;
 	int topBlockBot;
@@ -40,7 +40,7 @@ public:
     
 	bool isFirstFrame;
     
-	bool isKinectAttached;
+	static bool isKinectAttached;
     
 	bool isPaused;
 };

@@ -19,7 +19,7 @@ class MyGui
 
 public:
 
-	MyGui();
+	void    init();
 	void	draw();
 	void	keyPressed(int key);
 

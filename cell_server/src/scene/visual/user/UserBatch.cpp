@@ -27,7 +27,7 @@ void UserBatch::draw()
     {
         ofVec2f averageBatchVec = getAverageBatchVec();
         ofSetColor(255, 0, 0, 255);
-        ofSphere(averageBatchVec.x, 0, averageBatchVec.y, 2);
+        ofDrawSphere(averageBatchVec.x, 0, averageBatchVec.y, 2);
     }
 }
 

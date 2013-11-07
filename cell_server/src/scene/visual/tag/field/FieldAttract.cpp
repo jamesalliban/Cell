@@ -1,14 +1,11 @@
 #include "FieldAttract.h"
 
-FieldAttract::FieldAttract()
+
+void FieldAttract::init()
 {
-    //ctor
+    Field::init();
 }
 
-FieldAttract::~FieldAttract()
-{
-    //dtor
-}
 
 
 void FieldAttract::update()

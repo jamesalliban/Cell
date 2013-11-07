@@ -1,13 +1,9 @@
 #include "FieldEnergy.h"
 
-FieldEnergy::FieldEnergy()
-{
-    //ctor
-}
 
-FieldEnergy::~FieldEnergy()
+void FieldEnergy::init()
 {
-    //dtor
+    Field::init();
 }
 
 void FieldEnergy::update()

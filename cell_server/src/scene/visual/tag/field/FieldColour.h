@@ -7,28 +7,26 @@
 
 class FieldColour : public Field
 {
-    public:
-        FieldColour();
-        virtual ~FieldColour();
+public:
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-        virtual float addFieldScale(ofVec3f* position);
+    float	colours[4];
 
-        float	colours[4];
+    ofVec3f getColourOffset(ofVec3f* position);
 
-        ofVec3f getColourOffset(ofVec3f* position);
+    float scaleUpStrength;
 
-        float scaleUpStrength;
+    bool isEnabled;
 
-        bool isEnabled;
+    ofVec3f colourOffset;
 
-        ofVec3f colourOffset;
-
-    protected:
-    private:
+protected:
+private:
 };
 
 #endif // FIELDCOLOUR_H

@@ -1,7 +1,7 @@
 <controls>
     <Toggle_Enabled>
         <name>Enabled</name>
-        <value>1</value>
+        <value>0</value>
         <name>Enabled</name>
         <value>1</value>
     </Toggle_Enabled>

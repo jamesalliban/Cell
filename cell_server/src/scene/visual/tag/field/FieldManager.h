@@ -14,9 +14,6 @@
 class FieldManager
 {
     public:
-        FieldManager();
-        virtual ~FieldManager();
-
         void init();
         void update();
         void draw();
@@ -25,15 +22,15 @@ class FieldManager
         ofVec3f getColourOffset(ofVec3f* position);
 
         vector<Field*> fields;
-        FieldEnergy* fieldEnergy;
-        FieldRepel* fieldRepel;
-        FieldScaleUp* fieldScaleUp;
-        FieldHeightDown* fieldHeightDown;
-        FieldHeightUp* fieldHeightUp;
+        FieldEnergy fieldEnergy;
+        FieldRepel fieldRepel;
+        FieldScaleUp fieldScaleUp;
+        FieldHeightDown fieldHeightDown;
+        FieldHeightUp fieldHeightUp;
 
-        FieldColour* fieldColour1;
-        FieldColour* fieldColour2;
-        FieldColour* fieldColour3;
+        FieldColour fieldColour1;
+        FieldColour fieldColour2;
+        FieldColour fieldColour3;
 
         bool isFieldLineVisible;
 

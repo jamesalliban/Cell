@@ -1,14 +1,9 @@
 #include "FieldColour.h"
 
-FieldColour::FieldColour()
-{
-    //ctor
-    //colourOffset = {1.0, 0.0, 0.0};
-}
 
-FieldColour::~FieldColour()
+void FieldColour::init()
 {
-    //dtor
+    Field::init();
 }
 
 

@@ -6,17 +6,16 @@
 
 class FieldAttract : public Field
 {
-    public:
-        FieldAttract();
-        virtual ~FieldAttract();
+public:
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
-        virtual float addFieldScale(ofVec3f* position);
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-    protected:
-    private:
+protected:
+private:
 };
 
 #endif // FIELDATTRACT_H

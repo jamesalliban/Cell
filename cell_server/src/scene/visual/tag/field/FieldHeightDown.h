@@ -7,21 +7,20 @@
 
 class FieldHeightDown : public Field
 {
-    public:
-        FieldHeightDown();
-        virtual ~FieldHeightDown();
+public:
+    
+    virtual void init();
+    virtual void update();
+    virtual void draw();
+    virtual void addFieldForce(ofVec3f* position);
+    virtual float addFieldScale(ofVec3f* position);
 
-        virtual void update();
-        virtual void draw();
-        virtual void addFieldForce(ofVec3f* position);
-        virtual float addFieldScale(ofVec3f* position);
+    float heightAdjust;
 
-        float heightAdjust;
+    bool isEnabled;
 
-        bool isEnabled;
-
-    protected:
-    private:
+protected:
+private:
 };
 
 #endif // FIELDHEIGHTDOWN_H
