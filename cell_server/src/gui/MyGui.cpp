@@ -113,7 +113,7 @@
         gui.addSlider("Attraction speed Min", app->sceneManager.cloudTagMan.attractionSpeedMin, 0.00001, 0.1).width = guiWidth;
         gui.addSlider("Attraction speed Max", app->sceneManager.cloudTagMan.attractionSpeedMax, 0.5, 0.99).width = guiWidth;
         gui.addSlider("Attraction speed Pow", app->sceneManager.cloudTagMan.attractionSpeedPow, 1, 30).width = guiWidth;
-        gui.addToggle("Apply", app->sceneManager.isUpdateVars);
+        gui.addToggle("Apply", SceneManager::isUpdateVars);
         gui.addSlider("Attraction speed Pow", app->sceneManager.cloudTagMan.attractionSpeedPow, 1, 30).width = guiWidth;
 
 

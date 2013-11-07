@@ -11,13 +11,15 @@
 #include "testApp.h"
 #include "KinectManager.h"
 
+bool SceneManager::isUpdateVars;
+
 void SceneManager::init(KinectManager *kinectManager, ResourceManager *resourceManager)
 {
 	shader.load("shaders/TestShader");  //TestShader");
 
 	userManager.init(kinectManager, resourceManager);
 	fieldMan.init();
-	cloudTagMan.init(&shader);
+	cloudTagMan.init(&shader, resourceManager);
 
 	isCamMouseInput = false;
 	isCamMouseInputPaused = false;
@@ -86,8 +88,6 @@ void SceneManager::update()
 
 void SceneManager::draw()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-
 	glDisable(GL_DEPTH_TEST);
 	ofPushStyle();
 	ofSetColor(0, 0, 0);
@@ -95,15 +95,8 @@ void SceneManager::draw()
 	ofPopStyle();
 	glEnable(GL_DEPTH_TEST);
 
-    ofEnableLighting();
-    light.enable();
-
 	camEasyCam.begin(viewPort);
 
-        light.update();
-
-        light.disable();
-        ofDisableLighting();
         userManager.draw();
 
 		nodeGrid.draw();
@@ -111,9 +104,6 @@ void SceneManager::draw()
 		cloudTagMan.draw();
 
 	camEasyCam.end();
-
-    light.disable();
-    ofDisableLighting();
 
 	if (isUpdateVars) isUpdateVars = false;
     

@@ -1,7 +1,7 @@
 <controls>
     <SliderFloat_Camera_X>
         <name>Camera X</name>
-        <value>0.600000024</value>
+        <value>-0.600006104</value>
     </SliderFloat_Camera_X>
     <SliderFloat_Camera_Y>
         <name>Camera Y</name>

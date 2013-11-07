@@ -3,7 +3,7 @@
         <name>Enabled</name>
         <value>0</value>
         <name>Enabled</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_Enabled>
     <SliderInt_Play_Area>
         <name>Play Area</name>

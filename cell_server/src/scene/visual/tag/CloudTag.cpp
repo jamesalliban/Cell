@@ -116,16 +116,16 @@ void CloudTag::update()
 
     //ofVec3f lastPosition = ofVec3f(position.x, position.y, position.z);
 
-    performAmbientMotion();
-    performUserAttraction();
-
-    scaleOffset += app->sceneManager.fieldMan.addFieldScale(&position);
-
-    scaleOffset *= ofMap(position.y, cloudTagMan->yMin, cloudTagMan->yMax, cloudTagMan->scaleMin, cloudTagMan->scaleMax);
-
-    position += ambientVelocity;
-
-    app->sceneManager.fieldMan.addFieldForce(&position);
+//    performAmbientMotion();
+//    performUserAttraction();
+//
+//    scaleOffset += app->sceneManager.fieldMan.addFieldScale(&position);
+//
+//    scaleOffset *= ofMap(position.y, cloudTagMan->yMin, cloudTagMan->yMax, cloudTagMan->scaleMin, cloudTagMan->scaleMax);
+//
+//    position += ambientVelocity;
+//
+//    app->sceneManager.fieldMan.addFieldForce(&position);
 
 
     for (int i = 0; i < SKELETON_MAX; i++)
@@ -194,7 +194,6 @@ void CloudTag::performUserAttraction()
 	// loop through all users to see if they are close enough to attach
 	for (int i = 0; i < SKELETON_MAX; i++)
 	{
-		//printf("performUserAttraction() - i:%i\n", i);
         TrackedUserData* userData = &userDataObjects[i];
 
         if (userData->user->isActive)
@@ -349,7 +348,7 @@ void CloudTag::drawTags()
 	shader->begin(); // shader begin: set values.
 
 
-	if (isGrabFbo || app->sceneManager.isUpdateVars)
+	if (isGrabFbo || SceneManager::isUpdateVars)
 	{
 		isGrabFbo = false;
 		//shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);
@@ -420,7 +419,7 @@ void CloudTag::drawLines()
         {
  //           shader->begin(); // shader begin: set values.
 
-            if (isGrabFbo || app->sceneManager.isUpdateVars)
+            if (isGrabFbo || SceneManager::isUpdateVars)
             {
                 isGrabFbo = false;
                 //shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);

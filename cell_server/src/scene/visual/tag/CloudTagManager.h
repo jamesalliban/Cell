@@ -14,12 +14,13 @@
 #include "CloudTag.h"
 #include "TagTexture.h"
 
+class ResourceManager;
 
 class CloudTagManager : public ofNode
 {
 
 public:
-	void init(ofShader* shader);
+	void init(ofShader* shader, ResourceManager *resourceManager);
 
 	void update();
 	void customDraw();

@@ -53,7 +53,7 @@ public:
 
 	bool isCamMouseInput;		// allows the camera to be controlled by the mouse
 	bool isCamMouseInputPaused; // pauses camera movement while it is controllable by the mouse
-	bool isUpdateVars;			// toggle - updates all variables that do not require rebuilding objects
+	static bool isUpdateVars;			// toggle - updates all variables that do not require rebuilding objects
 
 
 protected:

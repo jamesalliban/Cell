@@ -29,12 +29,11 @@ void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resource
     skeletonPosOffsetX[0] = skeletonPosOffsetX[1] = skeletonPosOffsetX[2] = skeletonPosOffsetX[3] = 0;
     skeletonPosOffsetY[0] = skeletonPosOffsetY[1] = skeletonPosOffsetY[2] = skeletonPosOffsetY[3] = 0;
     skeletonPosOffsetZ[0] = skeletonPosOffsetZ[1] = skeletonPosOffsetZ[2] = skeletonPosOffsetZ[3] = 0;
-
-
+    
     for (int i = 0; i < SKELETON_MAX; i++)
     {
         User user;
-		user.setup(i);
+		user.setup(this, i);
         users.push_back(user);
     }
 

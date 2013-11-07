@@ -87,7 +87,6 @@ void testApp::setup()
 	//ofEnableArbTex();
     //ofSetFrameRate(60);
     ofSetFullscreen(false);
-    //ofEnableNormalizedTexCoords();
 	ofSetLogLevel(OF_LOG_ERROR); //OF_LOG_WARNING
 	ofSetVerticalSync(true);
 	ofBackground(30);

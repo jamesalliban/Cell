@@ -30,53 +30,55 @@ struct Joint{
 };
 
 //class UserBatch;
+class UserManager;
 
 class User : public ofNode
 {
-    public:
+public:
 
-		void setup(int _userID);
-        void update();
-        void customDraw();
-        void nonKinectUpdate();
-        void nonKinectDraw();
-        void debugDraw();
-		void performZScaleFix(ofVec3f* skeletonPoint);
-        void drawSpheres();
-        void drawData();
-        void drawLines();
-        void drawLine(ofVec3f startJoint, ofVec3f endJoint);
-        void assignSkeleton(KinectSkeletonData* _skeleton);
-        void assignIDs(int _clientID, int _skeletonID);
-        void deactivate();
-        void buildDebugSkeleton();
-        ofVec2f getAveragePosition();
-
-
-        int userID;
-        int clientID;
-
-        KinectSkeletonData* skeleton;
-        vector<ofVec3f> jointPositions;
-        vector<ofVec3f> debugJointPositions;
-        vector<User*> duplicateUsers;
-        string demographic;
-
-        ofColor debugColour;
-
-        bool isActive;
-        long trackingID;
-
-        int millisBecameActive;
-        float secondsSinceActive;
-
-		ofVec3f hipOffset;
-
-        //UserBatch* associatedUserBatch;
+    void setup(UserManager *_parent, int _userID);
+    void update();
+    void customDraw();
+    void nonKinectUpdate();
+    void nonKinectDraw();
+    void debugDraw();
+    void performZScaleFix(ofVec3f* skeletonPoint);
+    void drawSpheres();
+    void drawData();
+    void drawLines();
+    void drawLine(ofVec3f startJoint, ofVec3f endJoint);
+    void assignSkeleton(KinectSkeletonData* _skeleton);
+    void assignIDs(int _clientID, int _skeletonID);
+    void deactivate();
+    void buildDebugSkeleton();
+    ofVec2f getAveragePosition();
 
 
-    protected:
-    private:
+    UserManager *userMan;
+    int userID;
+    int clientID;
+
+    KinectSkeletonData* skeleton;
+    vector<ofVec3f> jointPositions;
+    vector<ofVec3f> debugJointPositions;
+    vector<User*> duplicateUsers;
+    string demographic;
+
+    ofColor debugColour;
+
+    bool isActive;
+    long trackingID;
+
+    int millisBecameActive;
+    float secondsSinceActive;
+
+    ofVec3f hipOffset;
+
+    //UserBatch* associatedUserBatch;
+
+
+protected:
+private:
 };
 
 

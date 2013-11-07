@@ -8,12 +8,11 @@
  */
 
 #include "CloudTagManager.h"
-#include "TestApp.h"
+#include "ResourceManager.h"
+#include "SceneManager.h"
 
-
-void CloudTagManager::init(ofShader* shader)
+void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 {
-    testApp* app = (testApp*)ofGetAppPtr();
 	cloudTagAmount = 1000; // 1000;
 
 	shadeContrastMin = 0.4;
@@ -26,16 +25,14 @@ void CloudTagManager::init(ofShader* shader)
 	shadeBlendMode = 0;// there are 10 diff. blend modes,
 
 	
-	int tagDataAmount = app->resourceManager.tagData.size();
+	int tagDataAmount = resourceManager->tagData.size();
 	for (int i = 0; i  < cloudTagAmount; i++)
 	{
-	    TagData* tagData = &app->resourceManager.tagData[i % tagDataAmount];
+	    TagData* tagData = &resourceManager->tagData[i % tagDataAmount];
 		CloudTag cloudTag;
 		cloudTag.init(shader, tagData, i);
 		cloudTags.push_back(cloudTag);
 	}
-
-
 
 	tempUser = ofVec3f(0, 0, 0);
 }
@@ -44,9 +41,7 @@ void CloudTagManager::init(ofShader* shader)
 
 void CloudTagManager::update()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-
-    if (app->sceneManager.isUpdateVars)
+    if (SceneManager::isUpdateVars)
     {
         for (int i = 0; i < cloudTagAmount; i++)
         {
@@ -65,8 +60,6 @@ void CloudTagManager::update()
 
 void CloudTagManager::customDraw()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-
 	for (int i = 0; i < cloudTagAmount; i++)
 	{
 		CloudTag* cloudTag = &cloudTags[i];

@@ -1,12 +1,15 @@
 #include "User.h"
-#include "TestApp.h"
+#include "testApp.h"
 #include "UserManager.h"
 
-void User::setup(int _userID)
+void User::setup(UserManager *_parent, int _userID)
 {
+    userMan             = _parent;
     userID              = _userID;
     clientID            = -1;
-
+    
+    int deadfoot = 5;
+    
     deactivate();
 	
     debugColour[0] = 255;
@@ -73,9 +76,6 @@ void User::setup(int _userID)
 
 void User::update()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-    UserManager* userMan = &app->sceneManager.userManager;
-
     if (!isActive) return;
 
 
@@ -184,8 +184,6 @@ void User::performZScaleFix(ofVec3f* skeletonPoint)
 
 void User::nonKinectUpdate()
 {
-    testApp* app = (testApp*)ofGetAppPtr();
-    UserManager* userMan = &app->sceneManager.userManager;
     
     if (!userMan->isNonKinectUserPaused)
     {
@@ -215,9 +213,6 @@ void User::debugDraw()
     ofSetSphereResolution(4);
 
     //if (ofGetFrameNum() % 50 == 0) printf("drawing user %i \n", userID);
-
-    testApp* app = (testApp*)ofGetAppPtr();
-    UserManager* userMan = &app->sceneManager.userManager;
 
     for (int i = 0; i < (int)jointPositions.size(); i++)
     {
