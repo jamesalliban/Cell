@@ -39,9 +39,6 @@ void SceneManager::init()
 
 void SceneManager::setupViewports()
 {
-	//call here whenever we resize the window
-	// DEFINE VIEWPORTS
-
 	viewPort.x = 0;
 	viewPort.y = 0;
     viewPort.width = ofGetWidth();
@@ -55,7 +52,7 @@ void SceneManager::update()
 {
     //camEasyCam.setFov(fov);
 
-	 userManager.update();
+    userManager.update();
     fieldMan.update();
     cloudTagMan.update();
 
@@ -89,7 +86,7 @@ void SceneManager::update()
 
 void SceneManager::draw()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
 	glDisable(GL_DEPTH_TEST);
 	ofPushStyle();
@@ -119,6 +116,7 @@ void SceneManager::draw()
     ofDisableLighting();
 
 	if (isUpdateVars) isUpdateVars = false;
+    
 }
 
 

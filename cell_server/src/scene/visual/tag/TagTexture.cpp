@@ -19,7 +19,7 @@ TagTexture::TagTexture()
 
 void TagTexture::init(ofImage* tImg)
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
 #ifdef CHINESE_CELL
     ofxFontStash* unicodefont = &app->resourceManager.unicodeFont;

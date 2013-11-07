@@ -11,14 +11,14 @@
 #include "CloudTag.h"
 #include "TestApp.h"
 #include "CloudTagManager.h"
-TestApp* app;
+testApp* app;
 CloudTagManager* cloudTagMan;
 
 
 
 void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 {
-    app = (TestApp*)ofGetAppPtr();
+    app = (testApp*)ofGetAppPtr();
     cloudTagMan = &app->sceneManager.cloudTagMan;
 
 	shader = shad;

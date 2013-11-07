@@ -7,7 +7,7 @@
 
 #include "KinectSkeletonData.h"
 
-#define SKELETON_MAX 8
+#include "CellGlobals.h"
 
 #define CLIENT0_IP "192.168.0.100"
 #define CLIENT1_IP "192.168.0.101"
@@ -20,9 +20,6 @@
 class KinectManager
 {
 public:
-    KinectManager();
-    virtual ~KinectManager();
-
     void init();
     void update();
     void draw();

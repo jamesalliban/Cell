@@ -13,7 +13,7 @@
 
 void CloudTagManager::init(ofShader* shader)
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 	cloudTagAmount = 1000; // 1000;
 
 	shadeContrastMin = 0.4;
@@ -44,7 +44,7 @@ void CloudTagManager::init(ofShader* shader)
 
 void CloudTagManager::update()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
     if (app->sceneManager.isUpdateVars)
     {
@@ -65,7 +65,7 @@ void CloudTagManager::update()
 
 void CloudTagManager::customDraw()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
 	for (int i = 0; i < cloudTagAmount; i++)
 	{

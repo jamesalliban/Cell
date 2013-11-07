@@ -11,6 +11,8 @@
 #include "ofMain.h"
 #include "TagData.h"
 #include "User.h"
+#include "CellGlobals.h"
+
 
 struct TrackedUserData{
     User* user;

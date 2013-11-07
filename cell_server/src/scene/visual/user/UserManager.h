@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include "User.h"
 //#include "UserBatchManager.h"
+#include "CellGlobals.h"
 
 #define CLIENT_AMOUNT 0
 

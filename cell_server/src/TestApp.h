@@ -8,14 +8,14 @@
 #include "KinectManager.h"
 
 
-class TestApp : public ofBaseApp
+class testApp : public ofBaseApp
 {
-
+    
 public:
 	void setup();
 	void update();
 	void draw();
-
+    
 	void keyPressed(int key);
 	void keyReleased(int key);
 	void mouseMoved(int x, int y );
@@ -25,23 +25,22 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-
+    
 	ResourceManager resourceManager;
 	SceneManager sceneManager;
-	KinectManager* kinectManager;
-	//KinectManager kinectManager;
-
+	KinectManager kinectManager;
+    
 	MyGui* myGui;
-
+    
 	int topBlockHeight;
 	int topBlockBot;
 	int leftBlockW;
 	int rightBlockW;
 	float framesSinceMouseMove;
-
+    
 	bool isFirstFrame;
-
+    
 	bool isKinectAttached;
-
+    
 	bool isPaused;
 };

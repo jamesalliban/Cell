@@ -3,17 +3,8 @@
 
 void ResourceManager::init()
 {
-#ifdef CHINESE_CELL
-	//ofxTrueTypeFontUC  tagFont;
-	//tagFont.loadFont("type/chinese/MSYH.TTC", 72, true, true);  
+#ifdef CHINESE_CELL  
 	unicodeFont.setup("Arial Unicode.ttf");
-    
-//	ofRectangle bbox = unicodeFont.getBBox("邥 舿萐菿 磝邥 舿萐菿 磝", 24, 0, 0);
-//    printf("bbox.width:%f\n", bbox.width);
-//    printf("*******---******* bb.x = %f, bb.y = %f, bb.width = %f, bb.height = %f\n",
-//           bbox.getX(), bbox.getY(),
-//           bbox.getWidth(), bbox.getHeight());
-    
 #else
     tagFont.loadFont("type/western/Arial Rounded Bold.ttf", 72);
 	tagFont.setLineHeight(34.0f);

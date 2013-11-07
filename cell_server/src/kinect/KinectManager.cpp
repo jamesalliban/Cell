@@ -1,17 +1,6 @@
 #include "KinectManager.h"
 
 
-KinectManager::KinectManager()
-{
-    
-}
-
-KinectManager::~KinectManager()
-{
-    //dtor
-}
-
-
 
 void KinectManager::init()
 {

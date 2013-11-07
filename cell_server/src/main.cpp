@@ -1,18 +1,14 @@
 #include "ofMain.h"
-#include "TestApp.h"
-#include "ofAppGlutWindow.h"
+#include "testApp.h"
 
 //========================================================================
-int main( )
-{
-    ofAppGlutWindow window;
-    // can be OF_WINDOW or OF_FULLSCREEN
-	//ofSetupOpenGL(&window, 1600, 1000, OF_FULLSCREEN); //1600, 1000, OF_WINDOW);		1600, 1000	// <-------- setup the GL context
-	window.setGlutDisplayString("rgb alpha double samples depth");
-	//ofSetupOpenGL(&window, 1690, 900, OF_FULLSCREEN);
-	ofSetupOpenGL(&window, 1690, 900, OF_FULLSCREEN);
-	// also change the viewPort.width and viewPort.height in SceneManager::setupViewports()
+int main( ){
 
+	ofSetupOpenGL(1600,1008, OF_WINDOW);			// <-------- setup the GL context
 
-	ofRunApp( new TestApp());
+	// this kicks off the running of my app
+	// can be OF_WINDOW or OF_FULLSCREEN
+	// pass in width and height too:
+	ofRunApp( new testApp());
+
 }

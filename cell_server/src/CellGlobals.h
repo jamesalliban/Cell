@@ -10,8 +10,9 @@
 
 #define CHINESE_CELL
 
+#define SKELETON_MAX 8
 
 //class CellGlobals
 //{
-//    
+//
 //};

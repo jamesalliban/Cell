@@ -57,7 +57,7 @@ void User::setup(int _userID)
 			break;   // grey
     }
 
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
     if (app->isKinectAttached)
     {
@@ -75,7 +75,7 @@ void User::setup(int _userID)
 
 void User::update()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     UserManager* userMan = &app->sceneManager.userManager;
 
     if (!isActive) return;
@@ -157,7 +157,7 @@ void User::update()
 
 void User::customDraw()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     if (app->isKinectAttached)
         debugDraw();
     else
@@ -187,7 +187,7 @@ void User::performZScaleFix(ofVec3f* skeletonPoint)
 
 void User::nonKinectUpdate()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     UserManager* userMan = &app->sceneManager.userManager;
 
     if (!userMan->isNonKinectUserPaused)
@@ -219,7 +219,7 @@ void User::debugDraw()
 
     //if (ofGetFrameNum() % 50 == 0) printf("drawing user %i \n", userID);
 
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     UserManager* userMan = &app->sceneManager.userManager;
 
     for (int i = 0; i < (int)jointPositions.size(); i++)

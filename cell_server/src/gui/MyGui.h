@@ -12,7 +12,7 @@
 #include "ofMain.h"
 #include "ofxSimpleGuiToo.h"
 
-class TestApp;
+class testApp;
 
 class MyGui
 {
@@ -23,11 +23,11 @@ public:
 	void	draw();
 	void	keyPressed(int key);
 
-	TestApp*	app;
+	testApp*	app;
 
 protected:
 
 };
 
 
-#include "TestApp.h"
+#include "testApp.h"

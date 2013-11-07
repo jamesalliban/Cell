@@ -16,7 +16,7 @@ pass the user data to the new user and mute the old user
 
 void UserManager::init()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 	
     skeletonScale[0] = skeletonScale[1] = skeletonScale[2] = skeletonScale[3] = 0.0;
     skeletonRotDegrees[0] = skeletonRotDegrees[1] = skeletonRotDegrees[2] = skeletonRotDegrees[3] = 0.0;
@@ -50,10 +50,10 @@ void UserManager::init()
 
 void UserManager::update()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     if (app->isKinectAttached)
     {
-        if (app->kinectManager->hasSkeleton())
+        if (app->kinectManager.hasSkeleton())
         //if (app->kinectManager.hasSkeleton())
         {
             bool hasSkeletonBeenRemoved = haveSkeletonsBeenRemoved();
@@ -109,10 +109,10 @@ void UserManager::update()
 
 void UserManager::draw()
 {
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     if (app->isKinectAttached)
     {
-        if (app->kinectManager->hasSkeleton())
+        if (app->kinectManager.hasSkeleton())
         //if (app->kinectManager.hasSkeleton())
         {
             for (int i = 0; i < SKELETON_MAX; i++)
@@ -144,7 +144,7 @@ bool UserManager::haveSkeletonsBeenRemoved()
     //            for all skeletons
     //                check the User ID aginst the skeleton. If it isnt there, deactivate
 
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     bool hasOneOrMoreSkeletonsBeenRemoved = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop through users
     {
@@ -152,7 +152,7 @@ bool UserManager::haveSkeletonsBeenRemoved()
         bool doesUserValueMatchSkeleton = false;
         for (int j = 0; j < SKELETON_MAX; j++) // loop through skeletons
         {
-            KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
+            KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
 
             if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
             {
@@ -178,11 +178,11 @@ bool UserManager::checkIfSkeletonIsNew()
     // loop through all active skeletons and try to match these to a User trackingID. If there
     // is no match, the skeleton is new. Assign the skeleton to an inactive User.
 
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
     bool isSkeletonCountChanged = false;
     for (int i = 0; i < SKELETON_MAX; i++) // loop though all skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
         bool isSkeletonAssignedToAUser = false;
         // if skeleton is active
         if (skeleton->dwTrackingID != -1)
@@ -231,12 +231,12 @@ void UserManager::reassignSkeletonsIfNew()
 
     //return;
 
-    TestApp* app = (TestApp*)ofGetAppPtr();
+    testApp* app = (testApp*)ofGetAppPtr();
 
 
     for (int i = 0; i < SKELETON_MAX; i++) // loop through skeletons
     {
-        KinectSkeletonData* skeleton = &app->kinectManager->trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
+        KinectSkeletonData* skeleton = &app->kinectManager.trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
         for (int j = 0; j < SKELETON_MAX; j++) // loop through users
         {
             User* user = &users[j];
