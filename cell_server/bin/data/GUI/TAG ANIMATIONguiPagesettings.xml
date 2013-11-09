@@ -1,0 +1,85 @@
+<Widget>
+    <Kind>2</Kind>
+    <Name>Tags enabled</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Perlin Input offset multiplier</Name>
+    <Value>7.957746506</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Speed</Name>
+    <Value>0.014156338</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Frame multiplier</Name>
+    <Value>0.000537641</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Noise multiplier</Name>
+    <Value>0.199545786</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Out of Bounds Angle Add</Name>
+    <Value>0.296478868</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Out of Bounds Pos Add Max</Name>
+    <Value>0.166327462</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Out of Bounds Pos Add Min</Name>
+    <Value>0.000832042</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Out of Bounds Pos Add Decay</Name>
+    <Value>2.605633736</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Attraction speed Min</Name>
+    <Value>0.079227425</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Attraction speed Max</Name>
+    <Value>0.810563385</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Attraction speed Pow</Name>
+    <Value>10.394366264</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>y Scale Only On Attraction</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Y Min</Name>
+    <Value>2.323943615</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Y Max</Name>
+    <Value>37.640846252</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Scale Min</Name>
+    <Value>0.721126795</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Scale Max</Name>
+    <Value>1.299295783</Value>
+</Widget>

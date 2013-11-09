@@ -42,7 +42,7 @@ float FieldColour::addFieldScale(ofVec3f* position)
 
 ofVec3f FieldColour::getColourOffset(ofVec3f* position)
 {
-    if (!isEnabled) return ofVec3f(0.0, 0.0, 0.0);
+    if (!isEnabled || !isAllEnabled) return ofVec3f(0.0, 0.0, 0.0);
 
     Field::addFieldScale(position);
 

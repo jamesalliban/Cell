@@ -5,11 +5,11 @@
     </Toggle_Tags_enabled>
     <SliderFloat_Perlin_Input_offset_multiplier>
         <name>Perlin Input offset multiplier</name>
-        <value>8.140000343</value>
+        <value>7.940000534</value>
     </SliderFloat_Perlin_Input_offset_multiplier>
     <SliderFloat_Speed>
         <name>Speed</name>
-        <value>0.015170000</value>
+        <value>0.019161800</value>
     </SliderFloat_Speed>
     <SliderFloat_Frame_multiplier>
         <name>Frame multiplier</name>

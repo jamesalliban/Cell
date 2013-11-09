@@ -24,7 +24,7 @@ void FieldRepel::draw()
 
 void FieldRepel::addFieldForce(ofVec3f* position)
 {
-    if (!isEnabled) return;
+    if (!isEnabled || !isAllEnabled) return;
     Field::addFieldForce(position);
 
     if (lengthSquared < lengthSquaredMin)

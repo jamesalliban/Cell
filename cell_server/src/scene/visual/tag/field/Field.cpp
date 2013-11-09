@@ -1,5 +1,7 @@
 #include "Field.h"
 
+bool Field::isAllEnabled;
+
 void Field::init()
 {
     randomity = ofRandom(10000);
@@ -11,6 +13,7 @@ void Field::init()
 
 void Field::update()
 {
+    if (!isAllEnabled) return;
     float t = (ofGetElapsedTimef() + randomity) * movementSpeed;
 
     fieldPos.x = ofSignedNoise(t, 0) * playArea;

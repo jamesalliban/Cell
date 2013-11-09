@@ -6,20 +6,21 @@
  Optimisation
  ------------
  - Use power of 2 for tag texturing
- - CloudTag::performUserAttraction() - interpolates joint is calculated each frame for each tag - this should be done once per user per tag on startup
  - Go through each class and only import the necessary classes
  
  TASKS
  -----
  - Load Chinese characters
- - Get working with
+ - Get working with 
  - Sort Cloud Tags based on z depth
  - Improve no-kinect debugging system
  - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
  - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
  - Add a series of keyboard shortcuts
- - Swap UI for ofxUI
- 
+ - - 'l' - toggle draw lines
+ - - 't' - toggle draw tags
+ - - 'T' - toggle tag animation and calculations
+ - Add debug bounds draw
  
  
  // OLD BUT STILL NEED TO INVESTIGATE
@@ -92,6 +93,7 @@ void testApp::setup()
 	ofBackground(30);
 	ofDisableSmoothing();
 	ofEnableAlphaBlending();
+    ofSetCircleResolution(10);
 	glEnable(GL_DEPTH_TEST);
     
 	isKinectAttached = false;
@@ -103,7 +105,8 @@ void testApp::setup()
 	
 	resourceManager.init();
 	sceneManager.init(&kinectManager, &resourceManager);
-	myGui.init();
+//	myGui.init();
+    gui.setup();
     
     isFirstFrame = false;
 	isPaused = false;
@@ -113,7 +116,8 @@ void testApp::setup()
 
 void testApp::update()
 {
-    if (ofGetFrameNum() % 10 == 0) printf("mouseX:%i, mouseY:%i \n", ofGetMouseX(), ofGetMouseY());
+    if (ofGetFrameNum() % 10 == 0)
+        printf("mouseX:%i, mouseY:%i, ofGetMouseX():%i, ofGetMouseY():%i \n", mouseX, mouseY, ofGetMouseX(), ofGetMouseY());
     
     
 	if (!isPaused)
@@ -122,11 +126,11 @@ void testApp::update()
 		sceneManager.update();
 	}
 
-    framesSinceMouseMove++;
-    if (framesSinceMouseMove > 100)
-        ofHideCursor();
-    else
-        ofShowCursor();
+//    framesSinceMouseMove++;
+//    if (framesSinceMouseMove > 100)
+//        ofHideCursor();
+//    else
+//        ofShowCursor();
 }
 
 
@@ -161,7 +165,7 @@ void testApp::draw()
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
     glEnable(GL_DEPTH_TEST);
 
-    myGui.draw();
+    //myGui.draw();
     
     
     ofPushStyle();
@@ -180,7 +184,7 @@ void testApp::keyPressed(int key)
 
 	if (isKinectAttached) kinectManager.keyPressed(key);  // kinectManager.keyPressed(key);
 
-    myGui.keyPressed(key);
+    //myGui.keyPressed(key);
 
 
 	if (key == 'f')

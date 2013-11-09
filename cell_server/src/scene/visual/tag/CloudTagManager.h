@@ -36,7 +36,7 @@ public:
 	float shadeAlphaMin;
 	float shadeAlphaMax;
 	float shadeBlendMix;
-	int shadeBlendMode;
+	float shadeBlendMode;
 
 	//line shading
 	float lineContrastMin;
@@ -49,7 +49,7 @@ public:
 	// line props
 	bool areLinesEnabled;
 	int lineDistanceMin;
-	int lineLengthSquaredMin;
+	float lineLengthSquaredMin;
 	float lineThickness;
 	float lineZAreaMin;
 	float lineZAreaMax;
@@ -62,7 +62,7 @@ public:
 
 	float attractionSpeedMin;
 	float attractionSpeedMax;
-	int attractionSpeedPow;
+	float attractionSpeedPow;
 	bool isTagAttractionPaused;
 
 

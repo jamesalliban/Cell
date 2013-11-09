@@ -4,7 +4,7 @@
 
 #include "ResourceManager.h"
 #include "SceneManager.h"
-#include "MyGui.h"
+#include "GUI.h"
 #include "KinectManager.h"
 
 
@@ -30,12 +30,12 @@ public:
 	SceneManager sceneManager;
 	KinectManager kinectManager;
     
-	MyGui myGui;
+	GUI gui;
     
-	int topBlockHeight;
-	int topBlockBot;
-	int leftBlockW;
-	int rightBlockW;
+	float topBlockHeight;
+	float topBlockBot;
+	float leftBlockW;
+	float rightBlockW;
 	float framesSinceMouseMove;
     
 	bool isFirstFrame;

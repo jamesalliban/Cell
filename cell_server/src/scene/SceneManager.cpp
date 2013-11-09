@@ -97,9 +97,18 @@ void SceneManager::draw()
 
 	camEasyCam.begin(viewPort);
 
+        if (isGridVisible)
+        {
+            ofPushStyle();
+            ofPushMatrix();
+            ofRotateZ(90);
+            ofSetColor(255, gridAlpha);
+            ofDrawGridPlane(100);
+            ofPopMatrix();
+            ofPopStyle();
+        }
         userManager.draw();
-
-		nodeGrid.draw();
+		//nodeGrid.draw();
 		fieldMan.draw();
 		cloudTagMan.draw();
 
@@ -121,6 +130,11 @@ void SceneManager::keyPressed(int key)
 			break;
 		case 'u': isUpdateVars = !isUpdateVars;
 			break;
+		case 'g': isGridVisible = !isGridVisible;
+			break;
+        case 'a': fieldMan.isFieldLineVisible = !fieldMan.isFieldLineVisible;
+			break;
+            
 
 	}
 

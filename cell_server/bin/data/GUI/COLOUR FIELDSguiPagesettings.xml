@@ -1,0 +1,105 @@
+<Widget>
+    <Kind>2</Kind>
+    <Name>Enabled 1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Play Area 1</Name>
+    <Value>51.584506989</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Speed 1</Name>
+    <Value>0.030427633</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Area size 1</Name>
+    <Value>917.605651855</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 1 Red</Name>
+    <Value>0.774647892</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 1 Green</Name>
+    <Value>0.165492952</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 1 Blue</Name>
+    <Value>0.137323946</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Enabled 2</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Play Area 2</Name>
+    <Value>51.126762390</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Speed 2</Name>
+    <Value>0.028355263</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Area size 2</Name>
+    <Value>917.605651855</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 2 Red</Name>
+    <Value>0.341549307</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 2 Green</Name>
+    <Value>0.570422530</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 2 Blue</Name>
+    <Value>0.246478871</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Enabled 3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Play Area 3</Name>
+    <Value>47.796051025</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Speed 3</Name>
+    <Value>0.027171053</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Area size 3</Name>
+    <Value>939.788757324</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 3 Red</Name>
+    <Value>0.169014081</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 3 Green</Name>
+    <Value>0.190789476</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Colours 3 Blue</Name>
+    <Value>0.658450723</Value>
+</Widget>

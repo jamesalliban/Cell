@@ -13,7 +13,7 @@
 
 void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 {
-	cloudTagAmount = 1000; // 1000;
+	cloudTagAmount = 800; // 1000;
 
 	shadeContrastMin = 0.4;
 	shadeContrastMax = 0.7;
@@ -22,7 +22,7 @@ void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 	shadeAlphaMin = 0.0;
 	shadeAlphaMax = 0.15;
 	shadeBlendMix = 1.0;
-	shadeBlendMode = 0;// there are 10 diff. blend modes,
+	shadeBlendMode = 0.0;// there are 10 diff. blend modes,
 
 	
 	int tagDataAmount = resourceManager->tagData.size();

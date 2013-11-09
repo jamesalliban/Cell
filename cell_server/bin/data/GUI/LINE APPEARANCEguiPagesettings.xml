@@ -1,0 +1,70 @@
+<Widget>
+    <Kind>2</Kind>
+    <Name>Lines enabled</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Contrast min</Name>
+    <Value>-0.176056325</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Contrast max</Name>
+    <Value>-0.169014096</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Brightness min</Name>
+    <Value>0.183098555</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Brightness max</Name>
+    <Value>0.964788675</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Alpha min</Name>
+    <Value>0.126760602</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Alpha max</Name>
+    <Value>0.598591566</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Length Squared Min</Name>
+    <Value>1804.577514648</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Map Line Distance Min</Name>
+    <Value>667.253540039</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Map Line Distance Max</Name>
+    <Value>3577.464843750</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Map Z Area Min</Name>
+    <Value>-76.373237610</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Map Z Area Max</Name>
+    <Value>35.352111816</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Line Thickness</Name>
+    <Value>1.197183132</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Init line fade</Name>
+    <Value>0.510563374</Value>
+</Widget>

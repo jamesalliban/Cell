@@ -19,11 +19,12 @@ public:
     ofVec2f pos;
     float lengthSquared;
     float lengthSquaredMin;
+    
 
-
-    int playArea;
+    float playArea;
     float movementSpeed;
-
+    
+    static bool isAllEnabled;
 
 protected:
     void calculateLengthSquared(ofVec3f* position);

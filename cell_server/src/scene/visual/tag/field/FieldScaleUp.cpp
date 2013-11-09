@@ -29,7 +29,7 @@ void FieldScaleUp::addFieldForce(ofVec3f* position)
 
 float FieldScaleUp::addFieldScale(ofVec3f* position)
 {
-    if (!isEnabled) return 0.0;
+    if (!isEnabled || !isAllEnabled) return 0.0;
     Field::addFieldScale(position);
 
     if (lengthSquared < lengthSquaredMin)

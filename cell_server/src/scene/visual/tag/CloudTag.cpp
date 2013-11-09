@@ -83,12 +83,6 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 //	tagPlaneMesh.addTexCoord(ofVec2f(160.0f / 256.0f, 40.0f / 64.0f));
 //	tagPlaneMesh.addTexCoord(ofVec2f(0.0f, 40.0f / 64.0f));
 
-//	tagPlaneMesh.addColor(ofFloatColor(1.0, 0.0, 0.0, 1.0));
-//	tagPlaneMesh.addColor(ofFloatColor(1.0, 0.0, 0.0, 1.0));
-//	tagPlaneMesh.addColor(ofFloatColor(1.0, 0.0, 0.0, 1.0));
-//	tagPlaneMesh.addColor(ofFloatColor(1.0, 0.0, 0.0, 1.0));
-
-
 	tagPlaneMesh.addNormal(ofVec3f(0.0f, 0.0f, -1.0f));
 	tagPlaneMesh.addNormal(ofVec3f(0.0f, 0.0f, -1.0f));
 	tagPlaneMesh.addNormal(ofVec3f(0.0f, 0.0f, -1.0f));
@@ -116,16 +110,16 @@ void CloudTag::update()
 
     //ofVec3f lastPosition = ofVec3f(position.x, position.y, position.z);
 
-//    performAmbientMotion();
-//    performUserAttraction();
-//
-//    scaleOffset += app->sceneManager.fieldMan.addFieldScale(&position);
-//
-//    scaleOffset *= ofMap(position.y, cloudTagMan->yMin, cloudTagMan->yMax, cloudTagMan->scaleMin, cloudTagMan->scaleMax);
-//
-//    position += ambientVelocity;
-//
-//    app->sceneManager.fieldMan.addFieldForce(&position);
+    performAmbientMotion();
+    performUserAttraction();
+
+    scaleOffset += app->sceneManager.fieldMan.addFieldScale(&position);
+
+    scaleOffset *= ofMap(position.y, cloudTagMan->yMin, cloudTagMan->yMax, cloudTagMan->scaleMin, cloudTagMan->scaleMax);
+
+    position += ambientVelocity;
+
+    app->sceneManager.fieldMan.addFieldForce(&position);
 
 
     for (int i = 0; i < SKELETON_MAX; i++)
@@ -172,12 +166,12 @@ void CloudTag::performAmbientMotion()
 
     ambientVelocity = ofVec3f(0, 0, 0);
 
-    float posXDiffPos = position.x - mappedBourdaryW * 0.5;
-    float posXDiffNeg = -mappedBourdaryW * 0.5 - position.x;
-    float posYDiffPos = position.y - (cloudTagMan->boundaryH * 0.5 + cloudTagMan->boundaryCentreH);
-    float posYDiffNeg = (-cloudTagMan->boundaryH * 0.5) + cloudTagMan->boundaryCentreH - position.y;
-    float posZDiffPos = position.z - cloudTagMan->boundaryD * 0.5;
-    float posZDiffNeg = -cloudTagMan->boundaryD * 0.5 - position.z;
+//    float posXDiffPos = position.x - mappedBourdaryW * 0.5;
+//    float posXDiffNeg = -mappedBourdaryW * 0.5 - position.x;
+//    float posYDiffPos = position.y - (cloudTagMan->boundaryH * 0.5 + cloudTagMan->boundaryCentreH);
+//    float posYDiffNeg = (-cloudTagMan->boundaryH * 0.5) + cloudTagMan->boundaryCentreH - position.y;
+//    float posZDiffPos = position.z - cloudTagMan->boundaryD * 0.5;
+//    float posZDiffNeg = -cloudTagMan->boundaryD * 0.5 - position.z;
 
     ambientVelocity.x = cos(angleX) * cloudTagMan->speed;
     ambientVelocity.y = cos(angleY) * cloudTagMan->speed;
@@ -207,7 +201,7 @@ void CloudTag::performUserAttraction()
 
             ofVec3f length = position - userData->userPoint;
             userData->lengthSquared = length.lengthSquared();
-            float lengthSquaredMin = cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd;
+            float lengthSquaredMin = (int)cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd;
 
             if (userData->lengthSquared < lengthSquaredMin)
             {
@@ -232,7 +226,7 @@ void CloudTag::performUserAttraction()
 
                 if (!cloudTagMan->isTagAttractionPaused)
                 {
-                    userData->attraction = (position - userData->userPoint) * pow(attractionMultiplier, cloudTagMan->attractionSpeedPow);
+                    userData->attraction = (position - userData->userPoint) * pow(attractionMultiplier, (int)cloudTagMan->attractionSpeedPow);
                     position -= userData->attraction;
 
                     //userData->attractionVecs.push_back(ofVec3f(userData->attraction.x, userData->attraction.y, userData->attraction.z));
@@ -269,22 +263,17 @@ void CloudTag::performUserAttraction()
 
 void CloudTag::checkBounds()
 {
-    bool isXOutOfBounds = false;
+//    bool isXOutOfBounds = false;
     bool isYOutOfBounds = false;
     bool isZOutOfBounds = false;
 
-    if (position.x >= mappedBourdaryW * 0.5 && ambientVelocity.x > -0.3)
+    if (position.x > mappedBourdaryW * 0.5)
     {
-        isXOutOfBounds = true;
-
-        outOfBoundsPosVelocity.x = MAX(outOfBoundsPosVelocity.x - cloudTagMan->outOfBoundsPosAddMin, -cloudTagMan->outOfBoundsPosAddMax);
-        angleX += cloudTagMan->angleAdd;
+        position.x -= mappedBourdaryW - 5;
     }
-    if (position.x <= mappedBourdaryW * -0.5 && ambientVelocity.x < 0.3)
+    if (position.x < mappedBourdaryW * -0.5)
     {
-        isXOutOfBounds = true;
-        outOfBoundsPosVelocity.x = MIN(outOfBoundsPosVelocity.x + cloudTagMan->outOfBoundsPosAddMin, cloudTagMan->outOfBoundsPosAddMax);
-        angleX -= cloudTagMan->angleAdd;
+        position.x += mappedBourdaryW - 5;
     }
     if (position.y >= (cloudTagMan->boundaryH * 0.5) + cloudTagMan->boundaryCentreH)
     {
@@ -298,25 +287,21 @@ void CloudTag::checkBounds()
         outOfBoundsPosVelocity.y = MIN(outOfBoundsPosVelocity.y + cloudTagMan->outOfBoundsPosAddMin, cloudTagMan->outOfBoundsPosAddMax);
         if (ambientVelocity.y < 0.3) angleY -= cloudTagMan->angleAdd;
     }
-    if (position.z >= cloudTagMan->boundaryD * 0.5 && ambientVelocity.z > -0.3)// && ambientVelocity.z > 0)
+    if (position.z > cloudTagMan->boundaryD * 0.5)
     {
-        isZOutOfBounds = true;
-        outOfBoundsPosVelocity.z = MAX(outOfBoundsPosVelocity.z - cloudTagMan->outOfBoundsPosAddMin, -cloudTagMan->outOfBoundsPosAddMax);
-        angleZ += cloudTagMan->angleAdd;
+        position.z -= cloudTagMan->boundaryD - 5;
     }
-    if (position.z <= cloudTagMan->boundaryD * -0.5 && ambientVelocity.z < 0.3)// && ambientVelocity.x < 0)
+    if (position.z < cloudTagMan->boundaryD * -0.5)
     {
-        isZOutOfBounds = true;
-        outOfBoundsPosVelocity.z = MIN(outOfBoundsPosVelocity.z + cloudTagMan->outOfBoundsPosAddMin, cloudTagMan->outOfBoundsPosAddMax);
-        angleZ -= cloudTagMan->angleAdd;
+        position.z += cloudTagMan->boundaryD - 5;
     }
 
-    if (!isXOutOfBounds && outOfBoundsPosVelocity.x > 0)
-        outOfBoundsPosVelocity.x = MAX(outOfBoundsPosVelocity.x - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
+//    if (!isXOutOfBounds && outOfBoundsPosVelocity.x > 0)
+//        outOfBoundsPosVelocity.x = MAX(outOfBoundsPosVelocity.x - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
     if (!isYOutOfBounds && outOfBoundsPosVelocity.y > 0)
         outOfBoundsPosVelocity.y = MAX(outOfBoundsPosVelocity.y - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
-    if (!isZOutOfBounds && outOfBoundsPosVelocity.z > 0)
-        outOfBoundsPosVelocity.z = MAX(outOfBoundsPosVelocity.z - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
+//    if (!isZOutOfBounds && outOfBoundsPosVelocity.z > 0)
+//        outOfBoundsPosVelocity.z = MAX(outOfBoundsPosVelocity.z - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
 
 
     int tempIsTagAttractedToUser = (isTagAttractedToUser) ? 1 : 0;
@@ -352,7 +337,7 @@ void CloudTag::drawTags()
 	{
 		isGrabFbo = false;
 		//shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);
-		//shader->setUniform1i("blendmode", app->sceneManager.cloudTagMan.shadeBlendMode);
+		//shader->setUniform1i("blendmode", (int)app->sceneManager.cloudTagMan.shadeBlendMode);
 	}
 
 	float mappedContrast = ofMap(position.z, -50, 50, cloudTagMan->shadeContrastMin, cloudTagMan->shadeContrastMax, true);
@@ -423,7 +408,7 @@ void CloudTag::drawLines()
             {
                 isGrabFbo = false;
                 //shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);
-                //shader->setUniform1i("blendmode", app->sceneManager.cloudTagMan.shadeBlendMode);
+                //shader->setUniform1i("blendmode", (int)app->sceneManager.cloudTagMan.shadeBlendMode);
             }
 
             float mappedContrast = ofMap(position.z, cloudTagMan->lineZAreaMin, cloudTagMan->lineZAreaMax, cloudTagMan->lineContrastMin, cloudTagMan->lineContrastMax, true);
