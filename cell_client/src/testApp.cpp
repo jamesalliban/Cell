@@ -1,410 +1,402 @@
 
-#pragma once
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// WARNING /////////////////////////////////////////
+////////// THIS APP WILL RUN VERY SLOWLY IF THE NETWORK IS NOT SET UP. TO TEST /////////
+///////////////// COMMENT OUT THE OSC SENDER MESSAGE CODE IN UPDATE() //////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <Windows.h>
 #include "testApp.h"
-#include "ofxMSKinect.h"
-#include "ofxMSSkeletonDraw.h"
-//Kinetic demo networking stuff
-//#include "KineticNetworkClient.h"
-//end Kinetic demo networking stuff
-#include "ofFileUtils.h";
 
-ofxMSKinect* kinect;
-ofxMSKinectDevice* firstDevice;
-int padding = 12;
+void testApp::setup() {
+	ofSetLogLevel(OF_LOG_VERBOSE);
 
-bool bSendDataToServer = true  ; // flag added to allow client data sending to be controled by server. see function Update() below
-//NOTE IF this flag is set false at start of client so the server MUST send a Resume command before any data is sent from client
-//Set the flag to true if data should be sent as soon as it is available
-//end Kinetic demo networking stuff
+	//Netork config txt file is located in C:/ on each client. It should contain the following lines only
 
-ofxSkeletonRenderer* skeletonDrawer; // simple class to draw skeletons
+	//192.168.0.199
+	//11999
+	//client id
 
-
-void testApp::setup()
-{
-    ofSetFrameRate(30);  // set the frame rate this may need to be adjusted based on performance of network and laptops/pc's
-
-    sender.setup(SERVER_IP, PORT_OUT);
-    receiver.setup(PORT_IN);
-
-	//this will initialize everything we need for basic kinect functionality
-	//this will also check if the device is connected and handle gracefully
-	kinect = new ofxMSKinect();
-	kinect->Init(SINGLE_DEVICE); //Pass MULTIPLE_DEVICES if you intend to use more than 1 kinect devices physically attached  to the same laptop/pc.
-
-	if(kinect->HasKinectDevice())
+	//The first line should be the IP address of the server 
+	//The second line should be the Port that the server uses to listen on and the clients should connect to
+	//The third line is the client ID. This is to let the server differentiate between the clients
+	
+	ofFile file;
+	//set up the client
+	string serverIPAddress;
+	if(file.open("c:\\ipaddress.txt"))
 	{
-		skeletonDrawer = new ofxSkeletonRenderer();
-		ofFile file;
+		ofBuffer buf = file.readToBuffer();
+		file.close();
+		serverIPAddress = buf.getFirstLine();
+		string porOut = buf.getNextLine();
+		clientID = ofToInt(buf.getNextLine());
 
-/*		In order to setup the networking of skeletal data a configuration file is required this file has a simple structure
-		and should contain just the following lines only
+		printf("Loaded ipaddress.txt - clientID = %i \n", clientID);
+    }
+	
+	buildSkeletonDataObjects();
 
-		127.0.0.1
-		11999
-		1
-		clientname
+	kinect.init(false, false, false, true, true, false, false, true); // enable all captures
+	kinect.open(false);
+//	kinect.open(true); // when you want to use near mode
 
-		The first line should be the IP address of the server laptop/pc that will receive skletons data
-		from the clients, in the above case it set to local host since we are testing back to back on same laptop
+	kinect.addKinectListener(this, &testApp::kinectPlugged, &testApp::kinectUnplugged);
+	
+	ofSetVerticalSync(true);
 
-		The second line should be the Port that the server should use to listen on and the clients should connect to.
+	kinectSource = &kinect;
+	angle = kinect.getCurrentAngle();
+	bPlugged = kinect.isConnected();
+	nearClipping = kinect.getNearClippingDistance();
+	farClipping = kinect.getFarClippingDistance();
+	
+	bDrawVideo = false;
+	bDrawDepthLabel = false;
+	bDrawSkeleton = false;
+	bDrawCalibratedTexture = false;
 
-		The third line is a flag if set to 1 then the client will send Position-Only skeletal information, that is
-		information for up to 4 non tracked selectons, in addition to sending information for the tracked skeltons.
-		If the third line is set to 0 then Postion-Only skeletal information will not be sent and the server will
-		not be expecting it.
+	ofSetFrameRate(40);
+	
+	calibratedTexture.allocate(320, 240, GL_RGB);
 
-		The forth line (which is optional) is the clientname ( shown above as the string "clientname" ) this is the name of the client sending the data. This
-		is to allow the application on the server to identify where the data came from i.e. which laptop/pc,
-		assuming that the name in the respective files on the laptop/pc clients is set differently.
-		I'm assuming here that the skeletons from the clients might need to be display in a certain order on the screen of the server
-		corresponding to the position of the Kinetic devices or something of this kind.
-		The string can be up to 29 characters long anything more will be truncated.
+	sender.setup(serverIPAddress, PORT_OUT);
+    //receiver.setup(PORT_IN);
+}
 
-		The same file (apart from the client name) should be copied to all clients and the server laptop/pc's and should contain exactly the
-		same data. There is minimal checking on validity of data in this file when read in.
-*/
 
-		//set up the client
-		if( file.open("c:\\ipaddress.txt") )
+void testApp::buildSkeletonDataObjects()
+{
+	for (int i = 0; i < 2; i++)
+	{
+        SkeletonData skelData;
+		skelData.id = -1;
+		skelData.arrayIndex = -1;
+		skelData.resetCount = 0;
+		skelData.isActive = false;
+		for (int i = 0; i < 20; i++)
+			skelData.skelPoints.push_back(ofVec3f(-1, -1, -1));
+		
+		skeletonDataObjects.push_back(skelData);
+	}
+}
+
+
+void testApp::resetSkeletonData(int index)
+{
+    SkeletonData* skelData = &skeletonDataObjects[index];
+	if (++skelData->resetCount == 4)
+	{
+		skelData->id = -1;
+		skelData->arrayIndex = -1;
+		skelData->resetCount = 0;
+		skelData->isActive = false;
+		for (int i = 0; i < 20; i++)
+			skelData->skelPoints[i] = ofVec3f(-1, -1, -1);
+	}
+}
+
+
+void testApp::populateSkeletonData(int skeletonPointsIndex, int skeletonDataObjectIndex, bool isSkelNew)
+{
+	ofPoint* points = kinect.getSkeletonPoints()[skeletonPointsIndex];
+	SkeletonData* skelData = &skeletonDataObjects[skeletonDataObjectIndex];
+
+	skelData->resetCount = 0;
+
+	if (isSkelNew) 
+	{
+		skelData->id = skeletonDataObjectIndex + (clientID * 2);
+		skelData->arrayIndex = skeletonPointsIndex;
+		skelData->isActive = true;
+	}
+	for (int i = 0; i < 20; i++)
+		skelData->skelPoints[i] = points[i];
+}
+
+
+void testApp::update() 
+{
+	if (ofGetElapsedTimeMillis() < 2000) return;
+
+	kinectSource->update();
+	
+	//Loop through all skeleton containers from ofxKinectNui
+	for(int i = 0; i < kinect::nui::SkeletonFrame::SKELETON_COUNT; i++)
+	{
+		ofPoint skelPoint = kinect.getSkeletonPoints()[i][0];
+		//is this ofxKinectNui skeleton is empty
+		if (skelPoint.x == -1 && skelPoint.y == -1 && skelPoint.z == -1) 
 		{
-			ofBuffer buf = file.readToBuffer() ;
-			file.close();
-			string ipaddress_of_server = buf.getFirstLine();
-			string port = buf.getNextLine();
-			int iport = atoi( port.c_str() );
-			string tracked_only = buf.getNextLine();
-			int itracked = atoi( tracked_only.c_str() );
-			client_name = buf.getNextLine();
-        }
-		//end Kinetic demo networking stuff
-
-
-		firstDevice = kinect->GetKinectDeviceDefault();
-
-    //	NUI_TRANSFORM_SMOOTH_PARAMETERS inptr;    // get and set skeleton smoothing params
-	//	firstDevice->GetTransformSmoothParamaters( &inptr );
-	//	firstDevice->SetTransformSmoothParamaters( &inptr );
-    //  or call individual functions for each of NUI_TRANSFORM_SMOOTH_PARAMETERS properties e.g
-	//	firstDevice->SetSmoothing(f);
-	//	float f  = firstDevice->GetSmoothing() ;
-		if( firstDevice != NULL )
-		{
-		// image res for RGB has to be this set by the NUI api .lower res returns failure
-			bool isOk = firstDevice->StartRGB(IMAGE_RESOLUTION_640x480) ;
-
-		// default depth resolution is 320x240
-			isOk = firstDevice->StartDepth(IMAGE_RESOLUTION_320x240);
-
-		//start tracking skeleton
-			isOk = firstDevice->StartSkeletonTracking();
+			//Check SkeletonData objects to see if there is a skel with this array index and if it was 
+			//previously active. If so, reset the SkeletonData object
+			for (int j = 0; j < (int)skeletonDataObjects.size(); j++)
+				if (skeletonDataObjects[j].arrayIndex == i && skeletonDataObjects[j].isActive)
+					resetSkeletonData(j);
 		}
-		kinectFailedToInit = false;
-	}
-	else
-	{
-		kinectFailedToInit = true;
-	}
-}
-
-bool bSend = true;
-int  iReadCommand = 0;
-void testApp::update()
-{
-    if (kinectFailedToInit) return;
-
-    /*
-    Data sent in this format
-    0 = client client0, client1 etc - sting
-
-    Skel 1
-    1 = dwTrackingID - int
-    2-61 = skel vertex data - float
-
-    */
-
-	ofxOscMessage m;
-	m.setAddress("/skeleton/data");
-
-	char clientIDChar = client_name[6];
-    int clientID = atoi(&clientIDChar);
-	m.addIntArg(clientID);
-
-	//printf("tracked_skeletons.size() = %i \n", (int)firstDevice->tracked_skeletons.size());
-
-	for(int i = 0; i < 2; i++)
-    {
-        bool skelActive = true;
-
-        if ((int)firstDevice->tracked_skeletons.size() <= i) skelActive = false;
-
-        m.addIntArg((skelActive) ? (int)firstDevice->tracked_skeletons[i].dwTrackingID : -1);
-
-
-
-        for(int j = 0; j < 20; j++)
-        {
-            m.addFloatArg((skelActive) ? firstDevice->tracked_skeletons.at(i).SkeletonPositions[j].x : -1000);
-            m.addFloatArg((skelActive) ? firstDevice->tracked_skeletons.at(i).SkeletonPositions[j].y : -1000);
-            m.addFloatArg((skelActive) ? firstDevice->tracked_skeletons.at(i).SkeletonPositions[j].z : -1000);
-        }
-
-        if (ofGetFrameNum() % 60 == 0)
-        {
-            printf("i = %i, size() = %i, dwTrackingID = %i, hip.x = %f \n", i, (int)firstDevice->tracked_skeletons.size(), (skelActive) ? (int)firstDevice->tracked_skeletons[i].dwTrackingID : -1, (i == 0) ? m.getArgAsFloat(2) : m.getArgAsFloat(63));
-        }
-    }
-
-    if (ofGetFrameNum() % 60 == 0)
-    {
-        printf("\n");
-    }
-
-    //m.addFloatArg((float)ofRandom(0, 100));
-
-    sender.sendMessage(m);
-
-	if(kinectFailedToInit)
-		return;
-
-	if( firstDevice != NULL)
-	{
-		bool isOk = firstDevice->UpdateRGBVideo();
-		isOk = firstDevice->UpdateDepth() ;
-		isOk = firstDevice->UpdateSkeletons();
-	}
-
-	//Kinetic demo networking stuff
-	//here is where we send data to the server
-
-
-/*
-    // we always send .. if there is no data then server will get empty skels which is fine
-    if( nwclient != NULL && bSendDataToServer) // this flag can be set by server commands to enable disable sending data
-    {
-        nwclient->Send ( &firstDevice->tracked_skeletons, &firstDevice->positiononly_skeletons ) ;
-    }
-    */
-
-	// here we show how to handle commands sent from the server to the client ...
-	// if the app is running as a client
-	//ClientProcessesCommandFromServer() ;
-	//end Kinetic demo networking stuff
-}
-
-//Kinetic demo networking stuff
-	/*
-void testApp::ClientProcessesCommandFromServer()
-{
-	//here we show examples of handling commands on the client which are sent from the server
-	//iReadCommand used to control how often we check for incoming data. The Update() function is called every 16 msec (normally)
-	//so we are checking for commands sent from server every 160 msec here ... since don't want to do it every Update() call
-
-
-	if( nwclient != NULL &&  iReadCommand++ > 30)
-	{ // here we read commands sent from the server ...
-	    iReadCommand = 0 ;
-		ofMS_NETWORK_COMMAND command;
-		if( nwclient->GetCommand(&command) )
+		
+		
+		//if ofxKinectNui skeleton is active 
+		if (skelPoint.x != -1 && skelPoint.y != -1 && skelPoint.z != -1) 
 		{
-			switch( command.command ) //we have got a command
+			bool hasNewSkeletonBeenAsigned = false;
+			//loop through SkeletonData objects to see if one has this arrayIndex
+			for (int j = 0; j < (int)skeletonDataObjects.size(); j++)
 			{
-				case 'C':  // a camera elevation command
+				SkeletonData* skelData = &skeletonDataObjects[j];
+				//if there is a match, populate it with the data from this skeleton
+				if (skelData->arrayIndex == i)
 				{
-					int elevation = atoi( command.command_data ) ;
-					if( firstDevice != NULL )
-						firstDevice->SetCameraElevationAngle( elevation );
+					populateSkeletonData(i, j, false);
+					hasNewSkeletonBeenAsigned = true;
 				}
-				break ;
+				if (hasNewSkeletonBeenAsigned) break;
+			}
 
-				case'P':
-                    bSendDataToServer = false;
-                    printf("Pause pressed \n");
-                    break ; // a Pause command from server so disable data send flag
-
-				case'R':
-                    bSendDataToServer = true;
-                    printf("Resume pressed \n");
-                    break ; // a Resume command from server so enable data send flag
-
-				case'X': // close client command.. so simulate Escape Key press to close the app. app must have keyboard focus though
-					// done this way since I can't find a function to call to close the app programmatically
-					keybd_event(OF_KEY_ESC, 0, 0, 0);
-					keybd_event(OF_KEY_ESC, 0, KEYEVENTF_KEYUP, 0);
-					break ;
-
-				case 'S':  // A Smoothing command. get skeleton smoothing params sent from server and apply them
-					if( firstDevice != NULL )
+			//the skeleton has not been assigned so it is new. 
+			if (!hasNewSkeletonBeenAsigned)
+			{
+				//Loop through the SkeletonData objects to find the first empty one, assign it to this 
+				//array index and populate it with data
+				for (int j = 0; j < (int)skeletonDataObjects.size(); j++)
+				{
+					SkeletonData* skelData = &skeletonDataObjects[j];
+					if (!skelData->isActive)
 					{
-						NUI_TRANSFORM_SMOOTH_PARAMETERS inptr;
-						memcpy( &inptr, command.command_data, sizeof(NUI_TRANSFORM_SMOOTH_PARAMETERS));
-						firstDevice->SetTransformSmoothParamaters( &inptr );
+						populateSkeletonData(i, j, true);
+						break;
 					}
-				break;
-
-				case'Z': // A Server closing down command.  as a client we continue running but set the send data flag to disabled
-					     // to stop sending data ... and whenever the  nwclient->GetCommand(&command) )  is called
-						 // the code will try to connect to the server on the specified socket and IP as set  in the config file
-						 // once connected (i.e. when server restarts ) ... the client will not send any skel data until the server sends
-					     // a Resume command to re-enable to send data flag
-
-					bSendDataToServer = false ;  //stop sending data
-					nwclient->CloseSocket()   ;  //close socket client will try to reconnect on each nwclient->GetCommand(&command)  call
-					break ; // a Pause command from server so disable data send flag
-
+				}
 			}
 		}
 	}
-}
+	
+
+	for (int i = 0; i < (int)skeletonDataObjects.size(); i++)
+	{
+		SkeletonData* skelData = &skeletonDataObjects[i];
+		//for (int j = 0; j < 20; j++)
+			//printf("i = %i, j = %i, x = %f, y = %f, z = %f \n",i, j, skelData->skelPoints[j].x, skelData->skelPoints[j].y, skelData->skelPoints[j].z);
+	}
+
+	/*
+	ofxOscMessage m;
+	m.setAddress("/skeleton/data");
+	m.addIntArg(clientID); // client
+
+	// add data from both SkeletonData objects, even if inactive - client, id, skelpoints, velpoints
+	for (int i = 0; i < (int)skeletonDataObjects.size(); i++)
+	{
+		SkeletonData* skelData = &skeletonDataObjects[i];
+		m.addIntArg(skelData->id);
+		for (int j = 0; j < 20; j++)
+		{
+			m.addFloatArg(skelData->skelPoints[j].x);
+			m.addFloatArg(skelData->skelPoints[j].y);
+			m.addFloatArg(skelData->skelPoints[j].z);
+		}
+	}
+    sender.sendMessage(m);
 	*/
+}
 
-
-void ServerSendCommandstoClients(int key){}
-int val=0;
-
-//MJM   James I have left the drawing in on the client... though I assume it not really needed
-// except perhaps for showing the skels.
-
-void testApp::draw()
+//--------------------------------------------------------------
+void testApp::draw() 
 {
-	ofSetHexColor(0xffffff);
-
-	if(kinectFailedToInit)
+	ofBackground(100, 100, 100);
+	if(bDrawVideo)
 	{
-		ofSetHexColor(0xff0000);
-		ofDrawBitmapString("No Kinect Device Found", padding, padding, 0);
-		return;
+		kinect.draw(0, 0, 1024, 768);	// draw video images from kinect camera
+	}
+	else if(bDrawDepthLabel)
+	{
+		ofEnableAlphaBlending();
+		kinect.drawDepth(0, 0, 1024, 768);	// draw depth images from kinect depth sensor
+		kinect.drawLabel(0, 0, 1024, 768);		// draw players' label images on video images
+		ofDisableAlphaBlending();
+	}
+	else if(bDrawSkeleton)
+	{
+		kinect.drawSkeleton(0, 0, 1024, 768);	// draw skeleton images on video images
+	}
+	else if(bDrawCalibratedTexture)
+	{
+		ofPushMatrix();
+		ofPopMatrix();
+	}
+	else
+	{
+		int w = 500;
+		int h = 360;
+		calibratedTexture.loadData(kinect.getCalibratedVideoPixels());
+		calibratedTexture.draw(0, 0, w, h);
+		//kinect.draw(0, 0, w, h);			// draw video images from kinect camera
+		ofEnableAlphaBlending();
+		kinect.drawDepth(w, 0, w, h);	// draw depth images from kinect depth sensor
+		kinect.drawLabel(w, 0, w, h);		// draw players' label images on video images
+		ofDisableAlphaBlending();
+		kinect.drawSkeleton(0, 0, w, h);	// draw skeleton images on video images
+		
+		ofEnableAlphaBlending();
+		ofSetColor(255, 255, 255, 80);
+		kinect.drawLabel(0, 0, w, h);		// draw players' label images on video images	
+		ofDisableAlphaBlending();
+		//kinect.drawSkeleton(w, 0, 640, 480);	// draw skeleton images on video images
+
 	}
 
-	int dwidth  = firstDevice->DepthSize.x;
-	int dheight = firstDevice->DepthSize.y;
+	ofPushMatrix();
+	ofTranslate(35, 35);
+	ofFill();
+	ofPopMatrix();
 
-	//Draw depth
-	firstDevice->DrawDepthTexture(padding, padding, dwidth, dheight);
-
-	ofSetHexColor(0xffffff);
-
-	//Draw video (scale to size of depth for debug)
-	firstDevice->DrawVidImage(padding + padding + dwidth, padding, dwidth, dheight);
-
-//	skeletonDrawer->Draw(padding, firstDevice->DepthSize, firstDevice->HasSkeleton(),  &firstDevice->tracked_skeletons);
-//	skeletonDrawer->DrawJoints(padding, firstDevice->DepthSize.x, firstDevice->DepthSize.y, firstDevice->HasSkeleton(),  &firstDevice->skeletons );
-//	skeletonDrawer->DrawLimbs(padding, firstDevice->DepthSize.x, firstDevice->DepthSize.y, firstDevice->HasSkeleton(),  &firstDevice->skeletons );
-//end Kinetic demo networking stuff
-
-    //if( nwclient != NULL && firstDevice != NULL)
-
-    skeletonDrawer->Draw(padding, firstDevice->DepthSize, firstDevice->HasSkeleton(),  &firstDevice->tracked_skeletons);
-
-	drawDebug();
-	// or call firstDevice->Draw( padding ) to call convenience Draw function ;
-}
-
-
-void testApp::drawDebug()
-{
-	ofSetHexColor(0x0);
-	int dwidth = firstDevice->DepthSize.x;
-
-	int leftOffset = padding + (dwidth * 2) + padding + padding;
-
-	string name = firstDevice->GetDeviceName();
-	int yPos = padding;
-
-	ostringstream ostr;
-
-	ostr << "Device Name: " << name << "\r\n";
-
-	ostr << "Connected :" << (firstDevice->IsConnected() ? "yes" : "no") << "\r\n";
-
-	ostr << "RGB Size: " << firstDevice->VideoSize.x << " - " << firstDevice->VideoSize.y << "\r\n";
-
-	ostr << "Depth Size: " << firstDevice->DepthSize.x << " - " << firstDevice->DepthSize.y << "\r\n";
-
-	ostr << "Depth Has Player Info: " << (firstDevice->DepthHasPlayers() ? "yes" : "no") << "\r\n";
-
-	bool hasSkeleton = firstDevice->HasSkeleton();
-	ostr << "Has Skeletons: " << (hasSkeleton? "yes" : "no") << "\r\n";
-	ostr << "Tracked      : " << firstDevice->NumberSkeletonsTracked() << "\r\n";
-	ostr << "Position Only: " << firstDevice->positiononly_skeletons.size()  << "\r\n";
-
-	ofDrawBitmapString(ostr.str(), leftOffset, yPos, 0);
-}
-
-
-void testApp::keyPressed(int key)
-{
-	if(key == OF_KEY_UP)
+	stringstream kinectReport;
+	if(bPlugged && !kinect.isOpened())
 	{
-		val++;
-		firstDevice->SetCameraElevationAngle(val);
+		ofSetColor(0, 255, 0);
+		kinectReport << "Kinect is plugged..." << endl;
+		ofDrawBitmapString(kinectReport.str(), 200, 300);
 	}
-	if(key == OF_KEY_DOWN)
+	else if(!bPlugged)
 	{
-		val--;
-		firstDevice->SetCameraElevationAngle(val);
+		ofSetColor(255, 0, 0);
+		kinectReport << "Kinect is unplugged..." << endl;
+		ofDrawBitmapString(kinectReport.str(), 200, 300);
 	}
-
-	printf("Key %d\r\n", key);
+	
+	// draw instructions
+	ofSetColor(255, 255, 255);
+	stringstream reportStream;
+	reportStream << "fps: " << ofGetFrameRate() << "  Kinect Nearmode: " << kinect.isNearmode() << endl
+				 << "press 'c' to close the stream and 'o' to open it again, stream is: " << kinect.isOpened() << endl
+				 << "press UP and DOWN to change the tilt angle: " << angle << " degrees" << endl
+				 << "press LEFT and RIGHT to change the far clipping distance: " << farClipping << " mm" << endl
+				 << "press '+' and '-' to change the near clipping distance: " << nearClipping << " mm" << endl
+				 << "press 'v' to show video only: " << bDrawVideo << ",      press 'd' to show depth + users label only: " << bDrawDepthLabel << endl
+				 << "press 's' to show skeleton only: " << bDrawSkeleton << ",   press 'q' to show point cloud sample: " << bDrawCalibratedTexture;
+	ofDrawBitmapString(reportStream.str(), 20, 400);
+	
+	stringstream kinectStream;
+	kinectStream << "Skeleton0 Active: " << ((skeletonDataObjects[0].isActive) ? 1 : 0) << endl
+				 << "Skeleton1 Active: " << ((skeletonDataObjects[1].isActive) ? 1 : 0);
+	ofDrawBitmapString(kinectStream.str(), 700, 400);
+	
 }
 
-void testApp::keyReleased(int key)
+
+//--------------------------------------------------------------
+void testApp::exit() 
 {
-
+	if(calibratedTexture.bAllocated())
+	{
+		calibratedTexture.clear();
+	}
+	//kinect.setAngle(0);
+	kinect.close();
+	kinect.removeKinectListener(this);
 }
 
-void testApp::mouseMoved(int x, int y )
+//--------------------------------------------------------------
+void testApp::keyPressed (int key) 
 {
-
+	switch(key){
+	case 'v': // draw video only
+	case 'V':
+		bDrawVideo = !bDrawVideo;
+		if(bDrawVideo){
+			bDrawCalibratedTexture = false;
+			bDrawSkeleton = false;
+			bDrawDepthLabel = false;
+			glDisable(GL_DEPTH_TEST);
+		}
+		break;
+	case 'd': // draw depth + users label only
+	case 'D':
+		bDrawDepthLabel = !bDrawDepthLabel;
+		if(bDrawDepthLabel){
+			bDrawCalibratedTexture = false;
+			bDrawVideo = false;
+			bDrawSkeleton = false;
+			glDisable(GL_DEPTH_TEST);
+		}
+		break;
+	case 's': // draw skeleton only
+	case 'S':
+		bDrawSkeleton = !bDrawSkeleton;
+		if(bDrawSkeleton){
+			bDrawCalibratedTexture = false;
+			bDrawVideo = false;
+			bDrawDepthLabel = false;
+			glDisable(GL_DEPTH_TEST);
+		}
+		break;
+	case 'q': // draw point cloud example
+	case 'Q':
+		bDrawCalibratedTexture = !bDrawCalibratedTexture;
+		if(bDrawCalibratedTexture){
+			bDrawVideo = false;
+			bDrawDepthLabel = false;
+			bDrawSkeleton = false;
+			glEnable(GL_DEPTH_TEST);
+		}
+		break;
+	case 'o': // open stream
+	case 'O':
+		kinect.open();
+		break;
+	case 'c': // close stream
+	case 'C':
+		kinect.close();
+		break;
+	case OF_KEY_UP: // up the kinect angle
+		angle++;
+		if(angle > 27){
+			angle = 27;
+		}
+		kinect.setAngle(angle);
+		break;
+	case OF_KEY_DOWN: // down the kinect angle
+		angle--;
+		if(angle < -27){
+			angle = -27;
+		}
+		kinect.setAngle(angle);
+		break;
+	case OF_KEY_LEFT: // increase the far clipping distance
+		if(farClipping > nearClipping + 10){
+			farClipping -= 10;
+			kinectSource->setFarClippingDistance(farClipping);
+		}
+		break;
+	case OF_KEY_RIGHT: // decrease the far clipping distance
+		if(farClipping < 4000){
+			farClipping += 10;
+			kinectSource->setFarClippingDistance(farClipping);
+		}
+		break;
+	case '+':
+		if(nearClipping < farClipping - 10){
+			nearClipping += 10;
+			kinectSource->setNearClippingDistance(nearClipping);
+		}
+		break;
+	case '-':
+		if(nearClipping >= 10){
+			nearClipping -= 10;
+			kinectSource->setNearClippingDistance(nearClipping);
+		}
+		break;
+	}
 }
 
-void testApp::mouseDragged(int x, int y, int button){
 
-}
-
-void testApp::mousePressed(int x, int y, int button){
-
-}
-
-void testApp::mouseReleased(int x, int y, int button){
-
-}
-
-void testApp::windowResized(int w, int h){
-
-}
-
-void testApp::gotMessage(ofMessage msg){
-
-}
-
-void testApp::dragEvent(ofDragInfo dragInfo){
-
-}
-
-void testApp::exit()
+void testApp::kinectPlugged()
 {
-	if(kinect != NULL)
-	{
-		kinect->Close();
+	bPlugged = true;
+}
 
-		delete kinect;
-		kinect = NULL;
-	}
-
-	if( firstDevice != NULL )
-	{
-		delete firstDevice;
-		firstDevice = NULL;
-	}
-
-	if( skeletonDrawer  != NULL )
-	{
-		delete skeletonDrawer;
-		skeletonDrawer = NULL;
-	}
+void testApp::kinectUnplugged()
+{
+	bPlugged = false;
 }
