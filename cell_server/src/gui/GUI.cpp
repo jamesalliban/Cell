@@ -18,6 +18,8 @@ void GUI::setup()
     GUIManager::setup();
     
     dim = 8;
+
+	skelOffsetRange = 500;
     
     addKeyboardShortcutsGUI();
     addCameraGUI();
@@ -96,6 +98,7 @@ void GUI::addCameraGUI()
     gui->addSlider("X", -150, 150, &app->sceneManager.camX, length, dim);
     gui->addSlider("Y", -150, 150, &app->sceneManager.camY, length, dim);
     gui->addSlider("Z", -150, 150, &app->sceneManager.camZ, length, dim);
+	gui->addSlider("Distance Multiplier", 0, 5, &app->sceneManager.camDistanceMultiplier, length, dim);
     gui->addSlider("LookAt node X", -50, 50, &app->sceneManager.camDirectionX, length, dim);
     gui->addSlider("LookAt node Y", -50, 50, &app->sceneManager.camDirectionY, length, dim);
     gui->addSlider("LookAt node Z", -50, 50, &app->sceneManager.camDirectionZ, length, dim);
@@ -323,13 +326,22 @@ void GUI::addKinectGlobalGUI()
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addLabel("CALIBRATION", OFX_UI_FONT_MEDIUM);
-    gui->addLabel("PERSPECTIVE X OFFSET", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Range Min", -300, 0, &app->sceneManager.userManager.xCorrectionOffsetRangeMin, length, dim);
     gui->addSlider("Range Max", 0, 300, &app->sceneManager.userManager.xCorrectionOffsetRangeMax, length, dim);
     gui->addSlider("Offset Min", -350, 350, &app->sceneManager.userManager.xCorrectionOffsetMin, length, dim);
     gui->addSlider("Offset Max", -350, 350, &app->sceneManager.userManager.xCorrectionOffsetMax, length, dim);
     gui->addSlider("Offset Modifier", 0, 500, &app->sceneManager.userManager.xCorrectionOffsetModifier, length, dim);
-    
+	
+    gui->addLabel("KINECT Z REDUCTION", OFX_UI_FONT_MEDIUM);
+	gui->addSlider("Z Reduction Multiplier", 0, 0.02, &User::skeletonZReductionMultiplier, length, dim);
+	
+    gui->addLabel("KINECT Z SCALING FIX", OFX_UI_FONT_MEDIUM);
+	gui->addSlider("Z Position input min", -300, 300, &User::zScaleFixMin, length, dim);
+	gui->addSlider("Z Position input max", -300, 300, &User::zScaleFixMax, length, dim);
+	gui->addSlider("Z Multiplier min", 0.01, 1, &User::zScaleFixMultMin, length, dim);
+	gui->addSlider("Z Multiplier max", 0.01, 1, &User::zScaleFixMultMax, length, dim);
+
     gui->addLabel("DEBUG", OFX_UI_FONT_MEDIUM);
     gui->addToggle("Show Joint Spheres", &app->sceneManager.userManager.isJointSpheres, toggleDim, toggleDim);
     gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
@@ -346,31 +358,31 @@ void GUI::addKinectCalibration0and1GlobalGUI()
     string title = "KINECT CALIBRATION 0 & 1";
     ofxUICanvas* gui = getNewGUI(title);
     
-    gui->addLabel("SKELETON CALIBRATION CLINET 0", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("SKELETON CALIBRATION CLIENT 0", OFX_UI_FONT_MEDIUM);
     gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Scale (0)", 0.01, 2.0,&app->sceneManager.userManager.skeletonScale[0], length, dim);
+    gui->addSlider("Scale (0)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[0], length, dim);
     gui->addLabel("ROTATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Degrees (0)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[0], length, dim);
     gui->addSlider("Rotation X (0)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[0], length, dim);
     gui->addSlider("Rotation Y (0)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotY[0], length, dim);
     gui->addSlider("Rotation Z (0)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotZ[0], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (0)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetX[0], length, dim);
-    gui->addSlider("Pos offset Y (0)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetY[0], length, dim);
-    gui->addSlider("Pos offset Z (0)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetZ[0], length, dim);
+    gui->addSlider("Pos offset X (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[0], length, dim);
+    gui->addSlider("Pos offset Y (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[0], length, dim);
+    gui->addSlider("Pos offset Z (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[0], length, dim);
     
-    gui->addLabel("SKELETON CALIBRATION CLINET 1", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("SKELETON CALIBRATION CLIENT 1", OFX_UI_FONT_MEDIUM);
     gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Scale (1)", 0.01, 2.0,&app->sceneManager.userManager.skeletonScale[1], length, dim);
+    gui->addSlider("Scale (1)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[1], length, dim);
     gui->addLabel("ROTATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Degrees (1)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[1], length, dim);
     gui->addSlider("Rotation X (1)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[1], length, dim);
     gui->addSlider("Rotation Y (1)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotY[1], length, dim);
     gui->addSlider("Rotation Z (1)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotZ[1], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (1)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetX[1], length, dim);
-    gui->addSlider("Pos offset Y (1)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetY[1], length, dim);
-    gui->addSlider("Pos offset Z (1)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetZ[1], length, dim);
+    gui->addSlider("Pos offset X (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[1], length, dim);
+    gui->addSlider("Pos offset Y (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[1], length, dim);
+    gui->addSlider("Pos offset Z (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[1], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -381,31 +393,31 @@ void GUI::addKinectCalibration2and3GlobalGUI()
     string title = "KINECT CALIBRATION 2 & 3";
     ofxUICanvas* gui = getNewGUI(title);
     
-    gui->addLabel("SKELETON CALIBRATION CLINET 2", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("SKELETON CALIBRATION CLIENT 2", OFX_UI_FONT_MEDIUM);
     gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Scale (2)", 0.01, 2.0,&app->sceneManager.userManager.skeletonScale[2], length, dim);
+    gui->addSlider("Scale (2)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[2], length, dim);
     gui->addLabel("ROTATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Degrees (2)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[2], length, dim);
     gui->addSlider("Rotation X (2)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[2], length, dim);
     gui->addSlider("Rotation Y (2)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotY[2], length, dim);
     gui->addSlider("Rotation Z (2)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotZ[2], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (2)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetX[2], length, dim);
-    gui->addSlider("Pos offset Y (2)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetY[2], length, dim);
-    gui->addSlider("Pos offset Z (2)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetZ[2], length, dim);
+    gui->addSlider("Pos offset X (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[2], length, dim);
+    gui->addSlider("Pos offset Y (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[2], length, dim);
+    gui->addSlider("Pos offset Z (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[2], length, dim);
     
-    gui->addLabel("SKELETON CALIBRATION CLINET 3", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("SKELETON CALIBRATION CLIENT 3", OFX_UI_FONT_MEDIUM);
     gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Scale (3)", 0.01, 2.0,&app->sceneManager.userManager.skeletonScale[3], length, dim);
+    gui->addSlider("Scale (3)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[3], length, dim);
     gui->addLabel("ROTATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Degrees (3)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[3], length, dim);
     gui->addSlider("Rotation X (3)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[3], length, dim);
     gui->addSlider("Rotation Y (3)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotY[3], length, dim);
     gui->addSlider("Rotation Z (3)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotZ[3], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (3)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetX[3], length, dim);
-    gui->addSlider("Pos offset Y (3)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetY[3], length, dim);
-    gui->addSlider("Pos offset Z (3)", -500.0, 500.0,&app->sceneManager.userManager.skeletonPosOffsetZ[3], length, dim);
+    gui->addSlider("Pos offset X (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[3], length, dim);
+    gui->addSlider("Pos offset Y (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[3], length, dim);
+    gui->addSlider("Pos offset Z (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[3], length, dim);
     
     finaliseCanvas(gui, true);
 }

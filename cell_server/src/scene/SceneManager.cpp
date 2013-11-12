@@ -66,9 +66,9 @@ void SceneManager::update()
 			smoothMouseY -= (smoothMouseY - ofGetMouseY()) * mouseSmoothAmount;
 		}
 
-		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -100, 100, true);
-		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), 100, -100, true);
-		float mouseCamZ = cos(ofMap(smoothMouseX, 0, ofGetWidth(), -2, 2, true)) * camZ;
+		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -100, 100, true) * camDistanceMultiplier;
+		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), 100, -100, true) * camDistanceMultiplier;
+		float mouseCamZ = cos(ofMap(smoothMouseX, 0, ofGetWidth(), -2, 2, true)) * camZ * camDistanceMultiplier;
 
 
 		camEasyCam.setPosition(ofVec3f(mouseCamX, mouseCamY, mouseCamZ));

@@ -12,7 +12,7 @@ void KinectManager::init()
 			ofVec3f v = ofVec3f(-1, -1, -1);
 			skeletonData.skeletonPositions.push_back(v);
 		}
-		skeletonData.dwTrackingID = -1;
+		skeletonData.trackingID = "-1";
 		skeletonData.clientID = -1;
         trackedSkeletons.push_back(skeletonData);
     }
@@ -77,19 +77,17 @@ void KinectManager::init()
 
 void KinectManager::update()
 {
-    //if (ofGetFrameNum() % 50 == 0) printf("\n");
-
 	bool isPrint = (ofGetFrameNum() % 60 == 0) ? true : false;
 
 
     while (receiver.hasWaitingMessages())
     {
-
         //trackedSkeletons.clear();
 
         ofxOscMessage m;
         receiver.getNextMessage(&m);
-
+		
+		//printf("receiving messages - m.getAddress() = %s\n", m.getAddress().c_str());
         //printf("receiver.hasWaitingMessages() \n");
 
 		for (int i = 0; i < m.getNumArgs(); i++)
@@ -102,15 +100,24 @@ void KinectManager::update()
 			for (int i = 0; i < 2; i++)
 			{
 				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[i];
-				int startIndex = ((20 * 3) + 2) * i;
+				int startIndex = ((20 * 3)) * i;
 				skeletonDataObject->clientID = m.getArgAsInt32(0);
-				skeletonDataObject->dwTrackingID = m.getArgAsInt32(startIndex + 1);
+				if (m.getArgAsInt32(startIndex + (1 + i)) == -1)
+					skeletonDataObject->trackingID = ofToString(ofToString(m.getArgAsInt32(startIndex + (1 + i))));
+				else
+					skeletonDataObject->trackingID = ofToString(skeletonDataObject->clientID) + "_" + ofToString(m.getArgAsInt32(startIndex + (1 + i)));
+				
+				if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
+					printf("clientID:%i, trackingID = %s\n", skeletonDataObject->clientID, skeletonDataObject->trackingID.c_str());
 				//printf("skeletonDataObject->clientID = %i, skeletonDataObject->id = %i \n", skeletonDataObject->clientID, skeletonDataObject->id);
 				for (int j = 0; j < 20; j++)
 				{
-					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 + (j * 3));
-					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + (j * 3) + 1);
-					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + (j * 3) + 2);
+					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 + i + (j * 3));
+					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + i + (j * 3) + 1);
+					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + i + (j * 3) + 2);
+					
+					if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
+						printf("j:%i, x:%f, y:%f, z:%f \n", j, skeletonDataObject->skeletonPositions[j].x, skeletonDataObject->skeletonPositions[j].y, skeletonDataObject->skeletonPositions[j].z);
 				}
 			}
 
@@ -184,7 +191,7 @@ bool KinectManager::hasSkeleton()
 {
     for (int i = 0; i < SKELETON_MAX; i++)
     {
-        if (trackedSkeletons[i].dwTrackingID > -1) return true;
+        if (trackedSkeletons[i].trackingID != "-1") return true;
     }
 
     return false;

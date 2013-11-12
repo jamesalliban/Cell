@@ -67,12 +67,19 @@ public:
     ofColor debugColour;
 
     bool isActive;
-    long trackingID;
+    string trackingID;
 
     int millisBecameActive;
     float secondsSinceActive;
 
     ofVec3f hipOffset;
+
+	static float skeletonZReductionMultiplier;
+
+	static float zScaleFixMin;
+	static float zScaleFixMax;
+	static float zScaleFixMultMin;
+	static float zScaleFixMultMax;
 
     //UserBatch* associatedUserBatch;
 

@@ -6,6 +6,6 @@ public:
     //KinectSkeletonData();
 
     int clientID;
-    long dwTrackingID;
+    string trackingID;
     vector<ofVec3f> skeletonPositions;
 };

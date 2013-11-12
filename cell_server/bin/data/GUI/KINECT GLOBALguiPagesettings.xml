@@ -24,22 +24,47 @@
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>4</Kind>
+    <Name>Z Reduction Multiplier</Name>
+    <Value>0.008421052</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Z Position input min</Name>
+    <Value>-203.289474487</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Z Position input max</Name>
+    <Value>205.263153076</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Z Multiplier min</Name>
+    <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Z Multiplier max</Name>
+    <Value>0.062105261</Value>
+</Widget>
+<Widget>
     <Kind>2</Kind>
     <Name>Show Joint Spheres</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Show Joint Lines</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Show Joint Pos Data</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Show User Data</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>

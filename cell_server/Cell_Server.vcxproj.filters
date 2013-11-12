@@ -49,9 +49,6 @@
     <ClCompile Include="src\TestApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui\MyGui.cpp">
-      <Filter>src\gui</Filter>
-    </ClCompile>
     <ClCompile Include="src\kinect\KinectManager.cpp">
       <Filter>src\kinect</Filter>
     </ClCompile>
@@ -121,54 +118,6 @@
     <ClCompile Include="src\scene\visual\user\User.cpp">
       <Filter>src\scene\visual\user</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOption.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOptionGroup.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.cpp">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
-      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
       <Filter>addons\ofxXmlSettings\libs</Filter>
     </ClCompile>
@@ -183,6 +132,30 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxTrueTypeFontUC\src\ofxTrueTypeFontUC.cpp">
       <Filter>addons\ofxTrueTypeFontUC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.c">
+      <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.c">
+      <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxFontStash\src\ofxFontStash.cpp">
+      <Filter>addons\ofxFontStash\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxUnicode\src\ofUnicode.cpp">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxUnicode\src\ofUTF8.cpp">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxUnicode\src\ofTextConverter.cpp">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\GUI.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\GUIManager.cpp">
+      <Filter>src\gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -261,21 +234,6 @@
     <Filter Include="addons\ofxXmlSettings\src">
       <UniqueIdentifier>{f0af592f-cf48-47f1-be20-0b3587a009cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxSimpleGuiToo">
-      <UniqueIdentifier>{bafbcdc5-f7f2-4637-a739-015cdd757d46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSimpleGuiToo\src">
-      <UniqueIdentifier>{e0a13d81-e75d-4e64-8ac6-dae24795b981}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSimpleGuiToo\src\Controls">
-      <UniqueIdentifier>{6530b0c8-3a82-4f22-b5e9-509352e4e60e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxMSAInteractiveObject">
-      <UniqueIdentifier>{cbb724a4-9bfb-4194-b7c0-096d0a0c9581}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxMSAInteractiveObject\src">
-      <UniqueIdentifier>{31ac50db-860e-477c-850b-a37e1621b8d0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\scene\visual\tag\field">
       <UniqueIdentifier>{8e49f4ec-f796-4643-9483-5e0c880accb0}</UniqueIdentifier>
     </Filter>
@@ -284,6 +242,60 @@
     </Filter>
     <Filter Include="addons\ofxTrueTypeFontUC\src">
       <UniqueIdentifier>{0ed6108b-b5ba-4bbb-a65b-892c76f11363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFontStash">
+      <UniqueIdentifier>{ca800693-f1ad-45af-acaa-805b2f7b0a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode">
+      <UniqueIdentifier>{4c752732-1bd0-4f6b-a066-4e5ef79772a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFontStash\libs">
+      <UniqueIdentifier>{c4da8fbc-12e2-4b90-a8fc-6f5c608381bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFontStash\src">
+      <UniqueIdentifier>{4dd53709-7155-4cf1-a574-0cb57dd74add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFontStash\libs\fontstash">
+      <UniqueIdentifier>{7fd0d61c-d664-47e5-8c6f-f1731284a4f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFontStash\libs\fontstash\src">
+      <UniqueIdentifier>{fb37d7e4-273a-4bc1-a5f8-7daf131148c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs">
+      <UniqueIdentifier>{8581c7b0-f2cf-4f06-93db-1a36082cf319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp">
+      <UniqueIdentifier>{fa6f8f56-f2e4-4338-9588-613c40f59a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\include">
+      <UniqueIdentifier>{dbbf8875-3ba8-49ac-8cdd-f3bb9bad542a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\include\utf8">
+      <UniqueIdentifier>{744229c4-3c69-44b9-8644-c92fb4b9f0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\src">
+      <UniqueIdentifier>{f8517f71-8cf3-4d8e-8da0-24417fff3f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\src">
+      <UniqueIdentifier>{4de81ec3-e0a1-4561-a6c1-5433375fb069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1">
+      <UniqueIdentifier>{b551ba4b-483d-4411-bea3-413164af72e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source">
+      <UniqueIdentifier>{ef419436-59f5-4563-ab56-6b920a83276b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8">
+      <UniqueIdentifier>{541c8d4b-c993-4595-9d12-87be2f48e18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\doc">
+      <UniqueIdentifier>{55015777-c971-4672-a4c3-7e79b560b939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUI">
+      <UniqueIdentifier>{3fbe3edf-7803-4b6e-8f21-10d714817904}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxUI\src">
+      <UniqueIdentifier>{c65c951e-b9cd-489b-9400-186cf03cc57e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -349,9 +361,6 @@
     </ClInclude>
     <ClInclude Include="src\TestApp.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gui\MyGui.h">
-      <Filter>src\gui</Filter>
     </ClInclude>
     <ClInclude Include="src\kinect\KinectManager.h">
       <Filter>src\kinect</Filter>
@@ -428,66 +437,6 @@
     <ClInclude Include="src\scene\visual\user\User.h">
       <Filter>src\scene\visual\user</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.h">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.h">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiIncludes.h">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.h">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.h">
-      <Filter>addons\ofxSimpleGuiToo\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOption.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiOptionGroup.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderBase.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderFloat.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderInt.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.h">
-      <Filter>addons\ofxSimpleGuiToo\src\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
-      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
       <Filter>addons\ofxXmlSettings\libs</Filter>
     </ClInclude>
@@ -496,6 +445,171 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxTrueTypeFontUC\src\ofxTrueTypeFontUC.h">
       <Filter>addons\ofxTrueTypeFontUC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.h">
+      <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.h">
+      <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxFontStash\src\ofxFontStash.h">
+      <Filter>addons\ofxFontStash\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\checked.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\include\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\core.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\include\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\unchecked.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\include\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\src\ofTextConverter.h">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\src\ofUnicode.h">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\src\ofUTF8.h">
+      <Filter>addons\ofxUnicode\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\core.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\unchecked.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\checked.h">
+      <Filter>addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\GUI.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\GUIManager.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUI2DPad.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIBiLabelSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIButton.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUICanvas.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUICircleSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUICustomImageButton.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIDropDownList.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIEventArgs.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIFPS.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIFPSSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIImage.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageButton.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageSampler.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageToggle.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUILabel.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUILabelButton.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUILabelToggle.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIMinimalSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIMovingGraph.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageButton.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageToggle.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUINumberDialer.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIRadio.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIRangeSlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIRectangle.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIRotarySlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIScrollableCanvas.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUISlider.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUISpacer.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUISpectrum.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUITextInput.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIToggle.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIToggleMatrix.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIWaveform.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIWidget.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUIWidgetWithLabel.h">
+      <Filter>addons\ofxUI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxUI\src\ofxUI.h">
+      <Filter>addons\ofxUI\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

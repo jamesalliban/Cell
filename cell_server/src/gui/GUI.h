@@ -46,6 +46,7 @@ public:
     virtual void update();
     virtual void draw();
     
-    
+    float skelOffsetRange;
+
     testApp* app;
 };

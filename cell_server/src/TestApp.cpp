@@ -96,7 +96,7 @@ void testApp::setup()
     ofSetCircleResolution(10);
 	glEnable(GL_DEPTH_TEST);
     
-	isKinectAttached = false;
+	isKinectAttached = true;
     
 	if (isKinectAttached)
 	{
@@ -116,9 +116,9 @@ void testApp::setup()
 
 void testApp::update()
 {
-    if (ofGetFrameNum() % 10 == 0)
-        printf("mouseX:%i, mouseY:%i, ofGetMouseX():%i, ofGetMouseY():%i \n", mouseX, mouseY, ofGetMouseX(), ofGetMouseY());
-    
+    //if (ofGetFrameNum() % 10 == 0)
+    //    printf("mouseX:%i, mouseY:%i, ofGetMouseX():%i, ofGetMouseY():%i \n", mouseX, mouseY, ofGetMouseX(), ofGetMouseY());
+    //
     
 	if (!isPaused)
 	{
@@ -168,10 +168,10 @@ void testApp::draw()
     //myGui.draw();
     
     
-    ofPushStyle();
-    ofSetColor(255);
-    ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
-    ofPopStyle();
+    //ofPushStyle();
+    //ofSetColor(255);
+    //ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
+    //ofPopStyle();
 }
 
 
@@ -194,6 +194,14 @@ void testApp::keyPressed(int key)
     else if (key == 'p')
 	{
         isPaused = !isPaused;
+    }
+    else if (key == 't')
+	{
+		sceneManager.cloudTagMan.areTagsEnabled = !sceneManager.cloudTagMan.areTagsEnabled;
+    }
+    else if (key == 'l')
+	{
+        sceneManager.cloudTagMan.areLinesEnabled = !sceneManager.cloudTagMan.areLinesEnabled;
     }
 }
 

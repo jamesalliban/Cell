@@ -9,10 +9,11 @@
 
 #include "CellGlobals.h"
 
-#define CLIENT0_IP "192.168.0.100"
-#define CLIENT1_IP "192.168.0.101"
-#define CLIENT2_IP "192.168.0.102"
-#define CLIENT3_IP "192.168.0.103"
+// server IP should be 192.168.0.199
+#define CLIENT0_IP "192.168.0.200"
+#define CLIENT1_IP "192.168.0.201"
+#define CLIENT2_IP "192.168.0.202"
+#define CLIENT3_IP "192.168.0.203"
 #define PORT_OUT 12345
 #define PORT_IN 12346
 
