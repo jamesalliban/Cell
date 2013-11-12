@@ -65,6 +65,8 @@ class testApp : public ofBaseApp {
 
 		ofTexture calibratedTexture;
 
+		vector<string> joints;
+
 		int clientID;
 
 		bool bDrawVideo;

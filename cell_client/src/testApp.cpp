@@ -50,8 +50,10 @@ void testApp::setup() {
 	angle = kinect.getCurrentAngle();
 	bPlugged = kinect.isConnected();
 	nearClipping = kinect.getNearClippingDistance();
+	nearClipping = 0;
 	farClipping = kinect.getFarClippingDistance();
-	
+	farClipping = 10000;
+
 	bDrawVideo = false;
 	bDrawDepthLabel = false;
 	bDrawSkeleton = false;
@@ -63,6 +65,27 @@ void testApp::setup() {
 
 	sender.setup(serverIPAddress, PORT_OUT);
     //receiver.setup(PORT_IN);
+	
+	joints.push_back("HIPC");
+	joints.push_back("SPIN");
+	joints.push_back("SHOC");
+	joints.push_back("HEAD");
+	joints.push_back("SHOL");
+	joints.push_back("ELBL");
+	joints.push_back("WRIL");
+	joints.push_back("HNDL");
+	joints.push_back("SHOR");
+	joints.push_back("ELBR");
+	joints.push_back("WRIR");
+	joints.push_back("HNDR");
+	joints.push_back("HIPL");
+	joints.push_back("KNEL");
+	joints.push_back("ANKL");
+	joints.push_back("FOTL");
+	joints.push_back("HIPR");
+	joints.push_back("KNER");
+	joints.push_back("ANKR");
+	joints.push_back("FOTR");
 }
 
 
@@ -86,7 +109,7 @@ void testApp::buildSkeletonDataObjects()
 void testApp::resetSkeletonData(int index)
 {
     SkeletonData* skelData = &skeletonDataObjects[index];
-	if (++skelData->resetCount == 4)
+	if (++skelData->resetCount == 6)
 	{
 		skelData->id = -1;
 		skelData->arrayIndex = -1;
@@ -180,7 +203,6 @@ void testApp::update()
 			//printf("i = %i, j = %i, x = %f, y = %f, z = %f \n",i, j, skelData->skelPoints[j].x, skelData->skelPoints[j].y, skelData->skelPoints[j].z);
 	}
 
-	/*
 	ofxOscMessage m;
 	m.setAddress("/skeleton/data");
 	m.addIntArg(clientID); // client
@@ -189,7 +211,8 @@ void testApp::update()
 	for (int i = 0; i < (int)skeletonDataObjects.size(); i++)
 	{
 		SkeletonData* skelData = &skeletonDataObjects[i];
-		m.addIntArg(skelData->id);
+		m.addIntArg((skelData->isActive) ? i : -1);
+		
 		for (int j = 0; j < 20; j++)
 		{
 			m.addFloatArg(skelData->skelPoints[j].x);
@@ -198,7 +221,6 @@ void testApp::update()
 		}
 	}
     sender.sendMessage(m);
-	*/
 }
 
 //--------------------------------------------------------------
@@ -227,14 +249,15 @@ void testApp::draw()
 	}
 	else
 	{
-		int w = 500;
-		int h = 360;
+		float sceneDrawScale = 0.75;
+		float w = 480 * sceneDrawScale;
+		float h = 360 * sceneDrawScale;
 		calibratedTexture.loadData(kinect.getCalibratedVideoPixels());
 		calibratedTexture.draw(0, 0, w, h);
 		//kinect.draw(0, 0, w, h);			// draw video images from kinect camera
 		ofEnableAlphaBlending();
-		kinect.drawDepth(w, 0, w, h);	// draw depth images from kinect depth sensor
-		kinect.drawLabel(w, 0, w, h);		// draw players' label images on video images
+		kinect.drawDepth(0, h, w, h);	// draw depth images from kinect depth sensor
+		kinect.drawLabel(0, h, w, h);		// draw players' label images on video images
 		ofDisableAlphaBlending();
 		kinect.drawSkeleton(0, 0, w, h);	// draw skeleton images on video images
 		
@@ -268,19 +291,55 @@ void testApp::draw()
 	// draw instructions
 	ofSetColor(255, 255, 255);
 	stringstream reportStream;
-	reportStream << "fps: " << ofGetFrameRate() << "  Kinect Nearmode: " << kinect.isNearmode() << endl
-				 << "press 'c' to close the stream and 'o' to open it again, stream is: " << kinect.isOpened() << endl
-				 << "press UP and DOWN to change the tilt angle: " << angle << " degrees" << endl
-				 << "press LEFT and RIGHT to change the far clipping distance: " << farClipping << " mm" << endl
-				 << "press '+' and '-' to change the near clipping distance: " << nearClipping << " mm" << endl
-				 << "press 'v' to show video only: " << bDrawVideo << ",      press 'd' to show depth + users label only: " << bDrawDepthLabel << endl
-				 << "press 's' to show skeleton only: " << bDrawSkeleton << ",   press 'q' to show point cloud sample: " << bDrawCalibratedTexture;
-	ofDrawBitmapString(reportStream.str(), 20, 400);
+	//reportStream << "fps: " << ofGetFrameRate() << "  Kinect Nearmode: " << kinect.isNearmode() << endl
+	//			 << "press 'c' to close the stream and 'o' to open it again, stream is: " << kinect.isOpened() << endl
+	//			 << "press UP and DOWN to change the tilt angle: " << angle << " degrees" << endl
+	//			 << "press LEFT and RIGHT to change the far clipping distance: " << farClipping << " mm" << endl
+	//			 << "press '+' and '-' to change the near clipping distance: " << nearClipping << " mm" << endl
+	//			 << "press 'v' to show video only: " << bDrawVideo << ",      press 'd' to show depth + users label only: " << bDrawDepthLabel << endl
+	//			 << "press 's' to show skeleton only: " << bDrawSkeleton << ",   press 'q' to show point cloud sample: " << bDrawCalibratedTexture;
 	
-	stringstream kinectStream;
-	kinectStream << "Skeleton0 Active: " << ((skeletonDataObjects[0].isActive) ? 1 : 0) << endl
-				 << "Skeleton1 Active: " << ((skeletonDataObjects[1].isActive) ? 1 : 0);
-	ofDrawBitmapString(kinectStream.str(), 700, 400);
+	
+	reportStream << "fps: " << ofGetFrameRate() << endl
+				<< "'c': close stream" << endl
+				<< "'o': open stream" << endl;
+
+	ofDrawBitmapString(reportStream.str(), 20, 600);
+	
+	stringstream kinect0Stream;
+	SkeletonData* skelData = &skeletonDataObjects[0];
+	kinect0Stream << "skel id: " << skelData->id << endl;
+	for (int i = 0; i < 20; i++)
+	{
+		kinect0Stream << joints[i] << ", ";
+		kinect0Stream << "x: " << skelData->skelPoints[i].x << ", ";
+		kinect0Stream << "y: " << skelData->skelPoints[i].y << ", ";
+		kinect0Stream << "z: " << skelData->skelPoints[i].z << endl;
+	}
+
+	float textScale = 1.8;
+
+	ofPushMatrix();
+	ofTranslate(400, 30);
+	ofScale(textScale, textScale);
+	ofDrawBitmapString(kinect0Stream.str(), 0, 0);
+	ofPopMatrix();
+	
+	stringstream kinect1Stream;
+	skelData = &skeletonDataObjects[1];
+	kinect1Stream << "skel id: " << skelData->id << endl;
+	for (int i = 0; i < 20; i++)
+	{
+		kinect1Stream << joints[i] << " ";
+		kinect1Stream << "x: " << skelData->skelPoints[i].x << ", ";
+		kinect1Stream << "y: " << skelData->skelPoints[i].y << ", ";
+		kinect1Stream << "z: " << skelData->skelPoints[i].z << endl;
+	}
+	ofPushMatrix();
+	ofTranslate(850, 30);
+	ofScale(textScale, textScale);
+	ofDrawBitmapString(kinect1Stream.str(), 0, 0);
+	ofPopMatrix();
 	
 }
 
