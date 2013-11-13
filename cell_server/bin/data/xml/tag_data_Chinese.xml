@@ -2,9 +2,9 @@
 
 <tags>
     <tag>
-        <word>汉字漢字 頠</word>
-        <demographic id="BUD">
-            <strength>0.8</strength>
+        <word>很多纹身</word>
+        <demographic id="TODD">
+            <strength>0.9</strength>
         </demographic>
         <demographic id="MAISIE">
             <strength>0.6</strength>
@@ -14,7 +14,7 @@
         </demographic>			
     </tag>
     <tag>
-        <word>溿煔煃</word>
+        <word>节日周末</word>
         <demographic id="LYNDSAY">
             <strength>0.7</strength>
         </demographic>
@@ -26,7 +26,7 @@
         </demographic>			
     </tag>
     <tag>
-        <word>舿萐菿 磝磢磭</word>
+        <word>教育</word>
         <demographic id="MARCO">
             <strength>0.4</strength>
         </demographic>
@@ -38,7 +38,7 @@
         </demographic>			
     </tag>
     <tag>
-        <word>漢字 頠餈 溿煔煃 鱙鷭黂</word>
+        <word>我的父母在家放松</word>
         <demographic id="BUD">
             <strength>0.9</strength>
         </demographic>
@@ -47,7 +47,7 @@
         </demographic>		
     </tag>
     <tag>
-        <word>肒芅邥 舿萐菿 磝磢</word>
+        <word>快速汽车</word>
         <demographic id="MARCO">
             <strength>0.9</strength>
         </demographic>
@@ -59,16 +59,16 @@
         </demographic>			
     </tag>
     <tag>
-        <word>菿 磝磢磭</word>
+        <word>很浪漫</word>
         <demographic id="BUD">
-            <strength>0.8</strength>
+            <strength>0.5</strength>
         </demographic>
         <demographic id="LYNDSAY">
-            <strength>0.4</strength>
+            <strength>0.8</strength>
         </demographic>		
     </tag>
     <tag>
-        <word>萐菿 磝磢磭 婸</word>
+        <word>现场音乐</word>
         <demographic id="BUD">
             <strength>0.8</strength>
         </demographic>
@@ -81,7 +81,7 @@
     </tag>
     
     <tag>
-        <word>肒芅邥 舿萐菿 磝</word>
+        <word>牯岭街少年杀人事件</word>
         <demographic id="BUD">
             <strength>0.9</strength>
         </demographic>
@@ -93,7 +93,7 @@
         </demographic>
     </tag>
     <tag>
-        <word>邥 舿萐菿 磝</word>
+        <word>英雄本色</word>
         <demographic id="MARCO">
             <strength>0.9</strength>
         </demographic>
@@ -106,17 +106,20 @@
     </tag>
     
     <tag>
-        <word>脬舑莕</word>
+        <word>梁碧芝</word>
+        <demographic id="ISOMBARD">
+            <strength>0.9</strength>
+        </demographic>
         <demographic id="BUD">
-            <strength>0.8</strength>
+            <strength>0.3</strength>
         </demographic>
         <demographic id="LYNDSAY">
-            <strength>0.3</strength>
+            <strength>0.7</strength>
         </demographic>
     </tag>
     <tag>
-        <word>肒芅邥 舿萐菿 磝</word>
-        <demographic id="BUD">
+        <word>楊千嬅</word>
+        <demographic id="POPPET">
             <strength>0.9</strength>
         </demographic>
         <demographic id="MAISIE">
@@ -127,7 +130,7 @@
         </demographic>
     </tag>
     <tag>
-        <word>邥 舿萐菿 磝</word>
+        <word>豪华餐厅</word>
         <demographic id="BUD">
             <strength>0.9</strength>
         </demographic>
@@ -135,12 +138,15 @@
             <strength>0.5</strength>
         </demographic>
         <demographic id="ISOMBARD">
-            <strength>0.4</strength>
+            <strength>0.6</strength>
         </demographic>
     </tag>
     
     <tag>
-        <word>脬舑莕</word>
+        <word>很多慈善工作</word>
+        <demographic id="TODD">
+            <strength>0.6</strength>
+        </demographic>
         <demographic id="MARCO">
             <strength>0.8</strength>
         </demographic>

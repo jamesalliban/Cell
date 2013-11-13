@@ -168,10 +168,10 @@ void testApp::draw()
     //myGui.draw();
     
     
-    ofPushStyle();
-    ofSetColor(255);
-    ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
-    ofPopStyle();
+//    ofPushStyle();
+//    ofSetColor(255);
+//    ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
+//    ofPopStyle();
 }
 
 

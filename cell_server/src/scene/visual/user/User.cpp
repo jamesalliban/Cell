@@ -203,7 +203,7 @@ void User::nonKinectUpdate()
 
 void User::nonKinectDraw()
 {
-    drawLines();
+    //drawLines();
 }
 
 
