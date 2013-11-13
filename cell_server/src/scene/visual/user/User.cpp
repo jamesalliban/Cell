@@ -2,6 +2,13 @@
 #include "testApp.h"
 #include "UserManager.h"
 
+float User::skeletonZReductionMultiplier;
+
+float User::zScaleFixMin;
+float User::zScaleFixMax;
+float User::zScaleFixMultMin;
+float User::zScaleFixMultMax;
+
 void User::setup(UserManager *_parent, int _userID)
 {
     userMan             = _parent;
@@ -105,18 +112,43 @@ void User::update()
 
     for (int i = 0; i < (int)jointPositions.size(); i++)
     {
-        //jointPositions[i].z *= (clientID == 0 || clientID == 1) ? -1 : 1;
-		/*
-        //if (clientID == 0 || clientID == 1)
-        jointPositions[i].z *= -1;
-        jointPositions[i] *= userMan->skeletonScale[clientID];
-        jointPositions[i].rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0f, 0.0f, 0.0f), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
-        jointPositions[i].x += userMan->skeletonPosOffsetX[clientID];
-        //if (clientID == 2 || clientID == 3) jointPositions[i].x *= -1;
-        jointPositions[i].y += userMan->skeletonPosOffsetY[clientID];
-        jointPositions[i].z += userMan->skeletonPosOffsetZ[clientID];
-		*/
+		// currently the range of joint positions is x:0 - 320, y:0 - 240 and z:0 - 30000. This is stupid. The first thing we 
+		// will do is convert this to x:-160 - 160, y:-120 - 120 and z:-15000 - 15000. This will make scaling easier
+		ofPoint *joint = &jointPositions[i];
 		
+		//joint->x -= 160;
+		//joint->y -= 120;
+		//joint->z -= 15000;
+
+		
+		// y comes in upside down and z is in 10ths of a millimeter - this fixes that
+		joint->y -= 240;
+		joint->y *= -1;
+		joint->z = (jointPositions[i].z * -1) * User::skeletonZReductionMultiplier;
+		
+		// rotate skeleton
+		joint->rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0, 0.0, 0.0), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
+
+		// offset positions
+		joint->x += userMan->skeletonPosOffsetX[clientID];
+		joint->y += userMan->skeletonPosOffsetY[clientID];
+		joint->z += userMan->skeletonPosOffsetZ[clientID];
+
+		
+		// adjust scale
+		joint->x *= userMan->skeletonScale[clientID];
+		joint->y *= userMan->skeletonScale[clientID];
+		joint->z *= userMan->skeletonScale[clientID];
+
+				//capture the hip vector then fix the z scaling bug
+		if (i == 0) hipOffset = ofVec3f(jointPositions[CELL_HIP_CENTRE]);
+		performZScaleFix(&jointPositions[i]);
+		
+
+		//if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
+			//printf(" - - i:%i, joint.x = %f, joint.y = %f, joint.z = %f\n", i, jointPositions[i].x, jointPositions[i].y, jointPositions[i].z);
+
+		/*
 		// do some initial alterations to the skeleton data
 		jointPositions[i].y *= -1.0f;
 		jointPositions[i].z = (jointPositions[i].z * -1) * 0.0095;//skeletonZReductionMultiplier;
@@ -130,13 +162,7 @@ void User::update()
 		performZScaleFix(&jointPositions[i]);
 
 		jointPositions[i] *= userMan->skeletonScale[clientID];
-
-        /*
-
-        200 - -200
-
-
-        */
+		*/
     }
 
     float xCorrectionOffset = ofMap(jointPositions[CELL_HIP_CENTRE].z, userMan->xCorrectionOffsetRangeMin, userMan->xCorrectionOffsetRangeMax, userMan->xCorrectionOffsetMin, userMan->xCorrectionOffsetMax);
@@ -169,7 +195,8 @@ void User::performZScaleFix(ofVec3f* skeletonPoint)
 {
 	// centre the skeleton in the scene using the centre of the hip then scale it up
 	*skeletonPoint -= hipOffset;
-	float scaler = ofMap(hipOffset.z, -200, 200, 0.35, 0.08);   //skeleton1ZScaleFixMax, skeleton1ZScaleFixMin);
+	float scaler = ofMap(hipOffset.z, zScaleFixMin, zScaleFixMax, zScaleFixMultMin, zScaleFixMultMax);   //skeleton1ZScaleFixMax, skeleton1ZScaleFixMin);
+	//float scaler = ofMap(hipOffset.z, -200, 200, 0.35, 0.08);   //skeleton1ZScaleFixMax, skeleton1ZScaleFixMin);
 	*skeletonPoint *= scaler;
 	// reset the position of the skeleton using the 'hip offset'
 	*skeletonPoint += hipOffset;
@@ -224,14 +251,14 @@ void User::debugDraw()
         if (userMan->isJointSpheres)
         {
             ofSetColor(debugColour);
-            ofDrawSphere(ofRandom(0.1, 0.4));     //0.4);
+            ofDrawSphere(0.4);     //0.4);
         }
         ofSetColor(255, 255, 255);
         ofScale(0.4, -0.4, 0.4);
         if (userMan->isPositionDataDisplayed)
         {
             ofSetDrawBitmapMode(OF_BITMAPMODE_MODEL_BILLBOARD);
-            string str = "i:" + ofToString(i) + ", x:" + ofToString((vec.x)) + ", y:" + ofToString((vec.y)) + ", z:" + ofToString((vec.z));
+            string str = "i:" + ofToString(i) + ", x:" + ofToString((int)vec.x) + ", y:" + ofToString((int)vec.y) + ", z:" + ofToString((int)vec.z);
             ofDrawBitmapString(str, 2, 0, 0);
         }
         if (userMan->isUserDataDisplayed)
@@ -244,7 +271,7 @@ void User::debugDraw()
                 ofDrawBitmapString(str, 2, 0, 0);
 
                 ofTranslate(0, -3, 0);
-                str = "trackingID:" + ofToString((int)skeleton->dwTrackingID) + ", " + demographic;
+                str = "trackingID:" + skeleton->trackingID + ", " + demographic;
                 ofDrawBitmapString(str, 2, 0, 0);
             }
         }
@@ -257,11 +284,11 @@ void User::debugDraw()
     {
         drawLines();
     }
-    if (userMan->isAverageLineDisplayed)
-    {
-        ofVec2f vec = getAveragePosition();
-        drawLine(ofVec3f(vec.x, 0, vec.y), ofVec3f(vec.x, 50, vec.y));
-    }
+    //if (userMan->isAverageLineDisplayed)
+    //{
+    //    ofVec2f vec = getAveragePosition();
+    //    drawLine(ofVec3f(vec.x, 0, vec.y), ofVec3f(vec.x, 50, vec.y));
+    //}
 
 }
 
@@ -319,7 +346,7 @@ void User::drawLine(ofVec3f startJoint, ofVec3f endJoint)
 void User::assignSkeleton(KinectSkeletonData* _skeleton)
 {
     skeleton = _skeleton;
-    trackingID = skeleton->dwTrackingID;
+    trackingID = skeleton->trackingID;
     clientID = skeleton->clientID;
 
     //if (ofGetFrameNum() % 30 == 0)

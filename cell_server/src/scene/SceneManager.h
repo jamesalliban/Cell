@@ -49,6 +49,7 @@ public:
 	float camDirectionX, camDirectionY, camDirectionZ;
 	float smoothMouseX, smoothMouseY, mouseSmoothAmount;
 	float camRotX, camRotY, camRotZ;
+	float camDistanceMultiplier;
 
 	float fov;
 

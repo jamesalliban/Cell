@@ -208,6 +208,7 @@ void CloudTag::performUserAttraction()
 				// if connection is new, start keeping track of the time since connection was made. Used for line alpha (and maybe more???)
                 if (userData->isActive == false)
                 {
+					//printf("performUserAttraction() - userData->lengthSquared < lengthSquaredMin - ");
                     userData->millisBecameActive = ofGetElapsedTimeMillis();
                     userData->secondsSinceActive = 0.0;
                 }

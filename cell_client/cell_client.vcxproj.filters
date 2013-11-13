@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\testApp.cpp" />
+    <ClCompile Include="..\addons\ofxOsc\src\ofxOscBundle.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxOsc\src\ofxOscMessage.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxOsc\src\ofxOscSender.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\ofxKinectNui.cpp">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\ofxKinectNuiPlayer.cpp">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\ofxKinectNuiRecorder.cpp">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\ofxKinectNuiSoundRecorder.cpp">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\win32\Event.cpp">
+      <Filter>addons\ofxKinectNui\src\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\AudioStream.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\ImageFrame.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\ImageStream.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\Kinect.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\KinectContext.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\SkeletonEngine.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\addons\ofxKinectNui\src\kinect\nui\SkeletonFrame.cpp">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\testApp.h" />
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOsc.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOscSender.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOscArg.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOscBundle.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOscMessage.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\src\ofxOscReceiver.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\ip\PacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\ip\TimerListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\ip\UdpSocket.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\ip\IpEndpointName.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\ip\NetworkingUtils.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscOutboundPacketStream.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscPrintReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscTypes.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\MessageMappingOscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscException.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxOsc\libs\oscpack\include\osc\OscHostEndianness.h">
+      <Filter>addons\ofxOsc\libs\oscpack\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\ofxKinectNui.h">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\ofxKinectNuiPlayer.h">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\ofxKinectNuiRecorder.h">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\ofxKinectNuiSoundRecorder.h">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\ofxBase3DVideo.h">
+      <Filter>addons\ofxKinectNui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\win32\Event.h">
+      <Filter>addons\ofxKinectNui\src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\win32\SpinLock.h">
+      <Filter>addons\ofxKinectNui\src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\AudioStream.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\ImageFrame.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\ImageStream.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\Kinect.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\KinectContext.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\KinectListener.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\SkeletonEngine.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\SkeletonFrame.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\StaticMediaBuffer.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\WaveFileWriter.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\addons\ofxKinectNui\src\kinect\nui\WaveOutput.h">
+      <Filter>addons\ofxKinectNui\src\kinect\nui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="addons">
+      <UniqueIdentifier>{d79abca0-5b91-4000-9e03-3b535f96d5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectNui">
+      <UniqueIdentifier>{41a2b0ca-3ef8-475b-97c2-628cf256ce13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectNui\src">
+      <UniqueIdentifier>{809c12a3-2279-4bd9-bbb6-c3240fd0cb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectNui\src\kinect">
+      <UniqueIdentifier>{4d996ecb-ad1f-4ae1-bb70-0f4c1fd89b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectNui\src\win32">
+      <UniqueIdentifier>{9c6b697d-b367-4eea-a88a-795eedebbb0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectNui\src\kinect\nui">
+      <UniqueIdentifier>{b8244858-a1f1-4494-92d2-3b911ad87ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kinect">
+      <UniqueIdentifier>{1f7ef7bd-ff8e-41df-8ce3-71aef13a0bf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc">
+      <UniqueIdentifier>{7386568e-6c05-42de-bc85-a712de4422a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\src">
+      <UniqueIdentifier>{cca116fe-6774-4904-9e58-7cddc0f0aa3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs">
+      <UniqueIdentifier>{833dacba-6bba-49f6-89ed-66314c909513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack">
+      <UniqueIdentifier>{14af162e-6ef4-4e8d-ac69-52d7ad3c57c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\include">
+      <UniqueIdentifier>{28fb1740-0e80-45d6-910e-441fb2fc6231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\lib">
+      <UniqueIdentifier>{0eec86df-96fb-48d0-adff-2e7d50a07628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\include\ip">
+      <UniqueIdentifier>{8d14d64f-8369-4152-89e9-a466cf18305b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\include\osc">
+      <UniqueIdentifier>{d7990391-df96-443e-9cdf-69e195981adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\lib\vs2010">
+      <UniqueIdentifier>{9daaa5e5-0ccc-418a-9854-ff172522c097}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\addons\ofxOsc\libs\oscpack\lib\vs2010\oscpack.lib">
+      <Filter>addons\ofxOsc\libs\oscpack\lib\vs2010</Filter>
+    </Library>
+    <Library Include="..\addons\ofxOsc\libs\oscpack\lib\vs2010\oscpackd.lib">
+      <Filter>addons\ofxOsc\libs\oscpack\lib\vs2010</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

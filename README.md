@@ -5,18 +5,23 @@ Cell is a multi-Kinect interactive installation by James Alliban and Keiichi Mat
 
 http://installcell.com
 
-Built using openFrameworks 0.8.0
+Cell Server is built using openFrameworks 0.8.0 and Visual Studio 2012 (and Xcode)
+
+Cell Client is built using openFrameworks 0.7.0 and Visual Studio 2010
 
 The piece uses the official KinectSDK 1.5.
 
 The following addons are used:
 
-ofxXmlSettings
-
-ofxOSC
 
 ofxKinectNui by sadmb
 
-ofxSimpleGuiToo by Memo Akten (modified for newer versions of openFrameworks)
+ofxUI by Reza Ali
 
-ofxMSAInteractiveObject by Memo Akten (modified for newer versions of openFrameworks)
+ofxUnicode by Christopher Baker
+
+ofxFontStash by Oriol Ferrer Mesià
+
+ofxXmlSettings
+
+ofxOSC

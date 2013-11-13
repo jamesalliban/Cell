@@ -151,7 +151,7 @@ bool UserManager::haveSkeletonsBeenRemoved()
         {
             KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
 
-            if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
+            if (user->trackingID == skeleton->trackingID && skeleton->trackingID != "-1")
             {
                 // this user is matched to an active skeleton
                 doesUserValueMatchSkeleton = true;
@@ -181,13 +181,13 @@ bool UserManager::checkIfSkeletonIsNew()
         KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
         bool isSkeletonAssignedToAUser = false;
         // if skeleton is active
-        if (skeleton->dwTrackingID != -1)
+        if (skeleton->trackingID != "-1")
         {
             for (int j = 0; j < SKELETON_MAX; j++) // loop through all users
             {
                 User* user = &users[j];
                 // check if skeleton is already assigned to a user or is blank. If so, move on to the next skeleton
-                if (user->trackingID == skeleton->dwTrackingID)
+                if (user->trackingID == skeleton->trackingID)
                 {
                     isSkeletonAssignedToAUser = true;
                 }
@@ -233,7 +233,7 @@ void UserManager::reassignSkeletonsIfNew()
         for (int j = 0; j < SKELETON_MAX; j++) // loop through users
         {
             User* user = &users[j];
-            if (user->trackingID == skeleton->dwTrackingID && skeleton->dwTrackingID != -1)
+            if (user->trackingID == skeleton->trackingID && skeleton->trackingID != "-1")
             {
                 //printfprintf("2");
                 user->assignSkeleton(skeleton);
