@@ -33,19 +33,22 @@ public:
     void addKinectCalibration0and1GlobalGUI();
     void addKinectCalibration2and3GlobalGUI();
     void addDuplicatesGUI();
-    void addNonKinectUserDegugGUI();
+    void addKinectUserDegugGUI();
     void addVariousGUI();
     
     
     void variousGUIEvent(ofxUIEventArgs &e);
     void addTagShaderGUIEvent(ofxUIEventArgs &e);
     void addTagAnimationGUIEvent(ofxUIEventArgs &e);
+	void addKinectUserDegugGUIEvent(ofxUIEventArgs &e);
+
     
     //void cameraGUIEvent(ofxUIEventArgs &e);
     
     virtual void update();
     virtual void draw();
     
-    
+    float skelOffsetRange;
+
     testApp* app;
 };
