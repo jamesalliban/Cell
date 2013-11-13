@@ -214,7 +214,7 @@ void testApp::update()
 		m.addIntArg(i);
 		m.addIntArg((skelData->isActive) ? 1 : -1);
 		
-		for (int j = 0; j < 20; j++)`
+		for (int j = 0; j < 20; j++)
 		{
 			m.addFloatArg(skelData->skelPoints[j].x);
 			m.addFloatArg(skelData->skelPoints[j].y);
