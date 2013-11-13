@@ -49,7 +49,6 @@ void KinectManager::init()
 		The same file (apart from the client name) should be copied to all clients and the server laptop/pc's and should contain exactly the
 		same data. There is minimal checking on validity of data in this file when read in.
 */
-		//Kinetic demo networking stuff
 		///set up the server giving the full path to the configuration file
 
     ofFile file;
@@ -70,6 +69,14 @@ void KinectManager::init()
     bSend = true;
     iReadCommand = 0;
 
+	recordedFramesMax = 1000;
+	recordingPixels.allocate(60*6 + 6, recordedFramesMax, OF_IMAGE_COLOR);
+	isRecording = false;
+	isPlayback = false;
+	
+	currentPlayingScene = 0;
+	framesRecorded = 0;
+						
 }
 
 
@@ -79,7 +86,19 @@ void KinectManager::update()
 {
 	bool isPrint = (ofGetFrameNum() % 60 == 0) ? true : false;
 
+	if (!isPlayback)
+	{
+		checkForOSCKinectData();
+	}
+	else
+	{
+		playRecordedLine();
+	}
+}
 
+
+void KinectManager::checkForOSCKinectData()
+{
     while (receiver.hasWaitingMessages())
     {
         //trackedSkeletons.clear();
@@ -87,93 +106,134 @@ void KinectManager::update()
         ofxOscMessage m;
         receiver.getNextMessage(&m);
 		
-		//printf("receiving messages - m.getAddress() = %s\n", m.getAddress().c_str());
-        //printf("receiver.hasWaitingMessages() \n");
-
-		for (int i = 0; i < m.getNumArgs(); i++)
-		{
-
-		}
-		
         if (m.getAddress() == "/skeleton/data")
         {
+			// 0 = client
+			// 1 = skelID
+			// 2 = isActive
+			// 3 - 62 = joint data
+			// 63 - skelID
+			// 64 - isActive
+			// 65 - 124 = joint data
+
 			for (int i = 0; i < 2; i++)
 			{
 				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[i];
-				int startIndex = ((20 * 3)) * i;
+				int startIndex = (i == 0) ? 1 : 63;
+
+
 				skeletonDataObject->clientID = m.getArgAsInt32(0);
-				if (m.getArgAsInt32(startIndex + (1 + i)) == -1)
-					skeletonDataObject->trackingID = ofToString(ofToString(m.getArgAsInt32(startIndex + (1 + i))));
+				skeletonDataObject->skelID = m.getArgAsInt32(startIndex);
+				int isActive = m.getArgAsInt32(startIndex + 1);
+
+				// if the skeleton is inactive make the trackingID '-1'. If active make it clientID_skelID e.g. 0_1, 2_0 etc
+				if (m.getArgAsInt32(startIndex + 1) == -1)
+					skeletonDataObject->trackingID = "-1";
 				else
-					skeletonDataObject->trackingID = ofToString(skeletonDataObject->clientID) + "_" + ofToString(m.getArgAsInt32(startIndex + (1 + i)));
+					skeletonDataObject->trackingID = ofToString(skeletonDataObject->clientID) + "_" + ofToString(skeletonDataObject->skelID);
 				
-				if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
-					printf("clientID:%i, trackingID = %s\n", skeletonDataObject->clientID, skeletonDataObject->trackingID.c_str());
-				//printf("skeletonDataObject->clientID = %i, skeletonDataObject->id = %i \n", skeletonDataObject->clientID, skeletonDataObject->id);
+
+				
+				if (isRecording)
+				{
+					if (framesRecorded > recordingPixels.getHeight() - 30) stopRecording();
+					addSkelDataToRecording(isActive, skeletonDataObject->clientID, skeletonDataObject->skelID);
+				}
+
+				if (isPlayback)
+				{
+
+				}
+
+
 				for (int j = 0; j < 20; j++)
 				{
-					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 + i + (j * 3));
-					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + i + (j * 3) + 1);
-					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + i + (j * 3) + 2);
+					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 +  (j * 3));
+					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + (j * 3) + 1);
+					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + (j * 3) + 2);
 					
-					if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
-						printf("j:%i, x:%f, y:%f, z:%f \n", j, skeletonDataObject->skeletonPositions[j].x, skeletonDataObject->skeletonPositions[j].y, skeletonDataObject->skeletonPositions[j].z);
+					if (isRecording)
+						addJointToRecording(skeletonDataObject->clientID, skeletonDataObject->skelID, j, skeletonDataObject->skeletonPositions[j]);
 				}
 			}
 
-
-			/*
-            for (int i = 0; i < 20; i++)
-            {
-                int clientID = m.getArgAsInt32(0);
-
-                KinectSkeletonData* skeletonData1 = &trackedSkeletons[(clientID * 2)];
-                KinectSkeletonData* skeletonData2 = &trackedSkeletons[(clientID * 2) + 1];
-                skeletonData1->clientID = clientID;
-                skeletonData1->dwTrackingID = (long)m.getArgAsInt32(1);
-                skeletonData2->clientID = clientID;
-                skeletonData2->dwTrackingID = (long)m.getArgAsInt32(62);
-                for (int j = 0; j < 2; j++)
-                {
-                    skeletonData1->skeletonPositions[j].x = m.getArgAsFloat(2 + (j * 3));
-                    skeletonData1->skeletonPositions[j].y = m.getArgAsFloat(2 + (j * 3) + 1);
-                    skeletonData1->skeletonPositions[j].z = m.getArgAsFloat(2 + (j * 3) + 2);
-					
-                    skeletonData2->skeletonPositions[j].x = m.getArgAsFloat(63 + (j * 3));
-                    skeletonData2->skeletonPositions[j].y = m.getArgAsFloat(63 + (j * 3) + 1);
-                    skeletonData2->skeletonPositions[j].z = m.getArgAsFloat(63 + (j * 3) + 2);
-
-					if (isPrint)
-					{
-						printf("i:%i, skel0.x = %f, skel0.y = %f, skel0.z = %f\n", i, skeletonData1->skeletonPositions[j].x, skeletonData1->skeletonPositions[j].y, skeletonData1->skeletonPositions[j].z);
-						printf("i:%i, skel1.x = %f, skel1.y = %f, skel1.z = %f\n", i, skeletonData2->skeletonPositions[j].x, skeletonData2->skeletonPositions[j].y, skeletonData2->skeletonPositions[j].z);
-					}
-				}
-            }
-			*/
+			if (isRecording)
+				++framesRecorded;
         }
     }
+}
 
-//    if (ofGetFrameNum() % 60 == 0)
-//    {
-//        for (int i = 0; i < (int)trackedSkeletons.size(); i++)
-//        {
-//            printf("hip0.x = %f, hip1.x = %f \n", trackedSkeletons[0].skeletonPositions[0].x, trackedSkeletons[1].skeletonPositions[0].x);
-//            //printf("skel %i, trackedSkeletons.size() = %i, clientID = %i \n", i, (int)trackedSkeletons.size(), trackedSkeletons[i].clientID);
-//        }
-//    }
+
+void KinectManager::playRecordedLine()
+{
+	for (int client = 0; client < 3; client++)
+	{
+		for (int skel = 0; skel < 2; skel++)
+		{
+			KinectSkeletonData* skeletonDataObject = &trackedSkeletons[client * 2 + skel];
+			int startX = (client * 120) + (skel * 60) + (client * 2) + skel;
+
+			// red (0 or 1) = isActive,  green = client, blue = skelId;
+			int isActive = (recordingPixels.getColor(startX, currentPlaybackFrame).r == 0) ? -1 : 1;
+			skeletonDataObject->clientID = recordingPixels.getColor(startX, currentPlaybackFrame).g;
+			skeletonDataObject->skelID = recordingPixels.getColor(startX, currentPlaybackFrame).b;
+
+			// if the skeleton is inactive make the trackingID '-1'. If active make it clientID_skelID e.g. 0_1, 2_0 etc
+			if (isActive == -1)
+				skeletonDataObject->trackingID = "-1";
+			else
+				skeletonDataObject->trackingID = ofToString(skeletonDataObject->clientID) + "_" + ofToString(skeletonDataObject->skelID);
+				
+			if (isActive != -1)
+			{
+				for (int joint = 0; joint < 20; joint++)
+				{
+					skeletonDataObject->skeletonPositions[joint].x = getCoordFromCol(recordingPixels.getColor(startX + 1 + (joint * 3), currentPlaybackFrame));
+					skeletonDataObject->skeletonPositions[joint].y = getCoordFromCol(recordingPixels.getColor(startX + 2 + (joint * 3), currentPlaybackFrame));
+					skeletonDataObject->skeletonPositions[joint].z = getCoordFromCol(recordingPixels.getColor(startX + 3 + (joint * 3), currentPlaybackFrame));	
+					
+					
+					//printf("1 clnt:%i, skl:%i, tracID:%s, x:%f, y:%f, z:%f, rIndex:%i \n", skeletonDataObject->clientID, 
+					//	skeletonDataObject->skelID,
+					//	skeletonDataObject->trackingID.c_str(),
+					//	skeletonDataObject->skeletonPositions[joint].x, 
+					//	skeletonDataObject->skeletonPositions[joint].y, 
+					//	skeletonDataObject->skeletonPositions[joint].z, 
+					//	(startX + 1 + (joint * 3)));
+				}
+			}
+			else
+			{
+				for (int joint = 0; joint < 20; joint++)
+				{
+					skeletonDataObject->skeletonPositions[joint].x = -1;
+					skeletonDataObject->skeletonPositions[joint].y = -1;
+					skeletonDataObject->skeletonPositions[joint].z = -1;
+					//printf("0 clnt:%i, skl:%i, tracID:%s, x:%f, y:%f, z:%f, rIndex:%i \n", skeletonDataObject->clientID, 
+					//	skeletonDataObject->skelID,
+					//	skeletonDataObject->trackingID.c_str(),
+					//	skeletonDataObject->skeletonPositions[joint].x, 
+					//	skeletonDataObject->skeletonPositions[joint].y, 
+					//	skeletonDataObject->skeletonPositions[joint].z, 
+					//	(startX + 1 + (joint * 3)));
+				}
+			}
+		}
+	}
+
+	if(++currentPlaybackFrame == recordedFramesMax) currentPlaybackFrame = 0;
 }
 
 
 void KinectManager::draw()
 {
-    ofSetHexColor(0xffffff);
-
-	if(kinectFailedToInit)
+    if (isRecording || isPlayback)
 	{
-		ofSetHexColor(0xff0000);
-		ofDrawBitmapString("No Kinect Device Found", padding, padding, 0);
-		return;
+		recordingImg.setFromPixels(recordingPixels);
+		ofSetColor(255, recordedImageAlpha);
+		recordingImg.draw(0, 0);
+		ofSetColor(255, 0, 0);
+		ofLine(0, currentPlaybackFrame, recordingPixels.getWidth(), currentPlaybackFrame);
 	}
 }
 
@@ -196,6 +256,119 @@ bool KinectManager::hasSkeleton()
 
     return false;
 }
+
+
+void KinectManager::startRecording()
+{
+	if (isRecording || isPlayback) return;
+	printf("startRecording()\n");
+	recordingPixels.clear();
+	recordingPixels.allocate(60 * 6 + 6, recordedFramesMax, OF_IMAGE_COLOR);
+	//for (int frame = 0; frame < 1000; frame++)
+	//{
+	//	for (int client = 0; client < 3; client++)
+	//	{
+	//		for(int skel = 0; skel < 2; skel++)
+	//		{
+	//			addSkelDataToRecording(1, client, skel);
+	//			for(int joint = 0; joint < 20; joint++)
+	//			{
+	//				addJointToRecording(client, skel, joint, ofVec3f(ofRandom(255), ofRandom(255), ofRandom(25675)));
+	//			}
+	//		}
+	//	}
+	//}
+	isRecording = true;
+	framesRecorded = 0;
+}
+
+
+
+
+void KinectManager::stopRecording()
+{
+	printf("stopRecording()\n");
+	isRecording = false;
+	isPlayback = false;
+}
+
+
+
+
+void KinectManager::saveRecording()
+{
+	if (!isRecording)
+		ofSaveImage(recordingPixels, "images/recordedSkeletons/NEW_" + ofGetTimestampString() + ".png", OF_IMAGE_QUALITY_BEST);
+}
+
+
+void KinectManager::startPlayback(string recordedPath)
+{
+	if (ofGetFrameNum() < 10) return;
+
+	if (!isRecording)
+	{
+		if (recordedPath != "")
+		{
+			recordingImg.loadImage(recordedPath);
+			recordingPixels.setFromPixels(recordingImg.getPixels(), recordingImg.getWidth(), recordingImg.getHeight(), OF_IMAGE_COLOR);
+		}
+		currentPlaybackFrame = 0;
+		isPlayback = true;
+	}
+}
+
+void KinectManager::addSkelDataToRecording(int isActive, int client, int id)
+{
+	ofColor skelData;
+	// isActive
+	skelData.r = (isActive == 1) ? 1 : 0;
+	// id
+	skelData.g = client;
+	//client
+	skelData.b = id;
+
+	int x = (client * 120) + (id * 60) +  (client * 2) + id;
+	recordingPixels.setColor(x, framesRecorded, skelData); 
+}
+
+
+void KinectManager::addJointToRecording(int client, int id, int jointId, ofVec3f joint)
+{
+	// convert the incoming joint vector to 3 pixels - one each for x, y, z.
+	// r is the amount of times the number can be divided by 255
+	// g is the remainder
+	// b is whether the number is positive or negative
+
+	int x = (client * 120) + (id * 60) + (jointId * 3) +  (client * 2) + id;
+
+	ofColor colX;
+	colX.r = (int)joint.x / 255;
+	colX.g = (int)joint.x % 255;
+	colX.b = (joint.x < 0) ? 0 : 255;
+	recordingPixels.setColor(x + 1, framesRecorded, colX); 
+	
+	ofColor colY;
+	colY.r = (int)joint.y / 255;
+	colY.g = (int)joint.y % 255;
+	colY.b = (joint.y < 0) ? 0 : 255;
+	recordingPixels.setColor(x + 2, framesRecorded, colY); 
+	
+	ofColor colZ;
+	colZ.r = (int)joint.z / 255;
+	colZ.g = (int)joint.z % 255;
+	colZ.b = (joint.z < 0) ? 0 : 255;
+	recordingPixels.setColor(x + 3, framesRecorded, colZ); 
+}
+
+
+float KinectManager::getCoordFromCol(ofColor col)
+{
+	float coord = ((col.r * 255) + col.g) * ((col.b == 0) ? -1 : 1);
+	//printf("r:%i, g:%i, b:%i, coord:%f, (col.r * 255):%i, mod mult:%i \n", col.r, col.g, col.b, coord, (col.r * 255), ((col.b == 0) ? -1 : 1));
+	return coord;
+}
+
 
 
 //here we show examples of commands that can be sent from server to clients .. in this case we are driving things

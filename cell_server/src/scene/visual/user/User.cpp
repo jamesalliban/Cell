@@ -145,8 +145,8 @@ void User::update()
 		performZScaleFix(&jointPositions[i]);
 		
 
-		if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
-			printf(" - - i:%i, joint.x = %f, joint.y = %f, joint.z = %f\n", i, jointPositions[i].x, jointPositions[i].y, jointPositions[i].z);
+		//if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
+			//printf(" - - i:%i, joint.x = %f, joint.y = %f, joint.z = %f\n", i, jointPositions[i].x, jointPositions[i].y, jointPositions[i].z);
 
 		/*
 		// do some initial alterations to the skeleton data

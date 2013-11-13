@@ -48,23 +48,3 @@
     <Name>Z Multiplier max</Name>
     <Value>0.062105261</Value>
 </Widget>
-<Widget>
-    <Kind>2</Kind>
-    <Name>Show Joint Spheres</Name>
-    <Value>1</Value>
-</Widget>
-<Widget>
-    <Kind>2</Kind>
-    <Name>Show Joint Lines</Name>
-    <Value>1</Value>
-</Widget>
-<Widget>
-    <Kind>2</Kind>
-    <Name>Show Joint Pos Data</Name>
-    <Value>1</Value>
-</Widget>
-<Widget>
-    <Kind>2</Kind>
-    <Name>Show User Data</Name>
-    <Value>1</Value>
-</Widget>

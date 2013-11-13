@@ -1,4 +1,4 @@
-﻿  User.cpp
+﻿  TestApp.cpp
 C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
           with
           [

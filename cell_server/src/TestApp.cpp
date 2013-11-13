@@ -10,9 +10,11 @@
  
  TASKS
  -----
- - Load Chinese characters
- - Get working with 
+ - Load new Chinese chars from server (send from another laptop)
+ - Scale offset from z depth is affecting z too much - users being pushed forward/back too far
+ - adjust the x offset fom z depth so walking back and forth is mirror like
  - Sort Cloud Tags based on z depth
+ - If skel data stops coming, remove skeleton after 10 frames - disrupting OSC network cases still skeletons
  - Improve no-kinect debugging system
  - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
  - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
@@ -140,7 +142,13 @@ void testApp::draw()
 	sceneManager.draw();
 
 	glDisable(GL_DEPTH_TEST);
-    kinectManager.draw();
+    ofPushStyle();
+    ofSetColor(255);
+	ofPushMatrix();
+	ofTranslate(ofGetWidth() - kinectManager.recordingPixels.getWidth() - 10, 0);
+	kinectManager.draw();
+    ofPopMatrix();
+    ofPopStyle();
     glEnable(GL_DEPTH_TEST);
 
     if (isFirstFrame || ofGetFrameNum() == 5)
@@ -164,10 +172,10 @@ void testApp::draw()
     ofRect(0, 0, leftBlockW, topBlockHeight);
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
     glEnable(GL_DEPTH_TEST);
+	
+    
 
-    //myGui.draw();
-    
-    
+
     //ofPushStyle();
     //ofSetColor(255);
     //ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
@@ -202,6 +210,26 @@ void testApp::keyPressed(int key)
     else if (key == 'l')
 	{
         sceneManager.cloudTagMan.areLinesEnabled = !sceneManager.cloudTagMan.areLinesEnabled;
+    }
+    else if (key == 'R')
+	{
+		kinectManager.startRecording();
+    }
+    else if (key == 'S')
+	{
+		kinectManager.stopRecording();
+    }
+    else if (key == 'E')
+	{
+		kinectManager.saveRecording();
+    }
+    else if (key == 'P')
+	{
+		kinectManager.startPlayback("");
+    }
+    else if (key == 'P')
+	{
+		kinectManager.startRecording();
     }
 }
 

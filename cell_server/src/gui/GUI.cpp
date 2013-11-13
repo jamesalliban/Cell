@@ -34,7 +34,7 @@ void GUI::setup()
     addKinectCalibration0and1GlobalGUI();
     addKinectCalibration2and3GlobalGUI();
 //    addDuplicatesGUI();
-    addNonKinectUserDegugGUI();
+    addKinectUserDegugGUI();
     addVariousGUI();
     
     setGUIColour();
@@ -62,8 +62,15 @@ void GUI::addKeyboardShortcutsGUI()
     gui->addLabel("'p' - PAUSE FREE CAM", OFX_UI_FONT_SMALL);
     gui->addLabel("'u' - UPDATE VARS - REFRESH CLOUD", OFX_UI_FONT_SMALL);
     gui->addLabel("'f' - TOGGLE FULLSCREEN ", OFX_UI_FONT_SMALL);
+    gui->addLabel("'t' - TOGGLE TAG VISIBILITY", OFX_UI_FONT_SMALL);
+    gui->addLabel("'l' - TOGGLE LINE VISIBILITY", OFX_UI_FONT_SMALL);
+    gui->addLabel("'z' - CLEAR CLIENT SKELETONS", OFX_UI_FONT_SMALL);
     gui->addLabel("'o' - PAUSE DEBUG SKELETON", OFX_UI_FONT_SMALL);
     gui->addLabel("'z' - CLEAR CLIENT SKELETONS", OFX_UI_FONT_SMALL);
+    gui->addLabel("'R' - RECORD SKELETONS", OFX_UI_FONT_SMALL);
+    gui->addLabel("'S' - STOP SKELETON RECORDING", OFX_UI_FONT_SMALL);
+    gui->addLabel("'E' - EXPORT SKELETON RECORDING", OFX_UI_FONT_SMALL);
+    gui->addLabel("'P' - PLAYBACK LAST SKELETON RECORDING", OFX_UI_FONT_SMALL);
 //    gui->addLabel("'p' - PAUSE CLIENTS", OFX_UI_FONT_SMALL);
 //    gui->addLabel("'x' - CLOSE CLIENTS", OFX_UI_FONT_SMALL);
     
@@ -341,12 +348,6 @@ void GUI::addKinectGlobalGUI()
 	gui->addSlider("Z Position input max", -300, 300, &User::zScaleFixMax, length, dim);
 	gui->addSlider("Z Multiplier min", 0.01, 1, &User::zScaleFixMultMin, length, dim);
 	gui->addSlider("Z Multiplier max", 0.01, 1, &User::zScaleFixMultMax, length, dim);
-
-    gui->addLabel("DEBUG", OFX_UI_FONT_MEDIUM);
-    gui->addToggle("Show Joint Spheres", &app->sceneManager.userManager.isJointSpheres, toggleDim, toggleDim);
-    gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
-    gui->addToggle("Show Joint Pos Data", &app->sceneManager.userManager.isPositionDataDisplayed, toggleDim, toggleDim);
-    gui->addToggle("Show User Data", &app->sceneManager.userManager.isUserDataDisplayed, toggleDim, toggleDim);
     
     finaliseCanvas(gui, true);
 }
@@ -423,9 +424,9 @@ void GUI::addKinectCalibration2and3GlobalGUI()
 }
 
 
-void GUI::addNonKinectUserDegugGUI()
+void GUI::addKinectUserDegugGUI()
 {
-    string title = "NON KINECT USER DEBUG";
+    string title = "KINECT USER DEBUG";
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addLabel("USER", OFX_UI_FONT_MEDIUM);
@@ -433,7 +434,25 @@ void GUI::addNonKinectUserDegugGUI()
     gui->addLabel("CLOUD", OFX_UI_FONT_MEDIUM);
     gui->addToggle("Pause Cloud Tag Attraction",&app->sceneManager.cloudTagMan.isTagAttractionPaused, toggleDim, toggleDim);
     
+    gui->addLabel("DEBUG", OFX_UI_FONT_MEDIUM);
+    gui->addToggle("Show Joint Spheres", &app->sceneManager.userManager.isJointSpheres, toggleDim, toggleDim);
+    gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
+    gui->addToggle("Show Joint Pos Data", &app->sceneManager.userManager.isPositionDataDisplayed, toggleDim, toggleDim);
+    gui->addToggle("Show User Data", &app->sceneManager.userManager.isUserDataDisplayed, toggleDim, toggleDim);
     
+    gui->addLabel("RECORDED", OFX_UI_FONT_MEDIUM);
+
+	ofDirectory dir;
+	dir.listDir("images/recorded/");
+	dir.allowExt(".png");
+	for (int i = 0; i < dir.size(); i++)
+		gui->addWidgetDown(new ofxUILabelButton(false, dir.getPath(i)));
+	
+	gui->addSlider("Recorded image alpha", 0, 255, &app->kinectManager.recordedImageAlpha, length, dim);
+    
+    
+	ofAddListener(gui->newGUIEvent, this, &GUI::addKinectUserDegugGUIEvent);
+
     finaliseCanvas(gui, true);
 }
 
@@ -505,4 +524,13 @@ void GUI::variousGUIEvent(ofxUIEventArgs &e)
         color.a = slider->getScaledValue();
         setGUIColour();
     }
+}
+
+
+void GUI::addKinectUserDegugGUIEvent(ofxUIEventArgs &e)
+{
+    string name = e.widget->getName();
+	
+	if (name.substr(0, 6) == "images")
+		app->kinectManager.startPlayback(name);
 }

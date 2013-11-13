@@ -23,15 +23,38 @@ class KinectManager
 public:
     void init();
     void update();
+	void checkForOSCKinectData();
+	void playRecordedLine();
     void draw();
     void keyPressed(int key);
     bool hasSkeleton();
     void ServerSendCommandstoClients(int key);
 
+	void startRecording();
+	void stopRecording();
+	void saveRecording();
+	
+	void startPlayback(string recordedPath = "");
+	
+	void addSkelDataToRecording(int isActive, int client, int id);
+	void addJointToRecording(int client, int id, int jointId, ofVec3f joint);
+	float getCoordFromCol(ofColor col);
+
     vector<KinectSkeletonData> trackedSkeletons;
     int padding;
     long val;
 
+
+	ofPixels recordingPixels;
+	ofImage recordingImg;
+	bool isRecording;
+	bool isPlayback;
+	int currentPlayingScene;
+	int framesRecorded;
+	int currentPlaybackFrame;
+	int recordedFramesMax;
+	
+	float recordedImageAlpha;
 
 protected:
 private:
