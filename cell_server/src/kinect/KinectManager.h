@@ -26,6 +26,7 @@ public:
 	void checkForOSCKinectData();
 	void playRecordedLine();
     void draw();
+    void skipToFrame(int x, int y);
     void keyPressed(int key);
     bool hasSkeleton();
     void ServerSendCommandstoClients(int key);
@@ -49,6 +50,7 @@ public:
 	ofImage recordingImg;
 	bool isRecording;
 	bool isPlayback;
+    bool isPlaybackPaused;
 	int currentPlayingScene;
 	int framesRecorded;
 	int currentPlaybackFrame;

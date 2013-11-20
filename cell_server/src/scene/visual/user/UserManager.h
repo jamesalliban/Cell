@@ -38,8 +38,14 @@ public:
     float skeletonPosOffsetX[4];
     float skeletonPosOffsetY[4];
     float skeletonPosOffsetZ[4];
-
-
+    
+    static float xSpreadRangeNormalMin[4];
+    static float xSpreadRangeNormalMax[4];
+    static float xFrontSkewedMin[4];
+    static float xFrontSkewedMax[4];
+    static float xBackSkewedMin[4];
+    static float xBackSkewedMax[4];
+    
     float xCorrectionOffsetRangeMin;
     float xCorrectionOffsetRangeMax;
     float xCorrectionOffsetMin;

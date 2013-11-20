@@ -30,8 +30,10 @@ public:
     void addColourFieldsGUI();
     void addKinectGlobalGUI();
     void addSkeletonCalibrationAllGUI();
-    void addKinectCalibration0and1GlobalGUI();
-    void addKinectCalibration2and3GlobalGUI();
+    void addKinectCalibration0GUI();
+    void addKinectCalibration1GUI();
+    void addKinectCalibration2GUI();
+    void addKinectCalibration3GUI();
     void addDuplicatesGUI();
     void addKinectUserDegugGUI();
     void addVariousGUI();

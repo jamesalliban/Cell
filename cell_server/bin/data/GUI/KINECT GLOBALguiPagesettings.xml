@@ -1,50 +1,81 @@
 <Widget>
-    <Kind>4</Kind>
-    <Name>Range Min</Name>
-    <Value>0.000000000</Value>
+    <Kind>6</Kind>
+    <Name>Range</Name>
+    <HighValue>71.052642822</HighValue>
+    <LowValue>-75.000000000</LowValue>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Range Max</Name>
-    <Value>0.000000000</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Offset Min</Name>
-    <Value>0.000000000</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Offset Max</Name>
-    <Value>0.000000000</Value>
+    <Kind>6</Kind>
+    <Name>Offset</Name>
+    <HighValue>350.000000000</HighValue>
+    <LowValue>-350.000000000</LowValue>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Offset Modifier</Name>
-    <Value>0.000000000</Value>
+    <Value>277.960540771</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Z Reduction Multiplier</Name>
-    <Value>0.008421052</Value>
+    <Value>0.012335527</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Z Position input min</Name>
-    <Value>-203.289474487</Value>
+    <Kind>6</Kind>
+    <Name>Z position input</Name>
+    <HighValue>18.421051025</HighValue>
+    <LowValue>-18.421051025</LowValue>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Z Position input max</Name>
-    <Value>205.263153076</Value>
+    <Kind>6</Kind>
+    <Name>Z multiplier input</Name>
+    <HighValue>1.574506521</HighValue>
+    <LowValue>0.239111856</LowValue>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Z Multiplier min</Name>
-    <Value>1.000000000</Value>
+    <Kind>6</Kind>
+    <Name>Z position input range</Name>
+    <HighValue>3.947372437</HighValue>
+    <LowValue>-14.802627563</LowValue>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Z Multiplier max</Name>
-    <Value>0.062105261</Value>
+    <Kind>6</Kind>
+    <Name>Z position output range</Name>
+    <HighValue>22.697372437</HighValue>
+    <LowValue>-18.750000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is position offset</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is rotated</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is z spread</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is x spread</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is scaled</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is scaled from Z</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Is Y fix</Name>
+    <Value>1</Value>
 </Widget>

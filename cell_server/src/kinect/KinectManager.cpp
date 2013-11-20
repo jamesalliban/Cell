@@ -221,7 +221,8 @@ void KinectManager::playRecordedLine()
 		}
 	}
 
-	if(++currentPlaybackFrame == recordedFramesMax) currentPlaybackFrame = 0;
+    if (!isPlaybackPaused)
+        if(++currentPlaybackFrame == recordedFramesMax) currentPlaybackFrame = 0;
 }
 
 
@@ -230,13 +231,32 @@ void KinectManager::draw()
     if (isRecording || isPlayback)
 	{
 		recordingImg.setFromPixels(recordingPixels);
-		ofSetColor(255, recordedImageAlpha);
+		
+        ofDisableDepthTest();
+        
+        ofPushStyle();
+        ofSetColor(255, recordedImageAlpha);
+        ofPushMatrix();
+        ofTranslate(ofGetWidth() - recordingPixels.getWidth() - 10, 0);
 		recordingImg.draw(0, 0);
 		ofSetColor(255, 0, 0);
 		ofLine(0, currentPlaybackFrame, recordingPixels.getWidth(), currentPlaybackFrame);
+        ofPopMatrix();
+        ofPopStyle();
+        
+        ofEnableDepthTest();
 	}
 }
 
+
+void KinectManager::skipToFrame(int x, int y)
+{
+    ofRectangle rect = ofRectangle(ofGetWidth() - recordingPixels.getWidth() - 10, 0, recordingPixels.getWidth(), recordingPixels.getHeight());
+    if (rect.inside(x, y))
+    {
+        currentPlaybackFrame = y;
+    }
+}
 
 void KinectManager::keyPressed(int key)
 {
@@ -264,20 +284,6 @@ void KinectManager::startRecording()
 	printf("startRecording()\n");
 	recordingPixels.clear();
 	recordingPixels.allocate(60 * 6 + 6, recordedFramesMax, OF_IMAGE_COLOR);
-	//for (int frame = 0; frame < 1000; frame++)
-	//{
-	//	for (int client = 0; client < 3; client++)
-	//	{
-	//		for(int skel = 0; skel < 2; skel++)
-	//		{
-	//			addSkelDataToRecording(1, client, skel);
-	//			for(int joint = 0; joint < 20; joint++)
-	//			{
-	//				addJointToRecording(client, skel, joint, ofVec3f(ofRandom(255), ofRandom(255), ofRandom(25675)));
-	//			}
-	//		}
-	//	}
-	//}
 	isRecording = true;
 	framesRecorded = 0;
 }

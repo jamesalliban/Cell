@@ -15,6 +15,13 @@ pass the user data to the new user and mute the old user
 */
 
 
+float UserManager::xSpreadRangeNormalMin[4];
+float UserManager::xSpreadRangeNormalMax[4];
+float UserManager::xFrontSkewedMin[4];
+float UserManager::xFrontSkewedMax[4];
+float UserManager::xBackSkewedMin[4];
+float UserManager::xBackSkewedMax[4];
+
 void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resourceManager)
 {
     kinectManager = _kinectManager;

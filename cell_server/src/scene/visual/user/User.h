@@ -80,7 +80,20 @@ public:
 	static float zScaleFixMax;
 	static float zScaleFixMultMin;
 	static float zScaleFixMultMax;
-
+    
+	static float zSpreadInputMin;
+	static float zSpreadInputMax;
+	static float zSpreadOutputMin;
+	static float zSpreadOutputMax;
+    
+	static bool isSkelPosOffset;
+	static bool isSkelRotated;
+	static bool isSkelScaled;
+    static bool isSkelScaleFromZ;
+	static bool isSkelYFix;
+    static bool isZSpreadOffset;
+    static bool isXSpreadOffset;
+    
     //UserBatch* associatedUserBatch;
 
 

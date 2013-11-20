@@ -9,6 +9,21 @@ float User::zScaleFixMax;
 float User::zScaleFixMultMin;
 float User::zScaleFixMultMax;
 
+
+float User::zSpreadInputMin;
+float User::zSpreadInputMax;
+float User::zSpreadOutputMin;
+float User::zSpreadOutputMax;
+
+bool User::isSkelPosOffset;
+bool User::isSkelRotated;
+bool User::isSkelScaled;
+bool User::isSkelScaleFromZ;
+bool User::isSkelYFix;
+bool User::isZSpreadOffset;
+bool User::isXSpreadOffset;
+
+
 void User::setup(UserManager *_parent, int _userID)
 {
     userMan             = _parent;
@@ -109,6 +124,7 @@ void User::update()
     jointPositions[CELL_ANKLE_RIGHT] = skeleton->skeletonPositions[CELL_ANKLE_RIGHT];
     jointPositions[CELL_FOOT_RIGHT] = skeleton->skeletonPositions[CELL_FOOT_RIGHT];
 
+    float hipXSpreadOffset;
 
     for (int i = 0; i < (int)jointPositions.size(); i++)
     {
@@ -122,49 +138,82 @@ void User::update()
 
 		
 		// y comes in upside down and z is in 10ths of a millimeter - this fixes that
-		joint->y -= 240;
-		joint->y *= -1;
-		joint->z = (jointPositions[i].z * -1) * User::skeletonZReductionMultiplier;
+        if (isSkelYFix)
+        {
+            joint->y -= 240;
+            joint->y *= -1;
+		}
+        joint->z = (jointPositions[i].z * -1) * User::skeletonZReductionMultiplier;
 		
 		// rotate skeleton
-		joint->rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0, 0.0, 0.0), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
+		if (isSkelRotated)
+            joint->rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0, 0.0, 0.0), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
 
 		// offset positions
-		joint->x += userMan->skeletonPosOffsetX[clientID];
-		joint->y += userMan->skeletonPosOffsetY[clientID];
-		joint->z += userMan->skeletonPosOffsetZ[clientID];
-
-		
+		if (isSkelPosOffset)
+        {
+            joint->x += userMan->skeletonPosOffsetX[clientID];
+            joint->y += userMan->skeletonPosOffsetY[clientID];
+            joint->z += userMan->skeletonPosOffsetZ[clientID];
+        }
+        
 		// adjust scale
-		joint->x *= userMan->skeletonScale[clientID];
-		joint->y *= userMan->skeletonScale[clientID];
-		joint->z *= userMan->skeletonScale[clientID];
-
-				//capture the hip vector then fix the z scaling bug
-		if (i == 0) hipOffset = ofVec3f(jointPositions[CELL_HIP_CENTRE]);
-		performZScaleFix(&jointPositions[i]);
+        if (isSkelScaled)
+        {
+            joint->x *= userMan->skeletonScale[clientID];
+            joint->y *= userMan->skeletonScale[clientID];
+            joint->z *= userMan->skeletonScale[clientID];
+        }
+        
+        if (isSkelScaleFromZ)
+        {
+            //capture the hip vector then fix the z scaling bug
+            if (i == 0) hipOffset = ofVec3f(jointPositions[CELL_HIP_CENTRE]);
+            performZScaleFix(&jointPositions[i]);
+        }
+        
+        if (isZSpreadOffset)
+        {
+            joint->z = ofMap(joint->z, zSpreadInputMin, zSpreadInputMax, zSpreadOutputMin, zSpreadOutputMax);
+        }
 		
-
-		//if (ofGetFrameNum() % 30 == 0 && ofGetFrameNum() > 2)
-			//printf(" - - i:%i, joint.x = %f, joint.y = %f, joint.z = %f\n", i, jointPositions[i].x, jointPositions[i].y, jointPositions[i].z);
-
-		/*
-		// do some initial alterations to the skeleton data
-		jointPositions[i].y *= -1.0f;
-		jointPositions[i].z = (jointPositions[i].z * -1) * 0.0095;//skeletonZReductionMultiplier;
-
-		//position and rotate the skeleton
-		jointPositions[i] += ofVec3f(userMan->skeletonPosOffsetX[clientID], userMan->skeletonPosOffsetY[clientID], userMan->skeletonPosOffsetZ[clientID]);
-		jointPositions[i].rotate(userMan->skeletonRotDegrees[clientID], ofVec3f(0.0, 0.0, 0.0), ofVec3f(userMan->skeletonRotX[clientID], userMan->skeletonRotY[clientID], userMan->skeletonRotZ[clientID]));
-
-		//capture the hip vector then fix the z scaling bug
-		if (i == 0) hipOffset = ofVec3f(jointPositions[CELL_HIP_CENTRE]);
-		performZScaleFix(&jointPositions[i]);
-
-		jointPositions[i] *= userMan->skeletonScale[clientID];
-		*/
+        
+        if (isXSpreadOffset)
+        {
+            float zPosNorm = ofMap(joint->z, zSpreadOutputMin, zSpreadOutputMax, 0, 1);
+            float xPosNorm = ofMap(joint->x, UserManager::xSpreadRangeNormalMin[clientID], UserManager::xSpreadRangeNormalMax[clientID], 0, 1);
+            
+            float frontXpos = ofMap(xPosNorm, 0, 1, UserManager::xFrontSkewedMin[clientID], UserManager::xFrontSkewedMax[clientID]);
+            float backXpos = ofMap(xPosNorm, 0, 1, UserManager::xBackSkewedMin[clientID], UserManager::xBackSkewedMax[clientID]);
+            
+            if (i == CELL_HIP_CENTRE)
+            {
+                float hipCentreX = joint->x;
+                float newHipCentreX = ofLerp(frontXpos, backXpos, zPosNorm);
+                hipXSpreadOffset = newHipCentreX - hipCentreX;
+                joint->x = newHipCentreX;
+            }
+            else
+            {
+                joint->x += hipXSpreadOffset;
+            }
+        }
+        
+        
+        // third x offset. This is to enhance the mirror effect by pushing skeletons outwards as they step back. The natural result
+        // is that they appear to move towars the centre.
+//        float xOffset = 0;
+//        if (getAveragePosition().x < 0)
+//            xOffset = ofMap(getAveragePosition().y, xMirrorRangeFromZMax, xMirrorRangeFromZMin, xMirrorOffsetFromZMin, -xMirrorOffsetFromZMax);
+//        if (getAveragePosition().x > 0)
+//            xOffset = ofMap(getAveragePosition().y, xMirrorRangeFromZMax, xMirrorRangeFromZMin, -xMirrorOffsetFromZMin, xMirrorOffsetFromZMax);
+//        
+//        xOffset *= ofMap(abs(targetSkeletonData->userAveragePosition.x), 0, xMirrorXOffsetModifier, 0, 1);
+//        
+//        targetSkeletonData->skelPoints[j].x += xOffset;
     }
 
+    /*
     float xCorrectionOffset = ofMap(jointPositions[CELL_HIP_CENTRE].z, userMan->xCorrectionOffsetRangeMin, userMan->xCorrectionOffsetRangeMax, userMan->xCorrectionOffsetMin, userMan->xCorrectionOffsetMax);
 
     if (jointPositions[CELL_HIP_CENTRE].x < 0)
@@ -176,6 +225,7 @@ void User::update()
     {
         jointPositions[i].x += xCorrectionOffset;
     }
+     */
 }
 
 
@@ -199,9 +249,11 @@ void User::performZScaleFix(ofVec3f* skeletonPoint)
 	//float scaler = ofMap(hipOffset.z, -200, 200, 0.35, 0.08);   //skeleton1ZScaleFixMax, skeleton1ZScaleFixMin);
 	*skeletonPoint *= scaler;
 	// reset the position of the skeleton using the 'hip offset'
-	*skeletonPoint += hipOffset;
+	//*skeletonPoint += hipOffset;
 	// correct the x and z values after scaling
 	skeletonPoint->x += hipOffset.x;
+	skeletonPoint->y += hipOffset.y;
+//	skeletonPoint->y += hipOffset.y * scaler;
 	skeletonPoint->z += hipOffset.z;
 }
 

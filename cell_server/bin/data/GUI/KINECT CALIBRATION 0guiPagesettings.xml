@@ -1,0 +1,48 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>Scale (0)</Name>
+    <Value>0.111546054</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Degrees (0)</Name>
+    <Value>16.447372437</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Rotation X (0)</Name>
+    <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Pos offset X (0)</Name>
+    <Value>-167.763153076</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Pos offset Y (0)</Name>
+    <Value>-29.605255127</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Pos offset Z (0)</Name>
+    <Value>111.842102051</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>X spread range normal</Name>
+    <HighValue>16.776321411</HighValue>
+    <LowValue>-16.776321411</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>X front range skewed</Name>
+    <HighValue>45.394744873</HighValue>
+    <LowValue>-43.421058655</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>X back range skewed</Name>
+    <HighValue>4.934204102</HighValue>
+    <LowValue>-6.907897949</LowValue>
+</Widget>

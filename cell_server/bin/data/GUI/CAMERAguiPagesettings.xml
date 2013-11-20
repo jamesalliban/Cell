@@ -16,7 +16,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Distance Multiplier</Name>
-    <Value>1.694078922</Value>
+    <Value>1.118421078</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -36,12 +36,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>FOV</Name>
-    <Value>0.000000000</Value>
+    <Value>58.881580353</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Toggle mouse input</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

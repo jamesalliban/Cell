@@ -52,8 +52,12 @@ void SceneManager::setupViewports()
 
 void SceneManager::update()
 {
-    //camEasyCam.setFov(fov);
-
+    camEasyCam.setFov(fov);
+    
+    //camEasyCam.setFov(60);
+    
+    printf("camEasyCam.getFov(): %f\n", camEasyCam.getFov());
+    
     userManager.update();
     fieldMan.update();
     cloudTagMan.update();
