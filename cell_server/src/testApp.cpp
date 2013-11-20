@@ -10,19 +10,16 @@
  
  TASKS
  -----
- - Load Chinese characters from server.
- - Scale offset from z depth is affecting z too much - users being pushed forward/back too far
- - adjust the x offset fom z depth so walking back and forth is mirror like
  - Sort Cloud Tags based on z depth
+ - Load Chinese characters from server, place in scene and save to xml
  - If skel data stops coming, remove skeleton after 10 frames - disrupting OSC network cases still skeletons
- - Improve no-kinect debugging system
- - Move no-kinect debug Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
- - Create a system to record/playback animated Kinect users and encode the data to an image. These can be added, removed at will
+ - Move no-kinect debug mouse Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
  - Add a series of keyboard shortcuts
  - - 'l' - toggle draw lines
  - - 't' - toggle draw tags
  - - 'T' - toggle tag animation and calculations
- - Add debug bounds draw
+ - Add debug bounds draw for skeleton area and cloud
+ - If tag moves to opposite side (after going OOB) and is low, fix y val
  
  
  // OLD BUT STILL NEED TO INVESTIGATE

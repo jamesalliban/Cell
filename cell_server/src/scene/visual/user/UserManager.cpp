@@ -73,21 +73,9 @@ void UserManager::update()
                 User* user = &users[i];
                 if (user->isActive)
                 {
-                    //if (ofGetFrameNum() % 60 == 0) user->demographic = app->resourceManager.getRandomDemographic();
                     user->update();
                 }
-
-
-
-//                if (ofGetFrameNum() % 90 == 0)
-//                {
-////                    printf("users[%i].trackingID                = %ld, hip.x = %f \n", i, users[i]->trackingID, users[i]->jointPositions[0].x);
-////                    printf("trackedSkeletons[%i].dwTrackingID   = %ld, hip.x = %f \n", i, app->kinectManager->trackedSkeletons[i].dwTrackingID, app->kinectManager->trackedSkeletons[i].SkeletonPositions[0].x);
-//                    //printf("users[%i].trackingID                = %ld, hip.x = %f \n", i, users[i]->trackingID, users[i]->jointPositions[0].x);
-//                    //printf("trackedSkeletons[%i].dwTrackingID   = %ld, hip.x = %f \n", i, app->kinectManager->trackedSkeletons[i].dwTrackingID, app->kinectManager->trackedSkeletons[i].SkeletonPositions[0].x);
-//                }
             }
-//            if (ofGetFrameNum() % 90 == 0) printf("\n");
         }
         else
         {
@@ -105,8 +93,6 @@ void UserManager::update()
         for (int i = 0; i < SKELETON_MAX; i++)
         {
             User* user = &users[i];
-			//if (user->isActive)
-				//printf("- user %i is active\n", i);
             user->nonKinectUpdate();
         }
     }

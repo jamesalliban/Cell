@@ -103,13 +103,10 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 void CloudTag::update()
 {
-
     scaleOffset = 1.0;
 
     mappedBourdaryW = ofMap(position.z, cloudTagMan->boundaryD, -cloudTagMan->boundaryD, cloudTagMan->boundaryWFront, cloudTagMan->boundaryW);
-
-    //ofVec3f lastPosition = ofVec3f(position.x, position.y, position.z);
-
+    
     performAmbientMotion();
     performUserAttraction();
 
@@ -128,22 +125,10 @@ void CloudTag::update()
         if (!userData->isActive)
         {
             position -= userData->averageAttractionVec;
+            // TODO: Add to GUI
             userData->averageAttractionVec *= 0.95;
         }
 	}
-
-	/*
-    if (!isTagAttractedToUser)
-    {
-        position -= attractionVelocity;
-        attractionVelocity.x *= 0.95;
-        attractionVelocity.y *= 0.95;
-        attractionVelocity.z *= 0.95;
-       // if (attractionVelocity.y > 0.1 || attractionVelocity.y < -0.1)
-        //printf("attVel.x = %f, attVel.y = %f, attVel.z = %f \n", attractionVelocity.x, attractionVelocity.y, attractionVelocity.z);
-
-    }
-    */
 }
 
 
@@ -189,11 +174,11 @@ void CloudTag::performUserAttraction()
 	for (int i = 0; i < SKELETON_MAX; i++)
 	{
         TrackedUserData* userData = &userDataObjects[i];
-
+        
         if (userData->user->isActive)
         {
-			float demographicStrength = getDemographicStrength(userData);
-			if (demographicStrength == 0.0) return;
+            float demographicStrength = getDemographicStrength(userData);
+            if (demographicStrength == 0.0) continue;
 			
             // calculate user point - between jointIndex + jointIndex2
             userData->userPoint = userData->user->jointPositions[userData->jointIndex].getInterpolated(userData->user->jointPositions[userData->joint2Index], userData->jointOffset);
@@ -201,22 +186,18 @@ void CloudTag::performUserAttraction()
 
             ofVec3f length = position - userData->userPoint;
             userData->lengthSquared = length.lengthSquared();
-            float lengthSquaredMin = (int)cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd;
-
+            float lengthSquaredMin = cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd;
+            
             if (userData->lengthSquared < lengthSquaredMin)
             {
 				// if connection is new, start keeping track of the time since connection was made. Used for line alpha (and maybe more???)
                 if (userData->isActive == false)
                 {
-					//printf("performUserAttraction() - userData->lengthSquared < lengthSquaredMin - ");
-                    userData->millisBecameActive = ofGetElapsedTimeMillis();
+					userData->millisBecameActive = ofGetElapsedTimeMillis();
                     userData->secondsSinceActive = 0.0;
                 }
                 userData->isActive = true;
                 userData->secondsSinceActive = ((float)ofGetElapsedTimeMillis() - (float)userData->millisBecameActive) / 1000;
-
-//                if (id % 50 == 0 && ofGetFrameNum() % 30 == 0)
-//                    printf("ofGetElapsedTimeMillis = %i, millisBecameActive = %i, secondsSinceActive = %f \n",ofGetElapsedTimeMillis(), userData->millisBecameActive, userData->secondsSinceActive);
 
                 float normalisedDistance = (userData->lengthSquared / lengthSquaredMin);
 
@@ -242,7 +223,7 @@ void CloudTag::performUserAttraction()
                     {
                         averageAttraction += userData->attractionVecs[i];
                     }
-                    userData->averageAttractionVec = averageAttraction / 3;
+                    userData->averageAttractionVec = averageAttraction / (int)userData->attractionVecs.size();
                 }
             }
             else
@@ -297,12 +278,8 @@ void CloudTag::checkBounds()
         position.z += cloudTagMan->boundaryD - 5;
     }
 
-//    if (!isXOutOfBounds && outOfBoundsPosVelocity.x > 0)
-//        outOfBoundsPosVelocity.x = MAX(outOfBoundsPosVelocity.x - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
     if (!isYOutOfBounds && outOfBoundsPosVelocity.y > 0)
         outOfBoundsPosVelocity.y = MAX(outOfBoundsPosVelocity.y - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
-//    if (!isZOutOfBounds && outOfBoundsPosVelocity.z > 0)
-//        outOfBoundsPosVelocity.z = MAX(outOfBoundsPosVelocity.z - (cloudTagMan->outOfBoundsPosAddMin * cloudTagMan->outOfBoundsPosAddDecay), 0);
 
 
     int tempIsTagAttractedToUser = (isTagAttractedToUser) ? 1 : 0;
@@ -313,7 +290,6 @@ void CloudTag::checkBounds()
         TrackedUserData* userData = &userDataObjects[i];
         if (userData->isActive)
         {
-            //if (id % 20 == 0 && ofGetFrameNum() % 30 == 0) printf("userdata is active \n");
             isTagAttractedToUser = true;
             continue;
         }
@@ -400,7 +376,8 @@ void CloudTag::drawLines()
 	{
         TrackedUserData* userData = &userDataObjects[i];
         if (getDemographicStrength(userData) == 0.0) continue;
-
+        
+        
         if (userData->isActive)
         {
  //           shader->begin(); // shader begin: set values.
@@ -433,6 +410,7 @@ void CloudTag::drawLines()
 
 //            ofLine(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z, userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
 			
+            
             glColor4f(1.0f, 1.0f, 1.0f, (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
             ofSetLineWidth(cloudTagMan->lineThickness);
             glBegin(GL_LINES);
@@ -484,14 +462,13 @@ float CloudTag::getDemographicStrength(TrackedUserData* userData)
     {
         DemographicData* demographicData = tagData->demographics[i].demographicData;
         string demographicName = demographicData->name;
-        int comparison = demographicName.compare(userData->user->demographic);
+        //int comparison = .compare(userData->user->demographic);
 
-        if (comparison == 0)
+        if (demographicName == userData->user->demographic)
         {
             return tagData->demographics[i].strength;
         }
     }
-
     return 0.0; //TODO: make variable and add this to GUI
 }
 

@@ -12,23 +12,8 @@ cell_server/obj
 cell_client/ipch
 cell_client/obj
 
-.DS_Store
-.app
-
 
 #osx
-
-*.sdf
-*.dll
-*.suo
-*.opensdf
-*.exe
-*.exp
-*.lib
-cell_server/ipch
-cell_server/obj
-cell_client/ipch
-cell_client/obj
 
 .DS_Store
 .app

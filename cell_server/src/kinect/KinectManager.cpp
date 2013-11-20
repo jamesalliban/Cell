@@ -178,7 +178,7 @@ void KinectManager::playRecordedLine()
 			skeletonDataObject->clientID = recordingPixels.getColor(startX, currentPlaybackFrame).g;
 			skeletonDataObject->skelID = recordingPixels.getColor(startX, currentPlaybackFrame).b;
 
-			// if the skeleton is inactive make the trackingID '-1'. If active make it clientID_skelID e.g. 0_1, 2_0 etc
+			// if the skeleton is inactive make the trackingID '-1'. If active make it clientID_skelID e.g. 0_1, 2_0, 3_1 etc
 			if (isActive == -1)
 				skeletonDataObject->trackingID = "-1";
 			else
@@ -190,16 +190,7 @@ void KinectManager::playRecordedLine()
 				{
 					skeletonDataObject->skeletonPositions[joint].x = getCoordFromCol(recordingPixels.getColor(startX + 1 + (joint * 3), currentPlaybackFrame));
 					skeletonDataObject->skeletonPositions[joint].y = getCoordFromCol(recordingPixels.getColor(startX + 2 + (joint * 3), currentPlaybackFrame));
-					skeletonDataObject->skeletonPositions[joint].z = getCoordFromCol(recordingPixels.getColor(startX + 3 + (joint * 3), currentPlaybackFrame));	
-					
-					
-					//printf("1 clnt:%i, skl:%i, tracID:%s, x:%f, y:%f, z:%f, rIndex:%i \n", skeletonDataObject->clientID, 
-					//	skeletonDataObject->skelID,
-					//	skeletonDataObject->trackingID.c_str(),
-					//	skeletonDataObject->skeletonPositions[joint].x, 
-					//	skeletonDataObject->skeletonPositions[joint].y, 
-					//	skeletonDataObject->skeletonPositions[joint].z, 
-					//	(startX + 1 + (joint * 3)));
+					skeletonDataObject->skeletonPositions[joint].z = getCoordFromCol(recordingPixels.getColor(startX + 3 + (joint * 3), currentPlaybackFrame));
 				}
 			}
 			else
@@ -209,13 +200,6 @@ void KinectManager::playRecordedLine()
 					skeletonDataObject->skeletonPositions[joint].x = -1;
 					skeletonDataObject->skeletonPositions[joint].y = -1;
 					skeletonDataObject->skeletonPositions[joint].z = -1;
-					//printf("0 clnt:%i, skl:%i, tracID:%s, x:%f, y:%f, z:%f, rIndex:%i \n", skeletonDataObject->clientID, 
-					//	skeletonDataObject->skelID,
-					//	skeletonDataObject->trackingID.c_str(),
-					//	skeletonDataObject->skeletonPositions[joint].x, 
-					//	skeletonDataObject->skeletonPositions[joint].y, 
-					//	skeletonDataObject->skeletonPositions[joint].z, 
-					//	(startX + 1 + (joint * 3)));
 				}
 			}
 		}
@@ -319,7 +303,7 @@ void KinectManager::startPlayback(string recordedPath)
 			recordingImg.loadImage(recordedPath);
 			recordingPixels.setFromPixels(recordingImg.getPixels(), recordingImg.getWidth(), recordingImg.getHeight(), OF_IMAGE_COLOR);
 		}
-		currentPlaybackFrame = 0;
+		currentPlaybackFrame = recordingImg.getHeight() - 5;
 		isPlayback = true;
 	}
 }

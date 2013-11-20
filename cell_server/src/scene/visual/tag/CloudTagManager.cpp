@@ -13,7 +13,7 @@
 
 void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 {
-	cloudTagAmount = 800; // 1000;
+	cloudTagAmount = 800;//  800;
 
 	shadeContrastMin = 0.4;
 	shadeContrastMax = 0.7;
@@ -41,6 +41,7 @@ void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 
 void CloudTagManager::update()
 {
+    
     if (SceneManager::isUpdateVars)
     {
         for (int i = 0; i < cloudTagAmount; i++)
@@ -49,7 +50,7 @@ void CloudTagManager::update()
             cloudTags[i].updateVars();
         }
     }
-
+    
     for (int i = 0; i < cloudTagAmount; i++)
 	{
 	    cloudTags[i].update();

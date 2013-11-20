@@ -98,9 +98,8 @@ public:
 	float scaleMin;
 	float scaleMax;
 	bool yScaleOnlyOnAttraction;
-
-
-
+    
+    
 protected:
 
 

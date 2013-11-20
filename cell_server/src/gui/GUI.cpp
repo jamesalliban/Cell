@@ -108,7 +108,7 @@ void GUI::addCameraGUI()
     gui->addLabel("POSITION/ROTATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("X", -150, 150, &app->sceneManager.camX, length, dim);
     gui->addSlider("Y", -150, 150, &app->sceneManager.camY, length, dim);
-    gui->addSlider("Z", -150, 150, &app->sceneManager.camZ, length, dim);
+    gui->addSlider("Z", -400, 400, &app->sceneManager.camZ, length, dim);
 	gui->addSlider("Distance Multiplier", 0, 5, &app->sceneManager.camDistanceMultiplier, length, dim);
     gui->addSlider("LookAt node X", -50, 50, &app->sceneManager.camDirectionX, length, dim);
     gui->addSlider("LookAt node Y", -50, 50, &app->sceneManager.camDirectionY, length, dim);
@@ -490,10 +490,10 @@ void GUI::addKinectUserDegugGUI()
     gui->addLabel("RECORDED", OFX_UI_FONT_MEDIUM);
 
 	ofDirectory dir;
-	dir.listDir("images/recorded/");
+	dir.listDir("images/rec/");
 	dir.allowExt(".png");
 	for (int i = 0; i < dir.size(); i++)
-		gui->addWidgetDown(new ofxUILabelButton(false, dir.getPath(i)));
+		gui->addWidgetDown(new ofxUILabelButton(false, dir.getPath(i).substr()));
 	
 	gui->addSlider("Recorded image alpha", 0, 255, &app->kinectManager.recordedImageAlpha, length, dim);
     

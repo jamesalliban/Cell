@@ -29,6 +29,7 @@ void User::setup(UserManager *_parent, int _userID)
     userMan             = _parent;
     userID              = _userID;
     clientID            = -1;
+    trackingID          = "-1";
     
     int deadfoot = 5;
     
@@ -99,7 +100,8 @@ void User::setup(UserManager *_parent, int _userID)
 void User::update()
 {
     if (!isActive) return;
-
+    
+    if (userID == 1) printf("User 1 is active \n");
 
     secondsSinceActive = ((float)ofGetElapsedTimeMillis() - (float)millisBecameActive) / 1000;
 
@@ -400,9 +402,9 @@ void User::assignSkeleton(KinectSkeletonData* _skeleton)
     skeleton = _skeleton;
     trackingID = skeleton->trackingID;
     clientID = skeleton->clientID;
-
+    
     //if (ofGetFrameNum() % 30 == 0)
-     //   printf("User::assignSkeleton - clientID = %i, dwTrackingID = %f \n", clientID, trackingID);
+        printf("User::assignSkeleton - clientID = %i, trackingID = %s \n", clientID, trackingID.c_str());
 
     if (!isActive)
     {
@@ -416,17 +418,16 @@ void User::assignSkeleton(KinectSkeletonData* _skeleton)
 void User::assignIDs(int _clientID, int _skeletonID)
 {
     clientID = _clientID;
-
 }
 
 
 
 void User::deactivate()
 {
-	printf("User::deactivate() frame number = %i \n", ofGetFrameNum());
+	printf("deactivating user - trackingID:%s \n", trackingID.c_str());
     skeleton = NULL;
     clientID = -1;
-    trackingID = -1;
+    trackingID = "-1";
     isActive = false;
     //associatedUserBatch = NULL;
 }
