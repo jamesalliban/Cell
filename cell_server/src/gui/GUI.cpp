@@ -481,6 +481,7 @@ void GUI::addKinectUserDegugGUI()
 		gui->addWidgetDown(new ofxUILabelButton(false, dir.getPath(i).substr()));
 	
 	gui->addSlider("Recorded image alpha", 0, 255, &app->kinectManager.recordedImageAlpha, length, dim);
+	gui->addToggle("Recorded image visible", &app->kinectManager.isRecordedImageVisible, toggleDim, toggleDim);
     
     
 	ofAddListener(gui->newGUIEvent, this, &GUI::addKinectUserDegugGUIEvent);

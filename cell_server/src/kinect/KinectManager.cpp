@@ -213,7 +213,7 @@ void KinectManager::playRecordedLine()
 
 void KinectManager::draw()
 {
-    if (!testApp::isAllUserDebugVisible) return;
+    if (!isRecordedImageVisible) return;
     
     if (isRecording || isPlayback)
 	{

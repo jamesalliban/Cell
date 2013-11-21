@@ -50,6 +50,7 @@ public:
 	bool isRecording;
 	bool isPlayback;
     bool isPlaybackPaused;
+    bool isRecordedImageVisible;
 	int currentPlayingScene;
 	int framesRecorded;
 	int currentPlaybackFrame;

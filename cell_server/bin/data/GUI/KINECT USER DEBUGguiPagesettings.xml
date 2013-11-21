@@ -38,3 +38,8 @@
     <Name>Recorded image alpha</Name>
     <Value>93.947364807</Value>
 </Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Recorded image visible</Name>
+    <Value>1</Value>
+</Widget>
