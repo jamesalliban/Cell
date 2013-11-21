@@ -28,6 +28,15 @@ void Field::draw()
         glVertex3f(fieldPos.x, 0, fieldPos.y);
         glVertex3f(fieldPos.x, 50, fieldPos.y);
     glEnd();
+    
+    ofPushStyle();
+    ofSetColor(255);
+    ofPushMatrix();
+    ofTranslate(fieldPos.x, 25, fieldPos.y);
+    ofRotate(90);
+    ofDrawBitmapString(type, ofPoint(0, 0, 0));
+    ofPopMatrix();
+    ofPopStyle();
 }
 
 

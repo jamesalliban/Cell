@@ -16,14 +16,13 @@ void FieldColour::update()
 
 void FieldColour::draw()
 {
-    glColor4f(colourOffset.x, colourOffset.y, colourOffset.z, 1.0f);
-
+    ofPushStyle();
+    //glColor4f(colourOffset.x, colourOffset.y, colourOffset.z, 1.0f);
+    ofSetColor(colourOffset.x * 255, colourOffset.y * 255, colourOffset.z * 255, 255);
+    
     Field::draw();
+    ofPopStyle();
 
-    ofPushMatrix();
-    ofTranslate(1, 0, 0);
-    Field::draw();
-    ofPopMatrix();
 }
 
 

@@ -6,7 +6,6 @@
  
  QUICK JOBS TO DO QUICKLY
  ------------------------
- - add field description to debug field visuals
  - add kinect recording path to playback visual
  - hide skeleton timeline on 'D' - separate from user debug
  - lines fade in at different speeds - maybe random, maybe depends on distance - try both

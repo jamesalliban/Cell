@@ -24,6 +24,8 @@ public:
     float playArea;
     float movementSpeed;
     
+    string type;
+    
     static bool isAllEnabled;
 
 protected:
