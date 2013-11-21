@@ -73,11 +73,12 @@ void CloudTagManager::update()
 
 void CloudTagManager::customDraw()
 {
+    
 	for (int i = 0; i < tagsOrderedByZ.size(); i++)
-	{
-		CloudTag* cloudTag = tagsOrderedByZ[i];
-		cloudTag->customDraw();
-	}
+		tagsOrderedByZ[i]->drawTags();
+    
+	for (int i = 0; i < tagsOrderedByZ.size(); i++)
+		tagsOrderedByZ[i]->drawLines();
 }
 
 

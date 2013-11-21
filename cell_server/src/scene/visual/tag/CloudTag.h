@@ -40,6 +40,8 @@ public:
 	void	    init(ofShader* shad, TagData* tData, int _id);
 	void	    update();
 	void	    customDraw();
+	void        drawTags();
+    void        drawLines();
 	void        updateVars();
 	float       getDemographicStrength(TrackedUserData* userData);
 
@@ -62,8 +64,6 @@ protected:
     void        performAmbientMotion();
     void        checkBounds();
     void        performUserAttraction();
-	void        drawTags();
-    void        drawLines();
     int         getSecondJointIndex(int jointIndex);
 
 

@@ -2,13 +2,6 @@
 /*
  
  TASKS
- 
- Optimisation
- ------------
- - Use power of 2 for tag texturing
- - Go through each class and only import the necessary OF classes
- 
- TASKS
  -----
  
  QUICK JOBS TO DO QUICKLY
@@ -16,6 +9,8 @@
  - draw lines first, then tags.
  - add field description to debug field visuals
  - add kinect recording path to playback visual
+ - dont draw all lines - add reduction value (maybe mod) to GUI
+ - lines fade in at different speeds.
  
  MAIN LIST
  ---------
@@ -26,8 +21,6 @@
  - Tags should rise up faster when below (and above??) the cloud
  - If tag moves to opposite side (after going OOB) and is low, fix y val
  - Redo ambient cloud tag animation. Make it more wavy and flowing - perlin up
- - dont draw all lines - add reduction value (maybe mod) to GUI
- - lines fade in at different speeds.
  - look into improving anti-aliasing
  - If skel data freezes (due to network error), remove skeleton after 10 frames.
  - Use bell curve for line alpha - shouldn't be so strong when far away
@@ -46,31 +39,14 @@
  - extract record/playback code to ofxSkeletonRecorder
  
  
- ------------------
- Keyboard shortcuts
- ------------------
- 
- 'm' - main camera position
- 'n' - pause free cam
- 'u' - update - refresh cloud and can implement changed values - check this
- 'f' - fullscreen
- 'o' - pause debug skeleton
- 
- 'z' - clear client skeletons
- 'p' - pause clients
- 'r' - resume clients
- 'x' - close clients
- 's' - send smoothing value to clients
- 'c' - save screeshot
- 'UP' - tilt client kinect camera up
- 'DOWN' - tilt client kinect camera down
- 
- 'g' or 'space' - show GUI
- '[' and ']' - toggle through gui pages
- '0' - '9' - go to gui page
- 
+ Optimisation
+ ------------
+ - Use power of 2 for tag texturing
+ - Perform tag animation calculations on a separate thread
+ - Go through each class and only import the necessary OF classes
  
  */
+
 #include "testApp.h"
 
 bool testApp::isKinectAttached;

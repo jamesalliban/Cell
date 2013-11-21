@@ -134,8 +134,7 @@ void CloudTag::update()
 
 void CloudTag::customDraw()
 {
-    if (cloudTagMan->areLinesEnabled) drawLines();
-    if (cloudTagMan->areTagsEnabled) drawTags();
+
 }
 
 
@@ -305,6 +304,8 @@ void CloudTag::checkBounds()
 
 void CloudTag::drawTags()
 {
+    if (!cloudTagMan->areTagsEnabled) return;
+        
 	glDepthFunc(GL_LESS);
 
 	shader->begin(); // shader begin: set values.
@@ -357,7 +358,8 @@ void CloudTag::drawTags()
 
 void CloudTag::drawLines()
 {
-
+    if (!cloudTagMan->areLinesEnabled) return;
+        
 	ofVec3f cornerVertexVec = tagPlaneMesh.getVertex(lineStartVertexIndex);
 	float tagW = tagPlaneMesh.getVertex(3).x * 2;
 	float tagH = tagPlaneMesh.getVertex(3).y * 2;
