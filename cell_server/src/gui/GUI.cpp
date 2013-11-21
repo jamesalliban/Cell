@@ -154,7 +154,8 @@ void GUI::addLineAppearanceGUI()
     gui->addSlider("Map Z Area Max", 10, 100.0, &app->sceneManager.cloudTagMan.lineZAreaMax, length, dim);
     gui->addSlider("Line Thickness", 0.0, 10.0, &app->sceneManager.cloudTagMan.lineThickness, length, dim);
     gui->addLabel("LINE ANIMATION", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Init line fade", 0.0, 5.0, &app->sceneManager.cloudTagMan.lineFadeTime, length, dim);
+    gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
+    gui->addRangeSlider("Init line fade range", 0.0, 5.0, &app->sceneManager.cloudTagMan.lineFadeTimeMin, &app->sceneManager.cloudTagMan.lineFadeTimeMax, length, dim);
     
     finaliseCanvas(gui, true);
 }

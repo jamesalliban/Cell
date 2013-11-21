@@ -61,7 +61,8 @@ public:
 	float lineThickness;
 	float lineZAreaMin;
 	float lineZAreaMax;
-	float lineFadeTime;
+	float lineFadeTimeMin;
+	float lineFadeTimeMax;
 
 	//user attraction
 	float attractionMultiplier;

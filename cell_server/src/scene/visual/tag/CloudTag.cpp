@@ -395,7 +395,11 @@ void CloudTag::drawLines()
             float mappedBrightness = ofMap(position.z, cloudTagMan->lineZAreaMin, cloudTagMan->lineZAreaMax, cloudTagMan->lineBrightnessMin, cloudTagMan->lineBrightnessMax, true);
             float mappedAlpha = ofMap(position.z, cloudTagMan->lineZAreaMin, cloudTagMan->lineZAreaMax, cloudTagMan->lineAlphaMin, cloudTagMan->lineAlphaMax, true);
             float mappedDistance = ofMap(userData->lengthSquared, cloudTagMan->mapLineDistanceMax, cloudTagMan->mapLineDistanceMin, 0.0, 1.0, true);
-            float mappedStartTime = ofMap(userData->secondsSinceActive, 0.0, cloudTagMan->lineFadeTime, 0.0, 1.0);
+            
+            // calculate the fade in time using secondsSince active and distance. Tags close fade in faster.
+            float normDistance = ofMap(userData->lengthSquared, 0, cloudTagMan->lineLengthSquaredMin + userData->lowerBodyAdd, 0, 1);
+            float lineFadeTime = ofMap(normDistance, 0, 1, cloudTagMan->lineFadeTimeMin, cloudTagMan->lineFadeTimeMax);
+            float mappedStartTime = ofMap(userData->secondsSinceActive, 0.0, lineFadeTime, 0.0, 1.0);
 
 /*
             shader->setUniform1f("contrast", mappedContrast * mappedDistance);

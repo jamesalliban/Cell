@@ -4,6 +4,7 @@
 void FieldManager::init()
 {
     fieldEnergy.init();
+    fieldEnergy.type = "Energy";
     fields.push_back(&fieldEnergy);
 
 //    FieldAttract* fieldAttract = new FieldAttract();

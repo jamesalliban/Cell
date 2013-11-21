@@ -6,7 +6,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Line percentage drawn</Name>
-    <Value>0.611842096</Value>
+    <Value>0.789473712</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -69,7 +69,8 @@
     <Value>1.197183132</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>Init line fade</Name>
-    <Value>0.510563374</Value>
+    <Kind>6</Kind>
+    <Name>Init line fade range</Name>
+    <HighValue>2.434210539</HighValue>
+    <LowValue>0.000000000</LowValue>
 </Widget>

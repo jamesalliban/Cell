@@ -6,14 +6,12 @@
  
  QUICK JOBS TO DO QUICKLY
  ------------------------
- - add kinect recording path to playback visual
- - lines fade in at different speeds - maybe random, maybe depends on distance - try both
  
  MAIN LIST
  ---------
  - Load Chinese characters from server on a thread.
  - Place newly loaded text in scene and save to xml on a thread - add 3 random demographics
- - Make a start on fixing doubled up users - get average line
+ - Make a start on fixing doubled up users - get average line - measure distances and build debug birds eye view
  - Add debug bounds draw for skeleton area and cloud
  - Tags should rise up faster when below (and above??) the cloud
  - If tag moves to opposite side (after going OOB) and is low, fix y val

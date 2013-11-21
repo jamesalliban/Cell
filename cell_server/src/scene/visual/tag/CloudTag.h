@@ -16,7 +16,7 @@
 
 struct TrackedUserData{
     User* user;
-    int jointIndex;
+    int jointIndex; 
     int joint2Index;
     int lowerBodyAdd;
     float jointOffset;
