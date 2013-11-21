@@ -55,7 +55,8 @@ public:
 	int framesRecorded;
 	int currentPlaybackFrame;
 	int recordedFramesMax;
-	
+	string currentPlaybackPath;
+    
 	float recordedImageAlpha;
 
 protected:

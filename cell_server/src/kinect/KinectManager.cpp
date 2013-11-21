@@ -228,6 +228,8 @@ void KinectManager::draw()
 		recordingImg.draw(0, 0);
 		ofSetColor(255, 0, 0);
 		ofLine(0, currentPlaybackFrame, recordingPixels.getWidth(), currentPlaybackFrame);
+		ofSetColor(255);
+        ofDrawBitmapString(currentPlaybackPath, 10, 10);
         ofPopMatrix();
         ofPopStyle();
         
@@ -296,6 +298,7 @@ void KinectManager::startPlayback(string recordedPath)
 		if (recordedPath != "")
 		{
 			recordingImg.loadImage(recordedPath);
+            currentPlaybackPath = recordedPath;
 			recordingPixels.setFromPixels(recordingImg.getPixels(), recordingImg.getWidth(), recordingImg.getHeight(), OF_IMAGE_COLOR);
 		}
 		currentPlaybackFrame = recordingImg.getHeight() - 5;
