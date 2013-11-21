@@ -115,28 +115,4 @@ void SceneManager::draw()
 	camEasyCam.end();
 
 	if (isUpdateVars) isUpdateVars = false;
-    
-}
-
-
-
-void SceneManager::keyPressed(int key)
-{
-	switch(key)
-	{
-		case 'm': isCamMouseInput = !isCamMouseInput;
-			break;
-		case 'n': isCamMouseInputPaused = !isCamMouseInputPaused;
-			break;
-		case 'u': isUpdateVars = !isUpdateVars;
-			break;
-		case 'g': isGridVisible = !isGridVisible;
-			break;
-        case 'a': fieldMan.isFieldLineVisible = !fieldMan.isFieldLineVisible;
-			break;
-            
-
-	}
-
-	userManager.keyPressed(key);
 }

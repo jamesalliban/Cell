@@ -269,14 +269,3 @@ bool UserManager::isUserADuplicate(User* newUser)
     return false;
 }
 
-
-
-void UserManager::keyPressed(int key)
-{
-	switch(key)
-	{
-		case 'o': isNonKinectUserPaused = !isNonKinectUserPaused;
-			break;
-
-	}
-}

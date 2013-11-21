@@ -1,5 +1,5 @@
 #include "KinectManager.h"
-
+#include "testApp.h"
 
 
 void KinectManager::init()
@@ -210,8 +210,11 @@ void KinectManager::playRecordedLine()
 }
 
 
+
 void KinectManager::draw()
 {
+    if (!testApp::isAllUserDebugVisible) return;
+    
     if (isRecording || isPlayback)
 	{
 		recordingImg.setFromPixels(recordingPixels);
@@ -241,15 +244,6 @@ void KinectManager::skipToFrame(int x, int y)
         currentPlaybackFrame = y;
     }
 }
-
-void KinectManager::keyPressed(int key)
-{
-	//Kinetic demo networking stuff
-	// we are using certain keys to map to commands to send to the clients for ease of use
-	ServerSendCommandstoClients(key );
-	//printf("Key %d\r\n", key);
-}
-
 
 bool KinectManager::hasSkeleton()
 {
@@ -292,6 +286,7 @@ void KinectManager::saveRecording()
 }
 
 
+
 void KinectManager::startPlayback(string recordedPath)
 {
 	if (ofGetFrameNum() < 10) return;
@@ -307,6 +302,30 @@ void KinectManager::startPlayback(string recordedPath)
 		isPlayback = true;
 	}
 }
+
+
+
+void KinectManager::clearPlayback()
+{
+    if (isPlayback && !isRecording)
+    {
+        isPlayback = false;
+        isPlaybackPaused = false;
+        recordingImg.clear();
+        recordingPixels.clear();
+		currentPlaybackFrame = recordingImg.getHeight() - 5;
+        
+        for (int client = 0; client < 3; client++)
+        {
+            for (int skel = 0; skel < 2; skel++)
+            {
+                KinectSkeletonData* skeletonDataObject = &trackedSkeletons[client * 2 + skel];
+                skeletonDataObject->trackingID = "-1";
+            }
+        }
+    }
+}
+
 
 void KinectManager::addSkelDataToRecording(int isActive, int client, int id)
 {

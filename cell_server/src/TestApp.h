@@ -41,6 +41,7 @@ public:
 	bool isFirstFrame;
     
 	static bool isKinectAttached;
+    static bool isAllUserDebugVisible;
     
 	bool isPaused;
 };

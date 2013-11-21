@@ -26,7 +26,6 @@ public:
 	void draw();
 	void setupViewports();
     void rebuild();
-	void keyPressed(int key);
 
 	CloudTagManager			cloudTagMan;
 

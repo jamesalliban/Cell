@@ -16,4 +16,5 @@ cell_client/obj
 #osx
 
 .DS_Store
-.app
+.Trashes
+*.app

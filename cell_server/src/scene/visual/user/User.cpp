@@ -101,8 +101,6 @@ void User::update()
 {
     if (!isActive) return;
     
-    if (userID == 1) printf("User 1 is active \n");
-
     secondsSinceActive = ((float)ofGetElapsedTimeMillis() - (float)millisBecameActive) / 1000;
 
     jointPositions[CELL_HIP_CENTRE] = skeleton->skeletonPositions[CELL_HIP_CENTRE];
@@ -291,6 +289,8 @@ void User::nonKinectDraw()
 
 void User::debugDraw()
 {
+    if (!testApp::isAllUserDebugVisible) return;
+    
     ofSetSphereResolution(4);
 
     //if (ofGetFrameNum() % 50 == 0) printf("drawing user %i \n", userID);

@@ -6,51 +6,45 @@
  Optimisation
  ------------
  - Use power of 2 for tag texturing
- - Go through each class and only import the necessary classes
+ - Go through each class and only import the necessary OF classes
  
  TASKS
  -----
- - Sort Cloud Tags based on z depth
- - Load Chinese characters from server, place in scene and save to xml
- - If skel data stops coming, remove skeleton after 10 frames - disrupting OSC network cases still skeletons
- - Move no-kinect debug mouse Kinect stuff to KinectManager so we can use UserData, joint spheres etc.
- - Add a series of keyboard shortcuts
- - - 'l' - toggle draw lines
- - - 't' - toggle draw tags
- - - 'T' - toggle tag animation and calculations
+ 
+ QUICK JOBS TO DO QUICKLY
+ ------------------------
+ - draw lines first, then tags.
+ - add field description to debug field visuals
+ - add kinect recording path to playback visual
+ 
+ MAIN LIST
+ ---------
+ - Load Chinese characters from server on a thread.
+ - Place newly loaded text in scene and save to xml on a thread - add 3 random demographics
+ - Make a start on fixing doubled up users - get average line
  - Add debug bounds draw for skeleton area and cloud
+ - Tags should rise up faster when below (and above??) the cloud
  - If tag moves to opposite side (after going OOB) and is low, fix y val
+ - Redo ambient cloud tag animation. Make it more wavy and flowing - perlin up
+ - dont draw all lines - add reduction value (maybe mod) to GUI
+ - lines fade in at different speeds.
+ - look into improving anti-aliasing
+ - If skel data freezes (due to network error), remove skeleton after 10 frames.
+ - Use bell curve for line alpha - shouldn't be so strong when far away
+ - Use bell curve for field strength - sin(norm(mappedDist) * (PI*2)) (or something?)
+ - Improve no-kinect debug mouse Kinect functionality
  
  
- // OLD BUT STILL NEED TO INVESTIGATE
- - ******* once user is removed (or are too far from tag) animate the tag towards the cloud faster.
- - ******* allow for a greater leangthSquaredMin when the joint is below the waist
- - ******* Add tags to random points between joints
- - ******* Add line to bottom edge of tag
- - ******* add another fake user
- - ******* work on multi user issues - 2nd user steals tags currently
- - ******* behaviour fields framework
- - ******* repel
- - attract
- - ******* scale
- - ******* y position
- - colours
- - 5 colour - only 2 at a time
- - sharp edges - no strength
- - responsive to users
+ NICE TO HAVE IF TIME
+ --------------------
+ - When skeleton disappears the lines should fade - The user points keep moving in the direction of the last movement.
+ - Add multiple camera angles to 1, 2, 3
+ - Add lines that connect the user points. These appear when tags are close to userpoints.
+ - Add the following keyboard shortcuts
+ - Slowly increase demographic strength for new users over time.
+ - - 'T' - toggle tag animation and calculations
+ - extract record/playback code to ofxSkeletonRecorder
  
- 
- - Make the field strength a bell curve - sin(mappedDist)
- - increase demographic strength for new users over time.
- - Only show lines if there is a connection
- - //make some tags animate to a distance for a diagram look
- - add circles to user points
- - alpha is tied to z depth and length of tie. Only appear when length is cloae
- - bit of perlin to animate
- - connect user points
- - add grid controls to GUI
- 
- - try to draw kinect data for debug
  
  ------------------
  Keyboard shortcuts
@@ -80,6 +74,7 @@
 #include "testApp.h"
 
 bool testApp::isKinectAttached;
+bool testApp::isAllUserDebugVisible;
 
 void testApp::setup()
 {
@@ -173,14 +168,6 @@ void testApp::draw()
 
 void testApp::keyPressed(int key)
 {
-    
-	sceneManager.keyPressed(key);
-
-	if (isKinectAttached) kinectManager.keyPressed(key);  // kinectManager.keyPressed(key);
-
-    //myGui.keyPressed(key);
-
-
 	if (key == 'f')
     {
 		ofToggleFullscreen();
@@ -192,6 +179,10 @@ void testApp::keyPressed(int key)
     else if (key == 't')
 	{
 		sceneManager.cloudTagMan.areTagsEnabled = !sceneManager.cloudTagMan.areTagsEnabled;
+    }
+    else if (key == 'o')
+    {
+        sceneManager.userManager.isNonKinectUserPaused = !sceneManager.userManager.isNonKinectUserPaused;
     }
     else if (key == 'l')
 	{
@@ -213,6 +204,10 @@ void testApp::keyPressed(int key)
 	{
 		kinectManager.startPlayback("");
     }
+    else if (key == 'C')
+	{
+		kinectManager.clearPlayback();
+    }
     else if (key == 'P')
 	{
 		kinectManager.startRecording();
@@ -220,6 +215,30 @@ void testApp::keyPressed(int key)
     else if (key == 'O')
 	{
 		kinectManager.isPlaybackPaused = !kinectManager.isPlaybackPaused;
+    }
+    else if (key == 'm')
+	{
+		sceneManager.isCamMouseInput = !sceneManager.isCamMouseInput;
+    }
+    else if (key == 'n')
+	{
+		sceneManager.isCamMouseInputPaused = !sceneManager.isCamMouseInputPaused;
+    }
+    else if (key == 'u')
+	{
+		sceneManager.isUpdateVars = !sceneManager.isUpdateVars;
+    }
+    else if (key == 'g')
+	{
+		sceneManager.isGridVisible = !sceneManager.isGridVisible;
+    }
+    else if (key == 'a')
+	{
+		sceneManager.fieldMan.isFieldLineVisible = !sceneManager.fieldMan.isFieldLineVisible;
+    }
+    else if (key == 'd')
+	{
+		isAllUserDebugVisible = !isAllUserDebugVisible;
     }
 }
 

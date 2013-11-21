@@ -58,15 +58,16 @@ void GUI::addKeyboardShortcutsGUI()
     gui->addLabel("SPACE - SHOW/HIDE GUI", OFX_UI_FONT_SMALL);
     gui->addLabel("'[' - PREVIOUS GUI", OFX_UI_FONT_SMALL);
     gui->addLabel("']' - NEXT GUI", OFX_UI_FONT_SMALL);
-    gui->addLabel("'0-9' - GO TO GUI PAGE", OFX_UI_FONT_SMALL);
-    gui->addLabel("'g' - TOGGLE GRID VISIBLE", OFX_UI_FONT_SMALL);
-    gui->addLabel("'a' - TOGGLE FIELD LINES VISIBLE", OFX_UI_FONT_SMALL);
+//    gui->addLabel("'0-9' - GO TO GUI PAGE", OFX_UI_FONT_SMALL);
+    gui->addLabel("'g' - GRID VISIBLE", OFX_UI_FONT_SMALL);
+    gui->addLabel("'a' - FIELD LINES VISIBLE", OFX_UI_FONT_SMALL);
+    gui->addLabel("'d' - DEBUG VISUALS", OFX_UI_FONT_SMALL);
+    gui->addLabel("'f' - FULLSCREEN ", OFX_UI_FONT_SMALL);
+    gui->addLabel("'t' - TAG VISIBILITY", OFX_UI_FONT_SMALL);
+    gui->addLabel("'l' - LINE VISIBILITY", OFX_UI_FONT_SMALL);
     gui->addLabel("'m' - MAIN CAMERA POSITION", OFX_UI_FONT_SMALL);
     gui->addLabel("'p' - PAUSE FREE CAM", OFX_UI_FONT_SMALL);
     gui->addLabel("'u' - UPDATE VARS - REFRESH CLOUD", OFX_UI_FONT_SMALL);
-    gui->addLabel("'f' - TOGGLE FULLSCREEN ", OFX_UI_FONT_SMALL);
-    gui->addLabel("'t' - TOGGLE TAG VISIBILITY", OFX_UI_FONT_SMALL);
-    gui->addLabel("'l' - TOGGLE LINE VISIBILITY", OFX_UI_FONT_SMALL);
     gui->addLabel("'z' - CLEAR CLIENT SKELETONS", OFX_UI_FONT_SMALL);
     gui->addLabel("'o' - PAUSE DEBUG SKELETON", OFX_UI_FONT_SMALL);
     gui->addLabel("'z' - CLEAR CLIENT SKELETONS", OFX_UI_FONT_SMALL);
@@ -78,23 +79,6 @@ void GUI::addKeyboardShortcutsGUI()
 //    gui->addLabel("'p' - PAUSE CLIENTS", OFX_UI_FONT_SMALL);
 //    gui->addLabel("'x' - CLOSE CLIENTS", OFX_UI_FONT_SMALL);
     
-    gui->addLabel("GRID");
-    gui->addToggle("GRID VISIBLE", &app->sceneManager.isGridVisible, toggleDim, toggleDim);
-    gui->addSlider("GRID ALPHA", 0, 255, &app->sceneManager.gridAlpha, length, dim);
-    
-    gui->addLabel("GUI DESIGN");
-    gui->addSlider("RED", 0, 255, 255, length, dim);
-    gui->addSlider("GREEN", 0, 255, 1, length, dim);
-    gui->addSlider("BLUE", 0, 255, 1, length, dim);
-    gui->addSlider("ALPHA", 0, 255, 255, length, dim);
-    
-    gui->addLabel("GUI DESIGN");
-    gui->addSlider("height", 1, 200, &app->topBlockHeight, length, dim);
-    gui->addSlider("bottom", 1, 200, &app->topBlockBot, length, dim);
-    gui->addSlider("left", 1, 100, &app->leftBlockW, length, dim);
-    gui->addSlider("right", 1, 100, &app->rightBlockW, length, dim);
-    
-	ofAddListener(gui->newGUIEvent, this, &GUI::variousGUIEvent);
     finaliseCanvas(gui, true);
 }
 
@@ -206,7 +190,6 @@ void GUI::addTagAnimationGUI()
     gui->addSlider("Scale Max", 0.01, 2, &app->sceneManager.cloudTagMan.scaleMax, length, dim);
     gui->addWidgetDown(new ofxUILabelButton(false, "Apply"));
     
-	ofAddListener(gui->newGUIEvent, this, &GUI::variousGUIEvent);
     finaliseCanvas(gui, true);
 }
 
@@ -482,6 +465,7 @@ void GUI::addKinectUserDegugGUI()
     gui->addToggle("Pause Cloud Tag Attraction",&app->sceneManager.cloudTagMan.isTagAttractionPaused, toggleDim, toggleDim);
     
     gui->addLabel("DEBUG", OFX_UI_FONT_MEDIUM);
+    gui->addToggle("Toggle all user debug visuals", &testApp::isAllUserDebugVisible, toggleDim, toggleDim);
     gui->addToggle("Show Joint Spheres", &app->sceneManager.userManager.isJointSpheres, toggleDim, toggleDim);
     gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
     gui->addToggle("Show Joint Pos Data", &app->sceneManager.userManager.isPositionDataDisplayed, toggleDim, toggleDim);
@@ -519,7 +503,7 @@ void GUI::addVariousGUI()
     gui->addSlider("BLUE", 0, 255, 1, length, dim);
     gui->addSlider("ALPHA", 0, 255, 255, length, dim);
     
-    gui->addLabel("GUI DESIGN");
+    gui->addLabel("FRAME CROPPING");
     gui->addSlider("height", 1, 200, &app->topBlockHeight, length, dim);
     gui->addSlider("bottom", 1, 200, &app->topBlockBot, length, dim);
     gui->addSlider("left", 1, 100, &app->leftBlockW, length, dim);

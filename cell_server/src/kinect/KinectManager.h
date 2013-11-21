@@ -27,16 +27,15 @@ public:
 	void playRecordedLine();
     void draw();
     void skipToFrame(int x, int y);
-    void keyPressed(int key);
     bool hasSkeleton();
     void ServerSendCommandstoClients(int key);
 
 	void startRecording();
 	void stopRecording();
 	void saveRecording();
-	
 	void startPlayback(string recordedPath = "");
-	
+	void clearPlayback();
+    
 	void addSkelDataToRecording(int isActive, int client, int id);
 	void addJointToRecording(int client, int id, int jointId, ofVec3f joint);
 	float getCoordFromCol(ofColor col);

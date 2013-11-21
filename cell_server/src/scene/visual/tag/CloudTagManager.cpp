@@ -55,15 +55,27 @@ void CloudTagManager::update()
 	{
 	    cloudTags[i].update();
 	}
+    
+    
+	tagsOrderedByZ.clear();
+    
+	for (int i = 0; i < (int)cloudTags.size(); i++)
+	{
+		CloudTag* tag = &cloudTags[i];
+        // populate a vector with active indices. This will be reordered based on their z value
+        tagsOrderedByZ.push_back(tag);
+	}
+	std::sort(tagsOrderedByZ.begin(), tagsOrderedByZ.end(), compareTagByZ());
+
 }
 
 
 
 void CloudTagManager::customDraw()
 {
-	for (int i = 0; i < cloudTagAmount; i++)
+	for (int i = 0; i < tagsOrderedByZ.size(); i++)
 	{
-		CloudTag* cloudTag = &cloudTags[i];
+		CloudTag* cloudTag = tagsOrderedByZ[i];
 		cloudTag->customDraw();
 	}
 }

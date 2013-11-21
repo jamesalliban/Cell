@@ -14,6 +14,12 @@
 #include "CloudTag.h"
 #include "TagTexture.h"
 
+
+struct compareTagByZ
+{
+	bool operator() (const CloudTag* lhs, const CloudTag* rhs) { return lhs->position.z < rhs->position.z; }
+};
+
 class ResourceManager;
 
 class CloudTagManager : public ofNode
@@ -26,6 +32,7 @@ public:
 	void customDraw();
 
 	vector<CloudTag> cloudTags;
+    vector<CloudTag*> tagsOrderedByZ;
 	int		cloudTagAmount;
 
 	//tag shading

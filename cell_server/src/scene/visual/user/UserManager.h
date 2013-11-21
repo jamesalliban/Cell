@@ -60,7 +60,6 @@ public:
     bool isUserDataDisplayed;
     bool isAverageLineDisplayed;
     bool isNonKinectUserPaused;
-    void keyPressed(int key);
 
 protected:
 private:
