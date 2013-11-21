@@ -306,7 +306,7 @@ void CloudTag::drawTags()
 {
     if (!cloudTagMan->areTagsEnabled) return;
         
-	glDepthFunc(GL_LESS);
+	//glDepthFunc(GL_LESS);
 
 	shader->begin(); // shader begin: set values.
 

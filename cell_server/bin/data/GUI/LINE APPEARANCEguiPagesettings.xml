@@ -5,6 +5,11 @@
 </Widget>
 <Widget>
     <Kind>4</Kind>
+    <Name>Line percentage drawn</Name>
+    <Value>0.611842096</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
     <Name>Line Contrast min</Name>
     <Value>-0.176056325</Value>
 </Widget>

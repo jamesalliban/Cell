@@ -138,6 +138,7 @@ void GUI::addLineAppearanceGUI()
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addToggle("Lines enabled", &app->sceneManager.cloudTagMan.areLinesEnabled, toggleDim, toggleDim);
+    gui->addSlider("Line percentage drawn", 0.0, 1.0, &app->sceneManager.cloudTagMan.lineAmountDrawn, length, dim);
     gui->addLabel("SHADER", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Line Contrast min", -1.0, 1.0, &app->sceneManager.cloudTagMan.lineContrastMin, length, dim);
     gui->addSlider("Line Contrast max", -1.0, 1.0, &app->sceneManager.cloudTagMan.lineContrastMax, length, dim);

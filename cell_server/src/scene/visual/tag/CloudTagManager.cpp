@@ -78,7 +78,8 @@ void CloudTagManager::customDraw()
 		tagsOrderedByZ[i]->drawTags();
     
 	for (int i = 0; i < tagsOrderedByZ.size(); i++)
-		tagsOrderedByZ[i]->drawLines();
+		if ((float)i / (float)tagsOrderedByZ.size() < lineAmountDrawn)
+            tagsOrderedByZ[i]->drawLines();
 }
 
 

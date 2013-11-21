@@ -55,6 +55,7 @@ public:
 
 	// line props
 	bool areLinesEnabled;
+    float lineAmountDrawn;
 	int lineDistanceMin;
 	float lineLengthSquaredMin;
 	float lineThickness;

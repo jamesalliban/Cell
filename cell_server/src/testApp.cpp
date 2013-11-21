@@ -6,11 +6,10 @@
  
  QUICK JOBS TO DO QUICKLY
  ------------------------
- - draw lines first, then tags.
  - add field description to debug field visuals
  - add kinect recording path to playback visual
- - dont draw all lines - add reduction value (maybe mod) to GUI
- - lines fade in at different speeds.
+ - hide skeleton timeline on 'D' - separate from user debug
+ - lines fade in at different speeds - maybe random, maybe depends on distance - try both
  
  MAIN LIST
  ---------
