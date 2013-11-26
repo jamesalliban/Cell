@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E934FBB183E9075002B7E7E /* RemoteTagDataService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E934FB9183E9074002B7E7E /* RemoteTagDataService.cpp */; };
 		2EDA87F4182AF07B00013CAD /* fontstash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA876F182AF07A00013CAD /* fontstash.c */; };
 		2EDA87F5182AF07B00013CAD /* stb_truetype.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA8771182AF07A00013CAD /* stb_truetype.c */; };
 		2EDA87F6182AF07B00013CAD /* ofxFontStash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA8776182AF07A00013CAD /* ofxFontStash.cpp */; };
@@ -109,6 +110,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E934FB9183E9074002B7E7E /* RemoteTagDataService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteTagDataService.cpp; sourceTree = "<group>"; };
+		2E934FBA183E9075002B7E7E /* RemoteTagDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteTagDataService.h; sourceTree = "<group>"; };
 		2EDA8763182AF07A00013CAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2EDA876F182AF07A00013CAD /* fontstash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fontstash.c; sourceTree = "<group>"; };
 		2EDA8770182AF07A00013CAD /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				2EDA8933182B3B6B00013CAD /* data */,
 				2EDA8938182B3B6B00013CAD /* ResourceManager.cpp */,
 				2EDA8939182B3B6B00013CAD /* ResourceManager.h */,
+				2E934FB9183E9074002B7E7E /* RemoteTagDataService.cpp */,
+				2E934FBA183E9075002B7E7E /* RemoteTagDataService.h */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -1038,6 +1043,7 @@
 				2EDA8982182B3B6C00013CAD /* UserManager.cpp in Sources */,
 				2EDA89A1182C57F000013CAD /* GUI.cpp in Sources */,
 				2EDA89A2182C57F000013CAD /* GUIManager.cpp in Sources */,
+				2E934FBB183E9075002B7E7E /* RemoteTagDataService.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

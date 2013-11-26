@@ -2,10 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
-
 #include "DemographicData.h"
 #include "TagData.h"
-
 #include "CellGlobals.h"
 
 
@@ -19,6 +17,7 @@ public:
     void init();
     void parseXML();
     string getRandomDemographic();
+    void update();
 	
 #ifdef CHINESE_CELL
 	ofxFontStash unicodeFont;
@@ -29,6 +28,7 @@ public:
 #endif
 
 	ofxXmlSettings demographicXml;
+    
 
 	int demographicAmount;
 	int tagAmount;

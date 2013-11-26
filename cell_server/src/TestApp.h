@@ -17,14 +17,18 @@ public:
 	void draw();
     
 	void keyPressed(int key);
-	void keyReleased(int key);
 	void mouseMoved(int x, int y );
 	void mouseDragged(int x, int y, int button);
 	void mousePressed(int x, int y, int button);
-	void mouseReleased(int x, int y, int button);
 	void windowResized(int w, int h);
-	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+    
+    
+    void loadTagIndexData();
+    void urlResponse(ofHttpResponse & response);
+    
+    
+    void exit();
     
 	ResourceManager resourceManager;
 	SceneManager sceneManager;
@@ -44,4 +48,22 @@ public:
     static bool isAllUserDebugVisible;
     
 	bool isPaused;
+    
+    
+//    int xmlCheckFrameFrequency;
+//    int currentEllapsedFrames;
+//    int currentXmlIndex;
+//    bool isLoadingXml;
+//    int tagTotal;
+#ifdef CHINESE_CELL
+    // Tag XML loading stuff
+    ofXml tagIndexXml;
+    string tagIndexData;
+    int latestTagTotal;
+    bool isLoading;
+    bool isNewIndexXml;
+    
+    int timesLoaded;
+#endif
+    
 };

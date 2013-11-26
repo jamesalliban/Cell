@@ -21,7 +21,10 @@
  - Use bell curve for line alpha - shouldn't be so strong when far away
  - Use bell curve for field strength - sin(norm(mappedDist) * (PI*2)) (or something?)
  - Improve no-kinect debug mouse Kinect functionality
- 
+ - Control Clients across network.
+ - - - Joint Smoothing.
+ - - - Delay in removing skeleton.
+ - - - Adjust Kinect cam era tilt (if possible with Win Kinects).
  
  NICE TO HAVE IF TIME
  --------------------
@@ -30,7 +33,6 @@
  - Add lines that connect the user points. These appear when tags are close to userpoints.
  - Add the following keyboard shortcuts
  - Slowly increase demographic strength for new users over time.
- - - 'T' - toggle tag animation and calculations
  - extract record/playback code to ofxSkeletonRecorder
  
  
@@ -43,6 +45,7 @@
  */
 
 #include "testApp.h"
+#include "CellGlobals.h"
 
 bool testApp::isKinectAttached;
 bool testApp::isAllUserDebugVisible;
@@ -53,11 +56,13 @@ void testApp::setup()
 	//ofEnableArbTex();
     //ofSetFrameRate(60);
     ofSetFullscreen(false);
-	ofSetLogLevel(OF_LOG_ERROR); //OF_LOG_WARNING
+	ofSetLogLevel(OF_LOG_ERROR);
+//	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetVerticalSync(true);
 	ofBackground(30);
 	ofDisableSmoothing();
 	ofEnableAlphaBlending();
+    ofRegisterURLNotification(this);
     ofSetCircleResolution(10);
 	glEnable(GL_DEPTH_TEST);
     
@@ -75,6 +80,17 @@ void testApp::setup()
     
     isFirstFrame = false;
 	isPaused = false;
+    
+    
+    
+#ifdef CHINESE_CELL
+    isLoading = false;
+    isNewIndexXml = false;
+	ofRegisterURLNotification(this);
+    timesLoaded = 0;
+    printf("- about to load the tag index on STARTUP \n");
+    loadTagIndexData();
+#endif
 }
 
 
@@ -96,6 +112,25 @@ void testApp::update()
 //        ofHideCursor();
 //    else
 //        ofShowCursor();
+
+    
+//    if (++currentEllapsedFrames >= xmlCheckFrameFrequency)
+//    {
+//        printf("- Should be loading tag index xml \n");
+//        currentEllapsedFrames = 0;
+//        checkNewTagIndex();
+//    }
+    
+    
+    
+    if (isNewIndexXml){
+        isNewIndexXml = false;
+        tagIndexXml.loadFromBuffer(tagIndexData);
+        latestTagTotal = ofToInt(tagIndexXml.getValue(""));
+        cout << "loaded xml - latestTagTotal = " << latestTagTotal << ", xml loaded " << timesLoaded << " times" << endl;
+    }
+    
+    loadTagIndexData();
 }
 
 
@@ -108,14 +143,14 @@ void testApp::draw()
 
     if (isFirstFrame || ofGetFrameNum() == 5)
     {
-        for (int i = 0; i < SKELETON_MAX; i++)
-        {
-            KinectSkeletonData* skeletonData = &kinectManager.trackedSkeletons[i];
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			//////////////////////// NOTE: This is crashing - why? and why is it used
-            //skeletonData->dwTrackingID = -1;
-        }
-        //sceneManager.userManager.deactivateAllUsers();
+//        for (int i = 0; i < SKELETON_MAX; i++)
+//        {
+//            KinectSkeletonData* skeletonData = &kinectManager.trackedSkeletons[i];
+//			/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//			//////////////////////// NOTE: This is crashing - why? and why is it used
+//            //skeletonData->dwTrackingID = -1;
+//        }
+//        //sceneManager.userManager.deactivateAllUsers();
         sceneManager.isUpdateVars = true;
         isFirstFrame = false;
     }
@@ -127,11 +162,6 @@ void testApp::draw()
     ofRect(0, 0, leftBlockW, topBlockHeight);
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
     glEnable(GL_DEPTH_TEST);
-	
-    //ofPushStyle();
-    //ofSetColor(255);
-    //ofDrawBitmapString("fps:" + ofToString(ofGetFrameRate()), 500, 120);
-    //ofPopStyle();
 }
 
 
@@ -211,14 +241,13 @@ void testApp::keyPressed(int key)
 	{
 		isAllUserDebugVisible = !isAllUserDebugVisible;
     }
+    else if (key == 'z')
+    {
+        loadTagIndexData();
+    }
 }
 
 
-
-void testApp::keyReleased(int key)
-{
-    
-}
 
 
 
@@ -243,13 +272,6 @@ void testApp::mousePressed(int x, int y, int button)
 
 
 
-void testApp::mouseReleased(int x, int y, int button)
-{
-    
-}
-
-
-
 void testApp::windowResized(int w, int h)
 {
     sceneManager.setupViewports();
@@ -263,37 +285,91 @@ void testApp::gotMessage(ofMessage msg)
 }
 
 
+//void testApp::checkNewTagIndex()
+//{
+////    return;
+////    printf("- checkNewTagIndex() - isLoadingXml = %i\n", (isLoadingXml ? 1 : 0));
+////    if (!isLoadingXml)
+////    {
+////        isLoadingXml = true;
+////        printf("- testApp::checkNewTagIndex() loading tag index \n");
+////        //int id = ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7.xml", "async_req");
+////        int id = ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml", "async_tag_index");
+////    }
+//}
 
-void testApp::dragEvent(ofDragInfo dragInfo)
+void testApp::loadTagIndexData()
 {
-    
+    if (!isLoading)
+        ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml","tag_index_load");
+	isLoading = true;
 }
 
 
-//void testApp::exit()
-//{
-//    if (nwserver != NULL)
+void testApp::urlResponse(ofHttpResponse & response)
+{
+    if (response.status == 200 && response.request.name == "tag_index_load")
+    {
+        tagIndexData = response.data.getText();
+        isNewIndexXml = true;
+        isLoading = false;
+        ++timesLoaded;
+	}
+    else
+    {
+		cout << response.status << " " << response.error << endl;
+		if(response.status!=-1) isLoading = false;
+	}
+    
+    
+    
+    
+//    return;
+//    
+//    printf("- testApp::urlResponse() \n");
+//    if (response.status == 200 && response.request.name == "async_tag_index")
 //    {
-//        nwserver->Pause();
+//        printf("- Creating new xml file\n");
+//        ofXml totalXML;
+//        printf("- Loading buffer into new xml object\n");
+//        totalXML.loadFromBuffer(response.data);
+//        printf("- Getting tag total value from xml\n");
+//        int latestTagTotal = ofToInt(totalXML.getValue(""));
+//        printf("- Loaded tag index - %i\n", latestTagTotal);
+//        isLoadingXml = false;
+//        if (tagTotal == -1)
+//        {
+//            tagTotal = latestTagTotal;
+//            printf("- STARTUP - - getting current tag index - %i\n", latestTagTotal);
+//        }
+//        else if (latestTagTotal != tagTotal)
+//        {
+//            printf("- TAG INDEX IS NEW. LOADING NEW TAG XML \n");
+//            //int id = ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
+//            //int id = ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
+//            https://dl.dropboxusercontent.com/u/1619383/cell/data.xml
+//            tagTotal = latestTagTotal;
+//        }
 //    }
-//
-//	if(kinect != NULL)
-//	{
-//		kinect->Close();
-//
-//		delete kinect;
-//		kinect = NULL;
-//	}
-//
-//	if( firstDevice != NULL )
-//	{
-//		delete firstDevice;
-//		firstDevice = NULL;
-//	}
-//
-//	if( skeletonDrawer  != NULL )
-//	{
-//		delete skeletonDrawer;
-//		skeletonDrawer = NULL;
-//	}
-//}
+//    else if (response.status == 200 && response.request.name == "async_tag_data")
+//    {
+//        ofXml tagXML;
+//        tagXML.loadFromBuffer(response.data);
+//        string newQuestion = tagXML.getValue("question");
+//        string newTag = tagXML.getValue("content");
+//        isLoadingXml = false;
+//        printf("- Loaded new tag - %s \n", newTag.c_str());
+//    }
+//    else
+//    {
+//        printf("- else \n");
+//        cout << response.status << " " << response.error << endl;
+//        if (response.status != -1) isLoadingXml = false;
+//    }
+}
+
+
+void testApp::exit()
+{
+    ofUnregisterURLNotification(this);
+}

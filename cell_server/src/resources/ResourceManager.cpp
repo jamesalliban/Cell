@@ -36,7 +36,6 @@ void ResourceManager::init()
 
 	blackToAlphaShader.load("shaders/BlackToAlphaShader");
 
-
 	parseXML();
 }
 
@@ -105,4 +104,16 @@ string ResourceManager::getRandomDemographic()
 {
     int randomDemographicIndex = (int)ofRandom(0, demographicAmount);
     return demographicData[randomDemographicIndex].name;
+}
+
+
+
+void ResourceManager::update()
+{
+//    if (++currentEllapsedFrames >= xmlCheckFrameFrequency)
+//    {
+//        remoteTagDataService.startThread(true, false);
+//        xmlCheckFrameFrequency = 90;
+//        currentEllapsedFrames = 0;
+//    }
 }
