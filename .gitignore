@@ -6,7 +6,7 @@
 *.opensdf
 *.exe
 *.exp
-*.lib
+.lib
 cell_server/ipch
 cell_server/obj
 cell_client/ipch
