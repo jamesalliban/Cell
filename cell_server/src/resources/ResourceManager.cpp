@@ -45,14 +45,14 @@ void ResourceManager::parseXML()
     // build demographic vector from xml data
     demographicXml.pushTag("demographics");
     demographicAmount = demographicXml.getNumTags("demographic");
-    printf("demographicAmount = %i\n", demographicAmount );
+    //printf("demographicAmount = %i\n", demographicAmount );
     for (int i = 0; i < demographicAmount; i++)
     {
         demographicXml.pushTag("demographic", i);
         DemographicData d;
 		d.setup(&demographicXml);
         demographicData.push_back(d);
-        printf("i: %i, name =  %s\n", i, d.name.c_str());
+        //printf("i: %i, name =  %s\n", i, d.name.c_str());
         demographicXml.popTag();
     }
     demographicXml.popTag();

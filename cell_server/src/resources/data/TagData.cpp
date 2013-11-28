@@ -27,9 +27,9 @@ void TagData::setup(ofxXmlSettings *XML, ofTrueTypeFont *tagFont, vector<Demogra
 	textBoundingBox = tagFont->getStringBoundingBox(word, 0, 0);
 #endif
     
-    printf("******* bb.x = %f, bb.y = %f, bb.width = %f, bb.height = %f\n",
-           textBoundingBox.getX(), textBoundingBox.getY(),
-           textBoundingBox.getWidth(), textBoundingBox.getHeight());
+    //printf("******* bb.x = %f, bb.y = %f, bb.width = %f, bb.height = %f\n",
+    //       textBoundingBox.getX(), textBoundingBox.getY(),
+    //       textBoundingBox.getWidth(), textBoundingBox.getHeight());
     
 	height = textBoundingBox.getHeight();
 	float heightAscDescAdd = height * ascDescAdd;
@@ -94,7 +94,7 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
     
 #ifdef CHINESE_CELL
     word = XML.getValue("word");
-    printf("word = %s\n", word.c_str());
+    //printf("word = %s\n", word.c_str());
 #else
     word = XML->getValue("word", "");
 	for (int i = 0; i < word.size(); i++)
@@ -109,7 +109,7 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
     int numDemoTags = XML->getNumTags("demographic");
 #endif
     
-    printf("numDemoTags1:%i \n", numDemoTags);
+    //printf("numDemoTags1:%i \n", numDemoTags);
     // loop through all the demographics in the tag XML
     for (int i = 0; i < numDemoTags; i++)
     {
@@ -126,7 +126,7 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
             {
                 demographicStruct.demographicData = dData;
                 demographicStruct.strength = ofToFloat(XML.getValue(demographicElement + "/strength"));
-				printf("  - demographic:%s strength = %f \n", dData->name.c_str(), demographicStruct.strength);
+				//printf("  - demographic:%s strength = %f \n", dData->name.c_str(), demographicStruct.strength);
                 demographics.push_back(demographicStruct);
                 ++currentElement;
             }

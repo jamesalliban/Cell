@@ -130,9 +130,6 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
       <Filter>addons\ofxXmlSettings\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxTrueTypeFontUC\src\ofxTrueTypeFontUC.cpp">
-      <Filter>addons\ofxTrueTypeFontUC\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.c">
       <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
     </ClCompile>
@@ -236,12 +233,6 @@
     </Filter>
     <Filter Include="src\scene\visual\tag\field">
       <UniqueIdentifier>{8e49f4ec-f796-4643-9483-5e0c880accb0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxTrueTypeFontUC">
-      <UniqueIdentifier>{e308f06e-ad7a-44bc-b75e-063c34c3f050}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxTrueTypeFontUC\src">
-      <UniqueIdentifier>{0ed6108b-b5ba-4bbb-a65b-892c76f11363}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxFontStash">
       <UniqueIdentifier>{ca800693-f1ad-45af-acaa-805b2f7b0a84}</UniqueIdentifier>
@@ -442,9 +433,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
       <Filter>addons\ofxXmlSettings\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxTrueTypeFontUC\src\ofxTrueTypeFontUC.h">
-      <Filter>addons\ofxTrueTypeFontUC\src</Filter>
     </ClInclude>
     <ClInclude Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.h">
       <Filter>addons\ofxFontStash\libs\fontstash\src</Filter>

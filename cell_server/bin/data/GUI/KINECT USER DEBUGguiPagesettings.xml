@@ -11,7 +11,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Toggle all user debug visuals</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -31,15 +31,15 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Show User Data</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Recorded image alpha</Name>
-    <Value>93.947364807</Value>
+    <Value>255.000000000</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Recorded image visible</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>

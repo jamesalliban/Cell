@@ -54,9 +54,10 @@ void testApp::setup()
 {
     //ofDisableArbTex();
 	//ofEnableArbTex();
-    //ofSetFrameRate(60);
+    ofSetFrameRate(40);
     ofSetFullscreen(false);
-	ofSetLogLevel(OF_LOG_ERROR);
+	ofSetLogLevel(OF_LOG_SILENT);
+//	ofSetLogLevel(OF_LOG_ERROR);
 //	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetVerticalSync(true);
 	ofBackground(30);
@@ -89,7 +90,7 @@ void testApp::setup()
 	ofRegisterURLNotification(this);
     timesLoaded = 0;
     printf("- about to load the tag index on STARTUP \n");
-    loadTagIndexData();
+    //loadTagIndexData();
 #endif
 }
 
@@ -130,7 +131,7 @@ void testApp::update()
         cout << "loaded xml - latestTagTotal = " << latestTagTotal << ", xml loaded " << timesLoaded << " times" << endl;
     }
     
-    loadTagIndexData();
+    //loadTagIndexData();
 }
 
 

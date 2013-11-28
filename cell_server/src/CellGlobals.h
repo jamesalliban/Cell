@@ -11,7 +11,7 @@
 
 #define CHINESE_CELL
 
-#define SKELETON_MAX 8
+#define SKELETON_MAX 10
 
 
 

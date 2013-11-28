@@ -37,7 +37,7 @@ public:
 	void clearPlayback();
     
 	void addSkelDataToRecording(int isActive, int client, int id);
-	void addJointToRecording(int client, int id, int jointId, ofVec3f joint);
+	void addJointToRecording(int client, int id, int jointId, ofVec3f joint, bool isActive);
 	float getCoordFromCol(ofColor col);
 
     vector<KinectSkeletonData> trackedSkeletons;

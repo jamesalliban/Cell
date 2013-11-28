@@ -321,7 +321,9 @@ void User::debugDraw()
             {
                 ofTranslate(0, -3, 0);
                 ofSetDrawBitmapMode(OF_BITMAPMODE_MODEL_BILLBOARD);
-                string str = "userID:" + ofToString(userID) + ", clientID:" + ofToString(clientID);
+                string str = "clientID:" + ofToString(clientID) +
+					", u#skelID:" + ofToString(skeleton->skelID) + 
+					" + userID:" + ofToString(userID);
                 ofDrawBitmapString(str, 2, 0, 0);
 
                 ofTranslate(0, -3, 0);
@@ -399,12 +401,13 @@ void User::drawLine(ofVec3f startJoint, ofVec3f endJoint)
 
 void User::assignSkeleton(KinectSkeletonData* _skeleton)
 {
+	//printf("assigning skeleton  [clnt:%i, uid:%i] to user %i\n", skeleton->clientID, skeleton->skelID, userID);
     skeleton = _skeleton;
     trackingID = skeleton->trackingID;
     clientID = skeleton->clientID;
     
     //if (ofGetFrameNum() % 30 == 0)
-        printf("User::assignSkeleton - clientID = %i, trackingID = %s \n", clientID, trackingID.c_str());
+     //   printf("User::assignSkeleton - clientID = %i, trackingID = %s \n", clientID, trackingID.c_str());
 
     if (!isActive)
     {
@@ -424,7 +427,7 @@ void User::assignIDs(int _clientID, int _skeletonID)
 
 void User::deactivate()
 {
-	printf("deactivating user - trackingID:%s \n", trackingID.c_str());
+	//printf("deactivating user - trackingID:%s \n", trackingID.c_str());
     skeleton = NULL;
     clientID = -1;
     trackingID = "-1";

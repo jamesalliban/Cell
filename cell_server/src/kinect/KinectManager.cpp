@@ -13,7 +13,8 @@ void KinectManager::init()
 			skeletonData.skeletonPositions.push_back(v);
 		}
 		skeletonData.trackingID = "-1";
-		skeletonData.clientID = -1;
+		skeletonData.clientID = (int)(i / 2);
+		skeletonData.skelID = i % 2;
         trackedSkeletons.push_back(skeletonData);
     }
 
@@ -70,9 +71,10 @@ void KinectManager::init()
     iReadCommand = 0;
 
 	recordedFramesMax = 1000;
-	recordingPixels.allocate(60*6 + 6, recordedFramesMax, OF_IMAGE_COLOR);
+	recordingPixels.allocate(60*SKELETON_MAX + SKELETON_MAX, recordedFramesMax, OF_IMAGE_COLOR);
 	isRecording = false;
 	isPlayback = false;
+	isPlaybackPaused = false;
 	
 	currentPlayingScene = 0;
 	framesRecorded = 0;
@@ -108,6 +110,9 @@ void KinectManager::checkForOSCKinectData()
 		
         if (m.getAddress() == "/skeleton/data")
         {
+			//if (ofGetFrameNum() % 10 == 0) 
+			//	printf("/skeleton/data message - client = %i\n", m.getArgAsInt32(0));
+
 			// 0 = client
 			// 1 = skelID
 			// 2 = isActive
@@ -118,12 +123,17 @@ void KinectManager::checkForOSCKinectData()
 
 			for (int i = 0; i < 2; i++)
 			{
-				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[i];
 				int startIndex = (i == 0) ? 1 : 63;
 
+				int clientId = m.getArgAsInt32(0);
+				int skelId = m.getArgAsInt32(startIndex);
+				
+				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[clientId * 2 + skelId];
 
-				skeletonDataObject->clientID = m.getArgAsInt32(0);
-				skeletonDataObject->skelID = m.getArgAsInt32(startIndex);
+				skeletonDataObject->clientID = clientId;
+				skeletonDataObject->skelID = skelId;
+				
+
 				int isActive = m.getArgAsInt32(startIndex + 1);
 
 				// if the skeleton is inactive make the trackingID '-1'. If active make it clientID_skelID e.g. 0_1, 2_0 etc
@@ -133,40 +143,42 @@ void KinectManager::checkForOSCKinectData()
 					skeletonDataObject->trackingID = ofToString(skeletonDataObject->clientID) + "_" + ofToString(skeletonDataObject->skelID);
 				
 
-				
-				if (isRecording)
-				{
-					if (framesRecorded > recordingPixels.getHeight() - 30) stopRecording();
-					addSkelDataToRecording(isActive, skeletonDataObject->clientID, skeletonDataObject->skelID);
-				}
-
-				if (isPlayback)
-				{
-
-				}
-
-
 				for (int j = 0; j < 20; j++)
 				{
 					skeletonDataObject->skeletonPositions[j].x = m.getArgAsFloat(startIndex + 2 +  (j * 3));
 					skeletonDataObject->skeletonPositions[j].y = m.getArgAsFloat(startIndex + 2 + (j * 3) + 1);
 					skeletonDataObject->skeletonPositions[j].z = m.getArgAsFloat(startIndex + 2 + (j * 3) + 2);
-					
-					if (isRecording)
-						addJointToRecording(skeletonDataObject->clientID, skeletonDataObject->skelID, j, skeletonDataObject->skeletonPositions[j]);
 				}
 			}
 
-			if (isRecording)
-				++framesRecorded;
         }
     }
+	if (isRecording)
+	{
+		for (int i = 0; i < SKELETON_MAX; i++)
+		{
+			KinectSkeletonData* skeletonDataObject = &trackedSkeletons[i];
+		
+			int isActive = (skeletonDataObject->skeletonPositions[00].x != -1) ? 1 : -1;
+		
+			if (framesRecorded > recordingPixels.getHeight() - 30) stopRecording();
+			addSkelDataToRecording(isActive, skeletonDataObject->clientID, skeletonDataObject->skelID);
+
+			for (int j = 0; j < 20; j++)
+			{
+				if (isRecording && isActive)
+					addJointToRecording(skeletonDataObject->clientID, skeletonDataObject->skelID, j, skeletonDataObject->skeletonPositions[j], isActive);
+			}
+
+		}
+		++framesRecorded;
+	}
 }
 
 
 void KinectManager::playRecordedLine()
 {
-	for (int client = 0; client < 3; client++)
+	for (int client = 0; client < SKELETON_MAX * 0.5; client++)
 	{
 		for (int skel = 0; skel < 2; skel++)
 		{
@@ -263,7 +275,7 @@ void KinectManager::startRecording()
 	if (isRecording || isPlayback) return;
 	printf("startRecording()\n");
 	recordingPixels.clear();
-	recordingPixels.allocate(60 * 6 + 6, recordedFramesMax, OF_IMAGE_COLOR);
+	recordingPixels.allocate(60 * SKELETON_MAX + SKELETON_MAX, recordedFramesMax, OF_IMAGE_COLOR);
 	isRecording = true;
 	framesRecorded = 0;
 }
@@ -301,7 +313,7 @@ void KinectManager::startPlayback(string recordedPath)
             currentPlaybackPath = recordedPath;
 			recordingPixels.setFromPixels(recordingImg.getPixels(), recordingImg.getWidth(), recordingImg.getHeight(), OF_IMAGE_COLOR);
 		}
-		currentPlaybackFrame = recordingImg.getHeight() - 5;
+		currentPlaybackFrame = recordingImg.getHeight() - 2;
 		isPlayback = true;
 	}
 }
@@ -345,7 +357,7 @@ void KinectManager::addSkelDataToRecording(int isActive, int client, int id)
 }
 
 
-void KinectManager::addJointToRecording(int client, int id, int jointId, ofVec3f joint)
+void KinectManager::addJointToRecording(int client, int id, int jointId, ofVec3f joint, bool isActive)
 {
 	// convert the incoming joint vector to 3 pixels - one each for x, y, z.
 	// r is the amount of times the number can be divided by 255
@@ -370,7 +382,7 @@ void KinectManager::addJointToRecording(int client, int id, int jointId, ofVec3f
 	colZ.r = (int)joint.z / 255;
 	colZ.g = (int)joint.z % 255;
 	colZ.b = (joint.z < 0) ? 0 : 255;
-	recordingPixels.setColor(x + 3, framesRecorded, colZ); 
+	recordingPixels.setColor(x + 3, framesRecorded, colZ);
 }
 
 
