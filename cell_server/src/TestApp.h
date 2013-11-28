@@ -58,10 +58,15 @@ public:
 #ifdef CHINESE_CELL
     // Tag XML loading stuff
     ofXml tagIndexXml;
+    ofXml tagDataXml;
     string tagIndexData;
+	string newTagData;
     int latestTagTotal;
-    bool isLoading;
+    int currentTagTotal;
+    bool isLoadingXml;
     bool isNewIndexXml;
+	bool isNewTagDataXml;
+	bool isFirstIndexLoad;
     
     int timesLoaded;
 #endif

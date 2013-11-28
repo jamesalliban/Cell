@@ -85,12 +85,12 @@ void testApp::setup()
     
     
 #ifdef CHINESE_CELL
-    isLoading = false;
+    isLoadingXml = false;
     isNewIndexXml = false;
+	isNewTagDataXml = false;
 	ofRegisterURLNotification(this);
-    timesLoaded = 0;
-    printf("- about to load the tag index on STARTUP \n");
-    //loadTagIndexData();
+	timesLoaded = 0;
+	isFirstIndexLoad = true;
 #endif
 }
 
@@ -124,14 +124,30 @@ void testApp::update()
     
     
     
-    if (isNewIndexXml){
+    if (isNewIndexXml)
+	{
         isNewIndexXml = false;
         tagIndexXml.loadFromBuffer(tagIndexData);
         latestTagTotal = ofToInt(tagIndexXml.getValue(""));
         cout << "loaded xml - latestTagTotal = " << latestTagTotal << ", xml loaded " << timesLoaded << " times" << endl;
+
+		if (latestTagTotal != currentTagTotal && !isFirstIndexLoad && !isLoadingXml)
+		{
+			ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml","tag_data_load");
+			isLoadingXml = true;
+		}
+		isFirstIndexLoad = false;
+		currentTagTotal = latestTagTotal;
     }
+
+	if (isNewTagDataXml)
+	{
+		isNewTagDataXml = false;
+		tagDataXml.loadFromBuffer(newTagData);
+	}
     
-    //loadTagIndexData();
+	if (ofGetFrameNum() % 90 == 0 && ofGetFrameNum() > 10)
+		loadTagIndexData();
 }
 
 
@@ -144,14 +160,6 @@ void testApp::draw()
 
     if (isFirstFrame || ofGetFrameNum() == 5)
     {
-//        for (int i = 0; i < SKELETON_MAX; i++)
-//        {
-//            KinectSkeletonData* skeletonData = &kinectManager.trackedSkeletons[i];
-//			/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//			//////////////////////// NOTE: This is crashing - why? and why is it used
-//            //skeletonData->dwTrackingID = -1;
-//        }
-//        //sceneManager.userManager.deactivateAllUsers();
         sceneManager.isUpdateVars = true;
         isFirstFrame = false;
     }
@@ -301,9 +309,9 @@ void testApp::gotMessage(ofMessage msg)
 
 void testApp::loadTagIndexData()
 {
-    if (!isLoading)
+    if (!isLoadingXml)
         ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml","tag_index_load");
-	isLoading = true;
+	isLoadingXml = true;
 }
 
 
@@ -313,13 +321,19 @@ void testApp::urlResponse(ofHttpResponse & response)
     {
         tagIndexData = response.data.getText();
         isNewIndexXml = true;
-        isLoading = false;
+        isLoadingXml = false;
         ++timesLoaded;
+	}
+	else if (response.status == 200 && response.request.name == "tag_data_load")
+    {
+        newTagData = response.data.getText();
+        isNewTagDataXml = true;
+        isLoadingXml = false;
 	}
     else
     {
 		cout << response.status << " " << response.error << endl;
-		if(response.status!=-1) isLoading = false;
+		if(response.status!=-1) isLoadingXml = false;
 	}
     
     
@@ -332,17 +346,7 @@ void testApp::urlResponse(ofHttpResponse & response)
 //    {
 //        printf("- Creating new xml file\n");
 //        ofXml totalXML;
-//        printf("- Loading buffer into new xml object\n");
-//        totalXML.loadFromBuffer(response.data);
-//        printf("- Getting tag total value from xml\n");
-//        int latestTagTotal = ofToInt(totalXML.getValue(""));
-//        printf("- Loaded tag index - %i\n", latestTagTotal);
-//        isLoadingXml = false;
-//        if (tagTotal == -1)
-//        {
-//            tagTotal = latestTagTotal;
-//            printf("- STARTUP - - getting current tag index - %i\n", latestTagTotal);
-//        }
+//        printf("- Loading buffer `
 //        else if (latestTagTotal != tagTotal)
 //        {
 //            printf("- TAG INDEX IS NEW. LOADING NEW TAG XML \n");
