@@ -107,6 +107,8 @@ void testApp::update()
     //if (ofGetFrameNum() % 10 == 0)
     //    printf("mouseX:%i, mouseY:%i, ofGetMouseX():%i, ofGetMouseY():%i \n", mouseX, mouseY, ofGetMouseX(), ofGetMouseY());
     //
+
+	ofSetFrameRate(frameRate);
     
 	if (!isPaused)
 	{
@@ -159,7 +161,7 @@ void testApp::update()
         resourceManager.addNewTag(latestTag, question);
 	}
     
-    
+    return;
 	if (ofGetFrameNum() % (int)serverCheckFrequncy == 0 && ofGetFrameNum() > 10)
     {
         

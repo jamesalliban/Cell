@@ -517,6 +517,9 @@ void GUI::addVariousGUI()
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addLabel("GRID");
+	gui->addSlider("FPS", 1, 100, &app->frameRate, length, dim);
+
+    gui->addLabel("GRID");
     gui->addToggle("GRID VISIBLE", &app->sceneManager.isGridVisible, toggleDim, toggleDim);
     gui->addSlider("GRID ALPHA", 0, 255, &app->sceneManager.gridAlpha, length, dim);
     

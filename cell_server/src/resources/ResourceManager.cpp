@@ -34,6 +34,8 @@ void ResourceManager::init()
 	}
 #endif
 
+	currentlyChangingTag = NULL;
+
 	blackToAlphaShader.load("shaders/BlackToAlphaShader");
 
     numNewTagsAdded = 0;
@@ -119,7 +121,6 @@ void ResourceManager::update()
 //        xmlCheckFrameFrequency = 90;
 //        currentEllapsedFrames = 0;
 //    }
-    
     if (currentlyChangingTag != NULL)
     {
         if (currentlyChangingTag->alphaModifier <= 1)

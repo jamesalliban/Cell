@@ -1,4 +1,4 @@
-﻿Build started 28/11/2013 17:46:14.
+﻿Build started 30/11/2013 17:19:38.
      1>Project "C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\Cell_Server.vcxproj" on node 2 (Build target(s)).
      1>Link:
          Cell_Server.vcxproj -> C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\bin\Cell_Server.exe
@@ -19,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.11
+Time Elapsed 00:00:00.18

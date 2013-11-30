@@ -11,7 +11,7 @@
 
 #define CHINESE_CELL
 
-#define CELL_ONLINE
+//#define CELL_ONLINE
 
 #define SKELETON_MAX 10
 

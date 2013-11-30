@@ -13,7 +13,7 @@
 
 void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 {
-	cloudTagAmount = 1200;//  800;
+	cloudTagAmount = 1800;//  800;
 
 	shadeContrastMin = 0.4;
 	shadeContrastMax = 0.7;
@@ -73,7 +73,6 @@ void CloudTagManager::update()
 
 void CloudTagManager::customDraw()
 {
-    
 	for (int i = 0; i < tagsOrderedByZ.size(); i++)
 		tagsOrderedByZ[i]->drawTags();
     

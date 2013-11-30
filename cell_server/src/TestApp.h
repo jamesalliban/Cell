@@ -35,6 +35,8 @@ public:
 	KinectManager kinectManager;
     
 	GUI gui;
+
+	float frameRate;
     
 	float topBlockHeight;
 	float topBlockBot;

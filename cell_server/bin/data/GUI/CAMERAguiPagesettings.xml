@@ -11,7 +11,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Z</Name>
-    <Value>44.407897949</Value>
+    <Value>202.631591797</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -36,12 +36,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>FOV</Name>
-    <Value>58.881580353</Value>
+    <Value>14.144736290</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Toggle mouse input</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
