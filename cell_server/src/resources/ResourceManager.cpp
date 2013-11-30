@@ -36,6 +36,8 @@ void ResourceManager::init()
 
 	blackToAlphaShader.load("shaders/BlackToAlphaShader");
 
+    numNewTagsAdded = 0;
+    
 	parseXML();
 }
 
@@ -64,7 +66,8 @@ void ResourceManager::parseXML()
 #ifdef CHINESE_CELL
     
     chineseXML.setTo("tags");
-    int numTags = chineseXML.getNumChildren();
+    numTags = chineseXML.getNumChildren();
+    printf("- - - numTags = %i\n", numTags);
     chineseXML.setTo("tag[0]");
     for (int i = 0; i < numTags; i++)
     {
@@ -72,7 +75,7 @@ void ResourceManager::parseXML()
         TagData t;
         ofXml tagElement;
         tagElement.addXml(chineseXML, false);
-		t.setup(tagElement, unicodeFont, &demographicData, &blackToAlphaShader);
+		t.setup(tagElement, &unicodeFont, &demographicData, &blackToAlphaShader);
         tagData.push_back(t);
         
         chineseXML.setToSibling();
@@ -116,4 +119,92 @@ void ResourceManager::update()
 //        xmlCheckFrameFrequency = 90;
 //        currentEllapsedFrames = 0;
 //    }
+    
+    if (currentlyChangingTag != NULL)
+    {
+        if (currentlyChangingTag->alphaModifier <= 1)
+        {
+            currentlyChangingTag->update();
+            if (currentlyChangingTag->isTagUpdated)
+            {
+                printf("^^^^^^^^^^^^^^^ TAG UPDATED _ START THREAD HERE ££££££££££££££££££££\n");
+                startThread(true, false);
+            }
+        }
+        else
+        {
+            currentlyChangingTag->alphaModifier = 1;
+            currentlyChangingTag->isAnimatingAlpha = false;
+            currentlyChangingTag = NULL;
+        }
+    }
+}
+
+
+
+void ResourceManager::addNewTag(string latestTag, int question)
+{
+    newTag = latestTag;
+    newQuestion = question;
+    // use numNewTagsAdded to select one of the existing tags
+    currentlyChangingTag = &tagData[numNewTagsAdded];
+    // pass new tag data to the tag and tell it to fade out and reappear at the front of the play area (with red bg for debug)
+    currentlyChangingTag->startChangeTagData(latestTag);
+    
+    // assign new demographic data to tag
+    
+    // add new data to tag XML and export on a separate thread
+    
+
+    // add one to numNewTagsAdded
+    ++numNewTagsAdded;
+    if (numNewTagsAdded >= numTags)
+        numNewTagsAdded = 0;
+}
+
+
+void ResourceManager::threadedFunction()
+{
+    //TODO: kill thread on exit
+    printf("threadedFunction() \n");
+    
+    while(isThreadRunning())
+    {
+        lock();
+        
+        ofXml newTagXml;
+        newTagXml.addChild("tag");
+        newTagXml.addChild("word");
+        newTagXml.setValue("word", newTag);
+        newTagXml.addChild("question");
+        newTagXml.setValue("question", ofToString(newQuestion));
+        
+        vector<string> demographics;
+        for (int i = 0; i < demographicData.size(); i++)
+            demographics.push_back(demographicData[i].name);
+        random_shuffle(demographics.begin(), demographics.end());
+        
+        
+        for (int i = 0; i < 3; i++)
+        {
+            newTagXml.addChild("demographic");
+            newTagXml.setTo("demographic[" + ofToString(i) + "]");
+            
+            newTagXml.setAttribute("id", demographics[i]);
+            newTagXml.addChild("strength");
+            if (i == 0) newTagXml.setValue("strength", ofToString(ofRandom(0.3, 0.5)));
+            if (i == 1) newTagXml.setValue("strength", ofToString(ofRandom(0.5, 0.7)));
+            if (i == 2) newTagXml.setValue("strength", ofToString(ofRandom(0.7, 0.9)));
+            newTagXml.setToParent();
+        }
+        
+        chineseXML.setTo("tag[0]");
+        chineseXML.setToParent();
+        chineseXML.addXml(newTagXml);
+        if (chineseXML.getNumChildren() > TAG_MAX) chineseXML.remove("tag[0]");
+        chineseXML.save("xml/tag_data_Chinese.xml");
+        
+        unlock();
+        stopThread();
+    }
 }

@@ -24,6 +24,7 @@ public:
     void addTagShaderGUI();
     void addLineAppearanceGUI();
     void addTagAnimationGUI();
+    void addTagAdditionGUI();
     void addTagBoundariesGUI();
     void addMotionFields1GUI();
     void addMotionFields2GUI();

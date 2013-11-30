@@ -30,11 +30,13 @@ public:
 
 	void update();
 	void customDraw();
+    void displayNewTag(string word);
 
 	vector<CloudTag> cloudTags;
     vector<CloudTag*> tagsOrderedByZ;
 	int		cloudTagAmount;
 
+    
 	//tag shading
 	float shadeContrastMin;
 	float shadeContrastMax;
@@ -100,6 +102,11 @@ public:
 
 	ofVec3f tempUser;
 
+    
+    float newTagStartXMin;
+    float newTagStartXMax;
+    float newTagStartY;
+    float newTagStartZ;
 
 	// scale mapped to y
 	float yMin;

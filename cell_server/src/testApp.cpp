@@ -10,11 +10,17 @@
  MAIN LIST
  ---------
  - Load Chinese characters from server on a thread.
+ - - - make sure the name isn't repeated in new xml.
+ - - - change the demographic details for new tag.
+ - - - change start position for new tag. X should be random.
+ - If the tag data xml does not exist the app will crash. Fix this. 
  - Place newly loaded text in scene and save to xml on a thread - add 3 random demographics
  - Make a start on fixing doubled up users - get average line - measure distances and build debug birds eye view
  - Add debug bounds draw for skeleton area and cloud
  - Tags should rise up faster when below (and above??) the cloud
- - If tag moves to opposite side (after going OOB) and is low, fix y val
+ - Fix skeletons at far left/right. They lean inward
+ - If tag moves to front side (after going OOB) and is low, fix y val
+ - tags going OOB on x axis at front aren't being shifted properly. Investigate and fix
  - Redo ambient cloud tag animation. Make it more wavy and flowing - perlin up
  - look into improving anti-aliasing
  - If skel data freezes (due to network error), remove skeleton after 10 frames.
@@ -57,8 +63,8 @@ void testApp::setup()
     ofSetFrameRate(40);
     ofSetFullscreen(false);
 	ofSetLogLevel(OF_LOG_SILENT);
-//	ofSetLogLevel(OF_LOG_ERROR);
-//	ofSetLogLevel(OF_LOG_VERBOSE);
+    //	ofSetLogLevel(OF_LOG_ERROR);
+    //	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetVerticalSync(true);
 	ofBackground(30);
 	ofDisableSmoothing();
@@ -76,7 +82,7 @@ void testApp::setup()
 	
 	resourceManager.init();
 	sceneManager.init(&kinectManager, &resourceManager);
-//	myGui.init();
+    //	myGui.init();
     gui.setup();
     
     isFirstFrame = false;
@@ -106,21 +112,22 @@ void testApp::update()
 	{
 		if (isKinectAttached) kinectManager.update(); // kinectManager.update();
 		sceneManager.update();
+        resourceManager.update();
 	}
-
-//    framesSinceMouseMove++;
-//    if (framesSinceMouseMove > 100)
-//        ofHideCursor();
-//    else
-//        ofShowCursor();
-
     
-//    if (++currentEllapsedFrames >= xmlCheckFrameFrequency)
-//    {
-//        printf("- Should be loading tag index xml \n");
-//        currentEllapsedFrames = 0;
-//        checkNewTagIndex();
-//    }
+    //    framesSinceMouseMove++;
+    //    if (framesSinceMouseMove > 100)
+    //        ofHideCursor();
+    //    else
+    //        ofShowCursor();
+    
+    
+    //    if (++currentEllapsedFrames >= xmlCheckFrameFrequency)
+    //    {
+    //        printf("- Should be loading tag index xml \n");
+    //        currentEllapsedFrames = 0;
+    //        checkNewTagIndex();
+    //    }
     
     
     
@@ -128,26 +135,52 @@ void testApp::update()
 	{
         isNewIndexXml = false;
         tagIndexXml.loadFromBuffer(tagIndexData);
+        printf("loaded index data = %s\n", tagIndexData.c_str());
         latestTagTotal = ofToInt(tagIndexXml.getValue(""));
         cout << "loaded xml - latestTagTotal = " << latestTagTotal << ", xml loaded " << timesLoaded << " times" << endl;
-
+        
 		if (latestTagTotal != currentTagTotal && !isFirstIndexLoad && !isLoadingXml)
 		{
-			ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml","tag_data_load");
+			ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7/" + ofToString(latestTagTotal) + ".xml","tag_data_load");
+			//ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml","tag_data_load");
 			isLoadingXml = true;
 		}
 		isFirstIndexLoad = false;
 		currentTagTotal = latestTagTotal;
     }
-
+    
 	if (isNewTagDataXml)
 	{
 		isNewTagDataXml = false;
 		tagDataXml.loadFromBuffer(newTagData);
+        latestTag = tagDataXml.getValue("content");
+        int question = ofToInt(tagDataXml.getValue("question"));
+        printf("latestTag = %s, newTag string length = %li \n", latestTag.c_str(), latestTag.size());
+        resourceManager.addNewTag(latestTag, question);
 	}
     
-	if (ofGetFrameNum() % 90 == 0 && ofGetFrameNum() > 10)
+    
+	if (ofGetFrameNum() % (int)serverCheckFrequncy == 0 && ofGetFrameNum() > 10)
+    {
+        
+#ifdef CELL_ONLINE
 		loadTagIndexData();
+#else
+        testTagIndexXml.load("xml/_newTagTest/index.xml");
+        latestTagTotal = ofToInt(testTagIndexXml.getValue(""));
+        printf("loaded tag index xml - latestTagTotal = %i, currentTagTotal = %i\n", latestTagTotal, currentTagTotal);
+        if (latestTagTotal != currentTagTotal && !isFirstIndexLoad && !isLoadingXml)
+		{
+            tempTagXml.load("xml/_newTagTest/" + ofToString(latestTagTotal) + ".xml");
+            latestTag = tempTagXml.getValue("content");
+            int question = ofToInt(tempTagXml.getValue("question"));
+            printf("latestTag = %s, newTag string length = %li \n", latestTag.c_str(), latestTag.size());
+            resourceManager.addNewTag(latestTag, question);
+        }
+        isFirstIndexLoad = false;
+		currentTagTotal = latestTagTotal;
+#endif
+    }
 }
 
 
@@ -155,21 +188,31 @@ void testApp::update()
 void testApp::draw()
 {
 	sceneManager.draw();
-
+    
 	kinectManager.draw();
-
+    
     if (isFirstFrame || ofGetFrameNum() == 5)
     {
         sceneManager.isUpdateVars = true;
         isFirstFrame = false;
     }
-
+    
 	glDisable(GL_DEPTH_TEST);
     ofSetColor(0, 0, 0, 255);
     ofRect(0, 0, ofGetWidth(), topBlockHeight);
     ofRect(0, ofGetHeight(), ofGetWidth(), -topBlockBot);
     ofRect(0, 0, leftBlockW, topBlockHeight);
     ofRect(ofGetWidth() - leftBlockW, 0, ofGetWidth(), topBlockHeight);
+    if (gui.getVisible())
+    {
+        ofSetColor(255);
+        ofPushMatrix();
+        ofTranslate(400, ofGetHeight() - 20);
+        string xmlStr = "isLoading: " + ofToString((isLoadingXml) ? "true,  " : "false, ") +
+        "latest tag index: " + ofToString(currentTagTotal);
+        ofDrawBitmapString(xmlStr, ofPoint(0, 0));
+        ofPopMatrix();
+    }
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -309,8 +352,10 @@ void testApp::gotMessage(ofMessage msg)
 
 void testApp::loadTagIndexData()
 {
+    //TODO:Make sure this doesn't load if new tags are still fading
     if (!isLoadingXml)
-        ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml","tag_index_load");
+        ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7.xml","tag_index_load");
+//        ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml","tag_index_load");
 	isLoadingXml = true;
 }
 
@@ -326,6 +371,7 @@ void testApp::urlResponse(ofHttpResponse & response)
 	}
 	else if (response.status == 200 && response.request.name == "tag_data_load")
     {
+        printf("new tag data xmnl loaded \n");
         newTagData = response.data.getText();
         isNewTagDataXml = true;
         isLoadingXml = false;
@@ -339,38 +385,38 @@ void testApp::urlResponse(ofHttpResponse & response)
     
     
     
-//    return;
-//    
-//    printf("- testApp::urlResponse() \n");
-//    if (response.status == 200 && response.request.name == "async_tag_index")
-//    {
-//        printf("- Creating new xml file\n");
-//        ofXml totalXML;
-//        printf("- Loading buffer `
-//        else if (latestTagTotal != tagTotal)
-//        {
-//            printf("- TAG INDEX IS NEW. LOADING NEW TAG XML \n");
-//            //int id = ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
-//            //int id = ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
-//            https://dl.dropboxusercontent.com/u/1619383/cell/data.xml
-//            tagTotal = latestTagTotal;
-//        }
-//    }
-//    else if (response.status == 200 && response.request.name == "async_tag_data")
-//    {
-//        ofXml tagXML;
-//        tagXML.loadFromBuffer(response.data);
-//        string newQuestion = tagXML.getValue("question");
-//        string newTag = tagXML.getValue("content");
-//        isLoadingXml = false;
-//        printf("- Loaded new tag - %s \n", newTag.c_str());
-//    }
-//    else
-//    {
-//        printf("- else \n");
-//        cout << response.status << " " << response.error << endl;
-//        if (response.status != -1) isLoadingXml = false;
-//    }
+    //    return;
+    //
+    //    printf("- testApp::urlResponse() \n");
+    //    if (response.status == 200 && response.request.name == "async_tag_index")
+    //    {
+    //        printf("- Creating new xml file\n");
+    //        ofXml totalXML;
+    //        printf("- Loading buffer `
+    //        else if (latestTagTotal != tagTotal)
+    //        {
+    //            printf("- TAG INDEX IS NEW. LOADING NEW TAG XML \n");
+    //            //int id = ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
+    //            //int id = ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/" + ofToString(latestTagTotal) + ".xml", "async_tag_data");
+    //            https://dl.dropboxusercontent.com/u/1619383/cell/data.xml
+    //            tagTotal = latestTagTotal;
+    //        }
+    //    }
+    //    else if (response.status == 200 && response.request.name == "async_tag_data")
+    //    {
+    //        ofXml tagXML;
+    //        tagXML.loadFromBuffer(response.data);
+    //        string newQuestion = tagXML.getValue("question");
+    //        string newTag = tagXML.getValue("content");
+    //        isLoadingXml = false;
+    //        printf("- Loaded new tag - %s \n", newTag.c_str());
+    //    }
+    //    else
+    //    {
+    //        printf("- else \n");
+    //        cout << response.status << " " << response.error << endl;
+    //        if (response.status != -1) isLoadingXml = false;
+    //    }
 }
 
 

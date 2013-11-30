@@ -27,6 +27,7 @@ void GUI::setup()
     addTagShaderGUI();
     addLineAppearanceGUI();
     addTagAnimationGUI();
+    addTagAdditionGUI();
     addTagBoundariesGUI();
     addMotionFields1GUI();
     addMotionFields2GUI();
@@ -194,6 +195,25 @@ void GUI::addTagAnimationGUI()
     
     finaliseCanvas(gui, true);
 }
+
+
+void GUI::addTagAdditionGUI()
+{
+    string title = "TAG ADDITION";
+    ofxUICanvas* gui = getNewGUI(title);
+    
+    // server check frequency
+    gui->addSlider("Server check frame frequency", 30, 300, &app->serverCheckFrequncy, length, dim);
+    // start position
+    gui->addRangeSlider("New tag starting X", -100, 100, &app->sceneManager.cloudTagMan.newTagStartXMin, &app->sceneManager.cloudTagMan.newTagStartXMax, length, dim);
+    gui->addSlider("New tag starting Y", -30, 30, &app->sceneManager.cloudTagMan.newTagStartY, length, dim);
+    gui->addSlider("New tag starting Z", 0, 50, &app->sceneManager.cloudTagMan.newTagStartZ, length, dim);
+    // fade out speed
+    // fade in speed
+    
+    finaliseCanvas(gui, true);
+}
+
 
 void GUI::addTagAnimationGUIEvent(ofxUIEventArgs &e){
 	if (e.widget->getName() == "Apply")	SceneManager::isUpdateVars = true;

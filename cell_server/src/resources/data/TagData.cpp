@@ -2,86 +2,32 @@
 #include "TestApp.h"
 
 #ifdef CHINESE_CELL
-void TagData::setup(ofXml XML, ofxFontStash &tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader)
+void TagData::setup(ofXml XML, ofxFontStash *_tagFont, vector<DemographicData> *demographicData, ofShader *_blackToAlphaShader)
 #else
-void TagData::setup(ofxXmlSettings *XML, ofTrueTypeFont *tagFont, vector<DemographicData> *demographicData, ofShader *blackToAlphaShader)
+void TagData::setup(ofxXmlSettings *XML, ofTrueTypeFont *_tagFont, vector<DemographicData> *demographicData, ofShader *_blackToAlphaShader)
 #endif
 {
 	doesTextContainAscender = doesTextContainDescender = false;
 
     parseXML(XML, demographicData);
     
-	
-	float ascDescAdd = 0.25;
-	float bordertoHeightRatio = 0.35;
-
-	//tagFont->setLineHeight(1.0);
-	
-    ofRectangle textBoundingBox;
-    
+    alphaModifier = 1.0;
+    alphaReductionSpeed = 0.1;
+    alphaAdditionSpeed = 0.15;
+    isAnimatingAlpha = false;
+    isFadingOut = true;
     
 #ifdef CHINESE_CELL
-    int fontSize = 110;
-	textBoundingBox = tagFont.getBBox(word, fontSize, 0, 0);
-#else
-	textBoundingBox = tagFont->getStringBoundingBox(word, 0, 0);
+    tagFont = _tagFont;
+#else    
+    tagFont = _tagFont;
 #endif
     
-    //printf("******* bb.x = %f, bb.y = %f, bb.width = %f, bb.height = %f\n",
-    //       textBoundingBox.getX(), textBoundingBox.getY(),
-    //       textBoundingBox.getWidth(), textBoundingBox.getHeight());
+    blackToAlphaShader = _blackToAlphaShader;
     
-	height = textBoundingBox.getHeight();
-	float heightAscDescAdd = height * ascDescAdd;
-	float border = height * bordertoHeightRatio;
-	height += border * 2;
-	width = textBoundingBox.getWidth() + border * 2;
-
-    blendMode = OF_BLENDMODE_ALPHA;
-
-    ofFbo::Settings settings;
-    settings.width = width;
-    settings.height = height;
-    settings.internalformat = GL_RGBA;
-    fbo.allocate(settings);
-	alphaFbo.allocate(settings);
+    isTagUpdated = false;
     
-	glDisable(GL_DEPTH_TEST);
-
-	fbo.begin(); //////////////////////////////////////////////
-    
-    ofClear(0, 0, 0, 1); // we clear the fbo
-    ofSetColor(255);
-    ofRect(0, 0, width, height);
-    ofSetColor(0);
-
-#ifdef CHINESE_CELL
-    float x = border;
-    float y = textBoundingBox.getHeight() + border - (textBoundingBox.getHeight() * 0.1);
-    ofPushMatrix();
-    ofTranslate(x, y);
-    
-    tagFont.drawMultiLine(word, fontSize, 0, 0);
-    ofPopMatrix();
-#else
-    float x = border;
-    float y = height - ((doesTextContainDescender) ? heightAscDescAdd : 0) - border;
-    ofPushMatrix();
-    ofTranslate(x, y);
-    tagFont->drawString(word, 0, 0);
-    ofPopMatrix();
-#endif
-
-	fbo.end(); /////////////////////////////////////////////////
-
-	alphaFbo.begin();
-	ofClear(0, 0, 0, 1);
-	blackToAlphaShader->begin();
-	fbo.draw(0, 0);
-	blackToAlphaShader->end();
-	alphaFbo.end();
-	
-	fbo.getTextureReference().clear();
+    createTagFbo();
 }
 
 
@@ -147,6 +93,126 @@ void TagData::parseXML(ofxXmlSettings *XML, vector<DemographicData> *demographic
 }
 
 
+void TagData::update()
+{
+    isTagUpdated = false;
+    alphaModifier += (isFadingOut) ? -alphaReductionSpeed : alphaReductionSpeed;
+    if (isFadingOut)
+    {
+        if (alphaModifier <= 0)
+        {
+            // change the tag to display the new tag
+            word = newWord;
+            fbo.getTextureReference().clear();
+            alphaFbo.getTextureReference().clear();
+            createTagFbo();
+            
+            // now make one of the CloudTag objects appear at the front
+            testApp* app = (testApp*)ofGetAppPtr();
+            app->sceneManager.cloudTagMan.displayNewTag(word);
+            
+            isTagUpdated = true;
+            
+//            printf("***** should be changing tag colour ****** \n");
+//            alphaFbo.begin();
+//            ofPushStyle();
+//            ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+//            ofRect(0, 0, fbo.getWidth() * 0.9, fbo.getHeight() * 0.9);
+//            ofPopStyle();
+//            alphaFbo.end();
+            
+            // move the tag that appears first in the vector to the front of the play area (below the camera - it will float up)
+            
+            
+            
+            // animate alphaModifier back to 1.0
+            alphaModifier = alphaReductionSpeed;
+            isFadingOut = false;
+        }
+    }
+    else
+    {
+    }
+}
+
+
+
+void TagData::createTagFbo()
+{
+    
+    float ascDescAdd = 0.25;
+	float bordertoHeightRatio = 0.35;
+    
+    // get the bounding box of the tag
+    
+	ofRectangle textBoundingBox;
+#ifdef CHINESE_CELL
+    int fontSize = 110;
+	textBoundingBox = tagFont->getBBox(word, fontSize, 0, 0);
+#else
+	textBoundingBox = tagFont->getStringBoundingBox(word, 0, 0);
+#endif
+    
+    // adjust bounding box for border
+    
+	height = textBoundingBox.getHeight();
+	float heightAscDescAdd = height * ascDescAdd;
+	float border = height * bordertoHeightRatio;
+	height += border * 2;
+	width = textBoundingBox.getWidth() + border * 2;
+    
+    blendMode = OF_BLENDMODE_ALPHA;
+    
+    // configure fbo settings
+    
+    ofFbo::Settings settings;
+    settings.width = width;
+    settings.height = height;
+    settings.internalformat = GL_RGBA;
+    fbo.allocate(settings);
+	alphaFbo.allocate(settings);
+    
+	glDisable(GL_DEPTH_TEST);
+    
+    // draw tag to Fbo
+    
+	fbo.begin(); //////////////////////////////////////////////
+    ofClear(0, 0, 0, 1);
+    ofSetColor(255);
+    ofRect(0, 0, width, height);
+    ofSetColor(0);
+    
+#ifdef CHINESE_CELL
+    float x = border;
+    float y = textBoundingBox.getHeight() + border - (textBoundingBox.getHeight() * 0.1);
+    ofPushMatrix();
+    ofTranslate(x, y);
+    
+    tagFont->drawMultiLine(word, fontSize, 0, 0);
+    ofPopMatrix();
+#else
+    float x = border;
+    float y = height - ((doesTextContainDescender) ? heightAscDescAdd : 0) - border;
+    ofPushMatrix();
+    ofTranslate(x, y);
+    tagFont->drawString(word, 0, 0);
+    ofPopMatrix();
+#endif
+	fbo.end(); /////////////////////////////////////////////////
+    
+    // draw fbo to alphaFbo and apply shader to make the black text transparant
+    
+	alphaFbo.begin(); ///////////////////////////////////////////////////
+	ofClear(0, 0, 0, 1);
+	blackToAlphaShader->begin();
+	fbo.draw(0, 0);
+	blackToAlphaShader->end();
+	alphaFbo.end(); /////////////////////////////////////////////////////
+	
+	fbo.getTextureReference().clear();
+}
+
+
 
 void TagData::checkCharHeight(char letter)
 {
@@ -187,3 +253,14 @@ void TagData::checkCharHeight(char letter)
 //	fbo.draw(500, 650);
 //}
 //
+
+
+// TODO: add question here.
+void TagData::startChangeTagData(string latestTag)
+{
+    isAnimatingAlpha = true;
+    isFadingOut = true;
+    newWord = latestTag;
+}
+
+

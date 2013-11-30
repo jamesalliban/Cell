@@ -15,12 +15,12 @@ pass the user data to the new user and mute the old user
 */
 
 
-float UserManager::xSpreadRangeNormalMin[4];
-float UserManager::xSpreadRangeNormalMax[4];
-float UserManager::xFrontSkewedMin[4];
-float UserManager::xFrontSkewedMax[4];
-float UserManager::xBackSkewedMin[4];
-float UserManager::xBackSkewedMax[4];
+float UserManager::xSpreadRangeNormalMin[SKELETON_MAX / 2];
+float UserManager::xSpreadRangeNormalMax[SKELETON_MAX / 2];
+float UserManager::xFrontSkewedMin[SKELETON_MAX / 2];
+float UserManager::xFrontSkewedMax[SKELETON_MAX / 2];
+float UserManager::xBackSkewedMin[SKELETON_MAX / 2];
+float UserManager::xBackSkewedMax[SKELETON_MAX / 2];
 
 void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resourceManager)
 {
@@ -65,9 +65,7 @@ void UserManager::update()
     {
         if (kinectManager->hasSkeleton())
         {
-            //bool hasSkeletonBeenRemoved = haveSkeletonsBeenRemoved();
             bool hasSkeletonBeenAdded = checkIfSkeletonIsNew();
-            //if (hasSkeletonBeenRemoved || hasSkeletonBeenAdded) reassignSkeletonsIfNew();
 
 
             for (int i = 0; i < SKELETON_MAX; i++)
@@ -131,40 +129,6 @@ void UserManager::draw()
 
 
 
-//bool UserManager::haveSkeletonsBeenRemoved()
-//{
-//    // First we need to see if any skeletons have been removed. If so, we deactivate the user
-//    //        for all users
-//    //            for all skeletons
-//    //                check the User ID aginst the skeleton. If it isnt there, deactivate
-//
-//    bool hasOneOrMoreSkeletonsBeenRemoved = false;
-//    for (int i = 0; i < SKELETON_MAX; i++) // loop through users
-//    {
-//        User* user = &users[i];
-//        bool doesUserValueMatchSkeleton = false;
-//        for (int j = 0; j < SKELETON_MAX; j++) // loop through skeletons
-//        {
-//            KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[j];  //  &app->kinectManager->trackedSkeletons[j];
-//
-//            if (user->trackingID == skeleton->trackingID && skeleton->trackingID != "-1")
-//            {
-//                // this user is matched to an active skeleton
-//                doesUserValueMatchSkeleton = true;
-//            }
-//        }
-//        // if this user is currently active but the trackingID does not match an active skeleton...
-//        if (user->isActive && !doesUserValueMatchSkeleton)
-//        {
-//            hasOneOrMoreSkeletonsBeenRemoved = true;
-//            user->deactivate();
-//        }
-//    }
-//    return hasOneOrMoreSkeletonsBeenRemoved;
-//}
-
-
-
 
 bool UserManager::checkIfSkeletonIsNew()
 {
@@ -183,76 +147,8 @@ bool UserManager::checkIfSkeletonIsNew()
 	}
 
 	return isThereANewSkel; 
-
-	
-    // loop through all active skeletons and try to match these to a User trackingID. If there
-    // is no match, the skeleton is new. Assign the skeleton to an inactive User.
-    //bool isSkeletonCountChanged = false;
-    //for (int i = 0; i < SKELETON_MAX; i++) // loop though all skeletons
-    //{
-    //    KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i];  //  &app->kinectManager->trackedSkeletons[i];
-    //    bool isSkeletonAssignedToAUser = false;
-    //    // if skeleton is active
-    //    if (skeleton->trackingID != "-1")
-    //    {
-    //        for (int j = 0; j < SKELETON_MAX; j++) // loop through all users
-    //        {
-    //            User* user = &users[j];
-    //            // check if skeleton is already assigned to a user or is blank. If so, move on to the next skeleton
-    //            if (user->trackingID == skeleton->trackingID)
-    //            {
-    //                isSkeletonAssignedToAUser = true;
-    //            }
-    //        }
-    //    }
-    //    else
-    //    {
-    //        isSkeletonAssignedToAUser = true;
-    //    }
-
-    //    if (!isSkeletonAssignedToAUser)
-    //    {
-    //        // the skeleton is new as it has not been assigned to a User. Find an inactive User
-    //        // and assign the skeleton to it
-    //        isSkeletonCountChanged = true;
-    //        for (int j = 0; j < SKELETON_MAX; j++)
-    //        {
-    //            User* user = &users[j];
-    //            if (!user->isActive)
-    //            {
-    //                user->assignSkeleton(skeleton);
-    //                user->demographic = resourceManager->getRandomDemographic();
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-    //return isSkeletonCountChanged;
 }
 
-
-
-void UserManager::reassignSkeletonsIfNew()
-{
-    // it seems we have to reassign the skeletons to their respective users each time a new skeleton enters.
-    // this is because the new skeletons are added to the front of the vector
-
-    //return;
-
-    for (int i = 0; i < SKELETON_MAX; i++) // loop through skeletons
-    {
-        KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i]; //  &app->kinectManager->trackedSkeletons[i];
-        for (int j = 0; j < SKELETON_MAX; j++) // loop through users
-        {
-            User* user = &users[j];
-            if (user->trackingID == skeleton->trackingID && skeleton->trackingID != "-1")
-            {
-                //printfprintf("2");
-                user->assignSkeleton(skeleton);
-            }
-        }
-    }
-}
 
 
 

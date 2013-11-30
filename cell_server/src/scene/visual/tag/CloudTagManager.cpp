@@ -13,7 +13,7 @@
 
 void CloudTagManager::init(ofShader* shader, ResourceManager *resourceManager)
 {
-	cloudTagAmount = 800;//  800;
+	cloudTagAmount = 1200;//  800;
 
 	shadeContrastMin = 0.4;
 	shadeContrastMax = 0.7;
@@ -80,6 +80,20 @@ void CloudTagManager::customDraw()
 	for (int i = 0; i < tagsOrderedByZ.size(); i++)
 		if ((float)i / (float)tagsOrderedByZ.size() < lineAmountDrawn)
             tagsOrderedByZ[i]->drawLines();
+}
+
+
+
+void CloudTagManager::displayNewTag(string word)
+{
+    for (int i = 0; i < cloudTags.size(); i++)
+    {
+        if (cloudTags[i].tagData->word == word)
+        {
+            cloudTags[i].position = ofVec3f(ofRandom(newTagStartXMin, newTagStartXMax), newTagStartY, newTagStartZ);
+            return;
+        }
+    }
 }
 
 

@@ -1,0 +1,157 @@
+<tags>
+    
+    <tag>
+        <word>节日周末</word>
+        <demographic id="LYNDSAY">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="TODD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.9</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>教育</word>
+        <demographic id="MARCO">
+            <strength>0.4</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>我的父母在家放松</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.4</strength>
+        </demographic>		
+    </tag>
+    <tag>
+        <word>快速汽车</word>
+        <demographic id="MARCO">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="TODD">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.7</strength>
+        </demographic>			
+    </tag>
+    <tag>
+        <word>很浪漫</word>
+        <demographic id="BUD">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.8</strength>
+        </demographic>		
+    </tag>
+    <tag>
+        <word>现场音乐</word>
+        <demographic id="BUD">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.4</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>			
+    </tag>
+    
+    <tag>
+        <word>牯岭街少年杀人事件</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="POPPET">
+            <strength>0.9</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>英雄本色</word>
+        <demographic id="MARCO">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.4</strength>
+        </demographic>
+    </tag>
+    
+    <tag>
+        <word>梁碧芝</word>
+        <demographic id="ISOMBARD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="BUD">
+            <strength>0.3</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.7</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>楊千嬅</word>
+        <demographic id="POPPET">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="MAISIE">
+            <strength>0.7</strength>
+        </demographic>
+        <demographic id="ARTO">
+            <strength>0.9</strength>
+        </demographic>
+    </tag>
+    <tag>
+        <word>豪华餐厅</word>
+        <demographic id="BUD">
+            <strength>0.9</strength>
+        </demographic>
+        <demographic id="POPPET">
+            <strength>0.5</strength>
+        </demographic>
+        <demographic id="ISOMBARD">
+            <strength>0.6</strength>
+        </demographic>
+    </tag>
+    
+    <tag>
+        <word>很多慈善工作</word>
+        <demographic id="TODD">
+            <strength>0.6</strength>
+        </demographic>
+        <demographic id="MARCO">
+            <strength>0.8</strength>
+        </demographic>
+        <demographic id="LYNDSAY">
+            <strength>0.3</strength>
+        </demographic>
+    </tag>
+    
+<tag>
+		<word>很多纹身</word>
+		<demographic id="POPPET">
+			<strength>0.599455</strength>
+		</demographic>
+		<demographic id="MAISIE">
+			<strength>0.610633</strength>
+		</demographic>
+		<demographic id="BUD">
+			<strength>0.784153</strength>
+		</demographic>
+	</tag>
+</tags>

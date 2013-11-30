@@ -37,13 +37,14 @@ struct TrackedUserData{
 class CloudTag : public ofNode
 {
 public:
-	void	    init(ofShader* shad, TagData* tData, int _id);
-	void	    update();
-	void	    customDraw();
-	void        drawTags();
-    void        drawLines();
-	void        updateVars();
-	float       getDemographicStrength(TrackedUserData* userData);
+	void init(ofShader* shad, TagData* tData, int _id);
+    void buildTagPlane();
+	void update();
+	void customDraw();
+	void drawTags();
+    void drawLines();
+	void updateVars();
+	float getDemographicStrength(TrackedUserData* userData);
 
 
 	bool        isGrabFbo;

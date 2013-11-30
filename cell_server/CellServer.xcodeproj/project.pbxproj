@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E35553F184810E700656E89 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E35553E184810E600656E89 /* testApp.cpp */; };
 		2E934FBB183E9075002B7E7E /* RemoteTagDataService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E934FB9183E9074002B7E7E /* RemoteTagDataService.cpp */; };
 		2EDA87F4182AF07B00013CAD /* fontstash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA876F182AF07A00013CAD /* fontstash.c */; };
 		2EDA87F5182AF07B00013CAD /* stb_truetype.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA8771182AF07A00013CAD /* stb_truetype.c */; };
@@ -69,7 +70,6 @@
 		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
 		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
-		E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
@@ -110,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E35553E184810E600656E89 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		2E934FB9183E9074002B7E7E /* RemoteTagDataService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteTagDataService.cpp; sourceTree = "<group>"; };
 		2E934FBA183E9075002B7E7E /* RemoteTagDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteTagDataService.h; sourceTree = "<group>"; };
 		2EDA8763182AF07A00013CAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -284,7 +285,6 @@
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = emptyExampleDebug.app; path = CellServerDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = testApp.cpp; path = src/testApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -889,8 +889,8 @@
 				2EDA8932182B3B6B00013CAD /* resources */,
 				2EDA893A182B3B6B00013CAD /* scene */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				2E35553E184810E600656E89 /* testApp.cpp */,
 				2EDA892A182B3B6B00013CAD /* CellGlobals.h */,
 			);
 			path = src;
@@ -993,7 +993,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				2EDA87F4182AF07B00013CAD /* fontstash.c in Sources */,
 				2EDA87F5182AF07B00013CAD /* stb_truetype.c in Sources */,
 				2EDA87F6182AF07B00013CAD /* ofxFontStash.cpp in Sources */,
@@ -1044,6 +1043,7 @@
 				2EDA89A1182C57F000013CAD /* GUI.cpp in Sources */,
 				2EDA89A2182C57F000013CAD /* GUIManager.cpp in Sources */,
 				2E934FBB183E9075002B7E7E /* RemoteTagDataService.cpp in Sources */,
+				2E35553F184810E700656E89 /* testApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

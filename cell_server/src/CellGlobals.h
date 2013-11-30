@@ -11,8 +11,11 @@
 
 #define CHINESE_CELL
 
+#define CELL_ONLINE
+
 #define SKELETON_MAX 10
 
+#define TAG_MAX 500
 
 
 

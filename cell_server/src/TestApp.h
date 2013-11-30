@@ -61,6 +61,7 @@ public:
     ofXml tagDataXml;
     string tagIndexData;
 	string newTagData;
+    string latestTag;
     int latestTagTotal;
     int currentTagTotal;
     bool isLoadingXml;
@@ -69,6 +70,13 @@ public:
 	bool isFirstIndexLoad;
     
     int timesLoaded;
+    float serverCheckFrequncy;
+    
+    ofXml testTagIndexXml;
+    ofXml tempTagXml;
+    
+    
+    
 #endif
     
 };

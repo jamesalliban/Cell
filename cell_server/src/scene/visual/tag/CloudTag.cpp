@@ -58,15 +58,30 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	rotations   = ofVec3f(0, ofRandom(-rotationYMax, rotationYMax), 0);
 	attractionVelocity = ofVec3f(0.0, 0.0, 0.0);
 	//ofEnableNormalizedTexCoords();
+    
+    //    outOfBoundsPosXAdd = 0.0;
+    //    outOfBoundsPosYAdd = 0.0;
+    //    outOfBoundsPosZAdd = 0.0;
+    outOfBoundsPosVelocity = ofVec3f(0, 0, 0);
 
 	noiseStartAdd = ofRandom(0, 10000);
+    
+    buildTagPlane();
+}
 
+
+
+void CloudTag::buildTagPlane()
+{
 	float tagSize =  ofRandom(0.2, 0.5);
 	float tagWidth = ((float)tagData->width / 40.0f) * tagSize;
 	float tagHeight = ((float)tagData->height / 40.0f) * tagSize;
+    
+    tagW = tagWidth;
 
-	tagW = tagWidth;
-
+    tagPlaneMesh.clear();
+    tagPlaneVbo.clear();
+    
 	tagPlaneMesh.addVertex(ofVec3f(-tagWidth*0.5, tagHeight, 0));    //ofVec3f(position->x, position->y + tagHeight, position->z));
 	tagPlaneMesh.addVertex(ofVec3f(tagWidth*0.5, tagHeight, 0));    //ofVec3f(position->x + tagWidth, position->y + tagHeight, position->z));
 	tagPlaneMesh.addVertex(ofVec3f(tagWidth*0.5, 0, 0));    //ofVec3f(position->x + tagWidth, position->y, position->z));
@@ -90,10 +105,6 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 	tagPlaneVbo.setMesh(tagPlaneMesh, GL_STATIC_DRAW);
 
-//    outOfBoundsPosXAdd = 0.0;
-//    outOfBoundsPosYAdd = 0.0;
-//    outOfBoundsPosZAdd = 0.0;
-    outOfBoundsPosVelocity = ofVec3f(0, 0, 0);
 
 	isGrabFbo = true;
 }
@@ -103,6 +114,10 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 void CloudTag::update()
 {
+    if (tagData->isTagUpdated)
+    {
+        buildTagPlane();
+    }
     scaleOffset = 1.0;
 
     mappedBourdaryW = ofMap(position.z, cloudTagMan->boundaryD, -cloudTagMan->boundaryD, cloudTagMan->boundaryWFront, cloudTagMan->boundaryW);
@@ -327,7 +342,7 @@ void CloudTag::drawTags()
 	shader->setUniform1f("red", colourOffset.x);
 	shader->setUniform1f("green", colourOffset.y);
 	shader->setUniform1f("blue", colourOffset.z);
-	shader->setUniform1f("alpha", mappedAlpha);
+	shader->setUniform1f("alpha", mappedAlpha * tagData->alphaModifier);
 	shader->setUniformTexture("baseMap", tagData->alphaFbo.getTextureReference(), 0);
 
 
@@ -417,7 +432,7 @@ void CloudTag::drawLines()
 //            ofLine(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z, userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
 			
             
-            glColor4f(1.0f, 1.0f, 1.0f, (mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
+            glColor4f(1.0f, 1.0f, 1.0f, ((mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1)) * tagData->alphaModifier);
             ofSetLineWidth(cloudTagMan->lineThickness);
             glBegin(GL_LINES);
                 glVertex3f(position.x + scaleCorrectionX, position.y + scaleCorrectionY, position.z);
@@ -434,8 +449,6 @@ void CloudTag::drawLines()
             ofTranslate(userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);//
             ofCircle(0, 0, 0.1);
             ofPopMatrix();
-
-
         }
 	}
 }

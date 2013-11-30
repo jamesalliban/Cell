@@ -17,9 +17,7 @@ public:
     void init(KinectManager *_kinectManager, ResourceManager *_resourceManager);
     void update();
     void draw();
-    bool haveSkeletonsBeenRemoved();
     bool checkIfSkeletonIsNew();
-    void reassignSkeletonsIfNew();
     void deactivateAllUsers();
     bool isUserADuplicate(User* newUser);
 
@@ -30,21 +28,21 @@ public:
     ResourceManager *resourceManager;
 
 
-    float skeletonScale[4];
-    float skeletonRotDegrees[4];
-    float skeletonRotX[4];
-    float skeletonRotY[4];
-    float skeletonRotZ[4];
-    float skeletonPosOffsetX[4];
-    float skeletonPosOffsetY[4];
-    float skeletonPosOffsetZ[4];
+    float skeletonScale[SKELETON_MAX / 2];
+    float skeletonRotDegrees[SKELETON_MAX / 2];
+    float skeletonRotX[SKELETON_MAX / 2];
+    float skeletonRotY[SKELETON_MAX / 2];
+    float skeletonRotZ[SKELETON_MAX / 2];
+    float skeletonPosOffsetX[SKELETON_MAX / 2];
+    float skeletonPosOffsetY[SKELETON_MAX / 2];
+    float skeletonPosOffsetZ[SKELETON_MAX / 2];
     
-    static float xSpreadRangeNormalMin[4];
-    static float xSpreadRangeNormalMax[4];
-    static float xFrontSkewedMin[4];
-    static float xFrontSkewedMax[4];
-    static float xBackSkewedMin[4];
-    static float xBackSkewedMax[4];
+    static float xSpreadRangeNormalMin[SKELETON_MAX / 2];
+    static float xSpreadRangeNormalMax[SKELETON_MAX / 2];
+    static float xFrontSkewedMin[SKELETON_MAX / 2];
+    static float xFrontSkewedMax[SKELETON_MAX / 2];
+    static float xBackSkewedMin[SKELETON_MAX / 2];
+    static float xBackSkewedMax[SKELETON_MAX / 2];
     
     float xCorrectionOffsetRangeMin;
     float xCorrectionOffsetRangeMax;

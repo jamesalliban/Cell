@@ -1,0 +1,21 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>Server check frame frequency</Name>
+    <Value>49.539474487</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>New tag starting X</Name>
+    <HighValue>17.105255127</HighValue>
+    <LowValue>-16.447372437</LowValue>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>New tag starting Y</Name>
+    <Value>3.750000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>New tag starting Z</Name>
+    <Value>29.013156891</Value>
+</Widget>
