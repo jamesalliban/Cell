@@ -6,17 +6,17 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Play Area yd</Name>
-    <Value>48.651313782</Value>
+    <Value>50.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Speed yd</Name>
-    <Value>0.028947368</Value>
+    <Value>0.049999997</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Area size yd</Name>
-    <Value>290.789489746</Value>
+    <Value>300.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -36,12 +36,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Speed yu</Name>
-    <Value>0.033684213</Value>
+    <Value>0.049999997</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Area size yu</Name>
-    <Value>296.052612305</Value>
+    <Value>300.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

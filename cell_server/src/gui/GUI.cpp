@@ -222,7 +222,6 @@ void GUI::addTagAdditionGUI()
 
 
 void GUI::addTagAnimationGUIEvent(ofxUIEventArgs &e){
-	if (e.widget->getName() == "Apply")	SceneManager::isUpdateVars = true;
 }
 
 
@@ -366,7 +365,7 @@ void GUI::addKinectGlobalGUI()
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
     gui->addRangeSlider("Z position input range", -150, 150, &User::zSpreadInputMin, &User::zSpreadInputMax, length, dim);
     gui->addRangeSlider("Z position output range", -150, 150, &User::zSpreadOutputMin, &User::zSpreadOutputMax, length, dim);
-    
+
     gui->addLabel("JOINT ADJUSTMENT TOGGLES", OFX_UI_FONT_MEDIUM);
     gui->addToggle("Is position offset", &User::isSkelPosOffset, toggleDim, toggleDim);
     gui->addToggle("Is rotated", &User::isSkelRotated, toggleDim, toggleDim);

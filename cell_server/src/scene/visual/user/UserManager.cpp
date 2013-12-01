@@ -127,12 +127,40 @@ void UserManager::draw()
             user->nonKinectDraw();
         }
     }
+
+	drawUserBounds();
 }
 
 
 void UserManager::drawUserBounds()
 {
-    
+	int clientId = 0;
+	int skel0FromClient = (int)(clientId / 2);
+
+	ofPushMatrix();
+	ofSetLineWidth(5);
+	ofSetColor(100, 0, 0);
+    // draw normal range
+	ofPushMatrix();
+	ofTranslate(skeletonPosOffsetX[clientId] * skeletonScale[clientId], 0, skeletonPosOffsetY[clientId] * skeletonScale[clientId]);
+	ofLine(xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMin, xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMin); // back
+	ofSetColor(255, 0, 0);
+	ofLine(xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMax, xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMax); // front
+	ofLine(xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMin, xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMax); // left
+	ofLine(xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMin, xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMax); // right
+	ofPopMatrix();
+
+	ofSetLineWidth(3);
+	ofSetColor(0, 100, 0);
+	// draw skewed range
+	ofLine(xFrontSkewedMin[clientId], 0, User::zSpreadOutputMin, xFrontSkewedMax[clientId], 0, User::zSpreadOutputMin); // back
+	ofSetColor(0, 255, 0);
+	ofLine(xBackSkewedMin[clientId], 0, User::zSpreadOutputMax, xBackSkewedMax[clientId], 0, User::zSpreadOutputMax); // front
+	ofLine(xFrontSkewedMin[clientId], 0, User::zSpreadOutputMin, xBackSkewedMin[clientId], 0, User::zSpreadOutputMax); // left
+	ofLine(xFrontSkewedMax[clientId], 0, User::zSpreadOutputMin, xBackSkewedMax[clientId], 0, User::zSpreadOutputMax); // right
+
+	
+	ofPopMatrix();
 }
 
 
