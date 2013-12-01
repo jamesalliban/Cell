@@ -5,6 +5,11 @@
 </Widget>
 <Widget>
     <Kind>4</Kind>
+    <Name>Tag amount</Name>
+    <Value>1193.026367188</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
     <Name>Perlin Input offset multiplier</Name>
     <Value>7.957746506</Value>
 </Widget>

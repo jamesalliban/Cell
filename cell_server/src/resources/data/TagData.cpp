@@ -1,6 +1,8 @@
 ﻿#include "TagData.h"
 #include "TestApp.h"
 
+float TagData::textAlphaAdd;
+
 #ifdef CHINESE_CELL
 void TagData::setup(ofXml XML, ofxFontStash *_tagFont, vector<DemographicData> *demographicData, ofShader *_blackToAlphaShader)
 #else
@@ -205,6 +207,8 @@ void TagData::createTagFbo()
 	alphaFbo.begin(); ///////////////////////////////////////////////////
 	ofClear(0, 0, 0, 1);
 	blackToAlphaShader->begin();
+    blackToAlphaShader->setUniform1f("textAlphaAdd", textAlphaAdd);
+    printf("textAlphaAdd = %f \n", textAlphaAdd);
 	fbo.draw(0, 0);
 	blackToAlphaShader->end();
 	alphaFbo.end(); /////////////////////////////////////////////////////

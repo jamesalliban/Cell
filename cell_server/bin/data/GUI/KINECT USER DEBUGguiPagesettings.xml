@@ -1,7 +1,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Pause User</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -11,7 +11,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Toggle all user debug visuals</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -36,7 +36,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Recorded image alpha</Name>
-    <Value>255.000000000</Value>
+    <Value>90.592102051</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>

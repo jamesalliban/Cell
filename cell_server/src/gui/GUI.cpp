@@ -11,6 +11,7 @@
 #include "Field.h"
 #include "testApp.h"
 #include "UserManager.h"
+#include "TagData.h"
 
 
 void GUI::setup()
@@ -37,6 +38,7 @@ void GUI::setup()
     addKinectCalibration1GUI();
     addKinectCalibration2GUI();
     addKinectCalibration3GUI();
+    addKinectCalibration4GUI();
 //    addDuplicatesGUI();
     addKinectUserDegugGUI();
     addVariousGUI();
@@ -123,13 +125,15 @@ void GUI::addTagShaderGUI()
     //gui->addToggle("Apply", &app->sceneManager.isUpdateVars, toggleDim, toggleDim);
     gui->addWidgetDown(new ofxUILabelButton(false, "Apply"));
     
+    gui->addSlider("Text alpha add", 0.0, 1.0, &TagData::textAlphaAdd, length, dim);
+    
     
 //	ofAddListener(gui->newGUIEvent, this, &GUI::addTagShaderGUIEvent);
     finaliseCanvas(gui, true);
 }
 
 void GUI::addTagShaderGUIEvent(ofxUIEventArgs &e){
-	if (e.widget->getName() == "Apply")	SceneManager::isUpdateVars = true;
+	if (e.widget->getName() == "Apply")	app->sceneManager.cloudTagMan.updateTags();
 }
 
 
@@ -168,6 +172,8 @@ void GUI::addTagAnimationGUI()
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addToggle("Tags enabled", &app->sceneManager.cloudTagMan.areTagsEnabled, toggleDim, toggleDim);
+    gui->addSlider("Tag amount", 10, 10000, &app->sceneManager.cloudTagMan.cloudTagAmount, length, dim);
+    
     gui->addLabel("DEFAULT ANIMATION", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Perlin Input offset multiplier", 0.0000, 10, &app->sceneManager.cloudTagMan.perlinInputOffsetMultiplier, length, dim);
     gui->addSlider("Speed", 0.0001, 0.05, &app->sceneManager.cloudTagMan.speed, length, dim);
@@ -449,13 +455,13 @@ void GUI::addKinectCalibration2GUI()
     
     finaliseCanvas(gui, true);
 }
-    
-    
+
+
 void GUI::addKinectCalibration3GUI()
 {
     string title = "KINECT CALIBRATION 3";
     ofxUICanvas* gui = getNewGUI(title);
-        
+    
     gui->addLabel("SKELETON CALIBRATION CLIENT 3", OFX_UI_FONT_MEDIUM);
     gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
     gui->addSlider("Scale (3)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[3], length, dim);
@@ -471,6 +477,31 @@ void GUI::addKinectCalibration3GUI()
     gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[3], &UserManager::xSpreadRangeNormalMax[3], length, dim);
     gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[3], &UserManager::xFrontSkewedMax[3], length, dim);
     gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[3], &UserManager::xBackSkewedMax[3], length, dim);
+    
+    finaliseCanvas(gui, true);
+}
+
+
+void GUI::addKinectCalibration4GUI()
+{
+    string title = "KINECT CALIBRATION 4";
+    ofxUICanvas* gui = getNewGUI(title);
+    
+    gui->addLabel("SKELETON CALIBRATION CLIENT 4", OFX_UI_FONT_MEDIUM);
+    gui->addLabel("SCALE", OFX_UI_FONT_MEDIUM);
+    gui->addSlider("Scale (4)", 0.01, 0.5,&app->sceneManager.userManager.skeletonScale[4], length, dim);
+    gui->addLabel("ROTATION", OFX_UI_FONT_MEDIUM);
+    gui->addSlider("Degrees (4)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[4], length, dim);
+    gui->addSlider("Rotation X (4)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[4], length, dim);
+    gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
+    gui->addSlider("Pos offset X (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[4], length, dim);
+    gui->addSlider("Pos offset Y (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[4], length, dim);
+    gui->addSlider("Pos offset Z (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[4], length, dim);
+    gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
+    gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
+    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[4], &UserManager::xSpreadRangeNormalMax[4], length, dim);
+    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[4], &UserManager::xFrontSkewedMax[4], length, dim);
+    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[4], &UserManager::xBackSkewedMax[4], length, dim);
     
     finaliseCanvas(gui, true);
 }

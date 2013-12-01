@@ -35,6 +35,7 @@ public:
     void addKinectCalibration1GUI();
     void addKinectCalibration2GUI();
     void addKinectCalibration3GUI();
+    void addKinectCalibration4GUI();
     void addDuplicatesGUI();
     void addKinectUserDegugGUI();
     void addVariousGUI();

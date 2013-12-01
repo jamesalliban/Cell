@@ -11,7 +11,6 @@
 #include "testApp.h"
 #include "KinectManager.h"
 
-bool SceneManager::isUpdateVars;
 
 void SceneManager::init(KinectManager *kinectManager, ResourceManager *resourceManager)
 {
@@ -23,7 +22,6 @@ void SceneManager::init(KinectManager *kinectManager, ResourceManager *resourceM
 
 	isCamMouseInput = false;
 	isCamMouseInputPaused = false;
-	isUpdateVars = false;
 
 	//camEasyCam.setTarget(cloudTagMan);
 	camEasyCam.setDistance(100);
@@ -66,11 +64,11 @@ void SceneManager::update()
 			smoothMouseY -= (smoothMouseY - ofGetMouseY()) * mouseSmoothAmount;
 		}
 
-		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -100, 100, true) * camDistanceMultiplier;
-		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), 100, -100, true) * camDistanceMultiplier;
+		float mouseCamX = ofMap(smoothMouseX, 0, ofGetWidth(), -(camZ*2), (camZ*2), true) * camDistanceMultiplier;
+		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), camZ, -camZ, true) * camDistanceMultiplier;
 		float mouseCamZ = cos(ofMap(smoothMouseX, 0, ofGetWidth(), -2, 2, true)) * camZ * camDistanceMultiplier;
-
-
+        
+        
 		camEasyCam.setPosition(ofVec3f(mouseCamX, mouseCamY, mouseCamZ));
 		camEasyCam.lookAt(nodeGrid, ofVec3f(0, 1, 0));
 		camEasyCam.lookAt(ofVec3f(camDirectionX, camDirectionY, camDirectionZ), ofVec3f(0, 1, 0));
@@ -113,6 +111,4 @@ void SceneManager::draw()
 		cloudTagMan.draw();
 
 	camEasyCam.end();
-
-	if (isUpdateVars) isUpdateVars = false;
 }

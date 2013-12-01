@@ -73,7 +73,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 
 void CloudTag::buildTagPlane()
 {
-	float tagSize =  ofRandom(0.2, 0.5);
+	float tagSize =  ofRandom(0.4, 0.41);
 	float tagWidth = ((float)tagData->width / 40.0f) * tagSize;
 	float tagHeight = ((float)tagData->height / 40.0f) * tagSize;
     
@@ -149,9 +149,8 @@ void CloudTag::update()
 
 void CloudTag::customDraw()
 {
-
+    
 }
-
 
 
 void CloudTag::performAmbientMotion()
@@ -326,7 +325,7 @@ void CloudTag::drawTags()
 	shader->begin(); // shader begin: set values.
 
 
-	if (isGrabFbo || SceneManager::isUpdateVars)
+	if (isGrabFbo)
 	{
 		isGrabFbo = false;
 		//shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);
@@ -399,7 +398,7 @@ void CloudTag::drawLines()
         {
  //           shader->begin(); // shader begin: set values.
 
-            if (isGrabFbo || SceneManager::isUpdateVars)
+            if (isGrabFbo)
             {
                 isGrabFbo = false;
                 //shader->setUniform1f("blendmix", app->sceneManager.cloudTagMan.shadeBlendMix);

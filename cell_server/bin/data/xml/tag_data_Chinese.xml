@@ -1762,43 +1762,4 @@
 				<strength>0.5</strength>
 			</demographic>		
 		</tag>
-<tag>
-		<word>己己己己己己己</word>
-		<question>9</question>
-		<demographic id="ISOMBARD">
-			<strength>0.410692</strength>
-		</demographic>
-		<demographic id="TODD">
-			<strength>0.692509</strength>
-		</demographic>
-		<demographic id="POPPET">
-			<strength>0.802232</strength>
-		</demographic>
-	</tag>
-	<tag>
-		<word>放松放松放松放松放</word>
-		<question>8</question>
-		<demographic id="ISOMBARD">
-			<strength>0.342236</strength>
-		</demographic>
-		<demographic id="BUD">
-			<strength>0.5561</strength>
-		</demographic>
-		<demographic id="TODD">
-			<strength>0.766667</strength>
-		</demographic>
-	</tag>
-	<tag>
-		<word>机票</word>
-		<question>7</question>
-		<demographic id="TODD">
-			<strength>0.307497</strength>
-		</demographic>
-		<demographic id="ARTO">
-			<strength>0.503741</strength>
-		</demographic>
-		<demographic id="POPPET">
-			<strength>0.76702</strength>
-		</demographic>
-	</tag>
 </tags>

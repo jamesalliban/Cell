@@ -26,15 +26,19 @@ class CloudTagManager : public ofNode
 {
 
 public:
-	void init(ofShader* shader, ResourceManager *resourceManager);
+	void init(ofShader* _shader, ResourceManager *_resourceManager);
 
+    void buildCloudTags();
 	void update();
 	void customDraw();
+    void updateTags();
     void displayNewTag(string word);
-
+    
+    ofShader* shader;
+    ResourceManager *resourceManager;
 	vector<CloudTag> cloudTags;
     vector<CloudTag*> tagsOrderedByZ;
-	int		cloudTagAmount;
+	float cloudTagAmount;
 
     
 	//tag shading

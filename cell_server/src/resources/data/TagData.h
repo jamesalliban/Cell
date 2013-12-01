@@ -47,6 +47,7 @@ public:
 #endif
     
     ofShader *blackToAlphaShader;
+    static float textAlphaAdd;
     
     string word;
     vector<Demographic> demographics;

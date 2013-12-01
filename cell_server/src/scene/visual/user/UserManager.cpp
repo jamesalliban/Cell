@@ -28,14 +28,14 @@ void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resource
     resourceManager = _resourceManager;
     
     
-    skeletonScale[0] = skeletonScale[1] = skeletonScale[2] = skeletonScale[3] = 0.0;
-    skeletonRotDegrees[0] = skeletonRotDegrees[1] = skeletonRotDegrees[2] = skeletonRotDegrees[3] = 0.0;
-    skeletonRotX[0] = skeletonRotX[1] = skeletonRotX[2] = skeletonRotX[3] = 0.0;
-    skeletonRotY[0] = skeletonRotY[1] = skeletonRotY[2] = skeletonRotY[3] = 0.0;
-    skeletonRotZ[0] = skeletonRotZ[1] = skeletonRotZ[2] = skeletonRotZ[3] = 0.0;
-    skeletonPosOffsetX[0] = skeletonPosOffsetX[1] = skeletonPosOffsetX[2] = skeletonPosOffsetX[3] = 0;
-    skeletonPosOffsetY[0] = skeletonPosOffsetY[1] = skeletonPosOffsetY[2] = skeletonPosOffsetY[3] = 0;
-    skeletonPosOffsetZ[0] = skeletonPosOffsetZ[1] = skeletonPosOffsetZ[2] = skeletonPosOffsetZ[3] = 0;
+//    skeletonScale[0] = skeletonScale[1] = skeletonScale[2] = skeletonScale[3] = 0.0;
+//    skeletonRotDegrees[0] = skeletonRotDegrees[1] = skeletonRotDegrees[2] = skeletonRotDegrees[3] = 0.0;
+//    skeletonRotX[0] = skeletonRotX[1] = skeletonRotX[2] = skeletonRotX[3] = 0.0;
+//    skeletonRotY[0] = skeletonRotY[1] = skeletonRotY[2] = skeletonRotY[3] = 0.0;
+//    skeletonRotZ[0] = skeletonRotZ[1] = skeletonRotZ[2] = skeletonRotZ[3] = 0.0;
+//    skeletonPosOffsetX[0] = skeletonPosOffsetX[1] = skeletonPosOffsetX[2] = skeletonPosOffsetX[3] = 0;
+//    skeletonPosOffsetY[0] = skeletonPosOffsetY[1] = skeletonPosOffsetY[2] = skeletonPosOffsetY[3] = 0;
+//    skeletonPosOffsetZ[0] = skeletonPosOffsetZ[1] = skeletonPosOffsetZ[2] = skeletonPosOffsetZ[3] = 0;
     
     for (int i = 0; i < SKELETON_MAX; i++)
     {
@@ -71,6 +71,9 @@ void UserManager::update()
             for (int i = 0; i < SKELETON_MAX; i++)
             {
                 User* user = &users[i];
+                KinectSkeletonData* skeleton = &kinectManager->trackedSkeletons[i];
+                
+                if (skeleton->trackingID == "-1") user->isActive = false;
 
                 if (user->isActive)
                 {
@@ -127,6 +130,10 @@ void UserManager::draw()
 }
 
 
+void UserManager::drawUserBounds()
+{
+    
+}
 
 
 

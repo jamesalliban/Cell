@@ -60,7 +60,6 @@ void testApp::setup()
 {
     //ofDisableArbTex();
 	//ofEnableArbTex();
-    ofSetFrameRate(40);
     ofSetFullscreen(false);
 	ofSetLogLevel(OF_LOG_SILENT);
     //	ofSetLogLevel(OF_LOG_ERROR);
@@ -75,15 +74,16 @@ void testApp::setup()
     
 	isKinectAttached = true;
     
+    
+    gui.setup();
+    
 	if (isKinectAttached)
-	{
         kinectManager.init();
-	}
 	
 	resourceManager.init();
 	sceneManager.init(&kinectManager, &resourceManager);
-    //	myGui.init();
-    gui.setup();
+    
+    sceneManager.cloudTagMan.buildCloudTags();
     
     isFirstFrame = false;
 	isPaused = false;
@@ -193,12 +193,11 @@ void testApp::draw()
     
 	kinectManager.draw();
     
-    if (isFirstFrame || ofGetFrameNum() == 5)
-    {
-        sceneManager.isUpdateVars = true;
-        isFirstFrame = false;
-    }
-    
+//    if (isFirstFrame || ofGetFrameNum() == 5)
+//    {
+//        sceneManager.cloudTagMan.updateTags();
+//        isFirstFrame = false;
+//    }
 	glDisable(GL_DEPTH_TEST);
     ofSetColor(0, 0, 0, 255);
     ofRect(0, 0, ofGetWidth(), topBlockHeight);
@@ -281,7 +280,11 @@ void testApp::keyPressed(int key)
     }
     else if (key == 'u')
 	{
-		sceneManager.isUpdateVars = !sceneManager.isUpdateVars;
+		sceneManager.cloudTagMan.updateTags();
+    }
+    else if (key == 'b')
+	{
+		sceneManager.cloudTagMan.buildCloudTags();
     }
     else if (key == 'g')
 	{

@@ -17,6 +17,7 @@ public:
     void init(KinectManager *_kinectManager, ResourceManager *_resourceManager);
     void update();
     void draw();
+    void drawUserBounds();
     bool checkIfSkeletonIsNew();
     void deactivateAllUsers();
     bool isUserADuplicate(User* newUser);
@@ -26,8 +27,8 @@ public:
     
     KinectManager *kinectManager;
     ResourceManager *resourceManager;
-
-
+    
+    
     float skeletonScale[SKELETON_MAX / 2];
     float skeletonRotDegrees[SKELETON_MAX / 2];
     float skeletonRotX[SKELETON_MAX / 2];
