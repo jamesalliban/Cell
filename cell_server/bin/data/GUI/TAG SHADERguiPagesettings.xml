@@ -11,32 +11,22 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Brightness min</Name>
-    <Value>-0.006578922</Value>
+    <Value>-0.111842096</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Brightness max</Name>
-    <Value>0.151315808</Value>
+    <Value>0.611842155</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Alpha min</Name>
-    <Value>0.325657904</Value>
+    <Value>0.059210528</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Alpha max</Name>
-    <Value>1.000000000</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Blend mix</Name>
-    <Value>0.526315808</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Blend mode</Name>
-    <Value>7.631578922</Value>
+    <Value>1.427631617</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

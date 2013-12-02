@@ -132,14 +132,14 @@ void GUI::addTagShaderGUI()
     string title = "TAG SHADER";
     ofxUICanvas* gui = getNewGUI(title);
     
-    gui->addSlider("Contrast min", -1.0, 1.0, &app->sceneManager.cloudTagMan.shadeContrastMin, length, dim);
-    gui->addSlider("Contrast max", -1.0, 1.0, &app->sceneManager.cloudTagMan.shadeContrastMax, length, dim);
-    gui->addSlider("Brightness min", -1.0, 1.0, &app->sceneManager.cloudTagMan.shadeBrightnessMin, length, dim);
-    gui->addSlider("Brightness max", -1.0, 1.0, &app->sceneManager.cloudTagMan.shadeBrightnessMax, length, dim);
-    gui->addSlider("Alpha min", 0.0, 1.0, &app->sceneManager.cloudTagMan.shadeAlphaMin, length, dim);
-    gui->addSlider("Alpha max", 0.0, 1.0, &app->sceneManager.cloudTagMan.shadeAlphaMax, length, dim);
-    gui->addSlider("Blend mix", 0.0, 1.0, &app->sceneManager.cloudTagMan.shadeBlendMix, length, dim);
-    gui->addSlider("Blend mode", 0, 10, &app->sceneManager.cloudTagMan.shadeBlendMode, length, dim);
+    gui->addSlider("Contrast min", -1.0, 2.0, &app->sceneManager.cloudTagMan.shadeContrastMin, length, dim);
+    gui->addSlider("Contrast max", -1.0, 2.0, &app->sceneManager.cloudTagMan.shadeContrastMax, length, dim);
+    gui->addSlider("Brightness min", -1.0, 2.0, &app->sceneManager.cloudTagMan.shadeBrightnessMin, length, dim);
+    gui->addSlider("Brightness max", -1.0, 2.0, &app->sceneManager.cloudTagMan.shadeBrightnessMax, length, dim);
+    gui->addSlider("Alpha min", 0.0, 2.0, &app->sceneManager.cloudTagMan.shadeAlphaMin, length, dim);
+    gui->addSlider("Alpha max", 0.0, 2.0, &app->sceneManager.cloudTagMan.shadeAlphaMax, length, dim);
+//    gui->addSlider("Blend mix", 0.0, 1.0, &app->sceneManager.cloudTagMan.shadeBlendMix, length, dim);
+//    gui->addSlider("Blend mode", 0, 10, &app->sceneManager.cloudTagMan.shadeBlendMode, length, dim);
     //gui->addToggle("Apply", &app->sceneManager.isUpdateVars, toggleDim, toggleDim);
     gui->addWidgetDown(new ofxUILabelButton(false, "Apply"));
     

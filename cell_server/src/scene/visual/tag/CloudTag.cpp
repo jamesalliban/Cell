@@ -169,7 +169,7 @@ void CloudTag::performAmbientMotion()
     ambientVelocity.x = angleX;
     ambientVelocity.y = angleY;
     ambientVelocity.z = angleZ;
-
+    
     checkBounds();
 
     ambientVelocity += outOfBoundsPosVelocity;
@@ -282,6 +282,7 @@ void CloudTag::checkBounds()
     if (position.z < cloudTagMan->boundaryD * -0.5)
     {
         position.z += cloudTagMan->boundaryD - 5;
+        position.y = cloudTagMan->boundaryCentreH;
     }
 
     if (!isYOutOfBounds && outOfBoundsPosVelocity.y > 0)
@@ -325,9 +326,9 @@ void CloudTag::drawTags()
 		//shader->setUniform1i("blendmode", (int)app->sceneManager.cloudTagMan.shadeBlendMode);
 	}
 
-	float mappedContrast = ofMap(position.z, -50, 50, cloudTagMan->shadeContrastMin, cloudTagMan->shadeContrastMax, true);
-	float mappedBrightness = ofMap(position.z, -50, 50, cloudTagMan->shadeBrightnessMin, cloudTagMan->shadeBrightnessMax, true);
-	float mappedAlpha = ofMap(position.z, -50, 50, cloudTagMan->shadeAlphaMin, cloudTagMan->shadeAlphaMax, true);
+	float mappedContrast = ofMap(position.z, -cloudTagMan->boundaryD, cloudTagMan->boundaryD, cloudTagMan->shadeContrastMin, cloudTagMan->shadeContrastMax, true);
+	float mappedBrightness = ofMap(position.z, -cloudTagMan->boundaryD, cloudTagMan->boundaryD, cloudTagMan->shadeBrightnessMin, cloudTagMan->shadeBrightnessMax, true);
+	float mappedAlpha = ofMap(position.z, -cloudTagMan->boundaryD, cloudTagMan->boundaryD, cloudTagMan->shadeAlphaMin, cloudTagMan->shadeAlphaMax, true);
 	//printf("%f ", position.z);
 	//printf("%f %f %f ", mappedContrast, mappedBrightness, mappedAlpha);
 	shader->setUniform1f("contrast", mappedContrast);
@@ -339,14 +340,7 @@ void CloudTag::drawTags()
 	shader->setUniform1f("alpha", mappedAlpha * tagData->alphaModifier);
 	shader->setUniformTexture("baseMap", tagData->alphaFbo.getTextureReference(), 0);
 
-
-    int div = 500;
-   // float noise = ofNoise(((float)ofGetFrameNum() + noiseStartAdd) / div, ((float)ofGetFrameNum() + noiseStartAdd) / div);
-  // float angle = ofMap(noise, 0, 1, -rotationYMax, rotationYMax);
-	//rotations.y = angle;
-	//rotations->y = MAX(-rotationYMax, rotations->y);
-	//rotations->y = MIN(rotations->y, rotationYMax);
-
+    
 	ofVec3f cornerVertexVec = tagPlaneMesh.getVertex(lineStartVertexIndex);
 
     ofPushMatrix();
@@ -391,7 +385,7 @@ void CloudTag::drawLines()
         
         if (userData->isActive)
         {
- //           shader->begin(); // shader begin: set values.
+//           shader->begin(); // shader begin: set values.
 
             if (isGrabFbo)
             {
@@ -410,14 +404,14 @@ void CloudTag::drawLines()
             float lineFadeTime = ofMap(normDistance, 0, 1, cloudTagMan->lineFadeTimeMin, cloudTagMan->lineFadeTimeMax);
             float mappedStartTime = ofMap(userData->secondsSinceActive, 0.0, lineFadeTime, 0.0, 1.0);
 
-/*
-            shader->setUniform1f("contrast", mappedContrast * mappedDistance);
-            shader->setUniform1f("brightness",	mappedBrightness * mappedDistance);
-            shader->setUniform1f("alpha", 0.3);//(mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
-            shader->setUniform1f("red", 1.0);
-            shader->setUniform1f("green", 1.0);
-            shader->setUniform1f("blue", 1.0);
-*/
+
+//            shader->setUniform1f("contrast", mappedContrast * mappedDistance);
+//            shader->setUniform1f("brightness",	mappedBrightness * mappedDistance);
+//            shader->setUniform1f("alpha", 0.3);//(mappedAlpha * mappedDistance) * ofClamp(mappedStartTime, 0, 1));
+//            shader->setUniform1f("red", 1.0);
+//            shader->setUniform1f("green", 1.0);
+//            shader->setUniform1f("blue", 1.0);
+
             //ofEnableAlphaBlending();
             //ofSetColor(255, 255, 255, 255);
             float lineSize = 10;
@@ -433,7 +427,7 @@ void CloudTag::drawLines()
                 glVertex3f(userData->userPoint.x, userData->userPoint.y, userData->userPoint.z);
             glEnd();
 
- //           shader->end();
+//           shader->end();
 
 
 
