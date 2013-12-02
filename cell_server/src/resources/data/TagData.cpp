@@ -208,7 +208,6 @@ void TagData::createTagFbo()
 	ofClear(0, 0, 0, 1);
 	blackToAlphaShader->begin();
     blackToAlphaShader->setUniform1f("textAlphaAdd", textAlphaAdd);
-    printf("textAlphaAdd = %f \n", textAlphaAdd);
 	fbo.draw(0, 0);
 	blackToAlphaShader->end();
 	alphaFbo.end(); /////////////////////////////////////////////////////

@@ -18,6 +18,7 @@ class GUI : GUIManager
 public:
     virtual void setup();
     virtual bool getVisible();
+    int getClientCalibrationVisible();
     
     void addKeyboardShortcutsGUI();
     void addCameraGUI();

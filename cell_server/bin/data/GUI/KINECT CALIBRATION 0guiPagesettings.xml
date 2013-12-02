@@ -31,18 +31,18 @@
 <Widget>
     <Kind>6</Kind>
     <Name>X spread range normal</Name>
-    <HighValue>-21.710525513</HighValue>
-    <LowValue>-52.302627563</LowValue>
+    <HighValue>15.789474487</HighValue>
+    <LowValue>-21.710525513</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>X front range skewed</Name>
-    <HighValue>-84.868415833</HighValue>
-    <LowValue>-150.000000000</LowValue>
+    <HighValue>-19.736831665</HighValue>
+    <LowValue>-58.223686218</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>X back range skewed</Name>
-    <HighValue>-71.052627563</HighValue>
-    <LowValue>-99.671051025</LowValue>
+    <HighValue>4.934204102</HighValue>
+    <LowValue>-49.342117310</LowValue>
 </Widget>

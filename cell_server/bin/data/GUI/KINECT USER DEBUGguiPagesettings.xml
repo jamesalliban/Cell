@@ -26,11 +26,16 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Show Joint Pos Data</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>Show User Data</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Show Average line</Name>
     <Value>1</Value>
 </Widget>
 <Widget>

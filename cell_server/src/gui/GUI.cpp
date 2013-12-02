@@ -52,6 +52,24 @@ bool GUI::getVisible()
     return GUIManager::getVisible();
 }
 
+int GUI::getClientCalibrationVisible()
+{
+    for (int i = 0; i < guiPages.size(); i++)
+    {
+        if (guiPages[i]->isVisible())
+        {
+            string name = guiPages[i]->getName().c_str();
+            string nameSubstr = name.substr(0, 18);
+            if (nameSubstr == "KINECT CALIBRATION")
+            {
+                return ofToInt(ofToString(name[19]));
+            }
+        }
+    }
+    //bool isVisible = guiPages[0]->isVisible();
+    return -1;
+}
+
 void GUI::addKeyboardShortcutsGUI()
 {
     string title = "KEYBOARD SHORTCUTS";
@@ -522,6 +540,8 @@ void GUI::addKinectUserDegugGUI()
     gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
     gui->addToggle("Show Joint Pos Data", &app->sceneManager.userManager.isPositionDataDisplayed, toggleDim, toggleDim);
     gui->addToggle("Show User Data", &app->sceneManager.userManager.isUserDataDisplayed, toggleDim, toggleDim);
+    gui->addToggle("Show Average line", &app->sceneManager.userManager.isAverageLineDisplayed, toggleDim, toggleDim);
+    
     
     gui->addLabel("RECORDED", OFX_UI_FONT_MEDIUM);
 
@@ -546,8 +566,8 @@ void GUI::addVariousGUI()
     string title = "VARIOUS";
     ofxUICanvas* gui = getNewGUI(title);
     
-    gui->addLabel("GRID");
-	gui->addSlider("FPS", 1, 100, &app->frameRate, length, dim);
+    gui->addLabel("FPS");
+	gui->addSlider("TARGET FPS", 1, 100, &app->targetframeRate, length, dim);
 
     gui->addLabel("GRID");
     gui->addToggle("GRID VISIBLE", &app->sceneManager.isGridVisible, toggleDim, toggleDim);

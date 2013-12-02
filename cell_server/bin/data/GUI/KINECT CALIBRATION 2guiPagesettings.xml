@@ -16,7 +16,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Pos offset X (2)</Name>
-    <Value>-161.184234619</Value>
+    <Value>-3.289459229</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -31,14 +31,14 @@
 <Widget>
     <Kind>6</Kind>
     <Name>X spread range normal</Name>
-    <HighValue>15.789474487</HighValue>
-    <LowValue>-16.776321411</LowValue>
+    <HighValue>19.736831665</HighValue>
+    <LowValue>-19.736831665</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>X front range skewed</Name>
-    <HighValue>44.407882690</HighValue>
-    <LowValue>-44.407897949</LowValue>
+    <HighValue>43.421051025</HighValue>
+    <LowValue>-45.394737244</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>

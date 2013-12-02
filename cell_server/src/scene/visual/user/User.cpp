@@ -340,11 +340,12 @@ void User::debugDraw()
     {
         drawLines();
     }
-    //if (userMan->isAverageLineDisplayed)
-    //{
-    //    ofVec2f vec = getAveragePosition();
-    //    drawLine(ofVec3f(vec.x, 0, vec.y), ofVec3f(vec.x, 50, vec.y));
-    //}
+
+    if (userMan->isAverageLineDisplayed)
+    {
+        ofVec2f vec = getAveragePosition();
+        drawLine(ofVec3f(vec.x, 0, vec.y), ofVec3f(vec.x, 50, vec.y));
+    }
 
 }
 

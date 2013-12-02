@@ -68,6 +68,7 @@ void SceneManager::update()
 		float mouseCamY = ofMap(smoothMouseY, 0, ofGetHeight(), camZ, -camZ, true) * camDistanceMultiplier;
 		float mouseCamZ = cos(ofMap(smoothMouseX, 0, ofGetWidth(), -2, 2, true)) * camZ * camDistanceMultiplier;
         
+        printf("mouseX:%i, mouseY:%i \n", ofGetMouseX(), ofGetMouseY());
         
 		camEasyCam.setPosition(ofVec3f(mouseCamX, mouseCamY, mouseCamZ));
 		camEasyCam.lookAt(nodeGrid, ofVec3f(0, 1, 0));

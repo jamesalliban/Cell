@@ -17,7 +17,7 @@ public:
 	void draw();
     
 	void keyPressed(int key);
-	void mouseMoved(int x, int y );
+	void mouseMoved(int x, int y);
 	void mouseDragged(int x, int y, int button);
 	void mousePressed(int x, int y, int button);
 	void windowResized(int w, int h);
@@ -26,7 +26,6 @@ public:
     
     void loadTagIndexData();
     void urlResponse(ofHttpResponse & response);
-    
     
     void exit();
     
@@ -37,6 +36,7 @@ public:
 	GUI gui;
 
 	float frameRate;
+    float targetframeRate;
     
 	float topBlockHeight;
 	float topBlockBot;

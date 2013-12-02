@@ -1,6 +1,6 @@
 #include "UserManager.h"
 
-#include "TestApp.h"
+#include "testApp.h"
 #include "KinectManager.h"
 #include "ResourceManager.h"
 
@@ -127,17 +127,20 @@ void UserManager::draw()
             user->nonKinectDraw();
         }
     }
-
+    
+    
 	drawUserBounds();
 }
 
 
 void UserManager::drawUserBounds()
 {
-	int clientId = 0;
-	int skel0FromClient = (int)(clientId / 2);
+    testApp *app = (testApp*)ofGetAppPtr();
+	int clientId = app->gui.getClientCalibrationVisible();
 
-	ofPushMatrix();
+    if (clientId == -1) return;
+    
+	ofPushStyle();
 	ofSetLineWidth(5);
 	ofSetColor(100, 0, 0);
     // draw normal range
@@ -148,7 +151,7 @@ void UserManager::drawUserBounds()
 	ofLine(xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMax, xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMax); // front
 	ofLine(xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMin, xSpreadRangeNormalMin[clientId], 0, User::zSpreadOutputMax); // left
 	ofLine(xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMin, xSpreadRangeNormalMax[clientId], 0, User::zSpreadOutputMax); // right
-	ofPopMatrix();
+	
 
 	ofSetLineWidth(3);
 	ofSetColor(0, 100, 0);
@@ -159,8 +162,8 @@ void UserManager::drawUserBounds()
 	ofLine(xFrontSkewedMin[clientId], 0, User::zSpreadOutputMin, xBackSkewedMin[clientId], 0, User::zSpreadOutputMax); // left
 	ofLine(xFrontSkewedMax[clientId], 0, User::zSpreadOutputMin, xBackSkewedMax[clientId], 0, User::zSpreadOutputMax); // right
 
-	
 	ofPopMatrix();
+	ofPopStyle();
 }
 
 

@@ -88,7 +88,8 @@ void testApp::setup()
     isFirstFrame = false;
 	isPaused = false;
     
-    
+    frameRate = targetframeRate;
+    ofSetFrameRate(frameRate);
     
 #ifdef CHINESE_CELL
     isLoadingXml = false;
@@ -104,11 +105,15 @@ void testApp::setup()
 
 void testApp::update()
 {
-    //if (ofGetFrameNum() % 10 == 0)
-    //    printf("mouseX:%i, mouseY:%i, ofGetMouseX():%i, ofGetMouseY():%i \n", mouseX, mouseY, ofGetMouseX(), ofGetMouseY());
-    //
-
-	ofSetFrameRate(frameRate);
+//    if (ofGetFrameRate() < targetframeRate - 0.2)
+//        frameRate += 0.2;
+//    else
+//        frameRate -= 0.2;
+//    if (frameRate > targetframeRate * 2) frameRate = targetframeRate * 2;
+    
+	if (ofGetFrameNum() % 30 == 0) ofSetFrameRate(targetframeRate);
+    
+    printf("testApp - mouseX:%i, mouseY:%i \n", mouseX, mouseY);
     
 	if (!isPaused)
 	{
@@ -117,11 +122,11 @@ void testApp::update()
         resourceManager.update();
 	}
     
-    //    framesSinceMouseMove++;
-    //    if (framesSinceMouseMove > 100)
-    //        ofHideCursor();
-    //    else
-    //        ofShowCursor();
+//    framesSinceMouseMove++;
+//    if (framesSinceMouseMove > 100)
+//        ofHideCursor();
+//    else
+//        ofShowCursor();
     
     
     //    if (++currentEllapsedFrames >= xmlCheckFrameFrequency)
@@ -161,6 +166,11 @@ void testApp::update()
         resourceManager.addNewTag(latestTag, question);
 	}
     
+    
+    
+    
+    
+    
     return;
 	if (ofGetFrameNum() % (int)serverCheckFrequncy == 0 && ofGetFrameNum() > 10)
     {
@@ -183,6 +193,7 @@ void testApp::update()
 		currentTagTotal = latestTagTotal;
 #endif
     }
+    
 }
 
 
@@ -308,8 +319,10 @@ void testApp::keyPressed(int key)
 
 
 
-void testApp::mouseMoved(int x, int y )
+void testApp::mouseMoved(int x, int y)
 {
+    
+    printf("mouseMoved - mouseX:%i, mouseY:%i \n", x, x);
     framesSinceMouseMove = 0;
 }
 
