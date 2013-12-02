@@ -26,6 +26,7 @@ void CloudTag::init(ofShader* shad, TagData* tData, int _id)
 	id = _id;
 
 	// create a TrackedUserData object for each User that tells this tag how to react to said user
+	userDataObjects.clear();
 	for (int i = 0; i < SKELETON_MAX; i++)
 	{
         TrackedUserData userData;
@@ -335,6 +336,8 @@ void CloudTag::drawTags()
 	float mappedContrast = ofMap(position.z, -50, 50, cloudTagMan->shadeContrastMin, cloudTagMan->shadeContrastMax, true);
 	float mappedBrightness = ofMap(position.z, -50, 50, cloudTagMan->shadeBrightnessMin, cloudTagMan->shadeBrightnessMax, true);
 	float mappedAlpha = ofMap(position.z, -50, 50, cloudTagMan->shadeAlphaMin, cloudTagMan->shadeAlphaMax, true);
+	//printf("%f ", position.z);
+	//printf("%f %f %f ", mappedContrast, mappedBrightness, mappedAlpha);
 	shader->setUniform1f("contrast", mappedContrast);
 	shader->setUniform1f("brightness",	mappedBrightness);
 	ofVec3f colourOffset = app->sceneManager.fieldMan.getColourOffset(&position);

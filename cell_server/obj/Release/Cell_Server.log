@@ -1,6 +1,115 @@
-﻿Build started 02/12/2013 13:00:43.
+﻿Build started 02/12/2013 13:34:59.
      1>Project "C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\Cell_Server.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\..\libs\openFrameworks /I..\..\..\libs\openFrameworks\graphics /I..\..\..\libs\openFrameworks\app /I..\..\..\libs\openFrameworks\sound /I..\..\..\libs\openFrameworks\utils /I..\..\..\libs\openFrameworks\communication /I..\..\..\libs\openFrameworks\video /I..\..\..\libs\openFrameworks\types /I..\..\..\libs\openFrameworks\math /I..\..\..\libs\openFrameworks\3d /I..\..\..\libs\openFrameworks\gl /I..\..\..\libs\openFrameworks\events /I..\..\..\libs\glut\include /I..\..\..\libs\rtAudio\include /I..\..\..\libs\quicktime\include /I..\..\..\libs\freetype\include /I..\..\..\libs\freetype\include\freetype2 /I..\..\..\libs\freeImage\include /I..\..\..\libs\fmodex\include /I..\..\..\libs\videoInput\include /I..\..\..\libs\glew\include\ /I..\..\..\libs\glu\include /I..\..\..\libs\tess2\include /I..\..\..\libs\cairo\include\cairo /I..\..\..\libs\poco\include /I..\..\..\libs\glfw\include /I..\..\..\..\libs\openssl\include /I..\..\..\addons /I..\..\..\addons\ofxOsc\libs /I..\..\..\addons\ofxOsc\libs\oscpack /I..\..\..\addons\ofxOsc\libs\oscpack\src /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32 /I..\..\..\addons\ofxOsc\libs\oscpack\src\osc /I..\..\..\addons\ofxOsc\src /I..\..\..\addons\ofxXmlSettings\libs /I..\..\..\addons\ofxXmlSettings\src /I..\addons\ofxUI\src /I..\..\addons\ofxTrueTypeFontUC\src /I..\addons\ofxFontStash\src /I..\addons\ofxFontStash\libs\fontstash\src /I..\addons\ofxUnicode\libs\utf8cpp\include /I..\addons\ofxUnicode\libs\utf8cpp\include\utf8 /I..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source /I..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8 /I..\addons\ofxUnicode\src /Isrc /Isrc\gui /Isrc\kinect /Isrc\resources /Isrc\resources\data /Isrc\scene /Isrc\scene\camera /Isrc\scene\light /Isrc\scene\test /Isrc\scene\visual /Isrc\scene\visual\tag /Isrc\scene\visual\tag\field /Isrc\scene\visual\user /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D POCO_STATIC /D CAIRO_WIN32_STATIC_BUILD /D DISABLE_SOME_FLOATING_POINT /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Release\\" /Fd"obj\Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\scene\visual\tag\CloudTag.cpp src\scene\visual\tag\CloudTagManager.cpp
+         CloudTag.cpp
+     1>C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         CloudTagManager.cpp
+     1>C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>C:\InstallCell\of_v0.8.0_vs_release\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         Generating Code...
+     1>c:\installcell\of_v0.8.0_vs_release\apps\cell\cell_server\src\scene\visual\tag\cloudtag.cpp(562): warning C4715: 'CloudTag::getSecondJointIndex' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\Cell_Server.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\libs\glut\lib\vs /LIBPATH:..\..\..\libs\glfw\lib\vs /LIBPATH:..\..\..\libs\rtAudio\lib\vs /LIBPATH:..\..\..\libs\FreeImage\lib\vs /LIBPATH:..\..\..\libs\freetype\lib\vs /LIBPATH:..\..\..\libs\quicktime\lib\vs /LIBPATH:..\..\..\libs\fmodex\lib\vs /LIBPATH:..\..\..\libs\videoInput\lib\vs /LIBPATH:..\..\..\libs\cairo\lib\vs /LIBPATH:..\..\..\libs\glew\lib\vs /LIBPATH:..\..\..\libs\glu\lib\vs /LIBPATH:..\..\..\libs\openssl\lib\vs /LIBPATH:..\..\..\libs\Poco\lib\vs /LIBPATH:..\..\..\libs\tess2\lib\vs "cairo-static.lib" "pixman-1.lib" msimg32.lib OpenGL32.lib GLu32.lib kernel32.lib setupapi.lib Vfw32.lib comctl32.lib glut32.lib rtAudio.lib videoInput.lib libfreetype.lib FreeImage.lib qtmlClient.lib dsound.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib glew32s.lib fmodex_vc.lib glu32.lib crypt32.lib libeay32MD.lib ssleay32MD.lib PocoFoundationmd.lib PocoNetmd.lib PocoUtilmd.lib PocoXMLmd.lib Ws2_32.lib tess2.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:PocoFoundationd.lib /NODEFAULTLIB:atlthunk.lib /NODEFAULTLIB:LIBC.lib /NODEFAULTLIB:LIBCMT /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"bin\Cell_Server.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /NXCOMPAT /IMPLIB:"bin\Cell_Server.lib" /MACHINE:X86 /SAFESEH obj\Release\icon.res
+         obj\Release\tinyxml.obj
+         obj\Release\tinyxmlerror.obj
+         obj\Release\tinyxmlparser.obj
+         obj\Release\ofxXmlSettings.obj
+         obj\Release\fontstash.obj
+         obj\Release\stb_truetype.obj
+         obj\Release\ofxFontStash.obj
+         obj\Release\ofTextConverter.obj
+         obj\Release\ofUnicode.obj
+         obj\Release\ofUTF8.obj
+         obj\Release\GUI.obj
+         obj\Release\GUIManager.obj
+         obj\Release\KinectManager.obj
+         obj\Release\main.obj
+         obj\Release\ofxOscSender.obj
+         obj\Release\ofxOscBundle.obj
+         obj\Release\ofxOscReceiver.obj
+         obj\Release\ofxOscMessage.obj
+         obj\Release\ofxOscParameterSync.obj
+         obj\Release\NetworkingUtilsWin.obj
+         obj\Release\UdpSocketWin.obj
+         obj\Release\UdpSocket.obj
+         obj\Release\NetworkingUtils.obj
+         obj\Release\IpEndpointName.obj
+         obj\Release\OscReceivedElements.obj
+         obj\Release\OscOutboundPacketStream.obj
+         obj\Release\OscPrintReceivedElements.obj
+         obj\Release\OscTypes.obj
+         obj\Release\DemographicData.obj
+         obj\Release\TagData.obj
+         obj\Release\ResourceManager.obj
+         obj\Release\LightManager.obj
+         obj\Release\SceneManager.obj
+         obj\Release\CameraDirectionNode.obj
+         obj\Release\Grid.obj
+         obj\Release\CloudTag.obj
+         obj\Release\CloudTagManager.obj
+         obj\Release\Field.obj
+         obj\Release\FieldAttract.obj
+         obj\Release\FieldColour.obj
+         obj\Release\FieldEnergy.obj
+         obj\Release\FieldHeightDown.obj
+         obj\Release\FieldHeightUp.obj
+         obj\Release\FieldManager.obj
+         obj\Release\FieldRepel.obj
+         obj\Release\FieldScaleUp.obj
+         obj\Release\User.obj
+         obj\Release\UserBatch.obj
+         obj\Release\UserBatchManager.obj
+         obj\Release\UserManager.obj
+         obj\Release\TestApp.obj
+         C:\InstallCell\of_v0.8.0_vs_release\libs\openFrameworksCompiled\lib\vs\openframeworksLib.lib
+            Creating library bin\Cell_Server.lib and object bin\Cell_Server.exp
+         LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
          Cell_Server.vcxproj -> C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\bin\Cell_Server.exe
        PostBuildEvent:
          xcopy /e /i /y "C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\..\..\..\export\vs\*.dll" "C:\InstallCell\of_v0.8.0_vs_release\apps\Cell\cell_server\bin"
@@ -19,4 +128,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.12
+Time Elapsed 00:00:06.83
