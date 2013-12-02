@@ -8,7 +8,7 @@ int main( ){
 	//ofSetupOpenGL(3840,1024, OF_WINDOW);
 	//ofSetWindowPosition(-1920, 10);
 	ofSetupOpenGL(1920, 700, OF_WINDOW);
-	ofSetWindowPosition(0, 0);
+	ofSetWindowPosition(10, 10);
 
 
 	// this kicks off the running of my app

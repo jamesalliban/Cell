@@ -132,7 +132,8 @@ void User::update()
 		// will do is convert this to x:-160 - 160, y:-120 - 120 and z:-15000 - 15000. This will make scaling easier
 		ofPoint *joint = &jointPositions[i];
 		
-		//joint->x -= 160;
+		// this places the user in the centre of the scene. The skeleton range is usually 1-320. This sets the range to -160 - 160
+		joint->x -= 160;
 		//joint->y -= 120;
 		//joint->z -= 15000;
 
@@ -177,14 +178,17 @@ void User::update()
             joint->z = ofMap(joint->z, zSpreadInputMin, zSpreadInputMax, zSpreadOutputMin, zSpreadOutputMax);
         }
 		
-        
+		//joint->x += (UserManager::xSpreadRangeNormalMax[clientID]);// * userMan->skeletonScale[clientID]); // * 0.5;
+
         if (isXSpreadOffset)
         {
             float zPosNorm = ofMap(joint->z, zSpreadOutputMin, zSpreadOutputMax, 0, 1);
-            float xPosNorm = ofMap(joint->x, UserManager::xSpreadRangeNormalMin[clientID], UserManager::xSpreadRangeNormalMax[clientID], 0, 1);
-            
+			float xPosOffset = (userMan->skeletonPosOffsetX[clientID]) * userMan->skeletonScale[clientID];
+            float xPosNorm = ofMap(joint->x, UserManager::xSpreadRangeNormalMin[clientID] + xPosOffset, UserManager::xSpreadRangeNormalMax[clientID] + xPosOffset, 0, 1);
             float frontXpos = ofMap(xPosNorm, 0, 1, UserManager::xFrontSkewedMin[clientID], UserManager::xFrontSkewedMax[clientID]);
             float backXpos = ofMap(xPosNorm, 0, 1, UserManager::xBackSkewedMin[clientID], UserManager::xBackSkewedMax[clientID]);
+
+			if (clientID == 0 && i == CELL_HIP_CENTRE) printf("zPosNorm:%f, xPosNorm:%f, xPosOffset:%f, frontXpos:%f, backXPos:%f \n", zPosNorm, xPosNorm, xPosOffset, frontXpos, backXpos);
             
             if (i == CELL_HIP_CENTRE)
             {
@@ -192,10 +196,13 @@ void User::update()
                 float newHipCentreX = ofLerp(frontXpos, backXpos, zPosNorm);
                 hipXSpreadOffset = newHipCentreX - hipCentreX;
                 joint->x = newHipCentreX;
+				joint->x += userMan->skeletonPosOffsetX[clientID] * userMan->skeletonScale[clientID];
             }
             else
             {
+
                 joint->x += hipXSpreadOffset;
+				joint->x += userMan->skeletonPosOffsetX[clientID] * userMan->skeletonScale[clientID];
             }
         }
         

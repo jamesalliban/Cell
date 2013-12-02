@@ -1762,4 +1762,95 @@
 				<strength>0.5</strength>
 			</demographic>		
 		</tag>
-</tags>
+<tag>
+		<word>个人</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>空气</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+<tag>
+		<word>睡觉</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word> 瞄</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+<tag>
+		<word>公关</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪北京</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪北京</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+</tags>

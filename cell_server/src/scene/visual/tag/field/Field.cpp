@@ -5,9 +5,6 @@ bool Field::isAllEnabled;
 void Field::init()
 {
     randomity = ofRandom(10000);
-    playArea = 50;
-    movementSpeed = .05;
-    lengthSquaredMin = 300;
 }
 
 

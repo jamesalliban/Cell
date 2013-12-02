@@ -6,7 +6,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Y</Name>
-    <Value>12.828948975</Value>
+    <Value>12.828945160</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -41,7 +41,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Toggle mouse input</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

@@ -18,7 +18,11 @@ void KinectManager::init()
         trackedSkeletons.push_back(skeletonData);
     }
 
-
+	for (int i = 0; i < SKELETON_MAX / 2; i++) 
+	{
+		clientConnected[i] = false;
+		framesSinceClientConnected[i] = 0;
+	}
     padding = 12;
 
 	/*
@@ -96,6 +100,14 @@ void KinectManager::update()
 	{
 		playRecordedLine();
 	}
+	
+	for (int i = 0; i < SKELETON_MAX / 2; i++) 
+	{
+		//clientConnected[i] = false;
+		++framesSinceClientConnected[i];
+		if (framesSinceClientConnected[i] > 10) clientConnected[i] = false;
+		else clientConnected[i] = true;
+	}
 }
 
 
@@ -128,6 +140,8 @@ void KinectManager::checkForOSCKinectData()
 				int clientId = m.getArgAsInt32(0);
 				int skelId = m.getArgAsInt32(startIndex);
 				
+				framesSinceClientConnected[clientId] = 0;
+
 				KinectSkeletonData* skeletonDataObject = &trackedSkeletons[clientId * 2 + skelId];
 
 				skeletonDataObject->clientID = clientId;

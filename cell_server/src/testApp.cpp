@@ -105,15 +105,16 @@ void testApp::setup()
 
 void testApp::update()
 {
-//    if (ofGetFrameRate() < targetframeRate - 0.2)
-//        frameRate += 0.2;
-//    else
-//        frameRate -= 0.2;
-//    if (frameRate > targetframeRate * 2) frameRate = targetframeRate * 2;
-    
-	if (ofGetFrameNum() % 30 == 0) ofSetFrameRate(targetframeRate);
-    
-    printf("testApp - mouseX:%i, mouseY:%i \n", mouseX, mouseY);
+    //if (ofGetFrameRate() < targetframeRate)
+    //    frameRate += 0.1;
+    //else
+    //    frameRate -= 0.1;
+    //if (frameRate > targetframeRate * 2) frameRate = targetframeRate * 2;
+	//printf("ofGetFrameRate():%f, frameRate:%f, targetFrameRate:%f\n", ofGetFrameRate(), frameRate, targetframeRate);
+
+	//if (ofGetFrameNum() % 30 == 0) 
+	//ofSetFrameRate(frameRate);
+	ofSetFrameRate(targetframeRate);
     
 	if (!isPaused)
 	{
@@ -219,10 +220,12 @@ void testApp::draw()
     {
         ofSetColor(255);
         ofPushMatrix();
-        ofTranslate(400, ofGetHeight() - 20);
-        string xmlStr = "isLoading: " + ofToString((isLoadingXml) ? "true,  " : "false, ") +
-        "latest tag index: " + ofToString(currentTagTotal);
-        ofDrawBitmapString(xmlStr, ofPoint(0, 0));
+        ofTranslate(400, ofGetHeight() - 200);
+        string debugStr = "isLoading: " + ofToString((isLoadingXml) ? "true,  " : "false, ") +
+        "latest tag index: " + ofToString(currentTagTotal) + "\n";
+		for (int i = 0; i < SKELETON_MAX / 2; i++) debugStr += "client " + ofToString(i) + " connected: " + ((kinectManager.clientConnected[i]) ? "true\n" : "false\n");
+
+        ofDrawBitmapString(debugStr, ofPoint(0, 0));
         ofPopMatrix();
     }
     glEnable(GL_DEPTH_TEST);
@@ -321,8 +324,6 @@ void testApp::keyPressed(int key)
 
 void testApp::mouseMoved(int x, int y)
 {
-    
-    printf("mouseMoved - mouseX:%i, mouseY:%i \n", x, x);
     framesSinceMouseMove = 0;
 }
 
@@ -372,8 +373,11 @@ void testApp::loadTagIndexData()
 {
     //TODO:Make sure this doesn't load if new tags are still fading
     if (!isLoadingXml)
+	{
+		//printf("loading index\n");
         ofLoadURLAsync("http://192.30.139.232/b10/sites/questionnaire//q-7.xml","tag_index_load");
 //        ofLoadURLAsync("https://dl.dropboxusercontent.com/u/1619383/cell/index.xml","tag_index_load");
+	}
 	isLoadingXml = true;
 }
 
@@ -382,6 +386,7 @@ void testApp::urlResponse(ofHttpResponse & response)
 {
     if (response.status == 200 && response.request.name == "tag_index_load")
     {
+		//printf("loaded tag index\n");
         tagIndexData = response.data.getText();
         isNewIndexXml = true;
         isLoadingXml = false;

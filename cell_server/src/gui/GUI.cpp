@@ -111,8 +111,8 @@ void GUI::addCameraGUI()
     ofxUICanvas* gui = getNewGUI(title);
     
     gui->addLabel("POSITION/ROTATION", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("X", -150, 150, &app->sceneManager.camX, length, dim);
-    gui->addSlider("Y", -150, 150, &app->sceneManager.camY, length, dim);
+    gui->addSlider("X", -50, 50, &app->sceneManager.camX, length, dim);
+    gui->addSlider("Y", -50, 50, &app->sceneManager.camY, length, dim);
     gui->addSlider("Z", -400, 400, &app->sceneManager.camZ, length, dim);
 	gui->addSlider("Distance Multiplier", 0, 5, &app->sceneManager.camDistanceMultiplier, length, dim);
     gui->addSlider("LookAt node X", -50, 50, &app->sceneManager.camDirectionX, length, dim);
@@ -288,9 +288,9 @@ void GUI::addMotionFields1GUI()
     
     gui->addLabel("SCALE UP FIELD - YELLOW", OFX_UI_FONT_MEDIUM);
     gui->addToggle("Enabled scale", &app->sceneManager.fieldMan.fieldScaleUp.isEnabled, toggleDim, toggleDim);
-    gui->addSlider("Play Area", 20, 150.0, &app->sceneManager.fieldMan.fieldScaleUp.playArea, length, dim);
-    gui->addSlider("Speed", 0.01, 0.1, &app->sceneManager.fieldMan.fieldScaleUp.movementSpeed, length, dim);
-    gui->addSlider("Area size", 100, 500.0, &app->sceneManager.fieldMan.fieldScaleUp.lengthSquaredMin, length, dim);
+    gui->addSlider("Play Area scale", 20, 150.0, &app->sceneManager.fieldMan.fieldScaleUp.playArea, length, dim);
+    gui->addSlider("Speed scale", 0.01, 0.1, &app->sceneManager.fieldMan.fieldScaleUp.movementSpeed, length, dim);
+    gui->addSlider("Area size scale", 100, 500.0, &app->sceneManager.fieldMan.fieldScaleUp.lengthSquaredMin, length, dim);
     gui->addSlider("Scale Strength", 0.5, 3.0, &app->sceneManager.fieldMan.fieldScaleUp.scaleUpStrength, length, dim);
     
     finaliseCanvas(gui, true);
@@ -411,14 +411,14 @@ void GUI::addKinectCalibration0GUI()
     gui->addSlider("Degrees (0)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[0], length, dim);
     gui->addSlider("Rotation X (0)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[0], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[0], length, dim);
+    gui->addSlider("Pos offset X (0)", -skelOffsetRange*2, skelOffsetRange*2, &app->sceneManager.userManager.skeletonPosOffsetX[0], length, dim);
     gui->addSlider("Pos offset Y (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[0], length, dim);
     gui->addSlider("Pos offset Z (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[0], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[0], &UserManager::xSpreadRangeNormalMax[0], length, dim);
-    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[0], &UserManager::xFrontSkewedMax[0], length, dim);
-    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[0], &UserManager::xBackSkewedMax[0], length, dim);
+    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[0], &UserManager::xSpreadRangeNormalMax[0], length, dim);
+    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[0], &UserManager::xFrontSkewedMax[0], length, dim);
+    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[0], &UserManager::xBackSkewedMax[0], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -436,14 +436,14 @@ void GUI::addKinectCalibration1GUI()
     gui->addSlider("Degrees (1)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[1], length, dim);
     gui->addSlider("Rotation X (1)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[1], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[1], length, dim);
+    gui->addSlider("Pos offset X (1)", -skelOffsetRange*2, skelOffsetRange*2, &app->sceneManager.userManager.skeletonPosOffsetX[1], length, dim);
     gui->addSlider("Pos offset Y (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[1], length, dim);
     gui->addSlider("Pos offset Z (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[1], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[1], &UserManager::xSpreadRangeNormalMax[1], length, dim);
-    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[1], &UserManager::xFrontSkewedMax[1], length, dim);
-    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[1], &UserManager::xBackSkewedMax[1], length, dim);
+    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[1], &UserManager::xSpreadRangeNormalMax[1], length, dim);
+    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[1], &UserManager::xFrontSkewedMax[1], length, dim);
+    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[1], &UserManager::xBackSkewedMax[1], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -461,14 +461,14 @@ void GUI::addKinectCalibration2GUI()
     gui->addSlider("Degrees (2)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[2], length, dim);
     gui->addSlider("Rotation X (2)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[2], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[2], length, dim);
+    gui->addSlider("Pos offset X (2)", -skelOffsetRange*2, skelOffsetRange*2, &app->sceneManager.userManager.skeletonPosOffsetX[2], length, dim);
     gui->addSlider("Pos offset Y (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[2], length, dim);
     gui->addSlider("Pos offset Z (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[2], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[2], &UserManager::xSpreadRangeNormalMax[2], length, dim);
-    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[2], &UserManager::xFrontSkewedMax[2], length, dim);
-    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[2], &UserManager::xBackSkewedMax[2], length, dim);
+    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[2], &UserManager::xSpreadRangeNormalMax[2], length, dim);
+    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[2], &UserManager::xFrontSkewedMax[2], length, dim);
+    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[2], &UserManager::xBackSkewedMax[2], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -486,14 +486,14 @@ void GUI::addKinectCalibration3GUI()
     gui->addSlider("Degrees (3)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[3], length, dim);
     gui->addSlider("Rotation X (3)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[3], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[3], length, dim);
+    gui->addSlider("Pos offset X (3)", -skelOffsetRange*2, skelOffsetRange*2, &app->sceneManager.userManager.skeletonPosOffsetX[3], length, dim);
     gui->addSlider("Pos offset Y (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[3], length, dim);
     gui->addSlider("Pos offset Z (3)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[3], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[3], &UserManager::xSpreadRangeNormalMax[3], length, dim);
-    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[3], &UserManager::xFrontSkewedMax[3], length, dim);
-    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[3], &UserManager::xBackSkewedMax[3], length, dim);
+    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[3], &UserManager::xSpreadRangeNormalMax[3], length, dim);
+    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[3], &UserManager::xFrontSkewedMax[3], length, dim);
+    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[3], &UserManager::xBackSkewedMax[3], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -511,14 +511,14 @@ void GUI::addKinectCalibration4GUI()
     gui->addSlider("Degrees (4)", -50, 50,&app->sceneManager.userManager.skeletonRotDegrees[4], length, dim);
     gui->addSlider("Rotation X (4)", 0.0, 1.0,&app->sceneManager.userManager.skeletonRotX[4], length, dim);
     gui->addLabel("POSITION OFFSET", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Pos offset X (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetX[4], length, dim);
+    gui->addSlider("Pos offset X (4)", -skelOffsetRange*2, skelOffsetRange*2, &app->sceneManager.userManager.skeletonPosOffsetX[4], length, dim);
     gui->addSlider("Pos offset Y (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetY[4], length, dim);
     gui->addSlider("Pos offset Z (4)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[4], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -150, 150, &UserManager::xSpreadRangeNormalMin[4], &UserManager::xSpreadRangeNormalMax[4], length, dim);
-    gui->addRangeSlider("X front range skewed", -150, 150, &UserManager::xFrontSkewedMin[4], &UserManager::xFrontSkewedMax[4], length, dim);
-    gui->addRangeSlider("X back range skewed", -150, 150, &UserManager::xBackSkewedMin[4], &UserManager::xBackSkewedMax[4], length, dim);
+    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[4], &UserManager::xSpreadRangeNormalMax[4], length, dim);
+    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[4], &UserManager::xFrontSkewedMax[4], length, dim);
+    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[4], &UserManager::xBackSkewedMax[4], length, dim);
     
     finaliseCanvas(gui, true);
 }

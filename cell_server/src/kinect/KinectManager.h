@@ -14,6 +14,7 @@
 #define CLIENT1_IP "192.168.0.201"
 #define CLIENT2_IP "192.168.0.202"
 #define CLIENT3_IP "192.168.0.203"
+#define CLIENT4_IP "192.168.0.204"
 #define PORT_OUT 12345
 #define PORT_IN 12346
 
@@ -56,6 +57,9 @@ public:
 	int currentPlaybackFrame;
 	int recordedFramesMax;
 	string currentPlaybackPath;
+	
+	bool clientConnected[SKELETON_MAX / 2];
+	long framesSinceClientConnected[SKELETON_MAX / 2];
     
 	float recordedImageAlpha;
 

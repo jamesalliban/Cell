@@ -29,14 +29,14 @@
 <Widget>
     <Kind>6</Kind>
     <Name>Z multiplier input</Name>
-    <HighValue>2.000000000</HighValue>
+    <HighValue>1.626875043</HighValue>
     <LowValue>0.010000000</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>Z position input range</Name>
     <HighValue>3.947372437</HighValue>
-    <LowValue>-14.802627563</LowValue>
+    <LowValue>-20.723678589</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
