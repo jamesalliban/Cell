@@ -193,13 +193,11 @@ void GUI::addTagAnimationGUI()
     gui->addSlider("Tag amount", 10, 10000, &app->sceneManager.cloudTagMan.cloudTagAmount, length, dim);
     
     gui->addLabel("DEFAULT ANIMATION", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Perlin Input offset multiplier", 0.0000, 10, &app->sceneManager.cloudTagMan.perlinInputOffsetMultiplier, length, dim);
-    gui->addSlider("Speed", 0.0001, 0.05, &app->sceneManager.cloudTagMan.speed, length, dim);
-    gui->addSlider("Frame multiplier", 0.00001, 0.01, &app->sceneManager.cloudTagMan.frameMultiplier, length, dim);
-    gui->addSlider("Noise multiplier", 0.001, 0.5, &app->sceneManager.cloudTagMan.noiseMultiplier, length, dim);
+    gui->addSlider("Time modifier (energy)", 0.0001, 1, &app->sceneManager.cloudTagMan.secondsMultiplier, length, dim);
+    gui->addSlider("Noise pos modifier (uniformity)", 0.0001, 0.3, &app->sceneManager.cloudTagMan.noisePosModifier, length, dim);
+    gui->addSlider("Noise modifier (speed)", 0.001, 0.5, &app->sceneManager.cloudTagMan.noiseMultiplier, length, dim);
     
     gui->addLabel("BOUNDARIES", OFX_UI_FONT_MEDIUM);
-    gui->addSlider("Out of Bounds Angle Add", 0.001, 1, &app->sceneManager.cloudTagMan.angleAdd, length, dim);
     gui->addSlider("Out of Bounds Pos Add Max", 0.001, 1, &app->sceneManager.cloudTagMan.outOfBoundsPosAddMax, length, dim);
     gui->addSlider("Out of Bounds Pos Add Min", 0.0001, 0.01, &app->sceneManager.cloudTagMan.outOfBoundsPosAddMin, length, dim);
     gui->addSlider("Out of Bounds Pos Add Decay", 1, 5, &app->sceneManager.cloudTagMan.outOfBoundsPosAddDecay, length, dim);

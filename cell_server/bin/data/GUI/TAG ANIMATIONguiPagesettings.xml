@@ -6,47 +6,37 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Tag amount</Name>
-    <Value>2014.572265625</Value>
+    <Value>1455.921020508</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>Perlin Input offset multiplier</Name>
-    <Value>4.407894611</Value>
+    <Name>Time modifier (energy)</Name>
+    <Value>0.819097042</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>Speed</Name>
-    <Value>0.021767106</Value>
+    <Name>Noise pos modifier (uniformity)</Name>
+    <Value>0.060277309</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>Frame multiplier</Name>
-    <Value>0.002047434</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Noise multiplier</Name>
-    <Value>0.019055922</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>Out of Bounds Angle Add</Name>
-    <Value>0.296478868</Value>
+    <Name>Noise modifier (speed)</Name>
+    <Value>0.120825663</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Max</Name>
-    <Value>0.166327462</Value>
+    <Value>0.973710537</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Min</Name>
-    <Value>0.000832042</Value>
+    <Value>0.004561513</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Decay</Name>
-    <Value>2.605633736</Value>
+    <Value>2.171052456</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

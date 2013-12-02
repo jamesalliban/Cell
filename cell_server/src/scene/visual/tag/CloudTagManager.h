@@ -86,10 +86,10 @@ public:
 	bool areTagsEnabled;
 	// cloud tag manager update vars
 	float perlinInputOffsetMultiplier;
-	float speed;
-	float frameMultiplier;
-	float noiseMultiplier;
-	float angleAdd;
+	float secondsMultiplier;
+	float noisePosModifier;
+    float noiseMultiplier;
+    
 	float outOfBoundsPosAddMax;
 	float outOfBoundsPosAddMin;
 	float outOfBoundsPosAddDecay;

@@ -156,25 +156,19 @@ void CloudTag::customDraw()
 
 void CloudTag::performAmbientMotion()
 {
-    float nX = position.x + (normSize - 0.5) * cloudTagMan->perlinInputOffsetMultiplier;
-    float nY = position.y + (normSize - 0.5) * cloudTagMan->perlinInputOffsetMultiplier;
-    float t = (ofGetFrameNum() * cloudTagMan->frameMultiplier) + (nX + nY);
-    angleX += ofSignedNoise(t, 0, 0) * cloudTagMan->noiseMultiplier;
-    angleY += ofSignedNoise(0, t, 0) * cloudTagMan->noiseMultiplier;
-    angleZ += ofSignedNoise(0, 0, t) * cloudTagMan->noiseMultiplier;
+    float t = ofGetElapsedTimef() * cloudTagMan->secondsMultiplier;
+    float xPosScaled = position.x * cloudTagMan->noisePosModifier;
+    float yPosScaled = position.y * cloudTagMan->noisePosModifier;
+    float zPosScaled = position.z * cloudTagMan->noisePosModifier;
+    angleX = ofSignedNoise(t, yPosScaled, zPosScaled) * cloudTagMan->noiseMultiplier;
+    angleY = ofSignedNoise(xPosScaled, t, zPosScaled) * cloudTagMan->noiseMultiplier;
+    angleZ = ofSignedNoise(xPosScaled, yPosScaled, t) * cloudTagMan->noiseMultiplier;
 
     ambientVelocity = ofVec3f(0, 0, 0);
 
-//    float posXDiffPos = position.x - mappedBourdaryW * 0.5;
-//    float posXDiffNeg = -mappedBourdaryW * 0.5 - position.x;
-//    float posYDiffPos = position.y - (cloudTagMan->boundaryH * 0.5 + cloudTagMan->boundaryCentreH);
-//    float posYDiffNeg = (-cloudTagMan->boundaryH * 0.5) + cloudTagMan->boundaryCentreH - position.y;
-//    float posZDiffPos = position.z - cloudTagMan->boundaryD * 0.5;
-//    float posZDiffNeg = -cloudTagMan->boundaryD * 0.5 - position.z;
-
-    ambientVelocity.x = cos(angleX) * cloudTagMan->speed;
-    ambientVelocity.y = cos(angleY) * cloudTagMan->speed;
-    ambientVelocity.z = sin(angleZ) * cloudTagMan->speed;
+    ambientVelocity.x = angleX;
+    ambientVelocity.y = angleY;
+    ambientVelocity.z = angleZ;
 
     checkBounds();
 
@@ -271,17 +265,15 @@ void CloudTag::checkBounds()
     {
         position.x += mappedBourdaryW - 5;
     }
-    if (position.y >= (cloudTagMan->boundaryH * 0.5) + cloudTagMan->boundaryCentreH)
+    if (position.y >= cloudTagMan->boundaryCentreH + (cloudTagMan->boundaryH * 0.5))
     {
         isYOutOfBounds = true;
         outOfBoundsPosVelocity.y = MAX(outOfBoundsPosVelocity.y - cloudTagMan->outOfBoundsPosAddMin, -cloudTagMan->outOfBoundsPosAddMax);
-        if (ambientVelocity.y > -0.3) angleY += cloudTagMan->angleAdd;
     }
-    if (position.y <= cloudTagMan->boundaryH * -0.5 + cloudTagMan->boundaryCentreH)
+    if (position.y <= cloudTagMan->boundaryCentreH - (cloudTagMan->boundaryH * 0.5))
     {
         isYOutOfBounds = true;
         outOfBoundsPosVelocity.y = MIN(outOfBoundsPosVelocity.y + cloudTagMan->outOfBoundsPosAddMin, cloudTagMan->outOfBoundsPosAddMax);
-        if (ambientVelocity.y < 0.3) angleY -= cloudTagMan->angleAdd;
     }
     if (position.z > cloudTagMan->boundaryD * 0.5)
     {
