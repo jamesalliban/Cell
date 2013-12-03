@@ -85,6 +85,19 @@ void CloudTagManager::customDraw()
 	for (int i = 0; i < tagsOrderedByZ.size(); i++)
 		if ((float)i / (float)tagsOrderedByZ.size() < lineAmountDrawn)
             tagsOrderedByZ[i]->drawLines();
+
+	ofPushStyle();
+	ofSetColor(0, 255, 0);
+	ofPushMatrix();
+	ofTranslate(0, newTagStartY, newTagStartZ);
+	ofDrawBox(abs(newTagStartXMin) + newTagStartXMax, 1, 1);
+	ofPopMatrix();
+	ofPopStyle();
+
+	//gui->addRangeSlider("New tag starting X", -100, 100, &app->sceneManager.cloudTagMan.newTagStartXMin, &app->sceneManager.cloudTagMan.newTagStartXMax, length, dim);
+ //   gui->addSlider("New tag starting Y", -30, 30, &app->sceneManager.cloudTagMan.newTagStartY, length, dim);
+ //   gui->addSlider("New tag starting Z", 0, 50, &app->sceneManager.cloudTagMan.newTagStartZ, length, dim);
+   
 }
 
 

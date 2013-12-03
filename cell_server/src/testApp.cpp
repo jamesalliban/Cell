@@ -6,9 +6,8 @@
  
  MAIN LIST
  ---------
- - Adjust scale to z
+ - When user disappears, the tag velocity should continue momentarily and decay
  - Load Chinese characters from server on a thread.
- - - - make sure the name isn't repeated in new xml.
  - - - change start position for new tag. X should be random.
  - If the tag data xml does not exist the app will crash. Fix this. 
  - Add debug bounds draw for cloud
@@ -161,7 +160,7 @@ void testApp::update()
     
     
     
-    return;
+    //return;
 	if (ofGetFrameNum() % (int)serverCheckFrequncy == 0 && ofGetFrameNum() > 10)
     {
         

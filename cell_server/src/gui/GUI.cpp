@@ -232,7 +232,7 @@ void GUI::addTagAdditionGUI()
     // start position
     gui->addRangeSlider("New tag starting X", -100, 100, &app->sceneManager.cloudTagMan.newTagStartXMin, &app->sceneManager.cloudTagMan.newTagStartXMax, length, dim);
     gui->addSlider("New tag starting Y", -30, 30, &app->sceneManager.cloudTagMan.newTagStartY, length, dim);
-    gui->addSlider("New tag starting Z", 0, 50, &app->sceneManager.cloudTagMan.newTagStartZ, length, dim);
+    gui->addSlider("New tag starting Z", 0, 200, &app->sceneManager.cloudTagMan.newTagStartZ, length, dim);
     // fade out speed
     // fade in speed
     

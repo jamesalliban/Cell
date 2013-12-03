@@ -1,4 +1,4 @@
-<tags>
+﻿<tags>
 		<tag>
 			<word>纹身</word>
 			<demographic id="BUD">
@@ -1814,43 +1814,44 @@
 			<strength>0.849316</strength>
 		</demographic>
 	</tag>
-<tag>
-		<word>公关</word>
-		<question>29</question>
-		<demographic id="ARTO">
-			<strength>0.479187</strength>
-		</demographic>
-		<demographic id="TODD">
-			<strength>0.664563</strength>
-		</demographic>
-		<demographic id="MARCO">
-			<strength>0.849316</strength>
-		</demographic>
-	</tag>
-	<tag>
-		<word>奥迪北京</word>
-		<question>7</question>
-		<demographic id="ARTO">
-			<strength>0.479187</strength>
-		</demographic>
-		<demographic id="TODD">
-			<strength>0.664563</strength>
-		</demographic>
-		<demographic id="MARCO">
-			<strength>0.849316</strength>
-		</demographic>
-	</tag>
-	<tag>
-		<word>奥迪北京</word>
-		<question>7</question>
-		<demographic id="ARTO">
-			<strength>0.479187</strength>
-		</demographic>
-		<demographic id="TODD">
-			<strength>0.664563</strength>
-		</demographic>
-		<demographic id="MARCO">
-			<strength>0.849316</strength>
-		</demographic>
-	</tag>
+<tag>
+		<word>公关</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪北京</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪北京</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+
 </tags>
