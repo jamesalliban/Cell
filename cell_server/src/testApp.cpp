@@ -11,26 +11,17 @@
  ---------
  - Load Chinese characters from server on a thread.
  - - - make sure the name isn't repeated in new xml.
- - - - change the demographic details for new tag.
  - - - change start position for new tag. X should be random.
  - If the tag data xml does not exist the app will crash. Fix this. 
- - Place newly loaded text in scene and save to xml on a thread - add 3 random demographics
- - Make a start on fixing doubled up users - get average line - measure distances and build debug birds eye view
- - Add debug bounds draw for skeleton area and cloud
- - Tags should rise up faster when below (and above??) the cloud
- - Fix skeletons at far left/right. They lean inward
- - If tag moves to front side (after going OOB) and is low, fix y val
- - tags going OOB on x axis at front aren't being shifted properly. Investigate and fix
- - Redo ambient cloud tag animation. Make it more wavy and flowing - perlin up
+ - Add debug bounds draw for cloud
  - look into improving anti-aliasing
- - If skel data freezes (due to network error), remove skeleton after 10 frames.
  - Use bell curve for line alpha - shouldn't be so strong when far away
  - Use bell curve for field strength - sin(norm(mappedDist) * (PI*2)) (or something?)
- - Improve no-kinect debug mouse Kinect functionality
  - Control Clients across network.
  - - - Joint Smoothing.
  - - - Delay in removing skeleton.
  - - - Adjust Kinect cam era tilt (if possible with Win Kinects).
+ - Make a start on fixing doubled up users - get average line - measure distances and build debug birds eye view
  
  NICE TO HAVE IF TIME
  --------------------
@@ -39,6 +30,7 @@
  - Add lines that connect the user points. These appear when tags are close to userpoints.
  - Add the following keyboard shortcuts
  - Slowly increase demographic strength for new users over time.
+ - Improve no-kinect debug mouse Kinect functionality
  - extract record/playback code to ofxSkeletonRecorder
  
  
