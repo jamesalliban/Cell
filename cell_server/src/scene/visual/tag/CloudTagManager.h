@@ -103,6 +103,9 @@ public:
 	float boundaryOffsetMax;
 	float boundaryOffsetAdd;
 	float boundaryOffsetAddMult;
+	
+	float zScaleWhenOrthoMin;
+	float zScaleWhenOrthoMax;
 
 	ofVec3f tempUser;
 

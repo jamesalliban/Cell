@@ -78,6 +78,7 @@ protected:
 	int         lineStartVertexIndex;
 	float       scaleOffset;
 	float       xScaleSquish;
+	float zScaleWhenOrtho;
 
 	float       angleX;
     float       angleY;

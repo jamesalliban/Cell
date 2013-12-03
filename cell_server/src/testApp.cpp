@@ -4,11 +4,9 @@
  TASKS
  -----
  
- QUICK JOBS TO DO QUICKLY
- ------------------------
- 
  MAIN LIST
  ---------
+ - Adjust scale to z
  - Load Chinese characters from server on a thread.
  - - - make sure the name isn't repeated in new xml.
  - - - change start position for new tag. X should be random.
@@ -28,7 +26,6 @@
  - When skeleton disappears the lines should fade - The user points keep moving in the direction of the last movement.
  - Add multiple camera angles to 1, 2, 3
  - Add lines that connect the user points. These appear when tags are close to userpoints.
- - Add the following keyboard shortcuts
  - Slowly increase demographic strength for new users over time.
  - Improve no-kinect debug mouse Kinect functionality
  - extract record/playback code to ofxSkeletonRecorder

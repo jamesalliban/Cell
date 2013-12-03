@@ -214,6 +214,9 @@ void GUI::addTagAnimationGUI()
     gui->addSlider("Scale Min", 0.01, 1, &app->sceneManager.cloudTagMan.scaleMin, length, dim);
     gui->addSlider("Scale Max", 0.01, 2, &app->sceneManager.cloudTagMan.scaleMax, length, dim);
     gui->addWidgetDown(new ofxUILabelButton(false, "Apply"));
+	
+    gui->addLabel("SCALING TO Z - ORTHO FIX", OFX_UI_FONT_MEDIUM);
+	gui->addRangeSlider("Tag scaling from Z fix (4 ortho)", 0.0, 2.0, &app->sceneManager.cloudTagMan.zScaleWhenOrthoMin, &app->sceneManager.cloudTagMan.zScaleWhenOrthoMax, length, dim);
     
     finaliseCanvas(gui, true);
 }

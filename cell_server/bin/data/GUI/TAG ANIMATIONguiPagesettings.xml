@@ -1,42 +1,42 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Tags enabled</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Tag amount</Name>
-    <Value>1455.921020508</Value>
+    <Value>3230.460449219</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Time modifier (energy)</Name>
-    <Value>0.819097042</Value>
+    <Value>0.184292108</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Noise pos modifier (uniformity)</Name>
-    <Value>0.060277309</Value>
+    <Value>0.036600992</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Noise modifier (speed)</Name>
-    <Value>0.120825663</Value>
+    <Value>0.038753290</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Max</Name>
-    <Value>0.973710537</Value>
+    <Value>0.684526324</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Min</Name>
-    <Value>0.004561513</Value>
+    <Value>0.002216776</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Out of Bounds Pos Add Decay</Name>
-    <Value>2.171052456</Value>
+    <Value>1.578947306</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -56,7 +56,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>y Scale Only On Attraction</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -77,4 +77,10 @@
     <Kind>4</Kind>
     <Name>Scale Max</Name>
     <Value>1.299295783</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>Tag scaling from Z fix (4 ortho)</Name>
+    <HighValue>1.032894731</HighValue>
+    <LowValue>0.532894731</LowValue>
 </Widget>

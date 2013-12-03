@@ -169,7 +169,8 @@ void CloudTag::performAmbientMotion()
     ambientVelocity.x = angleX;
     ambientVelocity.y = angleY;
     ambientVelocity.z = angleZ;
-    
+
+	//ambientVelocity.z -= (float)ofGetMouseY() / (float)200;
     checkBounds();
 
     ambientVelocity += outOfBoundsPosVelocity;
@@ -343,10 +344,12 @@ void CloudTag::drawTags()
     
 	ofVec3f cornerVertexVec = tagPlaneMesh.getVertex(lineStartVertexIndex);
 
+	zScaleWhenOrtho = ofMap(position.z, cloudTagMan->boundaryD, -cloudTagMan->boundaryD, cloudTagMan->zScaleWhenOrthoMax, cloudTagMan->zScaleWhenOrthoMin);
+
     ofPushMatrix();
     //ofTranslate(position.x, position.y, position.z);
     ofTranslate(position.x + cornerVertexVec.x, position.y + cornerVertexVec.y, position.z + cornerVertexVec.z);//
-    ofScale(scaleOffset * xScaleSquish, scaleOffset, scaleOffset);
+    ofScale(scaleOffset * xScaleSquish * zScaleWhenOrtho, scaleOffset * zScaleWhenOrtho, scaleOffset * zScaleWhenOrtho);
 //    ofRotateX(rotations->x);
 //    ofRotateY(rotations->y);
 //    ofRotateZ(rotations->z);
@@ -367,9 +370,9 @@ void CloudTag::drawLines()
 	float tagW = tagPlaneMesh.getVertex(3).x * 2;
 	float tagH = tagPlaneMesh.getVertex(3).y * 2;
 
-	float scaleCorrectionX = (tagW - (tagW * (scaleOffset * xScaleSquish))) * 0.5;
+	float scaleCorrectionX = (tagW - (tagW * (scaleOffset * xScaleSquish * zScaleWhenOrtho))) * 0.5;
 	//scaleCorrectionX *= 0.6;
-	float scaleCorrectionY = (tagH - (tagH * scaleOffset)) * 0.5;
+	float scaleCorrectionY = (tagH - (tagH * scaleOffset * zScaleWhenOrtho)) * 0.5;
 
 	if (lineStartVertexIndex == 2)
 	{
