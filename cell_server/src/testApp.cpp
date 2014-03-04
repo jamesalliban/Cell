@@ -48,7 +48,7 @@ void testApp::setup()
 {
     //ofDisableArbTex();
 	//ofEnableArbTex();
-    ofSetFullscreen(false);
+    ofSetFullscreen(true);
 	ofSetLogLevel(OF_LOG_SILENT);
     //	ofSetLogLevel(OF_LOG_ERROR);
     //	ofSetLogLevel(OF_LOG_VERBOSE);
@@ -103,6 +103,11 @@ void testApp::update()
 	//if (ofGetFrameNum() % 30 == 0) 
 	//ofSetFrameRate(frameRate);
 	ofSetFrameRate(targetframeRate);
+
+	if (gui.getVisible()) 
+		ofShowCursor();
+	else
+		ofHideCursor();
     
 	if (!isPaused)
 	{

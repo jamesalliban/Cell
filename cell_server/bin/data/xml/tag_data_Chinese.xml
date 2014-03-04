@@ -1,4 +1,4 @@
-﻿<tags>
+<tags>
 		<tag>
 			<word>纹身</word>
 			<demographic id="BUD">
@@ -1853,5 +1853,4100 @@
 			<strength>0.849316</strength>
 		</demographic>
 	</tag>
-
+
+<tag>
+		<word>开心</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>聪明</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>聪明</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>海边</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>律师</word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>开心</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>可靠</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>可靠</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>她们</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>老啊</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>God Cos</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>信仰</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>上帝</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>长个</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>自由</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>很胸</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>空气</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>未来之城</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>梦里</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>Audi </word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>Ladygaga </word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>美女</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪旅行车</word>
+		<question>36</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大飞</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>飞起来</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>精神病人</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>艺术家</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>合体</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>坤坤</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大奔爱好者</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>学校</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我心永恒</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>傻逼</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>生化危机</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>家的感觉</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>家的感觉</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>和ak玩</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>和ak玩</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>衬衣</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>身高</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大狗熊</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>跑步</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杜心成！</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>长得和秦川一样</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>仙儿了</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>Shability</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小杜重口味</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杜心诚我爱你我爱你</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我王超我为自己代言</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>教堂</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小麦</word>
+		<question>32</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小胖艾是C罩杯</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小杜向超叔表白被拒</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>二货</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>承办方：海天网联</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱媳妇 王瑶</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>刘杰西</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>后悔</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>北京</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>眼睛</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱的根源</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>天津玩</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杜心成再次</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>风一样的吕子 森碟</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>逃跑</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>打群架</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杜心成老是被拒唉 </word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>不用动</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>汤湄是我是我是我</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大学</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>飞翔</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>冷静</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>马达加斯加</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>马达加斯加</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>王胖子</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>老不死的</word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>经纬学校</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>跟霸天虎打架</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>收到好人卡不生气</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>吃饭 睡觉 打豆豆</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>steven xu</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>智慧</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>特小</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>在一起</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>在一起</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大床和美剧和薯片</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我是一名赛车手</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我是主人它是宠物</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>马桶</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>长得和may一样</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>思葱</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>秦川的大脸顶天立地</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我爱泓</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>震動</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>思考人生</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>假期。</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>假期。</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>可愛。</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>完美了。</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>白日梦</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>Guapa不可以么</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>安东泥</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪Q7</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>买车，因为买不起房</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>可行走的</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>潜水</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>复仇！！</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>通畅</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>没有做梦</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>没有做梦</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>新生</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>没恋爱过</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>变性</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>呆着</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>和谐</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>北京</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>旅行</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>发展</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>逃课</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>天坛</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>再打MMA。</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>美丽</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>ziu</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>做梦</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>很多</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>工具</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>看见什么买什么！</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>空气，水</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>可以飞可以潜水</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱啊</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>yippie</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>发呆</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>内容</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>画室</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>土豪小公主</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杀人</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>灵魂伴侣</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>贱人</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪R8</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱爱</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>安婷</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+<tag>
+		<word>胸肌肉</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>玩游戏极品飞车</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+<tag>
+		<word>卓陆</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>孙哥孙歌@@@@</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大李爽李爽爽爽</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>very cool</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>西条琉璃阿依西跌撸</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>里德陈不爱用相机</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>震动！</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>西条琉璃身形</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>孙哥把袜子穿上</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小智把口水擦了</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>里德陈别再用手纸了</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大胸土豪单身爽</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>胡庆伟这有人爱你呦</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大磊磊她也爱你哦</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小痔疮也得治</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>买一种生活态度</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>驾驶各种车辆</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>土豪</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>和谐</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>倜傥</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>变形金刚</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>看片儿</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>出差</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>牛屄</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>光辉灿烂</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>ni脸面</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>手动更给力</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>丁日</word>
+		<question>25</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杜心成你欺骗了我</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>孙歌水母女</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小杜那罪恶般的存在</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>英国</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>毁灭</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>以拉瞎一吗噻</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>王超是小可爱</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>王超是思毛卡哇衣</word>
+		<question>18</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>孙歌与11只喵星人</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>四个轮子的</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>不要钱的</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>吃饭</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>猪猪猪猪猪猪猪猪</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>真爱</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>一辆车</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>汽车</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>昏睡</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>艺术家</word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>白瘦</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>房车</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>咪董</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>没有男人</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>融为一体</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>飞翔</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>快乐</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>拒绝360</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>打圻哥！</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>钻地的</word>
+		<question>32</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>做爱</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>丝袜</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>能震</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>性伴侣</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>里德</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>fttyg</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>合金里德尘土飞扬</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>宠物小精灵</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>一望无际</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我爱北京天安门</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>yunag真漂亮</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>流线型式设计</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+<tag>
+		<word>森林</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>宽敞</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>水水水</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>高骎牛比</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>高高高高高高高高高</word>
+		<question>35</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>好玩</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>骎哥最棒---范春</word>
+		<question>32</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>大气</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>蛋散弘</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>佘总特别刚</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小蛤蟆</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥利弗</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>happy</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>漂亮</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>给我做饭</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>帅的否得了</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>熊猫样儿的所有东西</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>皮肤，木有痘痘</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉唱歌歌</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>像大黄蜂变机器人</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曾晓洁</word>
+		<question>17</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>有喜欢的人</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>慧男</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>口高骎</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>钱和钱</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>孙歌大胸女Bla</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小康最牛比</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>奥迪</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小康的歌声</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>纯洁的友谊小康</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小杜我还是爱你的啊</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小杜我还是爱你的啊</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>回家</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>和蔼可亲</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱你北京</word>
+		<question>29</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>太空车</word>
+		<question>32</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>初恋在广州</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>是带翅膀的</word>
+		<question>33</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>李碉堡</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>Captain李</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>王铮</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word> 朋友</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>丧气</word>
+		<question>16</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>杰瑞瑞生日快乐</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>脑残</word>
+		<question>9</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>铮蕊熙</word>
+		<question>14</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>阿娇</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小Vic也来过了</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>小Vic也来过了</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>国力大胸</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>樱花东街Kfc餐厅</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>外国都喜欢</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>保时捷！！！</word>
+		<question>7</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>爱情</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>有始无终</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>贾少是超人，超人</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩&apos;&apos;&apos;&apos;你来了</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩要当爸爸&apos;&apos;&apos;</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩22222</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹老板</word>
+		<question>30</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我不打小儿</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>合体</word>
+		<question>39</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>外星人</word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>打刘鑫</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>老曹我是大铮啊</word>
+		<question>34</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>老曹浩你来看看</word>
+		<question>40</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩与奥迪</word>
+		<question>28</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>女汉子</word>
+		<question>11</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉！</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>啊啊啊啊啊啊</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>啊啊啊啊啊啊</word>
+		<question>20</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>很多的爱和安全感</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我是蔷哥~啊哈哈哈</word>
+		<question>24</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉</word>
+		<question>8</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>自由飞翔</word>
+		<question>37</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>眼睛</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>唱歌</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>唱歌</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>北京</word>
+		<question>23</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>喝咖啡</word>
+		<question>26</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>睡觉</word>
+		<question>38</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>2货</word>
+		<question>27</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩入手一辆福克斯</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩入手一辆福克斯</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹a</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>曹浩小行星</word>
+		<question>22</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我一个唱歌的嗓子</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>康文丰</word>
+		<question>12</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>我喜欢唱歌</word>
+		<question>21</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>善良</word>
+		<question>15</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>这个世界上有UFO</word>
+		<question>19</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>中国海南岛</word>
+		<question>13</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
+	<tag>
+		<word>功能全</word>
+		<question>31</question>
+		<demographic id="ARTO">
+			<strength>0.479187</strength>
+		</demographic>
+		<demographic id="TODD">
+			<strength>0.664563</strength>
+		</demographic>
+		<demographic id="MARCO">
+			<strength>0.849316</strength>
+		</demographic>
+	</tag>
 </tags>
