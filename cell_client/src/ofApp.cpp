@@ -11,7 +11,7 @@
 #include "ofxKinectNuiDraw.h"
 
 void ofApp::setup() {
-	ofSetLogLevel(OF_LOG_VERBOSE);
+	ofSetLogLevel(OF_LOG_WARNING);
 	ofSetFullscreen(true);
 	ofSetFrameRate(30);
 
@@ -97,8 +97,10 @@ void ofApp::setup() {
 	kinect.setSkeletonDrawer(skeletonDraw_);
 
 
+#ifdef OSC_ENABLED
 	sender.setup(serverIPAddress, PORT_OUT);
     //receiver.setup(PORT_IN);
+#endif
 	
 	joints.push_back("HIPC");
 	joints.push_back("SPIN");
@@ -121,7 +123,7 @@ void ofApp::setup() {
 	joints.push_back("ANKR");
 	joints.push_back("FOTR");
 
-	isTesting = true;
+	isTesting = false;
 	testCount = 0;
 }
 
@@ -161,8 +163,6 @@ void ofApp::resetSkeletonData(int index)
 void ofApp::populateSkeletonData(vector<ofPoint> points, int newSkelId, int skelDataObjectIndex, bool isSkelNew)
 {
 	SkeletonData* skelData = &skeletonDataObjects[skelDataObjectIndex];
-	
-	skelData->resetCount = 0;
 
 	if (isSkelNew) 
 	{
@@ -172,10 +172,8 @@ void ofApp::populateSkeletonData(vector<ofPoint> points, int newSkelId, int skel
 	}
 	for (int i = 0; i < 20; i++)
 	{
-		//printf("new point - x:%i, y:%i, z:%i \n", points[i].x, points[i].y, points[i].z);
-		skelData->skelPoints[i] = points[i];//ofVec3f(points[i].x, points[i].y, points[i].z);
+		skelData->skelPoints[i] = points[i];
 	}
-	//skelData->skelPoints = *points;
 }
 
 
@@ -199,26 +197,6 @@ SkeletonData ofApp::getNewSkelFromId(vector<SkeletonData> newSkelData, int id)
 	}
 }
 
-SkeletonData ofApp::getUnassignedNewSkelFromId(vector<SkeletonData> newSkelData)
-{
-	if (newSkelData[0].id == skeletonDataObjects[0].id)
-		return newSkelData[1];
-	else if (newSkelData[1].id == skeletonDataObjects[0].id)
-		return newSkelData[1];
-	else if (newSkelData[0].id == skeletonDataObjects[1].id)
-		return newSkelData[0];
-	else if (newSkelData[1].id == skeletonDataObjects[1].id)
-		return newSkelData[0];
-
-	//for(int i = 0; i < newSkelData.size(); i++)
-	//{
-	//	for(int j = 0; j < skeletonDataObjects.size(); j++)
-	//	{
-	//		if (!skeletonDataObjects[j].isActive && newSkelData[i].id != skeletonDataObjects[j].id)
-	//			return newSkelData[i];
-	//	}
-	//}
-}
 
 void ofApp::update() 
 {
@@ -247,9 +225,7 @@ void ofApp::update()
 				for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++)
 				{
 					skelPoints.push_back(points[i][j]);
-					//printf("i:%i, j:%i, x:%f, y:%f, z:%f \n", i, j, points[i][j].x, points[i][j].y, points[i][j].z);
 				}
-				//ofLogVerbose() << ofGetFrameNum() << " - Found skeleton at " << i;
 				skeletonData.skelPoints = skelPoints;
 				newSkelData.push_back(skeletonData);
 
@@ -272,29 +248,28 @@ void ofApp::update()
 		}
 	}
 
-	if (isTesting)
-	{
-		skelCount = testCount;
-		for (int i = 0; i < skelCount; i++)
-		{
-			stringstream kinectStream;
-			kinectStream << "skel index: " << newSkelData[i].id << "\n" << endl;
-			for (int j = 0; j < 20; j++)
-			{
-				kinectStream << joints[j] << " ";
-				kinectStream << "x: " << newSkelData[i].skelPoints[j].x << ", ";
-				kinectStream << "y: " << newSkelData[i].skelPoints[j].y << ", ";
-				kinectStream << "z: " << newSkelData[i].skelPoints[j].z << endl;
-			}
-			newSkelDataFbo.begin();
-			ofDrawBitmapString(kinectStream.str(), foundSkelCount * 260, 20);
-			newSkelDataFbo.end();
+	//if (isTesting)
+	//{
+	//	skelCount = testCount;
+	//	for (int i = 0; i < skelCount; i++)
+	//	{
+	//		stringstream kinectStream;
+	//		kinectStream << "skel index: " << newSkelData[i].id << "\n" << endl;
+	//		for (int j = 0; j < 20; j++)
+	//		{
+	//			kinectStream << joints[j] << " ";
+	//			kinectStream << "x: " << newSkelData[i].skelPoints[j].x << ", ";
+	//			kinectStream << "y: " << newSkelData[i].skelPoints[j].y << ", ";
+	//			kinectStream << "z: " << newSkelData[i].skelPoints[j].z << endl;
+	//		}
+	//		newSkelDataFbo.begin();
+	//		ofDrawBitmapString(kinectStream.str(), foundSkelCount * 260, 20);
+	//		newSkelDataFbo.end();
 
-			foundSkelCount++;
-		}
-	}
+	//		foundSkelCount++;
+	//	}
+	//}
 
-	//printf("skelCount:%i, prevSkelCount:%i \n", skelCount, prevSkelCount);
 
 	for (int i = 0; i < skeletonDataObjects.size(); i++)
 	{
@@ -302,17 +277,8 @@ void ofApp::update()
 		// if the number of active skeletons hasn't changed, simply update the active skel data objects with new data
 		if (skelCount == prevSkelCount)
 		{
-			//ofLogVerbose("2a");
 			if (skelDataObject->isActive)
-			{
-				//ofLogVerbose("2b");
-				//printf("skelDataObject->id = %i, i:%i \n", skelDataObject->id, i);
-				//SkeletonData newSkelDataFromId = getNewSkelFromId(newSkelData, skelDataObject->id);
-				//populateSkeletonData(newSkelDataFromId.skelPoints, skelDataObject->id, i, false);
-
 				populateSkeletonData(getNewSkelFromId(newSkelData, skelDataObject->id).skelPoints, skelDataObject->id, i, false);
-			}
-			//ofLogVerbose("2c");
 		}
 		else
 		{
@@ -341,11 +307,15 @@ void ofApp::update()
 				}
 				else
 				{
-					SkeletonData newUnassignedSkel = getUnassignedNewSkelFromId(newSkelData);
-					ofLogVerbose() << "skelDataObject " << i << " is NOT active assigning id " << newUnassignedSkel.id;
-					populateSkeletonData(newUnassignedSkel.skelPoints, newUnassignedSkel.id, i, true);
+					if (i == 0 && skeletonDataObjects[1].id == newSkelData[0].id)
+						populateSkeletonData(newSkelData[1].skelPoints, newSkelData[1].id, i, true);
+					else if (i == 0 && skeletonDataObjects[1].id == newSkelData[1].id)
+						populateSkeletonData(newSkelData[0].skelPoints, newSkelData[0].id, i, true);
+					else if (i == 1 && skeletonDataObjects[0].id == newSkelData[0].id)
+						populateSkeletonData(newSkelData[1].skelPoints, newSkelData[1].id, i, true);
+					else if (i == 1 && skeletonDataObjects[1].id == newSkelData[1].id)
+						populateSkeletonData(newSkelData[0].skelPoints, newSkelData[0].id, i, true);
 				}
-				//populateSkeletonData(newSkelData[i].skelPoints, newSkelData[i].id, i, skelDataObject->isActive ? false : true);
 				ofLogVerbose("prevSkelCount == 1 && skelCount == 2 b");
 			}
 			else if (prevSkelCount == 2 && skelCount == 1)
@@ -369,23 +339,18 @@ void ofApp::update()
 				populateSkeletonData(newSkelData[i].skelPoints, newSkelData[i].id, i, true);
 				ofLogVerbose("prevSkelCount == 0 && skelCount == 2 b");
 			}
+			else if (prevSkelCount == 2 && skelCount == 0)
+			{
+				ofLogVerbose("prevSkelCount == 2 && skelCount == 0 a");
+				resetSkeletonData(i);
+				ofLogVerbose("prevSkelCount == 2 && skelCount == 0 b");
+			}
 		}
 	}
 
 	prevSkelCount = skelCount;
 
-	
-
-	//for (int i = 0; i < (int)skeletonDataObjects.size(); i++)
-	//{
-	//	SkeletonData* skelData = &skeletonDataObjects[i];
-	//	for (int j = 0; j < 20; j++)
-	//		printf("i = %i, j = %i, x = %f, y = %f, z = %f \n",i, j, skelData->skelPoints[j].x, skelData->skelPoints[j].y, skelData->skelPoints[j].z);
-	//}
-
-	return;
-	
-
+#ifdef OSC_ENABLED
 	ofxOscMessage m;
 	m.setAddress("/skeleton/data");
 	m.addIntArg(clientID); // client
@@ -405,13 +370,12 @@ void ofApp::update()
 		}
 	}
     sender.sendMessage(m);
+#endif
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() 
 {
-	//return;
-
 	ofBackground(0, 0, 0);
 	if(bDrawVideo)
 	{
@@ -434,59 +398,38 @@ void ofApp::draw()
 		float sceneDrawScale = 0.95;
 		float w = 480 * sceneDrawScale;
 		float h = 360 * sceneDrawScale;
-		//calibratedTexture.loadData(kinect.getCalibratedVideoPixels());
-		//calibratedTexture.draw(0, 0, w, h);
-		//kinect.draw(0, 0, w, h);			// draw video images from kinect camera
 		ofEnableAlphaBlending();
 		kinect.drawDepth(0, 0, w, h);	// draw depth images from kinect depth sensor
 		kinect.drawLabel(0, 0, w, h);		// draw players' label images on video images
 		ofDisableAlphaBlending();
 		kinect.drawSkeleton(0, 0, w, h);	// draw skeleton images on video images
-		
-		ofEnableAlphaBlending();
-		ofSetColor(255, 255, 255, 80);
-		//kinect.drawLabel(0, 0, w, h);		// draw players' label images on video images	
-		ofDisableAlphaBlending();
-		//kinect.drawSkeleton(w, 0, 640, 480);	// draw skeleton images on video images
-
 	}
-	//return;
-	ofPushMatrix();
-	ofTranslate(35, 35);
-	ofFill();
-	ofPopMatrix();
 
 	stringstream kinectReport;
 	if(bPlugged && !kinect.isOpened())
 	{
 		ofSetColor(0, 255, 0);
 		kinectReport << "Kinect is plugged..." << endl;
-		ofDrawBitmapString(kinectReport.str(), 200, 300);
+		ofDrawBitmapString(kinectReport.str(), 200, 400);
 	}
 	else if(!bPlugged)
 	{
 		ofSetColor(255, 0, 0);
 		kinectReport << "Kinect is unplugged..." << endl;
-		ofDrawBitmapString(kinectReport.str(), 200, 300);
+		ofDrawBitmapString(kinectReport.str(), 200, 400);
 	}
 	
 	// draw instructions
 	ofSetColor(255, 255, 255);
 	stringstream reportStream;
-	//reportStream << "fps: " << ofGetFrameRate() << "  Kinect Nearmode: " << kinect.isNearmode() << endl
-	//			 << "press 'c' to close the stream and 'o' to open it again, stream is: " << kinect.isOpened() << endl
-	//			 << "press UP and DOWN to change the tilt angle: " << angle << " degrees" << endl
-	//			 << "press LEFT and RIGHT to change the far clipping distance: " << farClipping << " mm" << endl
-	//			 << "press '+' and '-' to change the near clipping distance: " << nearClipping << " mm" << endl
-	//			 << "press 'v' to show video only: " << bDrawVideo << ",      press 'd' to show depth + users label only: " << bDrawDepthLabel << endl
-	//			 << "press 's' to show skeleton only: " << bDrawSkeleton << ",   press 'q' to show point cloud sample: " << bDrawCalibratedTexture;
-	
-	
 	reportStream << "fps: " << ofGetFrameRate() << endl
 				<< "'c': close stream" << endl
-				<< "'o': open stream" << endl;
+				<< "'o': open stream" << endl
+				<< "press UP and DOWN to change the tilt angle: " << angle << " degrees" << endl
+				<< "press 's' to show skeleton only: " << bDrawSkeleton << endl
+				<< "press 'd' to show depth + users label only: " << bDrawDepthLabel << endl;
 
-	ofDrawBitmapString(reportStream.str(), 20, 600);
+	ofDrawBitmapString(reportStream.str(), 20, 500);
 	
 	stringstream kinect0Stream;
 	SkeletonData* skelData = &skeletonDataObjects[0];
@@ -510,7 +453,6 @@ void ofApp::draw()
 		kinect1Stream << "z: " << skelData->skelPoints[i].z << endl;
 	}
 
-	
 	float textScale = 1.8;
 
 	displayTextFbo.begin();
@@ -525,22 +467,17 @@ void ofApp::draw()
 	displayTextFbo.draw(0, 0);
 	ofPopMatrix();
 	
-	ofPushStyle();
-	ofSetColor(255, 120, 120);
-	ofPushMatrix();
-	ofTranslate(480, 300);
-	ofScale(textScale, textScale);
-	newSkelDataFbo.draw(0, 0);
-	ofPopMatrix();
-	ofPopStyle();
-
-
-	//for (int i = 0; i < (int)skeletonDataObjects.size(); i++)
-	//{
-	//	SkeletonData* skelData = &skeletonDataObjects[i];
-	//	for (int j = 0; j < 20; j++)
-	//		printf("i = %i, j = %i, x = %f, y = %f, z = %f \n",i, j, skelData->skelPoints[j].x, skelData->skelPoints[j].y, skelData->skelPoints[j].z);
-	//}
+	if (isTesting)
+	{
+		ofPushStyle();
+		ofSetColor(255, 120, 120);
+		ofPushMatrix();
+		ofTranslate(480, 300);
+		ofScale(textScale, textScale);
+		newSkelDataFbo.draw(0, 0);
+		ofPopMatrix();
+		ofPopStyle();
+	}
 }
 
 
@@ -560,16 +497,6 @@ void ofApp::exit()
 void ofApp::keyPressed (int key) 
 {
 	switch(key){
-	case 'v': // draw video only
-	case 'V':
-		bDrawVideo = !bDrawVideo;
-		if(bDrawVideo){
-			bDrawCalibratedTexture = false;
-			bDrawSkeleton = false;
-			bDrawDepthLabel = false;
-			glDisable(GL_DEPTH_TEST);
-		}
-		break;
 	case 'd': // draw depth + users label only
 	case 'D':
 		bDrawDepthLabel = !bDrawDepthLabel;
@@ -588,16 +515,6 @@ void ofApp::keyPressed (int key)
 			bDrawVideo = false;
 			bDrawDepthLabel = false;
 			glDisable(GL_DEPTH_TEST);
-		}
-		break;
-	case 'q': // draw point cloud example
-	case 'Q':
-		bDrawCalibratedTexture = !bDrawCalibratedTexture;
-		if(bDrawCalibratedTexture){
-			bDrawVideo = false;
-			bDrawDepthLabel = false;
-			bDrawSkeleton = false;
-			glEnable(GL_DEPTH_TEST);
 		}
 		break;
 	case 'o': // open stream
@@ -622,105 +539,84 @@ void ofApp::keyPressed (int key)
 		}
 		kinect.setAngle(angle);
 		break;
-	case OF_KEY_LEFT: // increase the far clipping distance
-		if(farClipping > nearClipping + 10){
-			farClipping -= 10;
-			kinectSource->setFarClippingDistance(farClipping);
-		}
-		break;
-	case OF_KEY_RIGHT: // decrease the far clipping distance
-		if(farClipping < 4000){
-			farClipping += 10;
-			kinectSource->setFarClippingDistance(farClipping);
-		}
-		break;
-	case '+':
-		if(nearClipping < farClipping - 10){
-			nearClipping += 10;
-			kinectSource->setNearClippingDistance(nearClipping);
-		}
-		break;
-	case '-':
-		if(nearClipping >= 10){
-			nearClipping -= 10;
-			kinectSource->setNearClippingDistance(nearClipping);
-		}
-		break;
 	}
 	
-	if (key == '0')
+	if (isTesting)
 	{
-		testCount = 0;
-		newSkelData.clear();
-	}
-	if (key == '1')
-	{
-		if (testCount == 0)
+		if (key == '0')
 		{
-			SkeletonData skeletonData;
-			skeletonData.id = (int)ofRandom(6);
-			vector<ofPoint> skelPoints;
-			for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
-				skelPoints.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
-			skeletonData.skelPoints = skelPoints;
-			newSkelData.push_back(skeletonData);
-			ofLogNotice() << "test - 0 - 1";
-		}
-		else if (testCount == 2)
-		{
-			vector<SkeletonData> tempNewSkelData;
-			tempNewSkelData.push_back(newSkelData[(int)ofRandom(2)]);
+			testCount = 0;
 			newSkelData.clear();
-			newSkelData = tempNewSkelData;
-			ofLogNotice() << "test - 2 - 1";
 		}
-		testCount = 1;
-	}
-	if (key == '2')
-	{
-		if (testCount == 0)
+		if (key == '1')
 		{
-			SkeletonData skeletonData;
-			skeletonData.id = (int)ofRandom(6);
-			vector<ofPoint> skelPoints;
-			for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
-				skelPoints.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
-			skeletonData.skelPoints = skelPoints;
-			newSkelData.push_back(skeletonData);
-
-			SkeletonData skeletonData2;
-			int rand;
-			do {
-				rand = (int)ofRandom(6);
-				skeletonData2.id = rand;
-			} while (rand == skeletonData.id);
-
-			vector<ofPoint> skelPoints2;
-			for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
-				skelPoints2.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
-			skeletonData2.skelPoints = skelPoints2;
-			newSkelData.push_back(skeletonData2);
-
-			ofLogNotice() << "test - 0 - 2";
+			if (testCount == 0)
+			{
+				SkeletonData skeletonData;
+				skeletonData.id = (int)ofRandom(6);
+				vector<ofPoint> skelPoints;
+				for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
+					skelPoints.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
+				skeletonData.skelPoints = skelPoints;
+				newSkelData.push_back(skeletonData);
+				ofLogNotice() << "test - 0 - 1";
+			}
+			else if (testCount == 2)
+			{
+				vector<SkeletonData> tempNewSkelData;
+				tempNewSkelData.push_back(newSkelData[(int)ofRandom(2)]);
+				newSkelData.clear();
+				newSkelData = tempNewSkelData;
+				ofLogNotice() << "test - 2 - 1";
+			}
+			testCount = 1;
 		}
-		else if (testCount == 1)
+		if (key == '2')
 		{
-			SkeletonData skeletonData2;
-			int rand;
-			do {
-				rand = (int)ofRandom(6);
-				skeletonData2.id = rand;
-			} while (rand == skeletonDataObjects[0].id || rand == skeletonDataObjects[1].id);
+			if (testCount == 0)
+			{
+				SkeletonData skeletonData;
+				skeletonData.id = (int)ofRandom(6);
+				vector<ofPoint> skelPoints;
+				for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
+					skelPoints.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
+				skeletonData.skelPoints = skelPoints;
+				newSkelData.push_back(skeletonData);
 
-			vector<ofPoint> skelPoints2;
-			for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
-				skelPoints2.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
-			skeletonData2.skelPoints = skelPoints2;
-			newSkelData.push_back(skeletonData2);
+				SkeletonData skeletonData2;
+				int rand;
+				do {
+					rand = (int)ofRandom(6);
+					skeletonData2.id = rand;
+				} while (rand == skeletonData.id);
 
-			ofLogNotice() << "test - 1 - 2";
+				vector<ofPoint> skelPoints2;
+				for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
+					skelPoints2.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
+				skeletonData2.skelPoints = skelPoints2;
+				newSkelData.push_back(skeletonData2);
+
+				ofLogNotice() << "test - 0 - 2";
+			}
+			else if (testCount == 1)
+			{
+				SkeletonData skeletonData2;
+				int rand;
+				do {
+					rand = (int)ofRandom(6);
+					skeletonData2.id = rand;
+				} while (rand == skeletonDataObjects[0].id || rand == skeletonDataObjects[1].id);
+
+				vector<ofPoint> skelPoints2;
+				for(int j = 0; j < ofxKinectNui::SKELETON_POSITION_COUNT; j++) 
+					skelPoints2.push_back(ofPoint((int)ofRandom(100), (int)ofRandom(100), (int)ofRandom(100)));
+				skeletonData2.skelPoints = skelPoints2;
+				newSkelData.push_back(skeletonData2);
+
+				ofLogNotice() << "test - 1 - 2";
+			}
+			testCount = 2;
 		}
-		testCount = 2;
 	}
 }
 

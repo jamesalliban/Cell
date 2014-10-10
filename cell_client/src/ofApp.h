@@ -12,14 +12,19 @@
 /******************************************************************/
 #pragma once
 
+#define OSC_ENABLED
+
 #include "ofMain.h"
 #include "ofxKinectNui.h"
 #include "ofxKinectNuiPlayer.h"
 #include "ofxKinectNuiRecorder.h"
+#ifdef OSC_ENABLED
 #include "ofxOsc.h"
+#endif
 
 class ofxKinectNuiDrawTexture;
 class ofxKinectNuiDrawSkeleton;
+
 
 // uncomment this to read from two kinects simultaneously
 //#define USE_TWO_KINECTS
@@ -68,7 +73,6 @@ class ofApp : public ofBaseApp {
 		void populateSkeletonData(vector<ofPoint> points, int newSkelId, int skelDataObjectIndex, bool isSkelNew);
 		int getEmptySkelObjectIndex();
 		SkeletonData getNewSkelFromId(vector<SkeletonData> newSkelData, int id);
-		SkeletonData getUnassignedNewSkelFromId(vector<SkeletonData> newSkelData);
 
 		/**
 		 * @brief	example for adjusting video images to depth images
@@ -118,9 +122,10 @@ class ofApp : public ofBaseApp {
 
 		int prevSkelCount;
 
+#ifdef OSC_ENABLED
 		ofxOscSender sender;
 		ofxOscReceiver receiver;
-
+#endif
 		bool isTesting;
 		int testCount;
 };
