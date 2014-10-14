@@ -12,7 +12,7 @@
 /******************************************************************/
 #pragma once
 
-#define OSC_ENABLED
+//#define OSC_ENABLED
 
 #include "ofMain.h"
 #include "ofxKinectNui.h"

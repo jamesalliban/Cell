@@ -11,7 +11,7 @@
 #include "ofxKinectNuiDraw.h"
 
 void ofApp::setup() {
-	ofSetLogLevel(OF_LOG_WARNING);
+	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetFullscreen(true);
 	ofSetFrameRate(30);
 
@@ -248,27 +248,27 @@ void ofApp::update()
 		}
 	}
 
-	//if (isTesting)
-	//{
-	//	skelCount = testCount;
-	//	for (int i = 0; i < skelCount; i++)
-	//	{
-	//		stringstream kinectStream;
-	//		kinectStream << "skel index: " << newSkelData[i].id << "\n" << endl;
-	//		for (int j = 0; j < 20; j++)
-	//		{
-	//			kinectStream << joints[j] << " ";
-	//			kinectStream << "x: " << newSkelData[i].skelPoints[j].x << ", ";
-	//			kinectStream << "y: " << newSkelData[i].skelPoints[j].y << ", ";
-	//			kinectStream << "z: " << newSkelData[i].skelPoints[j].z << endl;
-	//		}
-	//		newSkelDataFbo.begin();
-	//		ofDrawBitmapString(kinectStream.str(), foundSkelCount * 260, 20);
-	//		newSkelDataFbo.end();
+	if (isTesting)
+	{
+		skelCount = testCount;
+		for (int i = 0; i < skelCount; i++)
+		{
+			stringstream kinectStream;
+			kinectStream << "skel index: " << newSkelData[i].id << "\n" << endl;
+			for (int j = 0; j < 20; j++)
+			{
+				kinectStream << joints[j] << " ";
+				kinectStream << "x: " << newSkelData[i].skelPoints[j].x << ", ";
+				kinectStream << "y: " << newSkelData[i].skelPoints[j].y << ", ";
+				kinectStream << "z: " << newSkelData[i].skelPoints[j].z << endl;
+			}
+			newSkelDataFbo.begin();
+			ofDrawBitmapString(kinectStream.str(), foundSkelCount * 260, 20);
+			newSkelDataFbo.end();
 
-	//		foundSkelCount++;
-	//	}
-	//}
+			foundSkelCount++;
+		}
+	}
 
 
 	for (int i = 0; i < skeletonDataObjects.size(); i++)
@@ -296,7 +296,7 @@ void ofApp::update()
 					resetSkeletonData(i);
 				ofLogVerbose("prevSkelCount == 1 && skelCount == 0 b");
 			}
-			else if (prevSkelCount == 1 && skelCount == 2)
+			else if (prevSkelCount == 1 && skelCount == 2)           // PROBLEM HERE
 			{
 				ofLogVerbose("prevSkelCount == 1 && skelCount == 2 a");
 				if (skelDataObject->isActive)
@@ -308,13 +308,44 @@ void ofApp::update()
 				else
 				{
 					if (i == 0 && skeletonDataObjects[1].id == newSkelData[0].id)
+					{
+						ofLogVerbose() << "prevSkelCount == 1 && skelCount == 2 - - - - - 1";
 						populateSkeletonData(newSkelData[1].skelPoints, newSkelData[1].id, i, true);
+					}
 					else if (i == 0 && skeletonDataObjects[1].id == newSkelData[1].id)
+					{
+						ofLogVerbose() << "prevSkelCount == 1 && skelCount == 2 - - - - - 2";
 						populateSkeletonData(newSkelData[0].skelPoints, newSkelData[0].id, i, true);
+					}
 					else if (i == 1 && skeletonDataObjects[0].id == newSkelData[0].id)
+					{
+						ofLogVerbose() << "prevSkelCount == 1 && skelCount == 2 - - - - - 3";
 						populateSkeletonData(newSkelData[1].skelPoints, newSkelData[1].id, i, true);
+					}
 					else if (i == 1 && skeletonDataObjects[1].id == newSkelData[1].id)
+					{
+						ofLogVerbose() << "prevSkelCount == 1 && skelCount == 2 - - - - - 4";
 						populateSkeletonData(newSkelData[0].skelPoints, newSkelData[0].id, i, true);
+					}
+					else if (i == 1 && skeletonDataObjects[1].id == -1)
+					{
+						ofLogVerbose() << "---------------------------------------------------------";
+						ofLogVerbose() << "prevSkelCount == 1 && skelCount == 2 - - NEW ELSE - - - 5";
+						ofLogVerbose() << "---------------------------------------------------------";
+						populateSkeletonData(newSkelData[0].skelPoints, newSkelData[0].id, i, true);
+					}
+					else
+					{
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+						ofLogVerbose() << "i = " << i << " skeletonDataObjects[1].id = " << skeletonDataObjects[1].id << ", newSkelData[1].id = " << newSkelData[1].id;
+					}
 				}
 				ofLogVerbose("prevSkelCount == 1 && skelCount == 2 b");
 			}
@@ -467,8 +498,8 @@ void ofApp::draw()
 	displayTextFbo.draw(0, 0);
 	ofPopMatrix();
 	
-	if (isTesting)
-	{
+	//if (isTesting)
+	//{
 		ofPushStyle();
 		ofSetColor(255, 120, 120);
 		ofPushMatrix();
@@ -477,7 +508,7 @@ void ofApp::draw()
 		newSkelDataFbo.draw(0, 0);
 		ofPopMatrix();
 		ofPopStyle();
-	}
+	//}
 }
 
 
@@ -548,7 +579,7 @@ void ofApp::keyPressed (int key)
 			testCount = 0;
 			newSkelData.clear();
 		}
-		if (key == '1')
+		else if (key == '1')
 		{
 			if (testCount == 0)
 			{
@@ -571,7 +602,7 @@ void ofApp::keyPressed (int key)
 			}
 			testCount = 1;
 		}
-		if (key == '2')
+		else if (key == '2')
 		{
 			if (testCount == 0)
 			{
