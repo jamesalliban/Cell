@@ -12,7 +12,7 @@
 /******************************************************************/
 #pragma once
 
-//#define OSC_ENABLED
+#define OSC_ENABLED
 
 #include "ofMain.h"
 #include "ofxKinectNui.h"
@@ -68,11 +68,8 @@ class ofApp : public ofBaseApp {
 		void update();
 		void draw();
 		
-		void buildSkeletonDataObjects();
-		void resetSkeletonData(int index);
-		void populateSkeletonData(vector<ofPoint> points, int newSkelId, int skelDataObjectIndex, bool isSkelNew);
-		int getEmptySkelObjectIndex();
-		SkeletonData getNewSkelFromId(vector<SkeletonData> newSkelData, int id);
+		SkeletonData getEmptySkelDataObject();
+
 
 		/**
 		 * @brief	example for adjusting video images to depth images
@@ -116,7 +113,6 @@ class ofApp : public ofBaseApp {
 		unsigned short farClipping;
 		int angle;
 		
-		vector<SkeletonData> skeletonDataObjects;
 		vector<SkeletonData> prevSkeletonDataObjects;
 		vector<SkeletonData> newSkelData;
 
@@ -128,5 +124,6 @@ class ofApp : public ofBaseApp {
 #endif
 		bool isTesting;
 		int testCount;
+		int framesSinceLastKinectSkelFound;
 };
 
