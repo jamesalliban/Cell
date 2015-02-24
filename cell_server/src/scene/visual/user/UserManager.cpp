@@ -1,6 +1,6 @@
 #include "UserManager.h"
 
-#include "testApp.h"
+#include "ofApp.h"
 #include "KinectManager.h"
 #include "ResourceManager.h"
 
@@ -48,7 +48,7 @@ void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resource
 
     //userBatchManager.init();
 
-    if (!testApp::isKinectAttached)
+    if (!ofApp::isKinectAttached)
     {
         users[0].isActive = true;
         users[0].demographic = resourceManager->getRandomDemographic();
@@ -61,7 +61,7 @@ void UserManager::init(KinectManager *_kinectManager, ResourceManager *_resource
 
 void UserManager::update()
 {
-    if (testApp::isKinectAttached)
+    if (ofApp::isKinectAttached)
     {
         if (kinectManager->hasSkeleton())
         {
@@ -106,7 +106,7 @@ void UserManager::update()
 
 void UserManager::draw()
 {
-    if (testApp::isKinectAttached)
+    if (ofApp::isKinectAttached)
     {
         if (kinectManager->hasSkeleton())
         {
@@ -135,7 +135,7 @@ void UserManager::draw()
 
 void UserManager::drawUserBounds()
 {
-    testApp *app = (testApp*)ofGetAppPtr();
+    ofApp *app = (ofApp*)ofGetAppPtr();
 	int clientId = app->gui.getClientCalibrationVisible();
 
     if (clientId == -1) return;

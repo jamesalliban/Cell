@@ -199,12 +199,14 @@ void ResourceManager::threadedFunction()
             newTagXml.setToParent();
         }
         
+#ifdef CHINESE_CELL
         chineseXML.setTo("tag[0]");
         chineseXML.setToParent();
         chineseXML.addXml(newTagXml);
         if (chineseXML.getNumChildren() > TAG_MAX) chineseXML.remove("tag[0]");
         chineseXML.save("xml/tag_data_Chinese.xml");
-        
+#endif
+
         unlock();
         stopThread();
     }

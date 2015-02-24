@@ -26,6 +26,7 @@ void CloudTagManager::init(ofShader* _shader, ResourceManager *_resourceManager)
 //	shadeBlendMode = 0.0;// there are 10 diff. blend modes,
 
 	buildCloudTags();
+    updateTags();
 
 
 	tempUser = ofVec3f(0, 0, 0);
@@ -42,7 +43,6 @@ void CloudTagManager::buildCloudTags()
 		cloudTag.init(shader, tagData, i);
 		cloudTags.push_back(cloudTag);
 	}
-    updateTags();
 }
 
 

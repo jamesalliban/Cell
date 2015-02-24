@@ -1,5 +1,5 @@
 #include "KinectManager.h"
-#include "testApp.h"
+#include "ofApp.h"
 
 
 void KinectManager::init()
@@ -7,7 +7,7 @@ void KinectManager::init()
 	for (int i = 0; i < SKELETON_MAX; i++)
     {
         KinectSkeletonData skeletonData;
-		for (int i = 0; i < 20; i++)
+		for (int j = 0; j < 20; j++)
 		{
 			ofVec3f v = ofVec3f(-1, -1, -1);
 			skeletonData.skeletonPositions.push_back(v);

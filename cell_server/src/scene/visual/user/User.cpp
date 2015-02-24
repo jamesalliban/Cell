@@ -1,5 +1,5 @@
 #include "User.h"
-#include "testApp.h"
+#include "ofApp.h"
 #include "UserManager.h"
 
 float User::skeletonZReductionMultiplier;
@@ -83,7 +83,7 @@ void User::setup(UserManager *_parent, int _userID)
 			break;   // grey
     }
 
-    if (testApp::isKinectAttached)
+    if (ofApp::isKinectAttached)
     {
         for (int i = 0; i < 20; i++)
         {
@@ -238,7 +238,7 @@ void User::update()
 
 void User::customDraw()
 {
-    if (testApp::isKinectAttached)
+    if (ofApp::isKinectAttached)
         debugDraw();
     else
         nonKinectDraw();
@@ -296,7 +296,7 @@ void User::nonKinectDraw()
 
 void User::debugDraw()
 {
-    if (!testApp::isAllUserDebugVisible) return;
+    if (!ofApp::isAllUserDebugVisible) return;
     
     ofSetSphereResolution(4);
 

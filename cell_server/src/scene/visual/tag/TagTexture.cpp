@@ -8,7 +8,7 @@
  */
 
 #include "TagTexture.h"
-#include "TestApp.h"
+#include "ofApp.h"
 
 TagTexture::TagTexture()
 {
@@ -19,7 +19,7 @@ TagTexture::TagTexture()
 
 void TagTexture::init(ofImage* tImg)
 {
-    testApp* app = (testApp*)ofGetAppPtr();
+    ofApp* app = (ofApp*)ofGetAppPtr();
 
 #ifdef CHINESE_CELL
     ofxFontStash* unicodefont = &app->resourceManager.unicodeFont;

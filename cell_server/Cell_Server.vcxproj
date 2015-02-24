@@ -11,10 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8A336FC6-49AB-41D6-8BE2-6517A0C08D5F}</ProjectGuid>
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>oscReceiveExample</RootNamespace>
-    <ProjectName>Cell_Server</ProjectName>
+    <RootNamespace>cell_server</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -59,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\addons\ofxUI\src;..\..\addons\ofxTrueTypeFontUC\src;..\addons\ofxFontStash\src;..\addons\ofxFontStash\libs\fontstash\src;..\addons\ofxUnicode\libs\utf8cpp\include;..\addons\ofxUnicode\libs\utf8cpp\include\utf8;..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source;..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8;..\addons\ofxUnicode\src;src;src\gui;src\kinect;src\resources;src\resources\data;src\scene;src\scene\camera;src\scene\light;src\scene\test;src\scene\visual;src\scene\visual\tag;src\scene\visual\tag\field;src\scene\visual\user</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxUnicode\libs;..\..\..\addons\ofxUnicode\src;..\..\..\addons\ofxUnicode\libs\utf8cpp;..\..\..\addons\ofxUnicode\libs\utf8cpp\include;..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8;..\..\..\addons\ofxUnicode\libs\utf8cpp\src;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\doc;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8;src;src\gui;src\kinect;src\resources;src\resources\data;src\scene;src\scene\light;src\scene\test;src\scene\visual;src\scene\visual\tag;src\scene\visual\tag\field;src\scene\visual\user</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -76,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\addons\ofxUI\src;..\..\addons\ofxTrueTypeFontUC\src;..\addons\ofxFontStash\src;..\addons\ofxFontStash\libs\fontstash\src;..\addons\ofxUnicode\libs\utf8cpp\include;..\addons\ofxUnicode\libs\utf8cpp\include\utf8;..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source;..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8;..\addons\ofxUnicode\src;src;src\gui;src\kinect;src\resources;src\resources\data;src\scene;src\scene\camera;src\scene\light;src\scene\test;src\scene\visual;src\scene\visual\tag;src\scene\visual\tag\field;src\scene\visual\user</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxUnicode\libs;..\..\..\addons\ofxUnicode\src;..\..\..\addons\ofxUnicode\libs\utf8cpp;..\..\..\addons\ofxUnicode\libs\utf8cpp\include;..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8;..\..\..\addons\ofxUnicode\libs\utf8cpp\src;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\doc;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source;..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8;src;src\gui;src\kinect;src\resources;src\resources\data;src\scene;src\scene\light;src\scene\test;src\scene\visual;src\scene\visual\tag;src\scene\visual\tag\field;src\scene\visual\user</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -91,36 +90,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
-    <ClCompile Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.c" />
-    <ClCompile Include="..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.c" />
-    <ClCompile Include="..\addons\ofxFontStash\src\ofxFontStash.cpp" />
-    <ClCompile Include="..\addons\ofxUnicode\src\ofTextConverter.cpp" />
-    <ClCompile Include="..\addons\ofxUnicode\src\ofUnicode.cpp" />
-    <ClCompile Include="..\addons\ofxUnicode\src\ofUTF8.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="src\gui\GUI.cpp" />
     <ClCompile Include="src\gui\GUIManager.cpp" />
     <ClCompile Include="src\kinect\KinectManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFontStash\src\ofxFontStash.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\fontstash.c" />
+    <ClCompile Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.c" />
+    <ClCompile Include="..\..\..\addons\ofxUnicode\src\ofTextConverter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUnicode\src\ofUnicode.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUnicode\src\ofUTF8.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\resources\data\DemographicData.cpp" />
     <ClCompile Include="src\resources\data\TagData.cpp" />
+    <ClCompile Include="src\resources\RemoteTagDataService.cpp" />
     <ClCompile Include="src\resources\ResourceManager.cpp" />
     <ClCompile Include="src\scene\light\LightManager.cpp" />
     <ClCompile Include="src\scene\SceneManager.cpp" />
@@ -137,94 +139,97 @@
     <ClCompile Include="src\scene\visual\tag\field\FieldManager.cpp" />
     <ClCompile Include="src\scene\visual\tag\field\FieldRepel.cpp" />
     <ClCompile Include="src\scene\visual\tag\field\FieldScaleUp.cpp" />
+    <ClCompile Include="src\scene\visual\tag\TagTexture.cpp" />
     <ClCompile Include="src\scene\visual\user\User.cpp" />
     <ClCompile Include="src\scene\visual\user\UserBatch.cpp" />
     <ClCompile Include="src\scene\visual\user\UserBatchManager.cpp" />
     <ClCompile Include="src\scene\visual\user\UserManager.cpp" />
-    <ClCompile Include="src\TestApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
-    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
-    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
-    <ClInclude Include="..\addons\ofxFontStash\libs\fontstash\src\fontstash.h" />
-    <ClInclude Include="..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.h" />
-    <ClInclude Include="..\addons\ofxFontStash\src\ofxFontStash.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUI.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUI2DPad.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIBiLabelSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIButton.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUICanvas.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUICircleSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUICustomImageButton.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIDropDownList.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIEventArgs.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIFPS.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIFPSSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIImage.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageButton.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageSampler.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIImageToggle.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUILabel.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUILabelButton.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUILabelToggle.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIMinimalSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIMovingGraph.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageButton.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIMultiImageToggle.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUINumberDialer.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIRadio.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIRangeSlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIRectangle.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIRotarySlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIScrollableCanvas.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUISlider.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUISpacer.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUISpectrum.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUITextInput.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIToggle.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIToggleMatrix.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIWaveform.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIWidget.h" />
-    <ClInclude Include="..\addons\ofxUI\src\ofxUIWidgetWithLabel.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\checked.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\core.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\include\utf8\unchecked.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\checked.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\core.h" />
-    <ClInclude Include="..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\unchecked.h" />
-    <ClInclude Include="..\addons\ofxUnicode\src\ofTextConverter.h" />
-    <ClInclude Include="..\addons\ofxUnicode\src\ofUnicode.h" />
-    <ClInclude Include="..\addons\ofxUnicode\src\ofUTF8.h" />
+    <ClInclude Include="src\CellGlobals.h" />
     <ClInclude Include="src\gui\GUI.h" />
     <ClInclude Include="src\gui\GUIManager.h" />
     <ClInclude Include="src\kinect\KinectManager.h" />
     <ClInclude Include="src\kinect\KinectSkeletonData.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxFontStash\src\ofxFontStash.h" />
+    <ClInclude Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\fontstash.h" />
+    <ClInclude Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI2DPad.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIBiLabelSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUICanvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUICircleSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUICustomImageButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIDropDownList.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIEventArgs.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIFPS.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIFPSSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageSampler.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabelButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabelToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMinimalSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMovingGraph.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUINumberDialer.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRadio.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRangeSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRectangle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRotarySlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIScrollableCanvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISpacer.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISpectrum.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUITextInput.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIToggleMatrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWaveform.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidget.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\src\ofTextConverter.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\src\ofUnicode.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\src\ofUTF8.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8\checked.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8\core.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8\unchecked.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\include\utf8.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\checked.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\core.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8\unchecked.h" />
+    <ClInclude Include="..\..\..\addons\ofxUnicode\libs\utf8cpp\src\utf8_v2_3_1\source\utf8.h" />
+    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\resources\data\DemographicData.h" />
     <ClInclude Include="src\resources\data\TagData.h" />
+    <ClInclude Include="src\resources\RemoteTagDataService.h" />
     <ClInclude Include="src\resources\ResourceManager.h" />
     <ClInclude Include="src\scene\light\LightManager.h" />
     <ClInclude Include="src\scene\SceneManager.h" />
@@ -241,12 +246,12 @@
     <ClInclude Include="src\scene\visual\tag\field\FieldManager.h" />
     <ClInclude Include="src\scene\visual\tag\field\FieldRepel.h" />
     <ClInclude Include="src\scene\visual\tag\field\FieldScaleUp.h" />
+    <ClInclude Include="src\scene\visual\tag\TagTexture.h" />
     <ClInclude Include="src\scene\visual\user\Joint.h" />
     <ClInclude Include="src\scene\visual\user\User.h" />
     <ClInclude Include="src\scene\visual\user\UserBatch.h" />
     <ClInclude Include="src\scene\visual\user\UserBatchManager.h" />
     <ClInclude Include="src\scene\visual\user\UserManager.h" />
-    <ClInclude Include="src\TestApp.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

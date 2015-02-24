@@ -11,7 +11,7 @@
 #include "ofMain.h"
 #include "GUIManager.h"
 
-class testApp;
+class ofApp;
 
 class GUI : GUIManager
 {
@@ -55,5 +55,5 @@ public:
     
     float skelOffsetRange;
 
-    testApp* app;
+    ofApp* app;
 };

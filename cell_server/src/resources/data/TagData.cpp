@@ -1,5 +1,5 @@
 ﻿#include "TagData.h"
-#include "TestApp.h"
+#include "ofApp.h"
 
 float TagData::textAlphaAdd;
 
@@ -110,7 +110,7 @@ void TagData::update()
             createTagFbo();
             
             // now make one of the CloudTag objects appear at the front
-            testApp* app = (testApp*)ofGetAppPtr();
+            ofApp* app = (ofApp*)ofGetAppPtr();
             app->sceneManager.cloudTagMan.displayNewTag(word);
             
             isTagUpdated = true;

@@ -1,0 +1,5 @@
+ofxOsc
+ofxXmlSettings
+ofxFontStash
+ofxUI
+ofxUnicode

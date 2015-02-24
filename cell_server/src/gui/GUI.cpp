@@ -9,14 +9,14 @@
 #include "GUI.h"
 #include "SceneManager.h"
 #include "Field.h"
-#include "testApp.h"
+#include "ofApp.h"
 #include "UserManager.h"
 #include "TagData.h"
 
 
 void GUI::setup()
 {
-    app = (testApp*)ofGetAppPtr();
+    app = (ofApp*)ofGetAppPtr();
     GUIManager::setup();
     
     dim = 8;
@@ -151,7 +151,11 @@ void GUI::addTagShaderGUI()
 }
 
 void GUI::addTagShaderGUIEvent(ofxUIEventArgs &e){
-	if (e.widget->getName() == "Apply")	app->sceneManager.cloudTagMan.updateTags();
+	if (e.widget->getName() == "Apply")
+	{
+		app->sceneManager.cloudTagMan.buildCloudTags();
+		app->sceneManager.cloudTagMan.updateTags();
+	}
 }
 
 
@@ -417,9 +421,9 @@ void GUI::addKinectCalibration0GUI()
     gui->addSlider("Pos offset Z (0)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[0], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[0], &UserManager::xSpreadRangeNormalMax[0], length, dim);
-    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[0], &UserManager::xFrontSkewedMax[0], length, dim);
-    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[0], &UserManager::xBackSkewedMax[0], length, dim);
+    gui->addRangeSlider("X spread range normal", -80, 80, &UserManager::xSpreadRangeNormalMin[0], &UserManager::xSpreadRangeNormalMax[0], length, dim);
+    gui->addRangeSlider("X front range skewed", -80, 80, &UserManager::xFrontSkewedMin[0], &UserManager::xFrontSkewedMax[0], length, dim);
+    gui->addRangeSlider("X back range skewed", -80, 80, &UserManager::xBackSkewedMin[0], &UserManager::xBackSkewedMax[0], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -442,9 +446,9 @@ void GUI::addKinectCalibration1GUI()
     gui->addSlider("Pos offset Z (1)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[1], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[1], &UserManager::xSpreadRangeNormalMax[1], length, dim);
-    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[1], &UserManager::xFrontSkewedMax[1], length, dim);
-    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[1], &UserManager::xBackSkewedMax[1], length, dim);
+    gui->addRangeSlider("X spread range normal", -80, 80, &UserManager::xSpreadRangeNormalMin[1], &UserManager::xSpreadRangeNormalMax[1], length, dim);
+    gui->addRangeSlider("X front range skewed", -80, 80, &UserManager::xFrontSkewedMin[1], &UserManager::xFrontSkewedMax[1], length, dim);
+    gui->addRangeSlider("X back range skewed", -80, 80, &UserManager::xBackSkewedMin[1], &UserManager::xBackSkewedMax[1], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -467,9 +471,9 @@ void GUI::addKinectCalibration2GUI()
     gui->addSlider("Pos offset Z (2)", -skelOffsetRange, skelOffsetRange,&app->sceneManager.userManager.skeletonPosOffsetZ[2], length, dim);
     gui->addLabel("X PERSPECTIVE OFFSET", OFX_UI_FONT_MEDIUM);
     gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    gui->addRangeSlider("X spread range normal", -50, 50, &UserManager::xSpreadRangeNormalMin[2], &UserManager::xSpreadRangeNormalMax[2], length, dim);
-    gui->addRangeSlider("X front range skewed", -50, 50, &UserManager::xFrontSkewedMin[2], &UserManager::xFrontSkewedMax[2], length, dim);
-    gui->addRangeSlider("X back range skewed", -50, 50, &UserManager::xBackSkewedMin[2], &UserManager::xBackSkewedMax[2], length, dim);
+    gui->addRangeSlider("X spread range normal", -80, 80, &UserManager::xSpreadRangeNormalMin[2], &UserManager::xSpreadRangeNormalMax[2], length, dim);
+    gui->addRangeSlider("X front range skewed", -80, 80, &UserManager::xFrontSkewedMin[2], &UserManager::xFrontSkewedMax[2], length, dim);
+    gui->addRangeSlider("X back range skewed", -80, 80, &UserManager::xBackSkewedMin[2], &UserManager::xBackSkewedMax[2], length, dim);
     
     finaliseCanvas(gui, true);
 }
@@ -536,7 +540,7 @@ void GUI::addKinectUserDegugGUI()
     gui->addToggle("Pause Cloud Tag Attraction",&app->sceneManager.cloudTagMan.isTagAttractionPaused, toggleDim, toggleDim);
     
     gui->addLabel("DEBUG", OFX_UI_FONT_MEDIUM);
-    gui->addToggle("Toggle all user debug visuals", &testApp::isAllUserDebugVisible, toggleDim, toggleDim);
+    gui->addToggle("Toggle all user debug visuals", &ofApp::isAllUserDebugVisible, toggleDim, toggleDim);
     gui->addToggle("Show Joint Spheres", &app->sceneManager.userManager.isJointSpheres, toggleDim, toggleDim);
     gui->addToggle("Show Joint Lines", &app->sceneManager.userManager.isJointLines, toggleDim, toggleDim);
     gui->addToggle("Show Joint Pos Data", &app->sceneManager.userManager.isPositionDataDisplayed, toggleDim, toggleDim);

@@ -1,12 +1,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Scale (4)</Name>
-    <Value>0.092203945</Value>
+    <Value>0.328945160</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Degrees (4)</Name>
-    <Value>27.302627563</Value>
+    <Value>0.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -16,7 +16,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>Pos offset X (4)</Name>
-    <Value>664.473632813</Value>
+    <Value>286.184204102</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -31,18 +31,18 @@
 <Widget>
     <Kind>6</Kind>
     <Name>X spread range normal</Name>
-    <HighValue>15.789474487</HighValue>
-    <LowValue>-15.789474487</LowValue>
+    <HighValue>-27.368427277</HighValue>
+    <LowValue>20.394744873</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>X front range skewed</Name>
-    <HighValue>42.105262756</HighValue>
-    <LowValue>-33.881576538</LowValue>
+    <HighValue>-19.276315689</HighValue>
+    <LowValue>28.881607056</LowValue>
 </Widget>
 <Widget>
     <Kind>6</Kind>
     <Name>X back range skewed</Name>
     <HighValue>5.263156891</HighValue>
-    <LowValue>-21.381578445</LowValue>
+    <LowValue>18.881576538</LowValue>
 </Widget>
